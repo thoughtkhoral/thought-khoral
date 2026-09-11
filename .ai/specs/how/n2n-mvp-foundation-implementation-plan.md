@@ -121,7 +121,22 @@ Retain the root `.ai/` and `scripts/` files under root Git control. Run: `bash s
 
 Expected: exit status 0.
 
-- [ ] **Step 5: Commit the root spec-governance change**
+- [ ] **Step 5: Initialize and commit each child specification repository**
+
+Initialize each direct-child repository before any runtime code. Commit its local specification baseline in that repository; do not track child files in the root governance repository.
+
+```bash
+for project in n2n-contracts n2n-room-gateway n2n-workspace-ui n2n-platform; do
+  (
+    cd "$project"
+    git init
+    git add .ai/specs
+    git commit -m "docs: define local MVP specifications"
+  )
+done
+```
+
+- [ ] **Step 6: Commit the root spec-governance change**
 
 ```bash
 git add .gitignore scripts/verify-spec-hierarchy.sh .ai/specs
@@ -170,7 +185,6 @@ Expected: PASS; all valid examples validate and all invalid examples are rejecte
 
 ```bash
 cd n2n-contracts
-git init
 git add .
 git commit -m "feat: publish n2n room v1 contracts"
 git tag n2n-room-v1.0.0
@@ -215,7 +229,6 @@ Expected: PASS; migration creates both tables and protocol tests map every rejec
 
 ```bash
 cd n2n-room-gateway
-git init
 git add .
 git commit -m "feat: add validated room event store"
 ```
@@ -302,7 +315,6 @@ Expected: PASS; human-only controls and structured-error rendering are covered b
 
 ```bash
 cd n2n-workspace-ui
-git init
 git add .
 git commit -m "feat: add governed collaborative room UI"
 ```
@@ -387,7 +399,6 @@ Expected: PASS; all four local services become healthy and manifests are accepte
 
 ```bash
 cd n2n-platform
-git init
 git add .
 git commit -m "feat: add rootless N2N MVP platform"
 ```
