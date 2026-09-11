@@ -17,4 +17,6 @@ Every direct-child project is independently versioned and must contain its own `
 ## Current root specifications
 
 - [What: solution architecture](what/n2n-solution-architecture.md)
+- [How: agent spec-authoring roadmap](how/spec-authoring-roadmap.md)
+- [How: N:N MVP foundation implementation plan](how/n2n-mvp-foundation-implementation-plan.md)
 - [Decision: workspace governance](decisions/001-workspace-governance.md)
