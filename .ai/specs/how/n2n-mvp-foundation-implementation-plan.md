@@ -63,12 +63,13 @@ The first release is `n2n.room.v1`. Every JSON-RPC request has `jsonrpc: "2.0"`,
 
 | Method | Parameters | Success result |
 | --- | --- | --- |
+| `session.authenticate` | `accessToken` | authenticated participant identity and role |
 | `room.join` | `roomId`, `afterSequence?` | ordered room snapshot and events after the cursor |
 | `chat.send` | `roomId`, `requestId`, `text` | normalized `message.created` event |
 | `decision.propose` | `roomId`, `requestId`, `title`, `summary`, `sourceEventIds` | `decision.proposed` event |
 | `decision.transition` | `roomId`, `requestId`, `decisionId`, `action`, `editedTitle?`, `editedSummary?` | `decision.confirmed`, `decision.edited`, or `decision.dismissed` event |
 
-Valid actions are `confirm`, `edit`, and `dismiss`. Only a participant with the `human` role may invoke `decision.transition`. `confirm` transitions `draft → active`; `dismiss` transitions `draft → dismissed`; `edit` transitions the old draft to `superseded`, creates a new active decision whose `derivedFromDecisionId` is the old identifier, and emits both immutable events in one database transaction.
+Valid actions are `confirm`, `edit`, and `dismiss`. `session.authenticate` is the only method accepted before an identity is bound to a WebSocket. Valid actions require the `human` role. `confirm` transitions `draft → active`; `dismiss` transitions `draft → dismissed`; `edit` transitions the old draft to `superseded`, creates a new active decision whose `derivedFromDecisionId` is the old identifier, and emits both immutable events in one database transaction.
 
 Structured JSON-RPC errors use: `-32600` invalid request; `-32601` unknown method; `-32001` unauthenticated; `-32003` forbidden; `-32004` room or decision not found; `-32009` unsupported contract version; `-32010` invalid state transition; `-32011` expired context packet; and `-32012` duplicate request with a different payload.
 

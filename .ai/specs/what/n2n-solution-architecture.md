@@ -31,7 +31,7 @@ The UI displays draft decision cards created from conversational events. A human
 
 ## Event and context model
 
-The UI and agent participants communicate with `n2n-room-gateway` through authenticated JSON-RPC over WebSocket. The gateway validates each payload against the `n2n-contracts` schemas, assigns or verifies server-side identity, appends a normalized immutable room event to PostgreSQL, and broadcasts it only to authorized room participants.
+The UI and agent participants communicate with `n2n-room-gateway` through JSON-RPC over WebSocket. A browser opens the socket unauthenticated and must send `session.authenticate` containing an OIDC access token as its first application message within a short gateway-configured timeout. Before successful authentication the gateway accepts no room method. It validates the token's issuer, audience, signature, key identifier, algorithm, expiry, and not-before time, binds the resulting identity and role to the connection, then validates authorized payloads against the `n2n-contracts` schemas. It appends a normalized immutable room event to PostgreSQL and broadcasts it only to authorized room participants.
 
 The memory engine derives graph facts and draft decisions from persisted room events. It preserves provenance through source-event identifiers and timestamps. Decision lineage uses directed graph relations including `DERIVED_FROM` and `SUPERSEDES`; decision nodes carry statuses such as `active` and `superseded`.
 
@@ -58,7 +58,7 @@ Embeddings, graph extraction automation, remote third-party A2A/MCP agents, SPIF
 
 ## Reliability and security requirements
 
-The gateway treats all inbound data as untrusted. It returns structured protocol errors for malformed JSON-RPC, unsupported contract versions, expired context packets, unauthorized room access, and invalid decision-state transitions. It records security/audit events without leaking room content.
+The gateway treats all inbound data as untrusted. It validates an explicit WebSocket Origin allowlist at handshake and closes unauthenticated or authentication-timeout connections without processing room methods. It returns structured protocol errors for malformed JSON-RPC, unsupported contract versions, expired context packets, unauthorized room access, and invalid decision-state transitions. It records security/audit events without leaking room content, access tokens, session identifiers, or ticket material.
 
 Clients use durable event cursors to replay missed normalized events in order after reconnect. Write requests use client-generated request IDs and gateway-enforced idempotency.
 
