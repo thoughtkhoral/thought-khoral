@@ -17,6 +17,9 @@ Every direct-child project is independently versioned and must contain its own `
 ## Current root specifications
 
 - [What: solution architecture](what/n2n-solution-architecture.md)
+- [What: ThoughtKhoral product identity](what/thoughtkhoral-product-identity.md)
 - [How: agent spec-authoring roadmap](how/spec-authoring-roadmap.md)
 - [How: N:N MVP foundation implementation plan](how/n2n-mvp-foundation-implementation-plan.md)
+- [How: ThoughtKhoral identity migration](how/thoughtkhoral-identity-migration.md)
 - [Decision: workspace governance](decisions/001-workspace-governance.md)
+- [Decision: ThoughtKhoral product identity](decisions/003-thoughtkhoral-product-identity.md)
