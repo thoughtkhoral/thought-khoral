@@ -1,4 +1,6 @@
-/n2n-contracts/
-/n2n-room-gateway/
-/n2n-workspace-ui/
-/n2n-platform/
+/thought-khoral-contracts/
+/thought-khoral-room-gateway/
+/thought-khoral-workspace-ui/
+/thought-khoral-memory-engine/
+/thought-khoral-agent-gateway/
+/thought-khoral-platform/
