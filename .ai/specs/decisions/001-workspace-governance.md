@@ -6,7 +6,7 @@ Accepted
 
 ## Decision
 
-The N:N workspace root is the governance repository for cross-solution specifications and shared operating rules. Runtime projects live directly beneath the root, are independently versioned, and are not part of a monorepo.
+The ThoughtKhoral workspace root is the governance repository for cross-solution specifications and shared operating rules. Runtime projects live directly beneath the root, are independently versioned, and are not part of a monorepo.
 
 The root and every project use a Markdown-only specification hierarchy:
 
@@ -21,7 +21,7 @@ Specifications are the source of truth for code generation, code modification, a
 
 Project specifications inherit root requirements. A project may override a parent requirement only through an approved record in its `.ai/specs/decisions/` directory. The record must identify the source specification, rule being overridden, replacement rule, rationale, affected scope, approval status, and consequences.
 
-`n2n-contracts` is the compatibility authority for cross-project interfaces. It owns versioned, language-neutral JSON Schema, normative protocol documentation, and compatibility fixtures; it does not become a shared runtime library.
+`thought-khoral-contracts` is the compatibility authority for cross-project interfaces. It owns versioned, language-neutral JSON Schema, normative protocol documentation, and compatibility fixtures; it does not become a shared runtime library.
 
 ## Consequences
 

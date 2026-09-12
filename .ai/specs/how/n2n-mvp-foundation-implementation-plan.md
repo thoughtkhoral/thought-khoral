@@ -1,10 +1,10 @@
-# N:N MVP Foundation Implementation Plan
+# ThoughtKhoral MVP Foundation Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Deliver a locally runnable, authenticated N:N room in which multiple people can exchange messages, a deterministic facilitator can propose a decision, and a human approval creates auditable active room context.
+**Goal:** Deliver a locally runnable, authenticated ThoughtKhoral room in which multiple people can exchange messages, a deterministic facilitator can propose a decision, and a human approval creates auditable active room context.
 
-**Architecture:** The six direct-child repositories remain independently versioned. `n2n-contracts` defines versioned JSON Schema artifacts; the Rust room gateway validates and persists events, while the React UI renders and transitions them. `n2n-platform` composes the independently built services with rootless Podman and provides the local Kubernetes-manifest validation route.
+**Architecture:** The six direct-child repositories remain independently versioned. `thought-khoral-contracts` defines versioned JSON Schema artifacts; the Rust room gateway validates and persists events, while the React UI renders and transitions them. `thought-khoral-platform` composes the independently built services with rootless Podman and provides the local Kubernetes-manifest validation route.
 
 **Tech Stack:** TypeScript, JSON Schema Draft 2020-12, Node.js test runner, Rust, Tokio, Axum, SQLx, PostgreSQL with pgvector, Keycloak, React, Vite, PatternFly, Playwright, Podman, Podman Compose, Kubernetes manifests.
 
@@ -16,7 +16,7 @@
 - Each project contains Markdown-only `.ai/specs/what`, `.ai/specs/how`, and `.ai/specs/decisions` directories.
 - Update and approve the applicable specification before creating or changing code.
 - A project-level override must be an accepted decision record identifying the parent rule, override, rationale, scope, approval status, and consequences.
-- `n2n-contracts` owns language-neutral schemas, protocol documentation, and compatibility fixtures; it is not a shared runtime library.
+- `thought-khoral-contracts` owns language-neutral schemas, protocol documentation, and compatibility fixtures; it is not a shared runtime library.
 - The gateway is the sole mediator of room events and active-context updates; agents never receive database credentials, filesystem access, arbitrary shell execution, or unmediated side-effecting tools.
 - A human Confirm, Edit, or Dismiss action is required before a proposed decision can affect active room context.
 - Inbound data is untrusted. Reject malformed JSON-RPC, unsupported contract versions, expired context, unauthorized rooms, and invalid decision transitions with structured errors.
@@ -27,35 +27,35 @@
 ## Planned repository structure
 
 ```text
-n2n-contracts/
+thought-khoral-contracts/
   .ai/specs/{what,how,decisions}/
   schemas/{envelope,room-event,rpc}.schema.json
   fixtures/{valid,invalid}/
   protocol.md
   package.json
 
-n2n-room-gateway/
+thought-khoral-room-gateway/
   .ai/specs/{what,how,decisions}/
   Cargo.toml
   src/{main,config,protocol,auth,rooms,store,ws,error}.rs
   migrations/0001_room_events.sql
   tests/{protocol,room_flow,replay,authorization}_test.rs
 
-n2n-workspace-ui/
+thought-khoral-workspace-ui/
   .ai/specs/{what,how,decisions}/
   src/{api,features/room,features/decisions,components,main}.tsx
   src/**/*.test.tsx
   e2e/governed-decision.spec.ts
 
-n2n-platform/
+thought-khoral-platform/
   .ai/specs/{what,how,decisions}/
   compose.yaml
-  keycloak/n2n-dev-realm.json
+  keycloak/thought-khoral-dev-realm.json
   kube/{namespace,postgres,keycloak,gateway,ui}.yaml
   scripts/{smoke,validate-kube}.sh
 ```
 
-`n2n-memory-engine` and `n2n-agent-gateway` receive their own plans after the governed-room MVP is accepted. They are intentionally not created in this plan: the deterministic facilitator exercises the required propose-and-approve boundary without prematurely choosing extraction, embedding, A2A, MCP, sandbox, or agent-runtime dependencies.
+`thought-khoral-memory-engine` and `thought-khoral-agent-gateway` receive their own plans after the governed-room MVP is accepted. They are intentionally not created in this plan: the deterministic facilitator exercises the required propose-and-approve boundary without prematurely choosing extraction, embedding, A2A, MCP, sandbox, or agent-runtime dependencies.
 
 ## Contract interfaces used by all MVP projects
 
@@ -77,10 +77,10 @@ Structured JSON-RPC errors use: `-32600` invalid request; `-32601` unknown metho
 
 **Files:**
 - Create: `.gitignore`
-- Create: `n2n-contracts/.ai/specs/{README.md,what/mvp-contracts.md,how/implementation.md,decisions/README.md}`
-- Create: `n2n-room-gateway/.ai/specs/{README.md,what/mvp-room.md,how/implementation.md,decisions/README.md}`
-- Create: `n2n-workspace-ui/.ai/specs/{README.md,what/mvp-ui.md,how/implementation.md,decisions/README.md}`
-- Create: `n2n-platform/.ai/specs/{README.md,what/local-mvp.md,how/implementation.md,decisions/README.md}`
+- Create: `thought-khoral-contracts/.ai/specs/{README.md,what/mvp-contracts.md,how/implementation.md,decisions/README.md}`
+- Create: `thought-khoral-room-gateway/.ai/specs/{README.md,what/mvp-room.md,how/implementation.md,decisions/README.md}`
+- Create: `thought-khoral-workspace-ui/.ai/specs/{README.md,what/mvp-ui.md,how/implementation.md,decisions/README.md}`
+- Create: `thought-khoral-platform/.ai/specs/{README.md,what/local-mvp.md,how/implementation.md,decisions/README.md}`
 - Test: shell assertions for the required hierarchy and references to the root specification
 
 **Interfaces:**
@@ -104,7 +104,7 @@ Each project What specification must name its sole MVP responsibility, acceptanc
 Use the following cross-project statement verbatim in all four READMEs:
 
 ```markdown
-Parent requirements in the N:N root `.ai/specs/` apply here. This project may diverge only through an accepted local decision record that identifies the overridden parent rule and its consequences.
+Parent requirements in the ThoughtKhoral root `.ai/specs/` apply here. This project may diverge only through an accepted local decision record that identifies the overridden parent rule and its consequences.
 ```
 
 - [ ] **Step 4: Add root tracking protection and make the assertion pass**
@@ -112,10 +112,10 @@ Parent requirements in the N:N root `.ai/specs/` apply here. This project may di
 Add direct-child runtime repositories to the root `.gitignore` using these exact entries:
 
 ```gitignore
-/n2n-contracts/
-/n2n-room-gateway/
-/n2n-workspace-ui/
-/n2n-platform/
+/thought-khoral-contracts/
+/thought-khoral-room-gateway/
+/thought-khoral-workspace-ui/
+/thought-khoral-platform/
 ```
 
 Retain the root `.ai/` and `scripts/` files under root Git control. Run: `bash scripts/verify-spec-hierarchy.sh`
@@ -127,7 +127,7 @@ Expected: exit status 0.
 Initialize each direct-child repository before any runtime code. Commit its local specification baseline in that repository; do not track child files in the root governance repository.
 
 ```bash
-for project in n2n-contracts n2n-room-gateway n2n-workspace-ui n2n-platform; do
+for project in thought-khoral-contracts thought-khoral-room-gateway thought-khoral-workspace-ui thought-khoral-platform; do
   (
     cd "$project"
     git init
@@ -147,14 +147,14 @@ git commit -m "docs: define MVP project specifications"
 ### Task 2: Create and release the `n2n.room.v1` contract artifact
 
 **Files:**
-- Create: `n2n-contracts/schemas/envelope.schema.json`
-- Create: `n2n-contracts/schemas/rpc.schema.json`
-- Create: `n2n-contracts/schemas/room-event.schema.json`
-- Create: `n2n-contracts/fixtures/valid/{join,chat-send,decision-propose,decision-edit}.json`
-- Create: `n2n-contracts/fixtures/invalid/{bad-version,missing-request-id,invalid-action}.json`
-- Create: `n2n-contracts/protocol.md`
-- Create: `n2n-contracts/package.json`, `n2n-contracts/test/validate-fixtures.mjs`
-- Test: `n2n-contracts/test/validate-fixtures.mjs`
+- Create: `thought-khoral-contracts/schemas/envelope.schema.json`
+- Create: `thought-khoral-contracts/schemas/rpc.schema.json`
+- Create: `thought-khoral-contracts/schemas/room-event.schema.json`
+- Create: `thought-khoral-contracts/fixtures/valid/{join,chat-send,decision-propose,decision-edit}.json`
+- Create: `thought-khoral-contracts/fixtures/invalid/{bad-version,missing-request-id,invalid-action}.json`
+- Create: `thought-khoral-contracts/protocol.md`
+- Create: `thought-khoral-contracts/package.json`, `thought-khoral-contracts/test/validate-fixtures.mjs`
+- Test: `thought-khoral-contracts/test/validate-fixtures.mjs`
 
 **Interfaces:**
 - Consumes: `n2n.room.v1` interface table and error codes in this plan.
@@ -185,23 +185,23 @@ Expected: PASS; all valid examples validate and all invalid examples are rejecte
 - [ ] **Step 5: Initialize and commit the independent contracts repository**
 
 ```bash
-cd n2n-contracts
+cd thought-khoral-contracts
 git add .
-git commit -m "feat: publish n2n room v1 contracts"
+git commit -m "feat: publish ThoughtKhoral room v1 contracts"
 git tag n2n-room-v1.0.0
 ```
 
 ### Task 3: Build the gateway’s contract-validation and persistence foundation
 
 **Files:**
-- Create: `n2n-room-gateway/Cargo.toml`, `Cargo.lock`
-- Create: `n2n-room-gateway/src/{main,config,error,protocol,store}.rs`
-- Create: `n2n-room-gateway/migrations/0001_room_events.sql`
-- Create: `n2n-room-gateway/tests/protocol_test.rs`
-- Test: `n2n-room-gateway/tests/protocol_test.rs`
+- Create: `thought-khoral-room-gateway/Cargo.toml`, `Cargo.lock`
+- Create: `thought-khoral-room-gateway/src/{main,config,error,protocol,store}.rs`
+- Create: `thought-khoral-room-gateway/migrations/0001_room_events.sql`
+- Create: `thought-khoral-room-gateway/tests/protocol_test.rs`
+- Test: `thought-khoral-room-gateway/tests/protocol_test.rs`
 
 **Interfaces:**
-- Consumes: a checked-out `n2n.room.v1` schema release stored under `n2n-room-gateway/contracts/n2n.room.v1/` with its tag and SHA-256 recorded in `contracts/lock.json`.
+- Consumes: a checked-out `n2n.room.v1` schema release stored under `thought-khoral-room-gateway/contracts/n2n.room.v1/` with its tag and SHA-256 recorded in `contracts/lock.json`.
 - Produces: `validate_request(&str) -> Result<ValidatedRequest, RpcError>` and `append_event(NewEvent) -> Result<RoomEvent, StoreError>`.
 
 - [ ] **Step 1: Write failing Rust protocol tests**
@@ -229,7 +229,7 @@ Expected: PASS; migration creates both tables and protocol tests map every rejec
 - [ ] **Step 5: Commit the independent gateway foundation**
 
 ```bash
-cd n2n-room-gateway
+cd thought-khoral-room-gateway
 git add .
 git commit -m "feat: add validated room event store"
 ```
@@ -237,10 +237,10 @@ git commit -m "feat: add validated room event store"
 ### Task 4: Add gateway authentication, room WebSocket, replay, and human-only governance
 
 **Files:**
-- Create: `n2n-room-gateway/src/{auth,rooms,ws}.rs`
-- Modify: `n2n-room-gateway/src/main.rs`, `src/store.rs`, `src/protocol.rs`
-- Create: `n2n-room-gateway/tests/{room_flow,replay,authorization}_test.rs`
-- Test: `n2n-room-gateway/tests/{room_flow,replay,authorization}_test.rs`
+- Create: `thought-khoral-room-gateway/src/{auth,rooms,ws}.rs`
+- Modify: `thought-khoral-room-gateway/src/main.rs`, `src/store.rs`, `src/protocol.rs`
+- Create: `thought-khoral-room-gateway/tests/{room_flow,replay,authorization}_test.rs`
+- Test: `thought-khoral-room-gateway/tests/{room_flow,replay,authorization}_test.rs`
 
 **Interfaces:**
 - Consumes: `ValidatedRequest`, `append_event`, OIDC bearer JWT with `sub` and `n2n_role` claims.
@@ -271,7 +271,7 @@ Expected: PASS.
 - [ ] **Step 5: Commit the governed room gateway**
 
 ```bash
-cd n2n-room-gateway
+cd thought-khoral-room-gateway
 git add src tests migrations contracts .ai/specs Cargo.toml Cargo.lock
 git commit -m "feat: add governed WebSocket rooms"
 ```
@@ -279,12 +279,12 @@ git commit -m "feat: add governed WebSocket rooms"
 ### Task 5: Create the PatternFly workspace UI with decision controls
 
 **Files:**
-- Create: `n2n-workspace-ui/package.json`, `vite.config.ts`, `tsconfig.json`
-- Create: `n2n-workspace-ui/src/{main,api}.tsx`
-- Create: `n2n-workspace-ui/src/features/room/{RoomPage,ChatStream,useRoomSocket}.tsx`
-- Create: `n2n-workspace-ui/src/features/decisions/{MemoryDrawer,DecisionCard,DecisionEditForm}.tsx`
-- Create: `n2n-workspace-ui/src/features/decisions/DecisionCard.test.tsx`
-- Test: `n2n-workspace-ui/src/features/decisions/DecisionCard.test.tsx`
+- Create: `thought-khoral-workspace-ui/package.json`, `vite.config.ts`, `tsconfig.json`
+- Create: `thought-khoral-workspace-ui/src/{main,api}.tsx`
+- Create: `thought-khoral-workspace-ui/src/features/room/{RoomPage,ChatStream,useRoomSocket}.tsx`
+- Create: `thought-khoral-workspace-ui/src/features/decisions/{MemoryDrawer,DecisionCard,DecisionEditForm}.tsx`
+- Create: `thought-khoral-workspace-ui/src/features/decisions/DecisionCard.test.tsx`
+- Test: `thought-khoral-workspace-ui/src/features/decisions/DecisionCard.test.tsx`
 
 **Interfaces:**
 - Consumes: OIDC access token, `/ws`, `n2n.room.v1` event types and errors.
@@ -315,7 +315,7 @@ Expected: PASS; human-only controls and structured-error rendering are covered b
 - [ ] **Step 5: Commit the independent UI project**
 
 ```bash
-cd n2n-workspace-ui
+cd thought-khoral-workspace-ui
 git add .
 git commit -m "feat: add governed collaborative room UI"
 ```
@@ -323,10 +323,10 @@ git commit -m "feat: add governed collaborative room UI"
 ### Task 6: Implement the deterministic facilitator boundary
 
 **Files:**
-- Create: `n2n-room-gateway/src/facilitator.rs`
-- Modify: `n2n-room-gateway/src/{main,rooms,protocol}.rs`
-- Create: `n2n-room-gateway/tests/facilitator_test.rs`
-- Test: `n2n-room-gateway/tests/facilitator_test.rs`
+- Create: `thought-khoral-room-gateway/src/facilitator.rs`
+- Modify: `thought-khoral-room-gateway/src/{main,rooms,protocol}.rs`
+- Create: `thought-khoral-room-gateway/tests/facilitator_test.rs`
+- Test: `thought-khoral-room-gateway/tests/facilitator_test.rs`
 
 **Interfaces:**
 - Consumes: persisted `message.created` events.
@@ -355,7 +355,7 @@ Expected: PASS; the new agent can propose but cannot activate context.
 - [ ] **Step 5: Commit the facilitator feature**
 
 ```bash
-cd n2n-room-gateway
+cd thought-khoral-room-gateway
 git add src/facilitator.rs src/main.rs src/rooms.rs src/protocol.rs tests/facilitator_test.rs .ai/specs
 git commit -m "feat: add deterministic decision facilitator"
 ```
@@ -363,12 +363,12 @@ git commit -m "feat: add deterministic decision facilitator"
 ### Task 7: Compose rootless local development and Kubernetes parity validation
 
 **Files:**
-- Create: `n2n-platform/compose.yaml`
-- Create: `n2n-platform/keycloak/n2n-dev-realm.json`
-- Create: `n2n-platform/kube/{namespace,postgres,keycloak,gateway,ui}.yaml`
-- Create: `n2n-platform/scripts/{smoke,validate-kube}.sh`
-- Create: `n2n-platform/README.md`
-- Test: `n2n-platform/scripts/smoke.sh`, `scripts/validate-kube.sh`
+- Create: `thought-khoral-platform/compose.yaml`
+- Create: `thought-khoral-platform/keycloak/thought-khoral-dev-realm.json`
+- Create: `thought-khoral-platform/kube/{namespace,postgres,keycloak,gateway,ui}.yaml`
+- Create: `thought-khoral-platform/scripts/{smoke,validate-kube}.sh`
+- Create: `thought-khoral-platform/README.md`
+- Test: `thought-khoral-platform/scripts/smoke.sh`, `scripts/validate-kube.sh`
 
 **Interfaces:**
 - Consumes: images built from checked-out sibling repositories and Keycloak OIDC configuration.
@@ -399,18 +399,18 @@ Expected: PASS; all four local services become healthy and manifests are accepte
 - [ ] **Step 5: Commit the independent platform project**
 
 ```bash
-cd n2n-platform
+cd thought-khoral-platform
 git add .
-git commit -m "feat: add rootless N2N MVP platform"
+git commit -m "feat: add rootless ThoughtKhoral MVP platform"
 ```
 
 ### Task 8: Run the end-to-end release gate and document verified exclusions
 
 **Files:**
-- Modify: `n2n-platform/scripts/smoke.sh`, `n2n-platform/README.md`
-- Modify: `n2n-room-gateway/.ai/specs/what/mvp-room.md`
-- Modify: `n2n-workspace-ui/.ai/specs/what/mvp-ui.md`
-- Create: `n2n-workspace-ui/e2e/governed-decision.spec.ts`
+- Modify: `thought-khoral-platform/scripts/smoke.sh`, `thought-khoral-platform/README.md`
+- Modify: `thought-khoral-room-gateway/.ai/specs/what/mvp-room.md`
+- Modify: `thought-khoral-workspace-ui/.ai/specs/what/mvp-ui.md`
+- Create: `thought-khoral-workspace-ui/e2e/governed-decision.spec.ts`
 - Test: full contract, gateway, UI, and platform suites
 
 **Interfaces:**
@@ -419,7 +419,7 @@ git commit -m "feat: add rootless N2N MVP platform"
 
 - [ ] **Step 1: Add a failing end-to-end test and release-gate script**
 
-In Playwright, sign in two fixture humans, open the same room, send a message, receive a deterministic facilitator draft, confirm it from the first browser, and assert the second browser’s drawer shows the decision as active. Attempt the agent fixture path and assert it cannot transition the decision. Extend `n2n-platform/scripts/smoke.sh` to execute the gateway integration suite and that Playwright test only after service health checks pass. It must stop on the first failure and always run `podman-compose down` through a shell `trap`.
+In Playwright, sign in two fixture humans, open the same room, send a message, receive a deterministic facilitator draft, confirm it from the first browser, and assert the second browser’s drawer shows the decision as active. Attempt the agent fixture path and assert it cannot transition the decision. Extend `thought-khoral-platform/scripts/smoke.sh` to execute the gateway integration suite and that Playwright test only after service health checks pass. It must stop on the first failure and always run `podman-compose down` through a shell `trap`.
 
 - [ ] **Step 2: Run the release gate**
 
@@ -429,20 +429,20 @@ Expected: FAIL until the end-to-end test, cross-repository commands, and cleanup
 
 - [ ] **Step 3: Implement release evidence and scope documentation**
 
-Record exact commands, required environment variables, and expected success indicators in `n2n-platform/README.md`. Update the two MVP What documents with the verified exclusions: Cognee-RS extraction, embeddings, external A2A/MCP connections, local models, Wasm/crun sandboxes, SPIFFE/SPIRE, Kafka, service mesh, and OpenShift production services are not enabled by the MVP.
+Record exact commands, required environment variables, and expected success indicators in `thought-khoral-platform/README.md`. Update the two MVP What documents with the verified exclusions: Cognee-RS extraction, embeddings, external A2A/MCP connections, local models, Wasm/crun sandboxes, SPIFFE/SPIRE, Kafka, service mesh, and OpenShift production services are not enabled by the MVP.
 
 - [ ] **Step 4: Run the complete gate**
 
-Run: `cd ../n2n-contracts && npm test && cd ../n2n-room-gateway && cargo fmt --check && cargo clippy -- -D warnings && cargo test && cd ../n2n-workspace-ui && npm test && npm run test:e2e && cd ../n2n-platform && bash scripts/smoke.sh && bash scripts/validate-kube.sh`
+Run: `cd ../thought-khoral-contracts && npm test && cd ../thought-khoral-room-gateway && cargo fmt --check && cargo clippy -- -D warnings && cargo test && cd ../thought-khoral-workspace-ui && npm test && npm run test:e2e && cd ../thought-khoral-platform && bash scripts/smoke.sh && bash scripts/validate-kube.sh`
 
 Expected: PASS.
 
 - [ ] **Step 5: Commit release-gate documentation in each affected repository**
 
 ```bash
-cd n2n-room-gateway && git add .ai/specs && git commit -m "docs: record MVP gateway boundary"
-cd ../n2n-workspace-ui && git add .ai/specs && git commit -m "docs: record MVP UI boundary"
-cd ../n2n-platform && git add scripts README.md .ai/specs && git commit -m "test: add MVP release gate"
+cd thought-khoral-room-gateway && git add .ai/specs && git commit -m "docs: record MVP gateway boundary"
+cd ../thought-khoral-workspace-ui && git add .ai/specs && git commit -m "docs: record MVP UI boundary"
+cd ../thought-khoral-platform && git add scripts README.md .ai/specs && git commit -m "test: add MVP release gate"
 ```
 
 ## Spec coverage review
@@ -459,4 +459,4 @@ cd ../n2n-platform && git add scripts README.md .ai/specs && git commit -m "test
 
 ## Deliberate follow-on plans
 
-After the MVP passes its release gate, create separately approved plans for `n2n-memory-engine` (Cognee-RS ECL pipeline, graph extraction, embeddings, and temporal lineage) and `n2n-agent-gateway` (A2A/MCP compatibility, mediated hydration, remote admission, and Wasm/crun or microVM isolation). Their dependency adoption requires the authoritative compatibility and licensing verification required by the root specification.
+After the MVP passes its release gate, create separately approved plans for `thought-khoral-memory-engine` (Cognee-RS ECL pipeline, graph extraction, embeddings, and temporal lineage) and `thought-khoral-agent-gateway` (A2A/MCP compatibility, mediated hydration, remote admission, and Wasm/crun or microVM isolation). Their dependency adoption requires the authoritative compatibility and licensing verification required by the root specification.

@@ -16,14 +16,35 @@ Every direct-child project is independently versioned and must contain its own `
 
 The six independent direct-child repositories are `thought-khoral-contracts`, `thought-khoral-room-gateway`, `thought-khoral-workspace-ui`, `thought-khoral-memory-engine`, `thought-khoral-agent-gateway`, and `thought-khoral-platform`. The memory engine and agent gateway remain specification-only until separately approved implementation plans authorize runtime code.
 
-The identity migration preserves the `n2n.room.v1` wire value and excludes database identifiers, database contents, and persisted values.
+The identity migration preserves the `n2n.room.v1` wire value and excludes
+database identifiers, database contents, and persisted values.
+
+## ThoughtKhoral identity release gate
+
+Run `bash scripts/verify-thoughtkhoral-identity.sh` from the workspace root
+after cross-project changes. The gate scans ignored child repositories as well
+as root files and rejects every legacy display or machine-name occurrence that
+is not one of these exact compatibility or migration contexts:
+
+- `n2n.room.v1` and its schema identifiers in contract schemas, fixtures,
+  protocol documentation, pinned gateway archives, and runtime consumers;
+- immutable `n2n-room-v1.*` release tags and the old-to-new identifiers in the
+  approved ThoughtKhoral migration records;
+- the existing PostgreSQL database and role `n2n`, physical volume
+  `n2n_postgres-data`, development-only persisted credential values
+  `n2n-dev-only` and `n2n-admin-dev-only`, and OIDC claim `n2n_role`; and
+- database tables, persisted records, event fields, and persisted values that
+  the approved migration explicitly excludes from this rename.
+
+The allowlist names exact files or exact compatibility tokens. It does not
+permit a whole project, source tree, documentation tree, or deployment path.
 
 ## Current root specifications
 
 - [What: solution architecture](what/n2n-solution-architecture.md)
 - [What: ThoughtKhoral product identity](what/thoughtkhoral-product-identity.md)
 - [How: agent spec-authoring roadmap](how/spec-authoring-roadmap.md)
-- [How: N:N MVP foundation implementation plan](how/n2n-mvp-foundation-implementation-plan.md)
+- [How: ThoughtKhoral MVP foundation implementation plan](how/n2n-mvp-foundation-implementation-plan.md)
 - [How: ThoughtKhoral identity migration](how/thoughtkhoral-identity-migration.md)
 - [Decision: workspace governance](decisions/001-workspace-governance.md)
 - [Decision: ThoughtKhoral product identity](decisions/003-thoughtkhoral-product-identity.md)

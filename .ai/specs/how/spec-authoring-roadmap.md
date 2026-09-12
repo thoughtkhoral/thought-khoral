@@ -1,8 +1,8 @@
-# Agent roadmap for N:N specifications
+# Agent roadmap for ThoughtKhoral specifications
 
 ## Purpose
 
-Use this document before proposing, creating, or modifying code or project documentation in the N:N workspace. Specifications are the authoritative input to implementation. Code, generated artifacts, tests, and supporting documentation must follow an approved specification update; they must not establish product or architectural intent independently.
+Use this document before proposing, creating, or modifying code or project documentation in the ThoughtKhoral workspace. Specifications are the authoritative input to implementation. Code, generated artifacts, tests, and supporting documentation must follow an approved specification update; they must not establish product or architectural intent independently.
 
 This is an operating guide for agents. It complements the solution architecture in [../what/n2n-solution-architecture.md](../what/n2n-solution-architecture.md) and the workspace-governance decision in [../decisions/001-workspace-governance.md](../decisions/001-workspace-governance.md).
 
@@ -74,7 +74,7 @@ For a localized implementation that introduces no new durable choice, update the
 ### Cross-project change
 
 1. Update the root What or How document that owns the shared rule.
-2. Update `n2n-contracts` first when an event, JSON-RPC method, error, schema, or compatibility rule changes.
+2. Update `thought-khoral-contracts` first when an event, JSON-RPC method, error, schema, or compatibility rule changes.
 3. Record a root decision when the change alters ownership, security boundaries, compatibility, or rollout policy.
 4. Update each affected project’s local What and How specifications before changing that project’s code.
 5. Implement consumers only against a released or otherwise explicitly pinned contract version.

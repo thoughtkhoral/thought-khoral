@@ -1,4 +1,4 @@
-# N:N Human-to-Agent Collaborative Workspace — solution architecture
+# ThoughtKhoral Human-to-Agent Collaborative Workspace — solution architecture
 
 ## Status
 
@@ -6,7 +6,7 @@ Approved design baseline; implementation planning has not started.
 
 ## Purpose
 
-N:N is a real-time, shared conversational workspace in which multiple people and multiple role-specific AI agents deliberate together. It turns unstructured dialogue into a structured, validated, and auditable source of truth while keeping humans in control of authoritative room context.
+ThoughtKhoral is a real-time, shared conversational workspace in which multiple people and multiple role-specific AI agents deliberate together. It turns unstructured dialogue into a structured, validated, and auditable source of truth while keeping humans in control of authoritative room context.
 
 ## Scope
 
@@ -16,22 +16,22 @@ The planned projects are:
 
 | Project | Responsibility |
 | --- | --- |
-| `n2n-contracts` | Language-neutral JSON Schema, normative protocol documentation, and compatibility fixtures. |
-| `n2n-workspace-ui` | Vite and PatternFly React collaborative chat canvas, Collective Memory drawer, and decision cards. |
-| `n2n-room-gateway` | Rust/Axum authenticated WebSocket room service, JSON-RPC validation, event dispatch, and authorization boundary. |
-| `n2n-memory-engine` | Cognee-RS integration, PostgreSQL/pgvector storage, temporal graph derivation, and decision proposals. |
-| `n2n-agent-gateway` | A2A/MCP adapters, least-privilege hydration, and hosted/remote agent isolation boundary. |
-| `n2n-platform` | Rootless Podman development environment, Kubernetes-manifest parity checks, and OpenShift deployment composition. |
+| `thought-khoral-contracts` | Language-neutral JSON Schema, normative protocol documentation, and compatibility fixtures. |
+| `thought-khoral-workspace-ui` | Vite and PatternFly React collaborative chat canvas, Collective Memory drawer, and decision cards. |
+| `thought-khoral-room-gateway` | Rust/Axum authenticated WebSocket room service, JSON-RPC validation, event dispatch, and authorization boundary. |
+| `thought-khoral-memory-engine` | Cognee-RS integration, PostgreSQL/pgvector storage, temporal graph derivation, and decision proposals. |
+| `thought-khoral-agent-gateway` | A2A/MCP adapters, least-privilege hydration, and hosted/remote agent isolation boundary. |
+| `thought-khoral-platform` | Rootless Podman development environment, Kubernetes-manifest parity checks, and OpenShift deployment composition. |
 
 ## User experience
 
-`n2n-workspace-ui` uses Vite and the PatternFly React ecosystem, including `@patternfly/chatbot`. A room presents a multi-human/multi-agent chat stream and an expandable PatternFly Drawer showing the live Collective Memory ledger.
+`thought-khoral-workspace-ui` uses Vite and the PatternFly React ecosystem, including `@patternfly/chatbot`. A room presents a multi-human/multi-agent chat stream and an expandable PatternFly Drawer showing the live Collective Memory ledger.
 
 The UI displays draft decision cards created from conversational events. A human must explicitly Confirm, Edit, or Dismiss each proposal. No agent action alone can make a proposal authoritative.
 
 ## Event and context model
 
-The UI and agent participants communicate with `n2n-room-gateway` through JSON-RPC over WebSocket. A browser opens the socket unauthenticated and must send `session.authenticate` containing an OIDC access token as its first application message within a short gateway-configured timeout. Before successful authentication the gateway accepts no room method. It validates the token's issuer, audience, signature, key identifier, algorithm, expiry, and not-before time, binds the resulting identity and role to the connection, then validates authorized payloads against the `n2n-contracts` schemas. It appends a normalized immutable room event to PostgreSQL and broadcasts it only to authorized room participants.
+The UI and agent participants communicate with `thought-khoral-room-gateway` through JSON-RPC over WebSocket. A browser opens the socket unauthenticated and must send `session.authenticate` containing an OIDC access token as its first application message within a short gateway-configured timeout. Before successful authentication the gateway accepts no room method. It validates the token's issuer, audience, signature, key identifier, algorithm, expiry, and not-before time, binds the resulting identity and role to the connection, then validates authorized payloads against the `thought-khoral-contracts` schemas. It appends a normalized immutable room event to PostgreSQL and broadcasts it only to authorized room participants.
 
 The memory engine derives graph facts and draft decisions from persisted room events. It preserves provenance through source-event identifiers and timestamps. Decision lineage uses directed graph relations including `DERIVED_FROM` and `SUPERSEDES`; decision nodes carry statuses such as `active` and `superseded`.
 
@@ -52,7 +52,7 @@ Agents receive an expiring, minimized room-context packet containing only the ro
 
 ## MVP
 
-The first vertical slice proves N:N governance rather than the entire platform. It includes one local authenticated room, multiple human participants, a built-in deterministic facilitator agent, real-time message broadcast, draft-decision cards, human confirmation/edit/dismissal, active-context updates, and an auditable relational event log.
+The first vertical slice proves ThoughtKhoral governance rather than the entire platform. It includes one local authenticated room, multiple human participants, a built-in deterministic facilitator agent, real-time message broadcast, draft-decision cards, human confirmation/edit/dismissal, active-context updates, and an auditable relational event log.
 
 Embeddings, graph extraction automation, remote third-party A2A/MCP agents, SPIFFE/SPIRE, local model hosting, Wasm isolation, Kafka, service mesh, and production OpenShift topology are explicitly deferred until the governed-room path is proven.
 
