@@ -36,8 +36,12 @@ is not one of these exact compatibility or migration contexts:
 - database tables, persisted records, event fields, and persisted values that
   the approved migration explicitly excludes from this rename.
 
-The allowlist names exact files or exact compatibility tokens. It does not
-permit a whole project, source tree, documentation tree, or deployment path.
+Each exception combines an enumerated file with an exact schema field,
+configuration key/value, source-code use, migration assertion, or documented
+compatibility statement. A compatibility token by itself is not sufficient.
+The scan fails closed when its scanner is unavailable or returns an error. It
+does not permit a whole project, source tree, documentation tree, validator
+script, or deployment path.
 
 ## Current root specifications
 
