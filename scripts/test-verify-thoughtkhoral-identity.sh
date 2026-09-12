@@ -66,6 +66,20 @@ if printf '%s\n' "$missing_rg_output" | grep -Fq 'PASS:'; then
   review_failures=$((review_failures + 1))
 fi
 
+printf '#!/bin/sh\nexit 2\n' >"$fixture_root/test-bin/rg"
+chmod +x "$fixture_root/test-bin/rg"
+if failed_rg_output=$(PATH="$fixture_root/test-bin" /bin/bash "$validator" "$fixture_root" 2>&1); then
+  printf 'FAIL: the validator passed when ripgrep returned status 2\n%s\n' \
+    "$failed_rg_output" >&2
+  review_failures=$((review_failures + 1))
+fi
+if printf '%s\n' "$failed_rg_output" | grep -Fq 'PASS:'; then
+  printf 'FAIL: the validator printed PASS after ripgrep returned status 2\n%s\n' \
+    "$failed_rg_output" >&2
+  review_failures=$((review_failures + 1))
+fi
+rm "$fixture_root/test-bin/rg"
+
 mkdir -p "$fixture_root/thought-khoral-platform/scripts"
 printf 'podman run %s-room-gateway\n' "$legacy_id" \
   >"$fixture_root/thought-khoral-platform/scripts/smoke.sh"
@@ -90,6 +104,30 @@ fi
 if ! printf '%s\n' "$compose_output" | grep -Fq 'thought-khoral-platform/compose.yaml'; then
   printf 'FAIL: image-identity rejection did not identify the Compose file\n%s\n' \
     "$compose_output" >&2
+  review_failures=$((review_failures + 1))
+fi
+rm "$fixture_root/thought-khoral-platform/compose.yaml"
+
+printf 'image: %s.room.v1 gateway\n' "$legacy_id" \
+  >"$fixture_root/thought-khoral-platform/README.md"
+if readme_output=$(bash "$validator" "$fixture_root" 2>&1); then
+  printf 'FAIL: a runtime image declaration in the platform README was accepted\n%s\n' \
+    "$readme_output" >&2
+  review_failures=$((review_failures + 1))
+fi
+if ! printf '%s\n' "$readme_output" | grep -Fq 'thought-khoral-platform/README.md'; then
+  printf 'FAIL: image-identity rejection did not identify the platform README\n%s\n' \
+    "$readme_output" >&2
+  review_failures=$((review_failures + 1))
+fi
+rm "$fixture_root/thought-khoral-platform/README.md"
+
+printf '`%s.room.v1` protocol, PostgreSQL database and role `%s`, physical\n`%s_postgres-data` volume, development-only persisted credential values\n`%s-dev-only` and `%s-admin-dev-only`, and `%s_role` OIDC claim remain\n' \
+  "$legacy_id" "$legacy_id" "$legacy_id" "$legacy_id" "$legacy_id" "$legacy_id" \
+  >"$fixture_root/thought-khoral-platform/README.md"
+if ! declared_output=$(bash "$validator" "$fixture_root" 2>&1); then
+  printf 'FAIL: the platform README compatibility declaration was rejected\n%s\n' \
+    "$declared_output" >&2
   review_failures=$((review_failures + 1))
 fi
 

@@ -102,6 +102,19 @@ is_documented_compatibility_line() {
   is_compatibility_document "$path" || return 1
   lower=$(printf '%s' "$content" | tr '[:upper:]' '[:lower:]')
 
+  if [[ "$path" == thought-khoral-platform/README.md ]]; then
+    case "$content" in
+      'the pre-migration external volume `__legacy___postgres-data`, so the identity rename' | \
+        '| Identity | Password | Retained `__legacy___role` claim |' | \
+        '`__legacy__.room.v1` protocol, PostgreSQL database and role `__legacy__`, physical' | \
+        '`__legacy___postgres-data` volume, development-only persisted credential values' | \
+        '`__legacy__-dev-only` and `__legacy__-admin-dev-only`, and `__legacy___role` OIDC claim remain')
+        return 0
+        ;;
+    esac
+    return 1
+  fi
+
   case "$path:$content" in
     'thought-khoral-contracts/protocol.md:# __legacy_display__ room protocol v1' | \
       'thought-khoral-contracts/.ai/specs/README.md:# __legacy_display__ contracts specifications' | \
