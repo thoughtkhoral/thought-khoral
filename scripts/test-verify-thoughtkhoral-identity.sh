@@ -8,6 +8,8 @@ trap 'rm -rf "$fixture_root"' EXIT
 git init -q "$fixture_root"
 
 legacy_id='n''2n'
+legacy_upper='N''2N'
+legacy_display_upper='N:'N
 printf '/thought-khoral-contracts/\n' >"$fixture_root/.gitignore"
 mkdir -p "$fixture_root/thought-khoral-contracts/fixtures/valid"
 printf '{"contractVersion":"%s.room.v1"}\n' "$legacy_id" \
@@ -53,6 +55,80 @@ printf '%s\n' "$undocumented_output" | grep -Fq 'thought-khoral-contracts/README
 rm "$fixture_root/thought-khoral-contracts/README.md"
 
 review_failures=0
+
+printf '{"name": "@%s/contracts"}\n' "$legacy_id" \
+  >"$fixture_root/thought-khoral-contracts/package.json"
+if package_output=$(bash "$validator" "$fixture_root" 2>&1); then
+  printf 'FAIL: active legacy package metadata in the live contracts project was accepted\n%s\n' \
+    "$package_output" >&2
+  review_failures=$((review_failures + 1))
+fi
+if ! printf '%s\n' "$package_output" | grep -Fq 'thought-khoral-contracts/package.json'; then
+  printf 'FAIL: package-metadata rejection did not identify live package.json\n%s\n' \
+    "$package_output" >&2
+  review_failures=$((review_failures + 1))
+fi
+rm "$fixture_root/thought-khoral-contracts/package.json"
+
+printf '# %s room protocol v1\n' "$legacy_display_upper" \
+  >"$fixture_root/thought-khoral-contracts/protocol.md"
+if heading_output=$(bash "$validator" "$fixture_root" 2>&1); then
+  printf 'FAIL: an active legacy display heading in live protocol documentation was accepted\n%s\n' \
+    "$heading_output" >&2
+  review_failures=$((review_failures + 1))
+fi
+if ! printf '%s\n' "$heading_output" | grep -Fq 'thought-khoral-contracts/protocol.md'; then
+  printf 'FAIL: display-heading rejection did not identify live protocol.md\n%s\n' \
+    "$heading_output" >&2
+  review_failures=$((review_failures + 1))
+fi
+rm "$fixture_root/thought-khoral-contracts/protocol.md"
+
+mkdir -p "$fixture_root/thought-khoral-contracts/schemas"
+printf '{"title": "%s room v1 application envelope"}\n' "$legacy_display_upper" \
+  >"$fixture_root/thought-khoral-contracts/schemas/envelope.schema.json"
+if schema_title_output=$(bash "$validator" "$fixture_root" 2>&1); then
+  printf 'FAIL: active legacy display metadata in a live contract schema was accepted\n%s\n' \
+    "$schema_title_output" >&2
+  review_failures=$((review_failures + 1))
+fi
+if ! printf '%s\n' "$schema_title_output" | grep -Fq 'thought-khoral-contracts/schemas/envelope.schema.json'; then
+  printf 'FAIL: display-metadata rejection did not identify the live schema\n%s\n' \
+    "$schema_title_output" >&2
+  review_failures=$((review_failures + 1))
+fi
+rm "$fixture_root/thought-khoral-contracts/schemas/envelope.schema.json"
+
+mkdir -p "$fixture_root/thought-khoral-room-gateway"
+printf 'image: %s.room.v1 gateway\n' "$legacy_id" \
+  >"$fixture_root/thought-khoral-room-gateway/README.md"
+if gateway_readme_output=$(bash "$validator" "$fixture_root" 2>&1); then
+  printf 'FAIL: a runtime image declaration in the gateway README was accepted\n%s\n' \
+    "$gateway_readme_output" >&2
+  review_failures=$((review_failures + 1))
+fi
+if ! printf '%s\n' "$gateway_readme_output" | grep -Fq 'thought-khoral-room-gateway/README.md'; then
+  printf 'FAIL: image-identity rejection did not identify the gateway README\n%s\n' \
+    "$gateway_readme_output" >&2
+  review_failures=$((review_failures + 1))
+fi
+rm "$fixture_root/thought-khoral-room-gateway/README.md"
+
+printf 'Legacy `%s_*` configuration aliases are intentionally not accepted: a missed\nThe vendored `%s.room.v1` contract, its immutable `%s-room-v1.0.2` release\ntag, JSON Schema identifiers, the existing `%s_role` JWT claim, and the\n' \
+  "$legacy_upper" "$legacy_id" "$legacy_id" "$legacy_id" \
+  >"$fixture_root/thought-khoral-room-gateway/README.md"
+
+archive_root="$fixture_root/thought-khoral-room-gateway/contracts/$legacy_id.room.v1"
+mkdir -p "$archive_root/schemas"
+printf '{"name": "@%s/contracts"}\n' "$legacy_id" >"$archive_root/package.json"
+printf '# %s room protocol v1\n' "$legacy_display_upper" >"$archive_root/protocol.md"
+printf '{"title": "%s room v1 application envelope"}\n' "$legacy_display_upper" \
+  >"$archive_root/schemas/envelope.schema.json"
+if ! archive_output=$(bash "$validator" "$fixture_root" 2>&1); then
+  printf 'FAIL: immutable vendored contract archive identity was rejected\n%s\n' \
+    "$archive_output" >&2
+  review_failures=$((review_failures + 1))
+fi
 
 mkdir -p "$fixture_root/test-bin"
 ln -s "$(command -v dirname)" "$fixture_root/test-bin/dirname"
