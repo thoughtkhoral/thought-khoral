@@ -56,6 +56,51 @@ rm "$fixture_root/thought-khoral-contracts/README.md"
 
 review_failures=0
 
+assert_rejected_content() {
+  local description=$1 path=$2 content=$3 output
+  mkdir -p "$(dirname "$fixture_root/$path")"
+  printf '%s\n' "$content" >"$fixture_root/$path"
+  if output=$(bash "$validator" "$fixture_root" 2>&1); then
+    printf 'FAIL: %s was accepted\n%s\n' "$description" "$output" >&2
+    review_failures=$((review_failures + 1))
+  elif ! printf '%s\n' "$output" | grep -Fq "FAIL: stale legacy identity: $path:"; then
+    printf 'FAIL: %s rejection did not identify its source\n%s\n' "$description" "$output" >&2
+    review_failures=$((review_failures + 1))
+  fi
+  rm "$fixture_root/$path"
+}
+
+assert_rejected_content 'a runtime command beside documented wire compatibility' \
+  .ai/specs/how/thoughtkhoral-identity-migration.md \
+  "Run \`podman run $legacy_id-room-gateway\` against the \`$legacy_id.room.v1\` protocol."
+assert_rejected_content 'a runtime wire-token identity beside a second allowed wire token' \
+  .ai/specs/how/thoughtkhoral-identity-migration.md \
+  "Run \`podman run $legacy_id.room.v1\` against the \`$legacy_id.room.v1\` protocol."
+assert_rejected_content 'a live legacy heading beside documented wire compatibility' \
+  thought-khoral-contracts/protocol.md \
+  "# $legacy_display_upper \`$legacy_id.room.v1\` protocol"
+assert_rejected_content 'a live schema title beside an allowed schema identifier' \
+  thought-khoral-contracts/schemas/envelope.schema.json \
+  "{\"\$id\": \"https://$legacy_id.redhat.com/schemas/$legacy_id.room.v1/envelope.schema.json\", \"title\": \"$legacy_display_upper room v1 application envelope\"}"
+assert_rejected_content 'a live schema name beside an allowed schema reference' \
+  thought-khoral-contracts/schemas/envelope.schema.json \
+  "{\"\$ref\": \"https://$legacy_id.redhat.com/schemas/$legacy_id.room.v1/envelope.schema.json\", \"name\": \"$legacy_id-room\"}"
+assert_rejected_content 'live display metadata beside an allowed contract version' \
+  thought-khoral-contracts/schemas/envelope.schema.json \
+  "{\"contractVersion\": { \"const\": \"$legacy_id.room.v1\" }, \"display\": \"$legacy_display_upper\"}"
+assert_rejected_content 'a fixture name beside an allowed contract version' \
+  thought-khoral-contracts/fixtures/valid/chat-send.json \
+  "{\"contractVersion\":\"$legacy_id.room.v1\",\"name\":\"$legacy_id-room\"}"
+
+printf '{"$id": "https://%s.redhat.com/schemas/%s.room.v1/envelope.schema.json", "$ref": "https://%s.redhat.com/schemas/%s.room.v1/room-event.schema.json", "contractVersion": { "const": "%s.room.v1" }, "title": "ThoughtKhoral room v1 envelope"}\n' \
+  "$legacy_id" "$legacy_id" "$legacy_id" "$legacy_id" "$legacy_id" \
+  >"$fixture_root/thought-khoral-contracts/schemas/envelope.schema.json"
+if ! schema_fields_output=$(bash "$validator" "$fixture_root" 2>&1); then
+  printf 'FAIL: coexisting schema compatibility fields were rejected\n%s\n' "$schema_fields_output" >&2
+  review_failures=$((review_failures + 1))
+fi
+rm "$fixture_root/thought-khoral-contracts/schemas/envelope.schema.json"
+
 printf '{"name": "@%s/contracts"}\n' "$legacy_id" \
   >"$fixture_root/thought-khoral-contracts/package.json"
 if package_output=$(bash "$validator" "$fixture_root" 2>&1); then
