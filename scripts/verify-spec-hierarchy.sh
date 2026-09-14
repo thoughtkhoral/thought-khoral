@@ -4,6 +4,7 @@ set -u
 
 workspace_root=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 root_readme="$workspace_root/.ai/specs/README.md"
+root_public_link="https://github.com/thoughtkhoral/thought-khoral/blob/main/.ai/specs/README.md"
 projects=(
   thought-khoral-contracts
   thought-khoral-room-gateway
@@ -53,6 +54,10 @@ for project in "${projects[@]}"; do
     parent_link_found=0
     while IFS= read -r target; do
       target_path=${target%% *}
+      if [[ "$target_path" == "$root_public_link" ]]; then
+        parent_link_found=1
+        break
+      fi
       target_directory=$(cd "$(dirname "$readme")/$(dirname "$target_path")" 2>/dev/null && pwd -P) || continue
       if [[ "$target_directory/$(basename "$target_path")" == "$root_readme" ]]; then
         parent_link_found=1
