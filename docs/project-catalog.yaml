@@ -1,0 +1,41 @@
+# Source metadata for the public ThoughtKhoral repository map.
+# Status values: mvp, active-development, incubating, specification-only,
+# maintenance, deprecated, archived.
+organization: thoughtkhoral
+project: ThoughtKhoral
+repositories:
+  - name: thought-khoral
+    purpose: Cross-project architecture, specifications, roadmap, and release coordination.
+    status: active-development
+    maturity: active
+    entrypoint: https://github.com/thoughtkhoral/thought-khoral
+  - name: thought-khoral-contracts
+    purpose: Versioned JSON Schema, room protocol documentation, and compatibility fixtures.
+    status: mvp
+    maturity: active
+    entrypoint: https://github.com/thoughtkhoral/thought-khoral-contracts
+  - name: thought-khoral-room-gateway
+    purpose: Authenticated WebSocket room service, event persistence, replay, and authorization.
+    status: mvp
+    maturity: active
+    entrypoint: https://github.com/thoughtkhoral/thought-khoral-room-gateway
+  - name: thought-khoral-workspace-ui
+    purpose: React collaborative room UI, chat stream, memory drawer, and decision controls.
+    status: mvp
+    maturity: active
+    entrypoint: https://github.com/thoughtkhoral/thought-khoral-workspace-ui
+  - name: thought-khoral-platform
+    purpose: Rootless local composition, development identity, and Kubernetes validation.
+    status: mvp
+    maturity: active
+    entrypoint: https://github.com/thoughtkhoral/thought-khoral-platform
+  - name: thought-khoral-memory-engine
+    purpose: Future collective-memory, provenance, and temporal-lineage service.
+    status: specification-only
+    maturity: incubating
+    entrypoint: https://github.com/thoughtkhoral/thought-khoral-memory-engine
+  - name: thought-khoral-agent-gateway
+    purpose: Future mediated boundary for external A2A/MCP agent runtimes.
+    status: specification-only
+    maturity: incubating
+    entrypoint: https://github.com/thoughtkhoral/thought-khoral-agent-gateway

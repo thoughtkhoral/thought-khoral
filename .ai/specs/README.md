@@ -47,8 +47,11 @@ script, or deployment path.
 
 - [What: solution architecture](what/n2n-solution-architecture.md)
 - [What: ThoughtKhoral product identity](what/thoughtkhoral-product-identity.md)
+- [What: open-source organization documentation](what/open-source-documentation.md)
 - [How: agent spec-authoring roadmap](how/spec-authoring-roadmap.md)
 - [How: ThoughtKhoral MVP foundation implementation plan](how/n2n-mvp-foundation-implementation-plan.md)
+- [How: GitHub organization publication](how/github-organization-publication.md)
 - [How: ThoughtKhoral identity migration](how/thoughtkhoral-identity-migration.md)
 - [Decision: workspace governance](decisions/001-workspace-governance.md)
 - [Decision: ThoughtKhoral product identity](decisions/003-thoughtkhoral-product-identity.md)
+- [Decision: issue-first contribution and change management](decisions/004-contribution-and-change-management.md)
