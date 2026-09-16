@@ -30,7 +30,7 @@ repositories:
     maturity: active
     entrypoint: https://github.com/thoughtkhoral/thought-khoral-platform
   - name: thought-khoral-memory-engine
-    purpose: Future collective-memory, provenance, and temporal-lineage service.
+    purpose: Room-scoped POC collective memory, provenance, and temporal lineage.
     status: specification-only
     maturity: incubating
     entrypoint: https://github.com/thoughtkhoral/thought-khoral-memory-engine

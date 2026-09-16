@@ -14,7 +14,7 @@ Before any code is created or modified, the applicable specification must be upd
 
 Every direct-child project is independently versioned and must contain its own `.ai/specs/what`, `.ai/specs/how`, and `.ai/specs/decisions` directories. Child specifications inherit root requirements unless an approved local decision explicitly records an override.
 
-The six independent direct-child repositories are `thought-khoral-contracts`, `thought-khoral-room-gateway`, `thought-khoral-workspace-ui`, `thought-khoral-memory-engine`, `thought-khoral-agent-gateway`, and `thought-khoral-platform`. The memory engine and agent gateway remain specification-only until separately approved implementation plans authorize runtime code.
+The six independent direct-child repositories are `thought-khoral-contracts`, `thought-khoral-room-gateway`, `thought-khoral-workspace-ui`, `thought-khoral-memory-engine`, `thought-khoral-agent-gateway`, and `thought-khoral-platform`. The memory engine POC What and How for room-scoped Cognee memory are approved; it and the agent gateway remain specification-only until separately approved implementation plans authorize runtime code.
 
 The identity migration preserves the `n2n.room.v1` wire value and excludes
 database identifiers, database contents, and persisted values.
@@ -55,3 +55,4 @@ script, or deployment path.
 - [Decision: workspace governance](decisions/001-workspace-governance.md)
 - [Decision: ThoughtKhoral product identity](decisions/003-thoughtkhoral-product-identity.md)
 - [Decision: issue-first contribution and change management](decisions/004-contribution-and-change-management.md)
+- [Decision: room-scoped POC memory](decisions/005-room-scoped-poc-memory.md)

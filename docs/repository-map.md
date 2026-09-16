@@ -24,7 +24,7 @@ reviewed with the relevant specification update.
 
 | Repository | Purpose | Status |
 | --- | --- | --- |
-| [`thought-khoral-memory-engine`](https://github.com/thoughtkhoral/thought-khoral-memory-engine) | Collective memory, provenance, and temporal lineage. | Specification-only / incubating |
+| [`thought-khoral-memory-engine`](https://github.com/thoughtkhoral/thought-khoral-memory-engine) | Room-scoped POC collective memory, provenance, and temporal lineage. | Specification-only / incubating |
 | [`thought-khoral-agent-gateway`](https://github.com/thoughtkhoral/thought-khoral-agent-gateway) | Mediated A2A/MCP integration and agent isolation. | Specification-only / incubating |
 
 ## Dependency direction

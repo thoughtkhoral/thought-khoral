@@ -33,7 +33,7 @@ The UI displays draft decision cards created from conversational events. A human
 
 The UI and agent participants communicate with `thought-khoral-room-gateway` through JSON-RPC over WebSocket. A browser opens the socket unauthenticated and must send `session.authenticate` containing an OIDC access token as its first application message within a short gateway-configured timeout. Before successful authentication the gateway accepts no room method. It validates the token's issuer, audience, signature, key identifier, algorithm, expiry, and not-before time, binds the resulting identity and role to the connection, then validates authorized payloads against the `thought-khoral-contracts` schemas. It appends a normalized immutable room event to PostgreSQL and broadcasts it only to authorized room participants.
 
-The memory engine derives graph facts and draft decisions from persisted room events. It preserves provenance through source-event identifiers and timestamps. Decision lineage uses directed graph relations including `DERIVED_FROM` and `SUPERSEDES`; decision nodes carry statuses such as `active` and `superseded`.
+The memory engine derives graph facts and draft decisions from persisted room events. It preserves provenance through source-event identifiers and timestamps. Decision lineage uses directed graph relations including `DERIVED_FROM` and `SUPERSEDES`; decision nodes carry statuses such as `active` and `superseded`. For the first Cognee integration, that memory is room-scoped: a room remains one conversation, and derived facts and drafts are partitioned by `roomId`. The gateway facilitator is the draft-proposal port; Cognee is a later implementation of that port, not a second independent proposer. A later project-with-many-topic-conversations model, with distinct project-level and topic-level memory, is an explicit non-goal of that POC; see [decision 005](../decisions/005-room-scoped-poc-memory.md).
 
 Only a human Confirm/Edit/Dismiss transition updates active room context. An edit retains the original proposal and records the approved replacement as derived from or superseding it. The gateway is the sole mediator of active-context updates.
 
@@ -44,7 +44,7 @@ Agents receive an expiring, minimized room-context packet containing only the ro
 - UI: Vite, React, PatternFly, and `@patternfly/chatbot`.
 - Gateway: Rust with Tokio, Axum, and tower-http.
 - Data: PostgreSQL plus pgvector for relational events, vector data, and temporal knowledge-graph records.
-- Memory: Cognee-RS embedded in the Rust process, subject to compatibility validation during implementation planning.
+- Memory: Cognee-RS embedded in the `thought-khoral-memory-engine` Rust process, not in the room gateway, subject to compatibility validation during implementation planning.
 - Interoperability: A2A and MCP through versioned JSON-RPC contracts and WebSocket transport where appropriate.
 - Identity: Keycloak with OAuth 2.0/OIDC. Short-lived workload identity via SPIFFE/SPIRE is a production-direction capability, not an MVP prerequisite.
 - Local platform: rootless Podman and Podman Compose. `podman play kube` validates Kubernetes manifests locally. Optional local-model profiles support Red Hat Granite through vLLM or InstructLab; sandbox profiles use Wasm runtimes managed by crun.
@@ -54,7 +54,7 @@ Agents receive an expiring, minimized room-context packet containing only the ro
 
 The first vertical slice proves ThoughtKhoral governance rather than the entire platform. It includes one local authenticated room, multiple human participants, a built-in deterministic facilitator agent, real-time message broadcast, draft-decision cards, human confirmation/edit/dismissal, active-context updates, and an auditable relational event log.
 
-Embeddings, graph extraction automation, remote third-party A2A/MCP agents, SPIFFE/SPIRE, local model hosting, Wasm isolation, Kafka, service mesh, and production OpenShift topology are explicitly deferred until the governed-room path is proven.
+Project/topic memory hierarchy, nested conversations, remote third-party A2A/MCP agents, SPIFFE/SPIRE, local model hosting, Wasm isolation, Kafka, service mesh, and production OpenShift topology remain deferred. Room-scoped Cognee extraction is specified in `thought-khoral-memory-engine`; the POC What and How are approved, and runtime code remains unauthorized until that project's implementation plan is approved.
 
 ## Reliability and security requirements
 
