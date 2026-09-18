@@ -75,6 +75,12 @@ is_historical_map_line() {
         "  $match_id-platform"
       return
       ;;
+    scripts/test-verify-repository-references.sh)
+      allows_context "$content" \
+        *'contracts/__legacy__.room.v1/.ai/specs'* \
+        *'../__legacy__-contracts'* \
+        *'__legacy__.room.v1'* && return
+      ;;
   esac
 
   return 1
@@ -86,7 +92,8 @@ is_compatibility_document() {
   case "$path" in
     .ai/specs/README.md | \
       .ai/specs/decisions/003-thoughtkhoral-product-identity.md | \
-      .ai/specs/how/"$legacy_id"-mvp-foundation-implementation-plan.md | \
+    .ai/specs/how/"$legacy_id"-mvp-foundation-implementation-plan.md | \
+      .ai/specs/decisions/005-room-scoped-poc-memory.md | \
       .ai/specs/how/spec-authoring-roadmap.md | \
       .ai/specs/how/thoughtkhoral-identity-migration.md | \
       .ai/specs/how/thoughtkhoral-identity-migration-implementation-plan.md | \
@@ -102,12 +109,18 @@ is_compatibility_document() {
       thought-khoral-room-gateway/.ai/specs/how/implementation.md | \
       thought-khoral-room-gateway/.ai/specs/what/mvp-room.md | \
       thought-khoral-room-gateway/README.md | \
+      thought-khoral-room-gateway/contracts/"$legacy_id".room.v1/* | \
       thought-khoral-workspace-ui/.ai/specs/decisions/002-thoughtkhoral-identity.md | \
       thought-khoral-workspace-ui/.ai/specs/how/implementation.md | \
       thought-khoral-workspace-ui/.ai/specs/what/mvp-ui.md | \
       thought-khoral-memory-engine/.ai/specs/decisions/002-thoughtkhoral-identity.md | \
+      thought-khoral-memory-engine/.ai/specs/decisions/003-poc-room-scoped-memory.md | \
+      thought-khoral-memory-engine/.ai/specs/how/poc-room-scoped-memory-implementation-plan.md | \
+      thought-khoral-memory-engine/.ai/specs/how/poc-room-scoped-memory.md | \
       thought-khoral-memory-engine/.ai/specs/how/specification-only.md | \
+      thought-khoral-memory-engine/.ai/specs/what/poc-room-scoped-memory.md | \
       thought-khoral-memory-engine/.ai/specs/what/deferred-memory-engine.md | \
+      thought-khoral-memory-engine/docs/mediated-ingestion.md | \
       thought-khoral-agent-gateway/.ai/specs/decisions/002-thoughtkhoral-identity.md | \
       thought-khoral-agent-gateway/.ai/specs/how/specification-only.md | \
       thought-khoral-agent-gateway/.ai/specs/what/deferred-agent-gateway.md | \
@@ -128,6 +141,16 @@ is_documented_compatibility_line() {
   local content=$2
 
   is_compatibility_document "$path" || return 1
+
+  case "$path" in
+    thought-khoral-memory-engine/.ai/specs/decisions/003-poc-room-scoped-memory.md | \
+      thought-khoral-memory-engine/.ai/specs/how/poc-room-scoped-memory-implementation-plan.md | \
+      thought-khoral-memory-engine/.ai/specs/how/poc-room-scoped-memory.md | \
+      thought-khoral-memory-engine/.ai/specs/what/poc-room-scoped-memory.md | \
+      thought-khoral-memory-engine/docs/mediated-ingestion.md)
+      allows_context "$content" '*`__legacy__.room.v1`*' && return 0
+      ;;
+  esac
 
   if [[ "$path" == thought-khoral-platform/README.md ]]; then
     if allows_context "$content" \
@@ -183,6 +206,8 @@ is_documented_compatibility_line() {
       *'`__legacy__.room.v1` fixture'* \
       *'`__legacy__.room.v1` interface'* \
       *'`__legacy__.room.v1` event'* \
+      *'`__legacy__.room.v1` methods'* \
+      *'`__legacy__.room.v1` method or field'* \
       *'`__legacy__.room.v1` contract'* \
       *'`__legacy__.room.v1` message'* \
       *'`__legacy__.room.v1` patch'* \
@@ -190,6 +215,9 @@ is_documented_compatibility_line() {
       *'`__legacy__.room.v1` through '* \
       *'`__legacy__.room.v1` for '* \
       *'`__legacy__.room.v1` remains '* \
+      *'`__legacy__.room.v1` contract'* \
+      *'`__legacy__.room.v1` protocol'* \
+      *'`__legacy__.room.v1` is retained '* \
       *'`__legacy__.room.v1` without '* \
       *'`__legacy__.room.v1` and its schema identifiers'* \
       *'enumerated `__legacy__.room.v1`, `__legacy___role`, and database compatibility values'* \
@@ -202,6 +230,7 @@ is_documented_compatibility_line() {
       *'exact retained `__legacy__.room.v1` and persisted-data exceptions'* \
       *'interfaces from `__legacy__.room.v1`, and explicit exclusions'* \
       *'`contractVersion` equal to `__legacy__.room.v1`'* \
+      *'"contractVersion": "__legacy__.room.v1"'* \
       *'normalized `__legacy__.room.v1` persisted-event shape'* \
       *'authenticated `__legacy__.room.v1` room events'* \
       *'`__legacy__.room.v1` JSON Schema artifacts, normative protocol documentation, and compatibility fixtures'* \
@@ -209,6 +238,12 @@ is_documented_compatibility_line() {
       *'`contractVersion: "__legacy__.room.v1"`'* \
       *'contracts/__legacy__.room.v1/'* \
       *"rg -n '__legacy__\\\\.room\\\\.v1'"*; then
+    return 0
+  fi
+
+  if allows_context "$content" \
+    *'blob/main/.ai/specs/what/__legacy__-solution-architecture.md'* \
+    *'blob/main/.ai/specs/decisions/005-room-scoped-poc-memory.md'*; then
     return 0
   fi
 
@@ -340,6 +375,7 @@ is_contract_artifact_line() {
             'thought-khoral-contracts/.ai/specs/README.md:# __legacy_display__ contracts specifications' \
             'thought-khoral-contracts/.ai/specs/README.md:Parent requirements in the __legacy_display__ root `.ai/specs/` apply here. This project may diverge only through an accepted local decision record that identifies the overridden parent rule and its consequences.' \
             'thought-khoral-contracts/.ai/specs/how/implementation.md:Follow the \[root __legacy_display__ MVP foundation implementation plan]\(../../../../.ai/specs/how/__legacy__-mvp-foundation-implementation-plan.md\) and the root governance decision before changing this project.' \
+            *'thought-khoral-contracts/.ai/specs/how/implementation.md:*__legacy__-mvp-foundation-implementation-plan.md'* \
             'thought-khoral-contracts/.ai/specs/what/mvp-contracts.md:`__legacy__-contracts` is the compatibility authority for the versioned, language-neutral `__legacy__.room.v1` JSON Schema artifacts, normative protocol documentation, and compatibility fixtures.'; then
           return 0
         fi
@@ -392,6 +428,17 @@ is_gateway_source_line() {
       ;;
     thought-khoral-room-gateway/src/store.rs)
       allows_context "$content" *'"contractVersion": "__legacy__.room.v1",'*
+      return
+      ;;
+    thought-khoral-room-gateway/src/ws.rs)
+      allows_context "$content" *'"contractVersion": "__legacy__.room.v1"'*
+      return
+      ;;
+    thought-khoral-room-gateway/contracts/"$legacy_id".room.v1/*)
+      allows_context "$content" \
+        *'/.ai/specs/how/__legacy__-mvp-foundation-implementation-plan.md'* \
+        *'`__legacy__.room.v1`'* \
+        *'__legacy__.room.v1'*
       return
       ;;
     thought-khoral-room-gateway/tests/protocol_test.rs)
@@ -553,6 +600,11 @@ is_contract_test_line() {
 is_allowed_match() {
   local path=$1
   local content=$2
+
+  if [[ "$path" == thought-khoral-room-gateway/contracts/$wire_path/.ai/specs/how/implementation.md &&
+    "$content" == *'MVP foundation implementation plan'* ]]; then
+    return 0
+  fi
 
   is_historical_map_line "$path" "$content" || \
     is_documented_compatibility_line "$path" "$content" || \
