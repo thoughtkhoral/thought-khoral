@@ -17,6 +17,7 @@ versioned repositories.
 - [Local MVP platform](https://github.com/thoughtkhoral/thought-khoral-platform)
 
 The current MVP proves an authenticated governed room, real-time room events,
+known-participant `@` mentions with room-wide or targeted delivery,
 deterministic facilitator proposals, and human confirmation, editing, or
 dismissal of draft decisions. The memory engine and agent gateway are currently
 specification-only projects.

@@ -1,7 +1,7 @@
 # Room Message Mentions and Delivery Design
 
 **Date:** 2026-09-18  
-**Status:** Approved for spec review  
+**Status:** Implemented and verified  
 **Scope:** `thought-khoral-contracts`, `thought-khoral-room-gateway`, and `thought-khoral-workspace-ui`
 
 ## Goal
@@ -21,14 +21,17 @@ The room composer uses a mention-aware `@` interaction:
 
 - Typing `@` opens an autocomplete menu containing known room participants.
 - Suggestions identify each participant as Human or Agent and expose a
-  canonical mention token. The token is `@` plus a lowercase hyphenated slug
-  of the participant display name; if two participants produce the same slug,
-  append `-` plus the first eight characters of the participant ID. Multiple
-  participants can be selected in one message.
+  canonical mention token. The token is `@` plus a lowercase ASCII slug of
+  the participant display name: one alphanumeric word is valid and multiple
+  words are separated by hyphens. Display names are NFKD-normalized with
+  combining marks removed. If a token collides with another participant or a
+  fixed alias, append `-` plus at least the first eight ID characters and
+  extend that suffix deterministically when needed. Multiple participants can
+  be selected in one message.
 - The fixed aliases `@allhumans` and `@allagents` are always available. The
-  aliases resolve to all known room participants with the matching role:
-  `@allhumans` targets every human participant and `@allagents` targets every
-  agent participant.
+  aliases resolve against the known roster: `@allhumans` targets every human
+  participant, while `@allagents` targets every agent and is also visible to
+  every human participant for supervision.
 - A selected mention is rendered in the composer as an `@` token and retained
   as structured mention metadata. The message body remains ordinary text for
   compatibility with the current chat renderer.
@@ -74,19 +77,23 @@ The retained `n2n.room.v1` contract gains additive chat delivery fields:
   UI can render `@allhumans` or `@allagents` as authored.
 
 The contract imposes a maximum of 50 mention entries and rejects duplicate
-targets. The implementation must use one named constant in the schema and
-gateway. Unknown participant IDs, unsupported aliases, malformed UUIDs, and
-invalid delivery combinations are rejected by the gateway with a safe
-validation error. Existing `{ text }` messages remain valid room-wide
-messages.
+targets by canonical identity: participant targets are unique by ID and alias
+targets by alias. Structural duplicate requests are invalid JSON-RPC requests;
+duplicate identities with differing fields are rejected by semantic
+validation. The implementation uses the same limit across schema, gateway,
+and workspace. Unknown participant IDs, unsupported aliases, malformed UUIDs,
+noncanonical direct tokens, and invalid delivery combinations are rejected
+without persisting an event. Existing `{ text }` messages remain valid
+room-wide messages.
 
 ## Gateway behavior
 
 The gateway validates chat mentions after resolving the room's known
 participant roster. A known participant is one present in the room participant
 snapshot, including participants learned from room history and current
-presence. A direct target that is not in that roster is rejected. Aliases are
-expanded by role:
+presence. A direct target must use that participant's canonical roster token;
+an unknown participant or noncanonical token is rejected. Aliases are expanded
+by role:
 
 - `allhumans`: every known participant whose role is `human`.
 - `allagents`: every known participant whose role is `agent` plus every known
@@ -123,19 +130,20 @@ actor never enter that actor's event projection.
 
 ## Testing and verification
 
-Contract tests will cover backward-compatible room-wide chat, direct 1:N
+Contract fixtures cover backward-compatible room-wide chat, direct 1:N
 mentions, both aliases, targeted delivery fields, duplicate/unknown targets,
-and invalid delivery combinations.
+invalid delivery combinations, and semantic uniqueness in persisted events.
 
-Gateway tests will cover direct-target validation, alias expansion, the
-`@allagents` human-visibility exception, sender visibility, targeted live
-broadcast, targeted replay, hidden-sequence cursor advancement, and request
-fingerprint conflicts.
+Gateway tests cover direct-token validation, alias expansion, the `@allagents`
+human-visibility exception, sender visibility, targeted live broadcast,
+targeted replay, hidden-sequence cursor advancement (including reverse-order
+recovery containing a hidden targeted event), persisted event validation, and
+request fingerprint conflicts.
 
-Workspace tests will cover `@` autocomplete, selecting multiple humans and
-agents, `@allhumans`, `@allagents`, rejecting unknown/stale tokens, delivery
-selection, targeted payload construction, and accessible rendering of mention
-metadata.
+Workspace tests cover `@` autocomplete, selecting multiple humans and agents,
+`@allhumans`, `@allagents`, rejecting unknown/stale tokens, delivery
+selection, the 50-target limit, targeted payload construction, and accessible
+rendering of mention metadata.
 
 The owning repository checks remain required: contract fixture validation,
 gateway Rust tests, workspace UI tests, TypeScript build, and the workspace
