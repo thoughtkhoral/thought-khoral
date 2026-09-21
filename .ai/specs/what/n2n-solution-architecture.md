@@ -37,7 +37,13 @@ The memory engine derives graph facts and draft decisions from persisted room ev
 
 Only a human Confirm/Edit/Dismiss transition updates active room context. An edit retains the original proposal and records the approved replacement as derived from or superseding it. The gateway is the sole mediator of active-context updates.
 
-Agents receive an expiring, minimized room-context packet containing only the room identifier, approved active context, relevant recent messages, provenance, scope, and expiry. Agents do not receive direct database access, filesystem access, arbitrary shell execution, or unmediated side-effecting tools.
+The first controlled external-agent integration delivers an expiring,
+task-bound packet containing the full ordered room history the invoking human
+and agent are authorized to view, active decisions, provenance, scope, and
+expiry. It is a correctness-first baseline that later evolves to compact,
+revision-based context delivery without changing authorization or provenance
+semantics. Agents do not receive direct database access, filesystem access,
+arbitrary shell execution, or unmediated side-effecting tools.
 
 ## Technology direction
 
@@ -54,7 +60,7 @@ Agents receive an expiring, minimized room-context packet containing only the ro
 
 The first vertical slice proves ThoughtKhoral governance rather than the entire platform. It includes one local authenticated room, multiple human participants, a built-in deterministic facilitator agent, real-time message broadcast, draft-decision cards, human confirmation/edit/dismissal, active-context updates, and an auditable relational event log.
 
-Project/topic memory hierarchy, nested conversations, remote third-party A2A/MCP agents, SPIFFE/SPIRE, local model hosting, Wasm isolation, Kafka, service mesh, and production OpenShift topology remain deferred. Room-scoped Cognee extraction is specified in `thought-khoral-memory-engine`; the POC What and How are approved, and runtime code remains unauthorized until that project's implementation plan is approved.
+Project/topic memory hierarchy, nested conversations, remote third-party A2A/MCP agents, SPIFFE/SPIRE, local model hosting, Wasm isolation, Kafka, service mesh, and production OpenShift topology remain deferred. One locally controlled deterministic A2A reference agent is specified as the foundation for `thought-khoral-agent-gateway`; runtime code remains unauthorized until its implementation plan is approved. Room-scoped Cognee extraction is specified in `thought-khoral-memory-engine`; the POC What and How are approved, and runtime code remains unauthorized until that project's implementation plan is approved.
 
 ## Reliability and security requirements
 

@@ -59,3 +59,4 @@ script, or deployment path.
 - [Decision: issue-first contribution and change management](decisions/004-contribution-and-change-management.md)
 - [Decision: room-scoped POC memory](decisions/005-room-scoped-poc-memory.md)
 - [Decision: initial room agent task dispatch](decisions/006-agent-task-dispatch.md)
+- [Decision: A2A agent gateway foundation](decisions/007-a2a-agent-gateway-foundation.md)
