@@ -60,6 +60,7 @@ linked feature worktree, scan its source root explicitly, for example:
 - [How: GitHub organization publication](how/github-organization-publication.md)
 - [How: ThoughtKhoral identity migration](how/thoughtkhoral-identity-migration.md)
 - [How: room agent task dispatch](how/agent-task-dispatch.md)
+- [How: message mentions and delivery](how/message-mentions-and-delivery.md)
 - [Decision: workspace governance](decisions/001-workspace-governance.md)
 - [Decision: ThoughtKhoral product identity](decisions/003-thoughtkhoral-product-identity.md)
 - [Decision: issue-first contribution and change management](decisions/004-contribution-and-change-management.md)

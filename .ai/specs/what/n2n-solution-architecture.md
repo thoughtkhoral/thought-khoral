@@ -38,6 +38,15 @@ agent action alone can make a proposal authoritative. See [decision 008](../deci
 
 The UI and in-process room participants communicate with `thought-khoral-room-gateway` through JSON-RPC over WebSocket. A browser opens the socket unauthenticated and must send `session.authenticate` containing an OIDC access token as its first application message within a short gateway-configured timeout. Before successful authentication the gateway accepts no room method. It validates the token's issuer, audience, signature, key identifier, algorithm, expiry, and not-before time, binds the resulting identity and role to the connection, then validates authorized payloads against the `thought-khoral-contracts` schemas. It appends a normalized immutable room event to PostgreSQL and broadcasts it only to authorized room participants. The separate agent gateway uses authenticated task-scoped HTTP with the room gateway and A2A with the pinned local reference agent; that agent never joins the browser room socket or reads the room database.
 
+Chat defaults to room-wide delivery. A participant may address known room
+participants or the fixed `@allhumans` and `@allagents` aliases, and may select
+mentioned-only delivery. The gateway resolves the audience at send time,
+always includes the sender, persists the resolved audience with the message,
+and applies it to live delivery, replay, and agent context snapshots.
+`@allagents` is also visible to all humans for supervision. Hidden messages
+retain their place in the room's global event sequence without becoming visible
+to unauthorized participants. See [message mentions and delivery](../how/message-mentions-and-delivery.md).
+
 The incubating memory engine proves room-scoped graph facts and provenance;
 Cognee-backed draft derivation remains deferred. A later implementation will
 preserve source-event identifiers and timestamps, with lineage such as
@@ -77,7 +86,7 @@ arbitrary shell execution, or unmediated side-effecting tools.
 
 ## MVP
 
-The first vertical slice proves ThoughtKhoral governance rather than the entire platform. It includes one local authenticated room, multiple human participants, a built-in deterministic facilitator agent, real-time message broadcast, draft-decision cards, human confirmation/edit/dismissal, active-context updates, and an auditable relational event log.
+The first vertical slice proves ThoughtKhoral governance rather than the entire platform. It includes one local authenticated room, multiple human participants, real-time authorized message delivery, human `/decisions` draft creation, draft-decision cards, human confirmation/edit/dismissal, active-context updates, and an auditable relational event log. The original deterministic `Decision:` facilitator parser was retired by [decision 008](../decisions/008-slash-decisions-and-facilitator-boundary.md); the gateway retains the facilitator port for a later approved memory-derived draft implementation.
 
 Project/topic memory hierarchy, nested conversations, remote third-party A2A/MCP agents, SPIFFE/SPIRE, local model hosting, Wasm isolation, Kafka, service mesh, and production OpenShift topology remain deferred. The approved local A2A foundation uses one deterministic reference agent behind `thought-khoral-agent-gateway`; it is not general bring-your-own-agent admission. The memory engine has an incubating room-scoped ingestion proof; Cognee extraction, durable memory storage, and production deployment remain deferred.
 

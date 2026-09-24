@@ -85,6 +85,23 @@ if ! current_compatibility_output=$(bash "$validator" "$fixture_root" 2>&1); the
     "$current_compatibility_output" >&2
   exit 1
 fi
+mkdir -p "$fixture_root/.ai/specs/how"
+printf '`%s.room.v1` contract owns the field shapes and compatibility fixtures. The\n' \
+  "$legacy_id" >"$fixture_root/.ai/specs/how/message-mentions-and-delivery.md"
+if ! mention_spec_output=$(bash "$validator" "$fixture_root" 2>&1); then
+  printf 'FAIL: the new spec exact retained-wire reference must be allowed\n%s\n' \
+    "$mention_spec_output" >&2
+  exit 1
+fi
+rm "$fixture_root/.ai/specs/how/message-mentions-and-delivery.md"
+printf '| Contracts | Publishes the retained `%s.room.v1` JSON Schemas, protocol, and compatibility fixtures. | Contract artifacts only; no runtime library. |\n' \
+  "$legacy_id" >"$fixture_root/docs/compatibility-matrix.md"
+if ! matrix_output=$(bash "$validator" "$fixture_root" 2>&1); then
+  printf 'FAIL: the compatibility matrix exact wire value must be allowed\n%s\n' \
+    "$matrix_output" >&2
+  exit 1
+fi
+rm "$fixture_root/docs/compatibility-matrix.md"
 rm \
   "$fixture_root/thought-khoral-contracts/fixtures/valid/chat-send-mentions.json" \
   "$fixture_root/docs/superpowers/plans/2026-09-18-message-mentions.md" \
@@ -200,6 +217,12 @@ assert_rejected_content 'live display metadata beside an allowed contract versio
 assert_rejected_content 'a fixture name beside an allowed contract version' \
   thought-khoral-contracts/fixtures/valid/chat-send.json \
   "{\"contractVersion\":\"$legacy_id.room.v1\",\"name\":\"$legacy_id-room\"}"
+assert_rejected_content 'an active legacy service in the new mention spec' \
+  .ai/specs/how/message-mentions-and-delivery.md \
+  "The \`$legacy_id.room.v1\` contract owns the field shapes and compatibility fixtures. The $legacy_id-room-gateway serves it."
+assert_rejected_content 'an active legacy service in the compatibility matrix' \
+  docs/compatibility-matrix.md \
+  "| Contracts | Publishes the retained \`$legacy_id.room.v1\` JSON Schemas, protocol, and compatibility fixtures. | Active $legacy_id service. |"
 
 printf '{"$id": "https://%s.redhat.com/schemas/%s.room.v1/envelope.schema.json", "$ref": "https://%s.redhat.com/schemas/%s.room.v1/room-event.schema.json", "contractVersion": { "const": "%s.room.v1" }, "title": "ThoughtKhoral room v1 envelope"}\n' \
   "$legacy_id" "$legacy_id" "$legacy_id" "$legacy_id" "$legacy_id" \

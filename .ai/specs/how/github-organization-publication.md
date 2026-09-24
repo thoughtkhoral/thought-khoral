@@ -39,6 +39,14 @@ Shared workflows may validate Markdown links, repository-catalog entries,
 required public files, and generated-content markers. They must not silently
 change specifications or implementation code.
 
+The organization repository's documentation workflow checks out the project
+home and six component repositories, tests its link checker, and validates
+relative Markdown targets plus `github.com/thoughtkhoral` repository links to
+the current `main` file tree. It runs for organization push and pull requests,
+on manual dispatch, and weekly so links changed in other repositories are
+rechecked. Third-party URLs and links to historical non-`main` revisions are
+outside this deterministic workspace check.
+
 ## Verification
 
 Before a repository is made public or changes lifecycle status, maintainers

@@ -142,6 +142,16 @@ is_documented_compatibility_line() {
   local content=$2
 
   case "$path" in
+    .ai/specs/how/message-mentions-and-delivery.md)
+      allows_context "$content" \
+        '`__legacy__.room.v1` contract owns the field shapes and compatibility fixtures. The' && return 0
+      return 1
+      ;;
+    docs/compatibility-matrix.md)
+      allows_context "$content" \
+        '| Contracts | Publishes the retained `__legacy__.room.v1` JSON Schemas, protocol, and compatibility fixtures. | Contract artifacts only; no runtime library. |' && return 0
+      return 1
+      ;;
     docs/superpowers/specs/2026-09-18-message-mentions-design.md | \
       docs/superpowers/specs/2026-09-18-slash-decisions-crud-design.md | \
       docs/superpowers/plans/2026-09-18-message-mentions.md | \

@@ -11,6 +11,8 @@ versioned repositories.
 ## Start here
 
 - [Repository map](docs/repository-map.md)
+- [Compatibility matrix](docs/compatibility-matrix.md)
+- [Capability roadmap](docs/roadmap.md)
 - [Project specifications](.ai/specs/README.md)
 - [Contribution workflow](https://github.com/thoughtkhoral/.github/blob/main/CONTRIBUTING.md)
 - [Contracts and protocol](https://github.com/thoughtkhoral/thought-khoral-contracts)

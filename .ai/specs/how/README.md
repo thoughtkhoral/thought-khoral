@@ -1,5 +1,13 @@
 # How specifications
 
-This directory holds approved technical designs, interfaces, data models, operational constraints, and verification requirements for root-level ThoughtKhoral capabilities.
+This directory holds root-level technical designs, implementation constraints,
+and verification requirements. The [root specification index](../README.md)
+lists the active documents and decisions that govern them.
 
-No root-level implementation design has been approved yet. The solution architecture in `../what/` is the current design baseline; implementation planning will add the first How specification after review.
+Current designs include [message mentions and delivery](message-mentions-and-delivery.md),
+[agent task dispatch](agent-task-dispatch.md),
+[GitHub organization publication](github-organization-publication.md), and the
+[ThoughtKhoral identity migration](thoughtkhoral-identity-migration.md).
+The MVP foundation and identity migration implementation plans remain as
+historical execution records; later accepted decisions supersede their
+outdated parser instructions where noted.
