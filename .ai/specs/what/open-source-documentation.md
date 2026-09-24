@@ -50,8 +50,10 @@ The repository-reference and specification-hierarchy scripts run locally. The
 organization repository now contains a CI workflow for relative Markdown links
 and links into the current `main` files of the seven ThoughtKhoral project
 repositories. It runs on organization changes, manual dispatch, and a weekly
-schedule; its first published CI run remains to be verified. Third-party URLs
-and historical revision links are outside this check. The repository map,
+schedule. The first published push run
+[passed on 2026-09-24](https://github.com/thoughtkhoral/.github/actions/runs/36036411140).
+Third-party URLs and historical revision links are outside this check. The
+repository map,
 compatibility matrix, roadmap, organization profile, and component READMEs are
 maintained documents, not outputs from a documentation generator. The
 repository map identifies the catalog as its metadata source; no current
