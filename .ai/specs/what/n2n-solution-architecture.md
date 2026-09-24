@@ -28,15 +28,33 @@ The independently versioned projects are:
 
 `thought-khoral-workspace-ui` uses Vite and the PatternFly React ecosystem, including `@patternfly/chatbot`. A room presents a multi-human/multi-agent chat stream and an expandable PatternFly Drawer showing the live Collective Memory ledger.
 
-The UI displays draft decision cards created from conversational events. A human must explicitly Confirm, Edit, or Dismiss each proposal. No agent action alone can make a proposal authoritative.
+The UI displays governed decision cards. A human uses `/decisions` to create a
+draft directly, or may later review a draft derived through the gateway-owned
+facilitator port. A human must explicitly Confirm, Edit, or Dismiss a draft;
+human-only Delete removes a decision row while retaining its audit event. No
+agent action alone can make a proposal authoritative. See [decision 008](../decisions/008-slash-decisions-and-facilitator-boundary.md).
 
 ## Event and context model
 
 The UI and in-process room participants communicate with `thought-khoral-room-gateway` through JSON-RPC over WebSocket. A browser opens the socket unauthenticated and must send `session.authenticate` containing an OIDC access token as its first application message within a short gateway-configured timeout. Before successful authentication the gateway accepts no room method. It validates the token's issuer, audience, signature, key identifier, algorithm, expiry, and not-before time, binds the resulting identity and role to the connection, then validates authorized payloads against the `thought-khoral-contracts` schemas. It appends a normalized immutable room event to PostgreSQL and broadcasts it only to authorized room participants. The separate agent gateway uses authenticated task-scoped HTTP with the room gateway and A2A with the pinned local reference agent; that agent never joins the browser room socket or reads the room database.
 
-The memory engine derives graph facts and draft decisions from persisted room events. It preserves provenance through source-event identifiers and timestamps. Decision lineage uses directed graph relations including `DERIVED_FROM` and `SUPERSEDES`; decision nodes carry statuses such as `active` and `superseded`. For the first Cognee integration, that memory is room-scoped: a room remains one conversation, and derived facts and drafts are partitioned by `roomId`. The gateway facilitator is the draft-proposal port; Cognee is a later implementation of that port, not a second independent proposer. A later project-with-many-topic-conversations model, with distinct project-level and topic-level memory, is an explicit non-goal of that POC; see [decision 005](../decisions/005-room-scoped-poc-memory.md).
+The incubating memory engine proves room-scoped graph facts and provenance;
+Cognee-backed draft derivation remains deferred. A later implementation will
+preserve source-event identifiers and timestamps, with lineage such as
+`DERIVED_FROM` and `SUPERSEDES`. For the first Cognee integration, a room remains
+one conversation and derived facts and drafts are partitioned by `roomId`.
+The gateway facilitator is the only port for drafts derived from persisted
+events; Cognee may later occupy it, not become a second independent proposer.
+The old `Decision:` chat-prefix parser is not active. A later
+project-with-many-topic-conversations model is outside this POC; see
+[decision 005](../decisions/005-room-scoped-poc-memory.md) as superseded in part
+by [decision 008](../decisions/008-slash-decisions-and-facilitator-boundary.md).
 
-Only a human Confirm/Edit/Dismiss transition updates active room context. An edit retains the original proposal and records the approved replacement as derived from or superseding it. The gateway is the sole mediator of active-context updates.
+Only a human decision transition activates or revises room context. A
+human-only delete removes the current decision row but preserves its immutable
+audit event. An edit retains the original proposal and records the approved
+replacement as derived from or superseding it. The gateway is the sole
+mediator of active-context updates.
 
 The first controlled external-agent integration delivers an expiring,
 task-bound packet containing the full ordered room history the invoking human

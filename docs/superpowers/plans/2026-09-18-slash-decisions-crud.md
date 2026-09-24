@@ -1,5 +1,12 @@
 # Slash Decisions CRUD Implementation Plan
 
+> Historical execution checklist: the contract, gateway, and UI changes are
+> already present on `main`. The original branch commits are patch-equivalent
+> to that implementation; do not replay or merge their older trees. The
+> unchecked boxes preserve the original plan, not current completion status.
+> See [Decision 008](../../../.ai/specs/decisions/008-slash-decisions-and-facilitator-boundary.md)
+> for the accepted facilitator boundary.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Replace the legacy `Decision:` instruction with a local `/decisions` CRUD workflow whose successful mutations are audited by the gateway and reported in room chat.

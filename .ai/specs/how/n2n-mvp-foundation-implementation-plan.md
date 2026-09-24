@@ -1,5 +1,9 @@
 # ThoughtKhoral MVP Foundation Implementation Plan
 
+> Historical MVP baseline: steps that use the deterministic `Decision:`
+> facilitator parser were superseded by [Decision 008](../decisions/008-slash-decisions-and-facilitator-boundary.md).
+> They are not instructions to restore that parser to the current gateway.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Deliver a locally runnable, authenticated ThoughtKhoral room in which multiple people can exchange messages, a deterministic facilitator can propose a decision, and a human approval creates auditable active room context.

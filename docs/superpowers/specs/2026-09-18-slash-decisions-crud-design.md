@@ -1,7 +1,7 @@
 # Slash Decisions CRUD Design
 
 **Date:** 2026-09-18  
-**Status:** Proposed for implementation  
+**Status:** Implemented on `main`; governed by [Decision 008](../../../.ai/specs/decisions/008-slash-decisions-and-facilitator-boundary.md).
 **Scope:** `thought-khoral-contracts`, `thought-khoral-room-gateway`, and `thought-khoral-workspace-ui`
 
 ## Goal

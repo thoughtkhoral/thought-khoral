@@ -66,3 +66,4 @@ linked feature worktree, scan its source root explicitly, for example:
 - [Decision: room-scoped POC memory](decisions/005-room-scoped-poc-memory.md)
 - [Decision: initial room agent task dispatch](decisions/006-agent-task-dispatch.md)
 - [Decision: A2A agent gateway foundation](decisions/007-a2a-agent-gateway-foundation.md)
+- [Decision: slash decisions and facilitator boundary](decisions/008-slash-decisions-and-facilitator-boundary.md)

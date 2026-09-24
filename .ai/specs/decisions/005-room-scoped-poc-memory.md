@@ -4,6 +4,12 @@
 
 Accepted
 
+The requirement below to keep the deterministic `Decision:` parser live was
+superseded by [decision 008](008-slash-decisions-and-facilitator-boundary.md).
+The room scope, facilitator-port ownership, and human approval boundary remain
+in force. The remaining parser references record this decision's original
+baseline, not the current runtime.
+
 ## Context
 
 The governed-room MVP treats a room as one conversation: one event log, one
