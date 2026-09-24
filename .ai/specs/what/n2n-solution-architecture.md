@@ -2,7 +2,8 @@
 
 ## Status
 
-Approved design baseline; implementation planning has not started.
+Approved design baseline; local MVP and incubating integrations are in active
+development. Deferred production capabilities remain design direction only.
 
 ## Purpose
 
@@ -12,7 +13,7 @@ ThoughtKhoral is a real-time, shared conversational workspace in which multiple 
 
 The solution is a collection of independently versioned direct-child projects, not a monorepo. The root repository holds cross-solution specifications and governance. Each project owns its own code, dependencies, CI, release lifecycle, and local specification hierarchy.
 
-The planned projects are:
+The independently versioned projects are:
 
 | Project | Responsibility |
 | --- | --- |
@@ -31,7 +32,7 @@ The UI displays draft decision cards created from conversational events. A human
 
 ## Event and context model
 
-The UI and agent participants communicate with `thought-khoral-room-gateway` through JSON-RPC over WebSocket. A browser opens the socket unauthenticated and must send `session.authenticate` containing an OIDC access token as its first application message within a short gateway-configured timeout. Before successful authentication the gateway accepts no room method. It validates the token's issuer, audience, signature, key identifier, algorithm, expiry, and not-before time, binds the resulting identity and role to the connection, then validates authorized payloads against the `thought-khoral-contracts` schemas. It appends a normalized immutable room event to PostgreSQL and broadcasts it only to authorized room participants.
+The UI and in-process room participants communicate with `thought-khoral-room-gateway` through JSON-RPC over WebSocket. A browser opens the socket unauthenticated and must send `session.authenticate` containing an OIDC access token as its first application message within a short gateway-configured timeout. Before successful authentication the gateway accepts no room method. It validates the token's issuer, audience, signature, key identifier, algorithm, expiry, and not-before time, binds the resulting identity and role to the connection, then validates authorized payloads against the `thought-khoral-contracts` schemas. It appends a normalized immutable room event to PostgreSQL and broadcasts it only to authorized room participants. The separate agent gateway uses authenticated task-scoped HTTP with the room gateway and A2A with the pinned local reference agent; that agent never joins the browser room socket or reads the room database.
 
 The memory engine derives graph facts and draft decisions from persisted room events. It preserves provenance through source-event identifiers and timestamps. Decision lineage uses directed graph relations including `DERIVED_FROM` and `SUPERSEDES`; decision nodes carry statuses such as `active` and `superseded`. For the first Cognee integration, that memory is room-scoped: a room remains one conversation, and derived facts and drafts are partitioned by `roomId`. The gateway facilitator is the draft-proposal port; Cognee is a later implementation of that port, not a second independent proposer. A later project-with-many-topic-conversations model, with distinct project-level and topic-level memory, is an explicit non-goal of that POC; see [decision 005](../decisions/005-room-scoped-poc-memory.md).
 
@@ -60,7 +61,7 @@ arbitrary shell execution, or unmediated side-effecting tools.
 
 The first vertical slice proves ThoughtKhoral governance rather than the entire platform. It includes one local authenticated room, multiple human participants, a built-in deterministic facilitator agent, real-time message broadcast, draft-decision cards, human confirmation/edit/dismissal, active-context updates, and an auditable relational event log.
 
-Project/topic memory hierarchy, nested conversations, remote third-party A2A/MCP agents, SPIFFE/SPIRE, local model hosting, Wasm isolation, Kafka, service mesh, and production OpenShift topology remain deferred. One locally controlled deterministic A2A reference agent is specified as the foundation for `thought-khoral-agent-gateway`; runtime code remains unauthorized until its implementation plan is approved. Room-scoped Cognee extraction is specified in `thought-khoral-memory-engine`; the POC What and How are approved, and runtime code remains unauthorized until that project's implementation plan is approved.
+Project/topic memory hierarchy, nested conversations, remote third-party A2A/MCP agents, SPIFFE/SPIRE, local model hosting, Wasm isolation, Kafka, service mesh, and production OpenShift topology remain deferred. The approved local A2A foundation uses one deterministic reference agent behind `thought-khoral-agent-gateway`; it is not general bring-your-own-agent admission. The memory engine has an incubating room-scoped ingestion proof; Cognee extraction, durable memory storage, and production deployment remain deferred.
 
 ## Reliability and security requirements
 

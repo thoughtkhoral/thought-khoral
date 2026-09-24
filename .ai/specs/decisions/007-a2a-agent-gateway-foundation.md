@@ -2,7 +2,9 @@
 
 ## Status
 
-Proposed — awaiting review of the written design before implementation planning.
+Accepted — authorizes the locally controlled deterministic A2A reference
+integration. Remote agent admission, MCP transport, and production deployment
+require separate approval.
 
 ## Context
 

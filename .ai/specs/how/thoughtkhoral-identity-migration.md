@@ -2,7 +2,8 @@
 
 ## Status
 
-Approved design; implementation planning has not started.
+Approved design; migration implemented and the identity gate remains a
+pre-publication check.
 
 ## Governing specifications
 
@@ -37,4 +38,9 @@ Do not place compatibility credentials, redirects, or migration mappings in URLs
 - Every child repository’s local specs link to decision 003 before its identifier change.
 - Repository/package/image/Compose/Kubernetes names use `thought-khoral` after migration.
 - `n2n.room.v1` fixtures and gateway validation remain compatible.
+- The identity gate scans the canonical root and six direct-child repositories,
+  including ignored child checkouts, but not duplicate `.worktrees` snapshots.
+  New retained-wire fixtures and historical verification records require
+  narrowly scoped path-and-content compatibility review; an active legacy
+  service, package, display, or deployment identifier remains a failure.
 - The local browser login, chat, facilitator proposal, and human decision transition work under ThoughtKhoral branding.

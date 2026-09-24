@@ -91,6 +91,7 @@ is_compatibility_document() {
 
   case "$path" in
     .ai/specs/README.md | \
+      .ai/specs/decisions/006-agent-task-dispatch.md | \
       .ai/specs/decisions/003-thoughtkhoral-product-identity.md | \
     .ai/specs/how/"$legacy_id"-mvp-foundation-implementation-plan.md | \
       .ai/specs/decisions/005-room-scoped-poc-memory.md | \
@@ -140,6 +141,41 @@ is_documented_compatibility_line() {
   local path=$1
   local content=$2
 
+  case "$path" in
+    docs/superpowers/specs/2026-09-18-message-mentions-design.md | \
+      docs/superpowers/specs/2026-09-18-slash-decisions-crud-design.md | \
+      docs/superpowers/plans/2026-09-18-message-mentions.md | \
+      docs/superpowers/plans/2026-09-18-slash-decisions-crud.md)
+      allows_context "$content" \
+        *'`__legacy__.room.v1` contract'* \
+        *'`__legacy__.room.v1` chat request'* \
+        *'contracts/__legacy__.room.v1/'* \
+        *'contracts/__legacy__.room.v1 '* \
+        *'"contractVersion": "__legacy__.room.v1"'* && return 0
+      return 1
+      ;;
+    thought-khoral-memory-engine/docs/poc-verification.md)
+      allows_context "$content" \
+        '- Contract: `__legacy__.room.v1` remains unchanged.' \
+        *'postgres://__legacy__:__legacy__@127.0.0.1:54329/__legacy__'* && return 0
+      return 1
+      ;;
+    thought-khoral-room-gateway/task-9-gateway-fix-report.md)
+      allows_context "$content" \
+        *'`contracts/__legacy__.room.v1`'* \
+        *'`contracts/__legacy__.room.v1/`'* \
+        *'postgres://__legacy__:__legacy__@127.0.0.1:54329/__legacy__'* && return 0
+      return 1
+      ;;
+    thought-khoral-room-gateway/.ai/specs/decisions/003-slash-decisions-crud.md)
+      allows_context "$content" \
+        *'`__legacy__.room.v1` slash-decisions extension'* \
+        *'`__legacy__-room-v1.0.2` archive'* \
+        *'`contracts/__legacy__.room.v1/`'* && return 0
+      return 1
+      ;;
+  esac
+
   is_compatibility_document "$path" || return 1
 
   case "$path" in
@@ -168,7 +204,10 @@ is_documented_compatibility_line() {
     if allows_context "$content" \
       'Legacy `__legacy_upper___\*` configuration aliases are intentionally not accepted: a missed' \
         'The vendored `__legacy__.room.v1` contract, its immutable `__legacy__-room-v1.0.2` release' \
-        'tag, JSON Schema identifiers, the existing `__legacy___role` JWT claim, and the'; then
+        'tag, JSON Schema identifiers, the existing `__legacy___role` JWT claim, and the' \
+        'The vendored `__legacy__.room.v1` contract is pinned to its authoritative commit (recorded in' \
+        '`contracts/lock.json` with source archive and schema hashes). Its JSON Schema identifiers, the existing `__legacy___role` JWT claim, and the' \
+        'advance. The vendored `__legacy__.room.v1` contract documents the wire fields and is'; then
       return 0
     fi
     return 1
@@ -329,6 +368,10 @@ is_contract_artifact_line() {
       contract_path="thought-khoral-contracts/${path#thought-khoral-room-gateway/contracts/$wire_path/}"
       archived=true
       ;;
+    thought-khoral-agent-gateway/contracts/"$wire_path"/*)
+      contract_path="thought-khoral-contracts/${path#thought-khoral-agent-gateway/contracts/$wire_path/}"
+      archived=true
+      ;;
   esac
 
   case "$contract_path" in
@@ -344,6 +387,13 @@ is_contract_artifact_line() {
       thought-khoral-contracts/fixtures/valid/decision-propose.json | \
       thought-khoral-contracts/fixtures/valid/join.json | \
       thought-khoral-contracts/fixtures/valid/session-authenticate.json)
+      allows_context "$content" *'"contractVersion"'*':'*"\"$wire_value\""*
+      return
+      ;;
+    thought-khoral-contracts/fixtures/valid/*.json | \
+      thought-khoral-contracts/fixtures/invalid/*.json | \
+      thought-khoral-contracts/fixtures/events/valid/*.json | \
+      thought-khoral-contracts/fixtures/events/invalid/*.json)
       allows_context "$content" *'"contractVersion"'*':'*"\"$wire_value\""*
       return
       ;;
@@ -441,12 +491,46 @@ is_gateway_source_line() {
         *'__legacy__.room.v1'*
       return
       ;;
+    thought-khoral-room-gateway/tests/agent_task_store_test.rs | \
+      thought-khoral-room-gateway/tests/agent_service_test.rs | \
+      thought-khoral-room-gateway/tests/agent_packet_live_test.rs)
+      allows_context "$content" *'contract_version: "__legacy__.room.v1".to_owned()'*
+      return
+      ;;
     thought-khoral-room-gateway/tests/protocol_test.rs)
-      allows_context "$content" *'include_str!\("../contracts/__legacy__.room.v1/fixtures/'*
+      allows_context "$content" \
+        *'include_str!\("../contracts/__legacy__.room.v1/fixtures/'* \
+        *'"../contracts/__legacy__.room.v1/fixtures/'*
       return
       ;;
     thought-khoral-room-gateway/tests/authorization_test.rs)
       allows_context "$content" '// This fails if an unsupported __legacy___role is defaulted or admitted as a participant.'
+      return
+      ;;
+  esac
+
+  return 1
+}
+
+is_agent_gateway_source_line() {
+  local path=$1
+  local content=$2
+
+  case "$path" in
+    thought-khoral-agent-gateway/contracts/lock.json)
+      allows_context "$content" '  "contract": "__legacy__.room.v1",'
+      return
+      ;;
+    thought-khoral-agent-gateway/contracts/README.md)
+      allows_context "$content" *'contract remains `__legacy__.room.v1`.'
+      return
+      ;;
+    thought-khoral-agent-gateway/tests/dispatcher_test.rs)
+      allows_context "$content" \
+        *'root.join("__legacy__.room.v1/schemas")'* \
+        *'"../contracts/__legacy__.room.v1/schemas/'* \
+        *'"https://__legacy__.redhat.com/schemas/__legacy__.room.v1/envelope.schema.json"'* \
+        *'"contractVersion": "__legacy__.room.v1"'*
       return
       ;;
   esac
@@ -464,6 +548,10 @@ is_ui_source_line() {
       return
       ;;
     thought-khoral-workspace-ui/src/features/decisions/DecisionCard.test.tsx)
+      allows_context "$content" *"contractVersion: '$wire_value'"*
+      return
+      ;;
+    thought-khoral-workspace-ui/src/features/room/ChatStream.test.tsx)
       allows_context "$content" *"contractVersion: '$wire_value'"*
       return
       ;;
@@ -577,6 +665,10 @@ is_platform_validator_line() {
         return 0
       fi
       ;;
+    thought-khoral-platform/scripts/smoke-agent-gateway.mjs)
+      allows_context "$content" *"contractVersion: '$wire_value'"*
+      return
+      ;;
   esac
 
   return 1
@@ -589,7 +681,8 @@ is_contract_test_line() {
   if [[ "$path" == thought-khoral-contracts/test/validate-fixtures.mjs ]]; then
     if allows_context "$content" \
       *'/`__legacy__\\.room\\.v1` remains a retained compatibility wire value/'* \
-        *'protocol documentation must identify __legacy__.room.v1 as a retained compatibility wire value'*; then
+        *'protocol documentation must identify __legacy__.room.v1 as a retained compatibility wire value'* \
+        *'contractVersion: "__legacy__.room.v1",'*; then
       return 0
     fi
   fi
@@ -606,11 +699,20 @@ is_allowed_match() {
     return 0
   fi
 
+  if [[ "$path" == thought-khoral-room-gateway/contracts/$wire_path/.ai/specs/decisions/002-thoughtkhoral-identity.md ]]; then
+    is_historical_map_line 'thought-khoral-contracts/.ai/specs/decisions/002-thoughtkhoral-identity.md' "$content" && return 0
+  fi
+
+  if [[ "$path" == thought-khoral-room-gateway/contracts/$wire_path/test/validate-fixtures.mjs ]]; then
+    is_contract_test_line 'thought-khoral-contracts/test/validate-fixtures.mjs' "$content" && return 0
+  fi
+
   is_historical_map_line "$path" "$content" || \
     is_documented_compatibility_line "$path" "$content" || \
     is_contract_artifact_line "$path" "$content" || \
     is_contract_test_line "$path" "$content" || \
     is_gateway_source_line "$path" "$content" || \
+    is_agent_gateway_source_line "$path" "$content" || \
     is_ui_source_line "$path" "$content" || \
     is_platform_config_line "$path" "$content" || \
     is_platform_validator_line "$path" "$content"
@@ -619,15 +721,17 @@ is_allowed_match() {
 command -v rg >/dev/null 2>&1 || fail_scan 'ripgrep (rg) is unavailable'
 
 scan_output=
-if scan_output=$(rg --line-number --with-filename --no-heading --ignore-case --hidden --no-ignore \
+if scan_output=$(cd "$scan_root" && rg --line-number --with-filename --no-heading --ignore-case --hidden --no-ignore \
   --glob '!**/.git/**' \
+  --glob '!**/.git' \
+  --glob '!**/.worktrees/**' \
   --glob '!**/node_modules/**' \
   --glob '!**/target/**' \
   --glob '!**/dist/**' \
   --glob '!**/coverage/**' \
   --glob '!**/.superpowers/**' \
   --glob '!**/.DS_Store' \
-  "$legacy_id|$legacy_display" "$scan_root"); then
+  "$legacy_id|$legacy_display" .); then
   scan_status=0
 else
   scan_status=$?
@@ -639,7 +743,7 @@ fi
 
 while IFS= read -r match; do
   [[ -n "$match" ]] || continue
-  relative=${match#"$scan_root"/}
+  relative=${match#./}
   path=${relative%%:*}
   remainder=${relative#*:}
   line_number=${remainder%%:*}

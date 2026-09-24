@@ -20,6 +20,115 @@ if ! allowed_output=$(bash "$validator" "$fixture_root" 2>&1); then
   exit 1
 fi
 
+mkdir -p "$fixture_root/.worktrees/duplicate"
+printf 'service=%s-room-gateway\n' "$legacy_id" \
+  >"$fixture_root/.worktrees/duplicate/active.env"
+if ! worktree_output=$(bash "$validator" "$fixture_root" 2>&1); then
+  printf 'FAIL: duplicate worktree contents must not enter the canonical scan\n%s\n' \
+    "$worktree_output" >&2
+  exit 1
+fi
+mkdir -p "$fixture_root/.worktrees/feature"
+printf 'service=%s-room-gateway\n' "$legacy_id" \
+  >"$fixture_root/.worktrees/feature/active.env"
+if feature_output=$(bash "$validator" "$fixture_root/.worktrees/feature" 2>&1); then
+  printf 'FAIL: an explicitly selected feature worktree was not scanned\n%s\n' \
+    "$feature_output" >&2
+  exit 1
+fi
+printf '%s\n' "$feature_output" | grep -Fq 'active.env' || {
+  printf 'FAIL: feature worktree rejection did not identify active.env\n%s\n' \
+    "$feature_output" >&2
+  exit 1
+}
+rm "$fixture_root/.worktrees/feature/active.env"
+printf 'gitdir: /tmp/%s-repository/.git/worktrees/feature\n' "$legacy_id" \
+  >"$fixture_root/.worktrees/feature/.git"
+if ! metadata_output=$(bash "$validator" "$fixture_root/.worktrees/feature" 2>&1); then
+  printf 'FAIL: Git worktree metadata must not be scanned as product content\n%s\n' \
+    "$metadata_output" >&2
+  exit 1
+fi
+
+mkdir -p \
+  "$fixture_root/docs/superpowers/plans" \
+  "$fixture_root/.ai/specs/decisions" \
+  "$fixture_root/thought-khoral-memory-engine/docs" \
+  "$fixture_root/thought-khoral-room-gateway/.ai/specs/decisions" \
+  "$fixture_root/thought-khoral-room-gateway/contracts/$legacy_id.room.v1/test" \
+  "$fixture_root/thought-khoral-platform/scripts" \
+  "$fixture_root/thought-khoral-contracts/test"
+printf '{"contractVersion":"%s.room.v1"}\n' "$legacy_id" \
+  >"$fixture_root/thought-khoral-contracts/fixtures/valid/chat-send-mentions.json"
+printf 'The retained `%s.room.v1` contract gains additive chat delivery fields:\n' \
+  "$legacy_id" >"$fixture_root/docs/superpowers/plans/2026-09-18-message-mentions.md"
+printf '  git add contracts/%s.room.v1 src/protocol.rs\n' "$legacy_id" \
+  >>"$fixture_root/docs/superpowers/plans/2026-09-18-message-mentions.md"
+printf -- '- The retained `%s.room.v1` event schema gains additive events.\n' \
+  "$legacy_id" >"$fixture_root/.ai/specs/decisions/006-agent-task-dispatch.md"
+printf -- '- Contract: `%s.room.v1` remains unchanged.\n' "$legacy_id" \
+  >"$fixture_root/thought-khoral-memory-engine/docs/poc-verification.md"
+printf 'The existing `%s-room-v1.0.2` archive remains immutable.\n' "$legacy_id" \
+  >"$fixture_root/thought-khoral-room-gateway/.ai/specs/decisions/003-slash-decisions-crud.md"
+printf 'The vendored `%s.room.v1` contract is pinned to its authoritative commit (recorded in\n' \
+  "$legacy_id" >"$fixture_root/thought-khoral-room-gateway/README.md"
+printf 'The gateway vendor prefix is `contracts/%s.room.v1/`.\n' "$legacy_id" \
+  >"$fixture_root/thought-khoral-room-gateway/task-9-gateway-fix-report.md"
+printf '  /`%s\\.room\\.v1` remains a retained compatibility wire value/,\n' "$legacy_id" \
+  >"$fixture_root/thought-khoral-room-gateway/contracts/$legacy_id.room.v1/test/validate-fixtures.mjs"
+printf "      contractVersion: '%s.room.v1',\n" "$legacy_id" \
+  >"$fixture_root/thought-khoral-platform/scripts/smoke-agent-gateway.mjs"
+printf '  contractVersion: "%s.room.v1",\n' "$legacy_id" \
+  >"$fixture_root/thought-khoral-contracts/test/validate-fixtures.mjs"
+if ! current_compatibility_output=$(bash "$validator" "$fixture_root" 2>&1); then
+  printf 'FAIL: current retained-wire and historical evidence must be allowed\n%s\n' \
+    "$current_compatibility_output" >&2
+  exit 1
+fi
+rm \
+  "$fixture_root/thought-khoral-contracts/fixtures/valid/chat-send-mentions.json" \
+  "$fixture_root/docs/superpowers/plans/2026-09-18-message-mentions.md" \
+  "$fixture_root/.ai/specs/decisions/006-agent-task-dispatch.md" \
+  "$fixture_root/thought-khoral-memory-engine/docs/poc-verification.md" \
+  "$fixture_root/thought-khoral-room-gateway/.ai/specs/decisions/003-slash-decisions-crud.md" \
+  "$fixture_root/thought-khoral-room-gateway/README.md" \
+  "$fixture_root/thought-khoral-room-gateway/task-9-gateway-fix-report.md" \
+  "$fixture_root/thought-khoral-room-gateway/contracts/$legacy_id.room.v1/test/validate-fixtures.mjs" \
+  "$fixture_root/thought-khoral-platform/scripts/smoke-agent-gateway.mjs" \
+  "$fixture_root/thought-khoral-contracts/test/validate-fixtures.mjs"
+
+mkdir -p \
+  "$fixture_root/thought-khoral-agent-gateway/contracts/$legacy_id.room.v1/schemas" \
+  "$fixture_root/thought-khoral-agent-gateway/tests" \
+  "$fixture_root/thought-khoral-room-gateway/tests" \
+  "$fixture_root/thought-khoral-workspace-ui/src/features/room"
+printf '  "contract": "%s.room.v1",\n' "$legacy_id" \
+  >"$fixture_root/thought-khoral-agent-gateway/contracts/lock.json"
+printf 'The contract remains `%s.room.v1`.\n' "$legacy_id" \
+  >"$fixture_root/thought-khoral-agent-gateway/contracts/README.md"
+printf '  "$id": "https://%s.redhat.com/schemas/%s.room.v1/envelope.schema.json",\n' \
+  "$legacy_id" "$legacy_id" \
+  >"$fixture_root/thought-khoral-agent-gateway/contracts/$legacy_id.room.v1/schemas/envelope.schema.json"
+printf 'root.join("%s.room.v1/schemas")\n"../contracts/%s.room.v1/schemas/envelope.schema.json"\n' \
+  "$legacy_id" "$legacy_id" \
+  >"$fixture_root/thought-khoral-agent-gateway/tests/dispatcher_test.rs"
+printf 'contract_version: "%s.room.v1".to_owned(),\n' "$legacy_id" \
+  >"$fixture_root/thought-khoral-room-gateway/tests/agent_service_test.rs"
+printf "contractVersion: '%s.room.v1', roomId: 'room-id',\n" "$legacy_id" \
+  >"$fixture_root/thought-khoral-workspace-ui/src/features/room/ChatStream.test.tsx"
+if ! feature_compatibility_output=$(bash "$validator" "$fixture_root" 2>&1); then
+  printf 'FAIL: feature-branch pinned wire evidence must be allowed\n%s\n' \
+    "$feature_compatibility_output" >&2
+  exit 1
+fi
+rm \
+  "$fixture_root/thought-khoral-agent-gateway/contracts/lock.json" \
+  "$fixture_root/thought-khoral-agent-gateway/contracts/README.md" \
+  "$fixture_root/thought-khoral-agent-gateway/contracts/$legacy_id.room.v1/schemas/envelope.schema.json" \
+  "$fixture_root/thought-khoral-agent-gateway/tests/dispatcher_test.rs" \
+  "$fixture_root/thought-khoral-room-gateway/tests/agent_service_test.rs" \
+  "$fixture_root/thought-khoral-workspace-ui/src/features/room/ChatStream.test.tsx"
+
 printf 'service=%s-room-gateway\n' "$legacy_id" >"$fixture_root/active.env"
 if active_output=$(bash "$validator" "$fixture_root" 2>&1); then
   printf 'FAIL: an active legacy machine identifier was accepted\n%s\n' "$active_output" >&2

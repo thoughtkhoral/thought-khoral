@@ -20,23 +20,25 @@ reviewed with the relevant specification update.
 | [`thought-khoral-workspace-ui`](https://github.com/thoughtkhoral/thought-khoral-workspace-ui) | Browser workspace, chat stream, memory drawer, and decision controls. | MVP / active |
 | [`thought-khoral-platform`](https://github.com/thoughtkhoral/thought-khoral-platform) | Local rootless deployment and Kubernetes-manifest validation. | MVP / active |
 
-## Deferred components
+## Incubating integrations
 
 | Repository | Purpose | Status |
 | --- | --- | --- |
-| [`thought-khoral-memory-engine`](https://github.com/thoughtkhoral/thought-khoral-memory-engine) | Room-scoped POC collective memory, provenance, and temporal lineage. | Specification-only / incubating |
-| [`thought-khoral-agent-gateway`](https://github.com/thoughtkhoral/thought-khoral-agent-gateway) | Mediated A2A/MCP integration and agent isolation. | Specification-only / incubating |
+| [`thought-khoral-memory-engine`](https://github.com/thoughtkhoral/thought-khoral-memory-engine) | Room-scoped ingestion and provenance proof; Cognee and durable storage deferred. | Active development / incubating |
+| [`thought-khoral-agent-gateway`](https://github.com/thoughtkhoral/thought-khoral-agent-gateway) | Mediated local deterministic A2A reference-agent integration; remote admission and MCP deferred. | Active development / incubating |
 
 ## Dependency direction
 
 The contracts repository is the compatibility authority. The gateway and UI
-consume released contract artifacts. The platform composes released gateway and
-UI artifacts for local integration. Deferred services may consume the contract
-and mediated gateway interfaces after their own specifications are approved.
+consume pinned contract artifacts. The platform composes checked-out or pinned
+room-gateway, UI, and agent-gateway builds for local integration, alongside the
+reference agent and Compose-only memory proof. The memory engine remains
+separately task-gated; neither
+incubating integration grants remote-agent or production authority.
 
 ## Where to contribute
 
 Start with an issue in the repository that owns the behavior. The organization
 [contribution guide](https://github.com/thoughtkhoral/.github/blob/main/CONTRIBUTING.md)
-describes issue triage, specification approval, implementation, and generated
+describes issue triage, specification approval, implementation, and supporting
 documentation updates.

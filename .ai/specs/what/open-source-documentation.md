@@ -31,11 +31,12 @@ issue-template, pull-request-template, and community-health defaults.
 2. The product home identifies every organization repository, its purpose,
    lifecycle status, entrypoint, and dependency direction.
 3. Status values use the controlled vocabulary defined by the project catalog.
-4. The contracts, gateway, UI, and platform repositories each provide a public
+4. All six component repositories provide a public
    README with prerequisites, verification commands, compatibility boundaries,
    and links to local specifications.
-5. Specification-only repositories state that no runtime implementation is
-   currently authorized.
+5. Incubating repositories identify which local proof is implemented and which
+   capabilities remain deferred; any future specification-only repository
+   states that no runtime implementation is authorized.
 6. Public contributors are directed to repository issue forms and the
    issue-first change-management decision.
 7. Documentation links are checked in CI and generated content is clearly

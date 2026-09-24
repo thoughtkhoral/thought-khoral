@@ -14,7 +14,7 @@ Before any code is created or modified, the applicable specification must be upd
 
 Every direct-child project is independently versioned and must contain its own `.ai/specs/what`, `.ai/specs/how`, and `.ai/specs/decisions` directories. Child specifications inherit root requirements unless an approved local decision explicitly records an override.
 
-The six independent direct-child repositories are `thought-khoral-contracts`, `thought-khoral-room-gateway`, `thought-khoral-workspace-ui`, `thought-khoral-memory-engine`, `thought-khoral-agent-gateway`, and `thought-khoral-platform`. The memory engine POC What and How for room-scoped Cognee memory are approved; it and the agent gateway remain specification-only until separately approved implementation plans authorize runtime code.
+The six independent direct-child repositories are `thought-khoral-contracts`, `thought-khoral-room-gateway`, `thought-khoral-workspace-ui`, `thought-khoral-memory-engine`, `thought-khoral-agent-gateway`, and `thought-khoral-platform`. The memory engine has an approved, task-gated room-scoped POC implementation plan and an incubating ingestion proof; Cognee integration remains deferred. The agent gateway has a local deterministic A2A reference implementation under Decision 007 and its implementation plan; remote admission and production deployment remain deferred. Neither project is specification-only.
 
 The identity migration preserves the `n2n.room.v1` wire value and excludes
 database identifiers, database contents, and persisted values.
@@ -42,6 +42,12 @@ compatibility statement. A compatibility token by itself is not sufficient.
 The scan fails closed when its scanner is unavailable or returns an error. It
 does not permit a whole project, source tree, documentation tree, validator
 script, or deployment path.
+
+The default scan checks the canonical workspace and direct-child repositories,
+but skips duplicate `.worktrees` snapshots and Git metadata. Before merging a
+linked feature worktree, scan its source root explicitly, for example:
+
+`bash scripts/verify-thoughtkhoral-identity.sh .worktrees/a2a-agent-gateway-foundation`
 
 ## Current root specifications
 

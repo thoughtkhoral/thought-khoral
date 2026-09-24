@@ -19,12 +19,13 @@ versioned repositories.
 The current MVP proves an authenticated governed room, real-time room events,
 known-participant `@` mentions with room-wide or targeted delivery,
 deterministic facilitator proposals, and human confirmation, editing, or
-dismissal of draft decisions. The memory engine and agent gateway are currently
-specification-only projects.
+dismissal of draft decisions. An incubating memory-engine proof and a locally
+controlled deterministic A2A reference integration are in development; neither
+is a production or open third-party agent service.
 
 ## Specification-first project
 
 Accepted issues become the input to maintainer-authored specification changes.
-Implementation and generated documentation follow the approved specifications;
+Implementation and supporting documentation follow the approved specifications;
 see the [specification index](.ai/specs/README.md) and the organization
 [contribution policy](https://github.com/thoughtkhoral/.github/blob/main/CONTRIBUTING.md).

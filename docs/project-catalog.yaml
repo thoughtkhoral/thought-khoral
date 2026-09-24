@@ -31,11 +31,11 @@ repositories:
     entrypoint: https://github.com/thoughtkhoral/thought-khoral-platform
   - name: thought-khoral-memory-engine
     purpose: Room-scoped POC collective memory, provenance, and temporal lineage.
-    status: specification-only
+    status: active-development
     maturity: incubating
     entrypoint: https://github.com/thoughtkhoral/thought-khoral-memory-engine
   - name: thought-khoral-agent-gateway
-    purpose: Future mediated boundary for external A2A/MCP agent runtimes.
-    status: specification-only
+    purpose: Mediated local A2A reference-agent foundation; remote admission and MCP deferred.
+    status: active-development
     maturity: incubating
     entrypoint: https://github.com/thoughtkhoral/thought-khoral-agent-gateway
