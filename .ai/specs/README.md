@@ -51,11 +51,14 @@ linked feature worktree, scan its source root explicitly, for example:
 
 ## Current root specifications
 
+- [Draft What: product vision and intent](what/product-vision.md)
+- [Draft What: usage scenarios](what/usage-scenarios.md)
 - [What: solution architecture](what/n2n-solution-architecture.md)
 - [What: ThoughtKhoral product identity](what/thoughtkhoral-product-identity.md)
 - [What: open-source organization documentation](what/open-source-documentation.md)
 - [What: room agent task participation](what/agent-task-participation.md)
 - [How: agent spec-authoring roadmap](how/spec-authoring-roadmap.md)
+- [Draft How: architecture evolution](how/architecture-evolution.md)
 - [How: ThoughtKhoral MVP foundation implementation plan](how/n2n-mvp-foundation-implementation-plan.md)
 - [How: GitHub organization publication](how/github-organization-publication.md)
 - [How: ThoughtKhoral identity migration](how/thoughtkhoral-identity-migration.md)

@@ -10,6 +10,9 @@ versioned repositories.
 
 ## Start here
 
+- [Project overview](docs/project-overview.md)
+- [Usage examples](docs/usage-examples.md)
+- [Architecture: current and possible future boundaries](docs/architecture.md)
 - [Repository map](docs/repository-map.md)
 - [Compatibility matrix](docs/compatibility-matrix.md)
 - [Capability roadmap](docs/roadmap.md)
