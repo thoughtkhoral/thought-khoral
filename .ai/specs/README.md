@@ -17,13 +17,12 @@ Every direct-child project is independently versioned and must contain its own `
 The seven independent direct-child repositories are `thought-khoral-contracts`, `thought-khoral-room-gateway`, `thought-khoral-workspace-ui`, `thought-khoral-memory-engine`, `thought-khoral-agent-gateway`, `thought-khoral-platform`, and `thought-khoral-codex-agent`. The memory engine has an approved, task-gated room-scoped POC implementation plan and an incubating ingestion proof; Cognee integration remains deferred. The agent gateway has a local deterministic A2A reference implementation under Decision 007 and its implementation plan; remote admission and production deployment remain deferred. Neither project is specification-only.
 
 The Codex agent has an approved repository foundation and milestone-one runtime
-specifications. Its provider-free Task 4 adapter and Task 5 durable worker/package
-are merged to its local `main`. The reviewed contracts, broker, mediator, UI, and
-platform candidates are also merged into their owning repositories' local `main`
-branches under explicit user authorization on 2026-10-07. The integration has not
-been pushed. Exact source and merge commits are listed in the coordinated plan.
-The v1.1 candidate remains unpublished; packaged-stack and separately authorized
-live verification remain pending.
+specifications. Its provider-free Task 4 adapter and Task 5 durable worker/package,
+along with reviewed contracts, broker, mediator, UI, and opt-in platform candidates,
+were pushed to their owning GitHub `main` branches under user authorization on
+2026-10-07. These are experimental POC commits; the v1.1 defaults artifact has no
+release or tag. Packaged-stack and separately authorized live verification remain
+pending. Exact pushed integration commits are listed in the coordinated plan.
 
 The identity migration preserves the `n2n.room.v1` wire value and excludes
 database identifiers, database contents, and persisted values.

@@ -26,7 +26,7 @@ reviewed with the relevant specification update.
 | --- | --- | --- | --- |
 | [`thought-khoral-memory-engine`](https://github.com/thoughtkhoral/thought-khoral-memory-engine) | Room-scoped ingestion and provenance proof; Cognee and durable storage deferred. | `active-development` | incubating |
 | [`thought-khoral-agent-gateway`](https://github.com/thoughtkhoral/thought-khoral-agent-gateway) | Mediated local deterministic A2A reference-agent integration; remote admission and MCP deferred. | `active-development` | incubating |
-| [`thought-khoral-codex-agent`](https://github.com/thoughtkhoral/thought-khoral-codex-agent) | Provider-free Codex worker and reviewed mediated room/UI candidates merged to owning repositories' local main branches; release and service gates remain. | `active-development` | incubating |
+| [`thought-khoral-codex-agent`](https://github.com/thoughtkhoral/thought-khoral-codex-agent) | Provider-free Codex POC and reviewed room-integration candidates pushed to the owning repositories' `main` branches; release, packaged-stack, and live-verification gates remain. | `active-development` | incubating |
 
 ## Dependency direction
 
@@ -41,13 +41,13 @@ remote-agent or production authority.
 
 The independently versioned Codex agent establishes an agent implementation
 boundary for future bring-your-own-agent support. Its foundation includes
-specification-driven documentation and Apache 2.0 licensing. The provider-free
-worker and reviewed contracts, broker, mediator, UI, and opt-in platform
-integration are merged into their owning repositories' local `main` branches.
-They have not been pushed. The v1.1 defaults candidate remains unpublished;
-packaged-stack and separately authorized live verification remain pending. See
-the [coordinated implementation plan](../.ai/specs/how/codex-room-conversations-implementation-plan.md)
-for exact source and merge commits.
+specification-driven documentation and Apache 2.0 licensing. The provider-free worker and reviewed contracts, broker, mediator, UI, and
+opt-in platform integration have been pushed to their owning repositories'
+GitHub `main` branches for POC development. This is experimental code, not a
+production-readiness claim: the v1.1 defaults artifact has no release or tag,
+and packaged-stack and separately authorized live verification remain pending.
+See the [coordinated implementation plan](../.ai/specs/how/codex-room-conversations-implementation-plan.md)
+for exact pushed integration commits and evidence.
 
 ## Where to contribute
 

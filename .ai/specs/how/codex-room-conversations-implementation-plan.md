@@ -751,3 +751,27 @@ One broker live-reference-agent test and one UI composed test remain intentional
 ignored in their ordinary suites. No remote branches were pushed. The v1.1
 contract remains an unreleased local candidate; packaged-stack validation,
 publication, service activation, and live-provider evidence remain pending.
+
+## Pushed POC integration checkpoint — 2026-10-07
+
+After explicit user authorization, the reviewed integration commits were pushed
+by fast-forward to GitHub `main` in the coordinating workspace and all six
+affected component repositories. The memory-engine repository was unchanged.
+
+| Repository | Pushed integration commit |
+| --- | --- |
+| `thought-khoral` | `2115f50e86a71d6e420f0cf53ce1e64822b8d2d6` |
+| `thought-khoral-contracts` | `b930b225ea7de12bb124f4cc4cdf7a87a27c7a50` |
+| `thought-khoral-room-gateway` | `d70d0e3d99de4bc1b1fb3ff74bb8c993457a12f2a` |
+| `thought-khoral-agent-gateway` | `efb29b3f9afa3ed51ddad409a66cd48cf8bf59dd` |
+| `thought-khoral-codex-agent` | `c2c0660948673b573de753ed66fa6a1fadda24e7` |
+| `thought-khoral-workspace-ui` | `0c8b599616a94d7dc73b335fb704407e15bbb9cc` |
+| `thought-khoral-platform` | `251f10f8ad975b6035640adc4a03bbdd34ef4e36` |
+
+These pushes publish experimental POC source on `main`; they do not publish a
+v1.1.0 contract release/tag, activate services, or establish production
+readiness. The published v1.0.0 contract artifact remains unchanged. The
+provider-free and synthetic evidence above remains the limit of demonstrated
+interoperability; packaged-stack validation and separately authorized live
+verification remain open. No live provider call or service activation was part
+of this publication checkpoint.

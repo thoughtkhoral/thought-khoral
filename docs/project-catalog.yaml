@@ -40,7 +40,7 @@ repositories:
     maturity: incubating
     entrypoint: https://github.com/thoughtkhoral/thought-khoral-agent-gateway
   - name: thought-khoral-codex-agent
-    purpose: Independent Codex agent/worker with reviewed room integration merged to local mains; publication, packaged activation, and live verification remain pending.
+    purpose: Independent experimental Codex POC with reviewed room integration pushed to owning GitHub main branches; release, packaged activation, and live verification remain pending.
     status: active-development
     maturity: incubating
     entrypoint: https://github.com/thoughtkhoral/thought-khoral-codex-agent
