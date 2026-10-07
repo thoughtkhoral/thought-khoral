@@ -12,6 +12,7 @@ projects=(
   thought-khoral-memory-engine
   thought-khoral-agent-gateway
   thought-khoral-platform
+  thought-khoral-codex-agent
 )
 legacy_projects=(
   n2n-contracts
@@ -23,14 +24,18 @@ legacy_projects=(
 )
 failed=0
 
-for index in "${!projects[@]}"; do
+for index in "${!legacy_projects[@]}"; do
   project=${projects[$index]}
   legacy_project=${legacy_projects[$index]}
 
   if [[ -d "$workspace_root/$legacy_project" ]]; then
     printf '%s: legacy project directory must be renamed to %s\n' "$legacy_project" "$project" >&2
     failed=1
-  elif [[ ! -d "$workspace_root/$project" ]]; then
+  fi
+done
+
+for project in "${projects[@]}"; do
+  if [[ ! -d "$workspace_root/$project" ]]; then
     printf '%s: missing ThoughtKhoral project directory\n' "$project" >&2
     failed=1
   fi

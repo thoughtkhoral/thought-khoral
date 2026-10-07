@@ -33,7 +33,7 @@ issue-template, pull-request-template, and community-health defaults.
 2. The product home identifies every organization repository, its purpose,
    lifecycle status, entrypoint, and dependency direction.
 3. Status values use the controlled vocabulary defined by the project catalog.
-4. All six component repositories provide a public
+4. All seven component repositories provide a public
    README with prerequisites, verification commands, compatibility boundaries,
    and links to local specifications.
 5. Incubating repositories identify which local proof is implemented and which
@@ -49,7 +49,8 @@ issue-template, pull-request-template, and community-health defaults.
 The repository-reference and specification-hierarchy scripts run locally. The
 organization repository now contains a CI workflow for relative Markdown links
 and links into the current `main` files of the seven ThoughtKhoral project
-repositories. It runs on organization changes, manual dispatch, and a weekly
+repositories, extended by the approved Codex agent foundation to include the
+independent Codex agent component and its documentation gate. It runs on organization changes, manual dispatch, and a weekly
 schedule. The first published push run
 [passed on 2026-09-24](https://github.com/thoughtkhoral/.github/actions/runs/36036411140).
 Third-party URLs and historical revision links are outside this check. The

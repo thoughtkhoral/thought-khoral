@@ -35,17 +35,29 @@ index. Cross-repository links use stable organization URLs. The product catalog
 is the source of truth for repository purpose and lifecycle status; the public
 map is a presentation of that metadata.
 
+The repository-reference gate resolves relative specification targets against
+each independent repository. It permits local docs-to-spec links within that
+repository and rejects targets escaping it; cross-repository links use public
+organization URLs. This path-resolution check requires Python 3.10 or later and
+has a behavioral regression test for both local and parent/sibling targets.
+
 Shared workflows may validate Markdown links, repository-catalog entries,
 required public files, and generated-content markers. They must not silently
 change specifications or implementation code.
 
 The organization repository's documentation workflow checks out the project
-home and six component repositories, tests its link checker, and validates
+home and seven component repositories, tests its link checker, and validates
 relative Markdown targets plus `github.com/thoughtkhoral` repository links to
 the current `main` file tree. It runs for organization push and pull requests,
 on manual dispatch, and weekly so links changed in other repositories are
 rechecked. Third-party URLs and links to historical non-`main` revisions are
 outside this deterministic workspace check.
+
+The Codex agent is an independently versioned repository with approved
+specifications, a provider-free worker runtime, Apache 2.0 licensing, and an
+independent documentation check. Its reviewed conversation integration is
+merged to local component mains but remains unpushed; release and activation
+gates remain separate.
 
 ## Verification
 

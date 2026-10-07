@@ -180,6 +180,26 @@ printf '%s\n' "$undocumented_output" | grep -Fq 'thought-khoral-contracts/README
 }
 rm "$fixture_root/thought-khoral-contracts/README.md"
 
+# Independent consumers retain only the two immutable ordinary-message fields.
+for consumer in thought-khoral-codex-agent thought-khoral-agent-gateway thought-khoral-workspace-ui; do
+consumer_directory="$fixture_root/$consumer/contracts/agent-conversation-v1/fixtures/valid"
+mkdir -p "$consumer_directory"
+for fixture in ordinary-human-message ordinary-codex-message; do
+  printf '  "contractVersion": "%s.room.v1",\n' "$legacy_id" >"$consumer_directory/$fixture.json"
+done
+if ! consumer_output=$(bash "$validator" "$fixture_root" 2>&1); then
+  printf 'FAIL: exact consumer compatibility fixtures must be allowed\n%s\n' "$consumer_output" >&2
+  exit 1
+fi
+printf '  "product": "%s",\n' "$legacy_id" >>"$consumer_directory/ordinary-human-message.json"
+if consumer_output=$(bash "$validator" "$fixture_root" 2>&1); then
+  printf 'FAIL: consumer fixture allowance accepted another legacy occurrence\n%s\n' "$consumer_output" >&2
+  exit 1
+fi
+rm "$consumer_directory/ordinary-human-message.json" "$consumer_directory/ordinary-codex-message.json"
+
+done
+
 review_failures=0
 
 assert_rejected_content() {
@@ -195,6 +215,60 @@ assert_rejected_content() {
   fi
   rm "$fixture_root/$path"
 }
+
+# Unreleased candidate pins preserve only these exact ordinary-event wire fields.
+for candidate_owner in thought-khoral-room-gateway thought-khoral-workspace-ui; do
+  candidate_directory="$candidate_owner/contracts/agent-conversation-v1.1-candidate/fixtures/agent-conversation-v1/valid"
+  for candidate_name in ordinary-human-message ordinary-codex-message; do
+    candidate_path="$candidate_directory/$candidate_name.json"
+    mkdir -p "$(dirname "$fixture_root/$candidate_path")"
+    printf '  "contractVersion": "%s.room.v1",\n' "$legacy_id" >"$fixture_root/$candidate_path"
+    if ! candidate_output=$(bash "$validator" "$fixture_root" 2>&1); then
+      printf 'FAIL: exact candidate wire fixture was rejected\n%s\n' "$candidate_output" >&2
+      exit 1
+    fi
+    rm "$fixture_root/$candidate_path"
+    assert_rejected_content 'a legacy product beside the candidate wire field' \
+      "$candidate_path" "  \"contractVersion\": \"$legacy_id.room.v1\", \"product\": \"$legacy_id\""
+  done
+  assert_rejected_content 'a candidate wire field in an unenumerated fixture' \
+    "$candidate_directory/unapproved-message.json" "  \"contractVersion\": \"$legacy_id.room.v1\","
+done
+
+# Task9 retains the existing authentication claim, never a legacy service name.
+task9_paths=(
+  thought-khoral-platform/scripts/smoke-codex-conversation.mjs
+  thought-khoral-platform/scripts/fixtures/codex-conversation/src/main.rs
+  thought-khoral-platform/scripts/tests/codex-conversation-smoke.test.mjs
+)
+task9_lines=(
+  "  if (!uuid(claims.sub) || claims.${legacy_id}_role !== 'human') throw new Error('live tokens must be distinct human room credentials');"
+  "    ${legacy_id}_role: Option<&'static str>,"
+  "  const token = sub => 'synthetic.' + Buffer.from(JSON.stringify({ sub, ${legacy_id}_role: 'human', padding: 'x'.repeat(100) })).toString('base64url') + '.synthetic';"
+)
+for i in 0 1 2; do
+  task9_path=${task9_paths[$i]}
+  mkdir -p "$(dirname "$fixture_root/$task9_path")"
+  printf '%s\n' "${task9_lines[$i]}" >"$fixture_root/$task9_path"
+  if ! task9_output=$(bash "$validator" "$fixture_root" 2>&1); then
+    printf 'FAIL: Task9 exact retained authentication claim was rejected\n%s\n' "$task9_output" >&2
+    exit 1
+  fi
+  rm "$fixture_root/$task9_path"
+  assert_rejected_content 'a legacy service beside the Task9 authentication claim' \
+    "$task9_path" "${task9_lines[$i]} // ${legacy_id}-gateway"
+  assert_rejected_content 'a legacy service in the Task9 verification file' \
+    "$task9_path" "service=${legacy_id}-gateway"
+done
+task9_path=${task9_paths[1]}
+printf '            %s_role: role,\n' "$legacy_id" >"$fixture_root/$task9_path"
+if ! task9_output=$(bash "$validator" "$fixture_root" 2>&1); then
+  printf 'FAIL: Task9 exact retained claim assignment was rejected\n%s\n' "$task9_output" >&2
+  exit 1
+fi
+rm "$fixture_root/$task9_path"
+assert_rejected_content 'a Task9 claim in an unenumerated file' \
+  thought-khoral-platform/scripts/unapproved-task9.mjs "${task9_lines[0]}"
 
 assert_rejected_content 'a runtime command beside documented wire compatibility' \
   .ai/specs/how/thoughtkhoral-identity-migration.md \
@@ -387,5 +461,51 @@ fi
 if (( review_failures > 0 )); then
   exit 1
 fi
+
+# Only the exact retained field in the two new profile projections is allowed.
+profile_fixtures="$fixture_root/thought-khoral-contracts/fixtures/agent-conversation-v1/valid"
+mkdir -p "$profile_fixtures"
+for name in ordinary-human-message ordinary-codex-message; do
+  printf '{\n  "contractVersion": "%s.room.v1",\n  "text": "Synthetic public message."\n}\n' "$legacy_id" >"$profile_fixtures/$name.json"
+done
+if ! profile_output=$(bash "$validator" "$fixture_root" 2>&1); then
+  printf 'FAIL: public conversation projections must retain the exact room wire field\n%s\n' "$profile_output" >&2
+  exit 1
+fi
+printf '{\n  "contractVersion": "%s.room.v1",\n  "text": "%s"\n}\n' "$legacy_id" "$legacy_id" >"$profile_fixtures/ordinary-codex-message.json"
+if bash "$validator" "$fixture_root" >/dev/null 2>&1; then
+  printf 'FAIL: compatibility projection admitted a legacy text identity\n' >&2
+  exit 1
+fi
+printf '{\n  "contractVersion": "%s.room.v1",\n  "text": "Synthetic public message."\n}\n' "$legacy_id" >"$profile_fixtures/ordinary-codex-message.json"
+printf '{\n  "contractVersion": "%s.room.v1",\n  "text": "Synthetic public message."\n}\n' "$legacy_id" >"$profile_fixtures/unapproved-message.json"
+if bash "$validator" "$fixture_root" >/dev/null 2>&1; then
+  printf 'FAIL: a neighboring unenumerated profile fixture was admitted\n' >&2
+  exit 1
+fi
+rm "$profile_fixtures/unapproved-message.json"
+
+# The consumer pin has the same two immutable projections, with no wildcard exception.
+gateway_profile="$fixture_root/thought-khoral-room-gateway/contracts/agent-conversation-v1/fixtures/valid"
+mkdir -p "$gateway_profile"
+for name in ordinary-human-message ordinary-codex-message; do
+  cp "$profile_fixtures/$name.json" "$gateway_profile/$name.json"
+done
+if ! consumer_output=$(bash "$validator" "$fixture_root" 2>&1); then
+  printf 'FAIL: the pinned consumer projections must retain their exact wire field\n%s\n' "$consumer_output" >&2
+  exit 1
+fi
+printf '{\n  "contractVersion": "%s.room.v1",\n  "text": "%s"\n}\n' "$legacy_id" "$legacy_id" >"$gateway_profile/ordinary-codex-message.json"
+if bash "$validator" "$fixture_root" >/dev/null 2>&1; then
+  printf 'FAIL: the consumer pin admitted a legacy text identity\n' >&2
+  exit 1
+fi
+cp "$profile_fixtures/ordinary-codex-message.json" "$gateway_profile/ordinary-codex-message.json"
+cp "$profile_fixtures/ordinary-codex-message.json" "$gateway_profile/unapproved-message.json"
+if bash "$validator" "$fixture_root" >/dev/null 2>&1; then
+  printf 'FAIL: an unenumerated consumer profile fixture was admitted\n' >&2
+  exit 1
+fi
+rm "$gateway_profile/unapproved-message.json"
 
 printf 'PASS: ThoughtKhoral stale-identity validator regression checks\n'

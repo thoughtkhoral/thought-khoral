@@ -385,6 +385,23 @@ is_contract_artifact_line() {
   esac
 
   case "$contract_path" in
+    thought-khoral-contracts/fixtures/agent-conversation-v1/valid/ordinary-human-message.json | \
+      thought-khoral-contracts/fixtures/agent-conversation-v1/valid/ordinary-codex-message.json | \
+      thought-khoral-room-gateway/contracts/agent-conversation-v1/fixtures/valid/ordinary-human-message.json | \
+      thought-khoral-room-gateway/contracts/agent-conversation-v1/fixtures/valid/ordinary-codex-message.json | \
+      thought-khoral-codex-agent/contracts/agent-conversation-v1/fixtures/valid/ordinary-human-message.json | \
+      thought-khoral-codex-agent/contracts/agent-conversation-v1/fixtures/valid/ordinary-codex-message.json | \
+      thought-khoral-agent-gateway/contracts/agent-conversation-v1/fixtures/valid/ordinary-human-message.json | \
+      thought-khoral-agent-gateway/contracts/agent-conversation-v1/fixtures/valid/ordinary-codex-message.json | \
+      thought-khoral-workspace-ui/contracts/agent-conversation-v1/fixtures/valid/ordinary-human-message.json | \
+      thought-khoral-workspace-ui/contracts/agent-conversation-v1/fixtures/valid/ordinary-codex-message.json | \
+      thought-khoral-room-gateway/contracts/agent-conversation-v1.1-candidate/fixtures/agent-conversation-v1/valid/ordinary-human-message.json | \
+      thought-khoral-room-gateway/contracts/agent-conversation-v1.1-candidate/fixtures/agent-conversation-v1/valid/ordinary-codex-message.json | \
+      thought-khoral-workspace-ui/contracts/agent-conversation-v1.1-candidate/fixtures/agent-conversation-v1/valid/ordinary-human-message.json | \
+      thought-khoral-workspace-ui/contracts/agent-conversation-v1.1-candidate/fixtures/agent-conversation-v1/valid/ordinary-codex-message.json)
+      allows_context "$content" '  "contractVersion": "__legacy__.room.v1",'
+      return
+      ;;
     thought-khoral-contracts/fixtures/invalid/bad-version.json)
       allows_context "$content" *'"contractVersion"'*':'*'"__legacy__.room.v2"'*
       return
@@ -674,6 +691,19 @@ is_platform_validator_line() {
           "  '    app.kubernetes.io/name: __legacy__-gateway-__legacy__.room.v1'"; then
         return 0
       fi
+      ;;
+    thought-khoral-platform/scripts/smoke-codex-conversation.mjs)
+      allows_context "$content" "  if (!uuid(claims.sub) || claims.__legacy___role !== 'human') throw new Error('live tokens must be distinct human room credentials');"
+      return
+      ;;
+    thought-khoral-platform/scripts/fixtures/codex-conversation/src/main.rs)
+      allows_context "$content" '    __legacy___role: Option<&'"'"'static str>,' \
+        '            __legacy___role: role,'
+      return
+      ;;
+    thought-khoral-platform/scripts/tests/codex-conversation-smoke.test.mjs)
+      allows_context "$content" "  const token = sub => 'synthetic.' + Buffer.from(JSON.stringify({ sub, __legacy___role: 'human', padding: 'x'.repeat(100) })).toString('base64url') + '.synthetic';"
+      return
       ;;
     thought-khoral-platform/scripts/smoke-agent-gateway.mjs)
       allows_context "$content" *"contractVersion: '$wire_value'"*

@@ -53,3 +53,33 @@ printf '%s\n' "$output" | grep -Fq 'contracts/lock.json' || {
 }
 
 printf 'repository-reference checks passed\n'
+
+# Local links are permitted; only escaping specification targets are rejected.
+checker=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/verify-repository-references.sh
+python3 - "$checker" <<'TEST_LINKS'
+from pathlib import Path
+import subprocess
+import sys
+import tempfile
+
+checker = Path(sys.argv[1])
+with tempfile.TemporaryDirectory(prefix="thought-khoral-reference-check-") as temporary:
+    root = Path(temporary)
+    child = root / "thought-khoral-codex-agent"
+    (child / "docs").mkdir(parents=True)
+    (child / ".ai/specs").mkdir(parents=True)
+    (root / ".ai/specs").mkdir(parents=True)
+    (root / "thought-khoral-contracts/.ai/specs").mkdir(parents=True)
+    doc = child / "docs/guide.md"
+    cases = [
+        ("[local](../.ai/specs/README.md)", True),
+        ("[root](../../.ai/specs/README.md)", False),
+        ("[sibling](../../thought-khoral-contracts/.ai/specs/README.md)", False),
+        ("[public](https://github.com/thoughtkhoral/thought-khoral/blob/main/.ai/specs/README.md)", True),
+    ]
+    for text, accepted in cases:
+        doc.write_text(text + "\n")
+        result = subprocess.run(["bash", str(checker), str(root)], capture_output=True, text=True)
+        assert (result.returncode == 0) == accepted, (text, result.stdout, result.stderr)
+print("repository-reference regression checks passed (4 cases)")
+TEST_LINKS

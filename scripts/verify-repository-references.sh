@@ -12,17 +12,38 @@ report() {
 }
 
 check_relative_root_links() {
-  local project=$1 matches
+  local project=$1
+  if ! python3 - "$scan_root/$project" <<'CHECK_LINKS'
+import os
+from pathlib import Path
+import re
+import sys
+from urllib.parse import unquote, urlsplit
 
-  matches=$(rg -n --hidden \
-    -g '!.git/**' \
-    -g '!node_modules/**' \
-    -g '!target/**' \
-    -g '!dist/**' \
-    '\]\((\.\./)+\.ai/' \
-    "$scan_root/$project" 2>/dev/null || true)
-  if [[ -n "$matches" ]]; then
-    report "cross-repository relative specification links remain under $project:\n$matches"
+project = Path(sys.argv[1]).resolve()
+failures = []
+for directory, directories, files in os.walk(project):
+    directories[:] = [name for name in directories if name not in
+                      {".git", "node_modules", "target", "dist", ".codex", "sessions"}]
+    for name in files:
+        if not name.endswith(".md"):
+            continue
+        path = Path(directory) / name
+        for number, line in enumerate(path.read_text().splitlines(), 1):
+            for raw in re.findall(r"\]\(([^)]+)\)", line):
+                target = raw.split(">", 1)[0][1:] if raw.startswith("<") else raw.split(" ", 1)[0]
+                parsed = urlsplit(target)
+                if parsed.scheme or target.startswith("//") or ".ai" not in parsed.path.split("/"):
+                    continue
+                destination = (path.parent / unquote(parsed.path)).resolve()
+                if not destination.is_relative_to(project):
+                    failures.append(f"{path}:{number}: {target}")
+for failure in failures:
+    print(f"cross-repository relative specification link: {failure}", file=sys.stderr)
+sys.exit(bool(failures))
+CHECK_LINKS
+  then
+    report "cross-repository relative specification links remain under $project"
   fi
 }
 
@@ -32,7 +53,8 @@ for project in \
   thought-khoral-workspace-ui \
   thought-khoral-platform \
   thought-khoral-memory-engine \
-  thought-khoral-agent-gateway; do
+  thought-khoral-agent-gateway \
+  thought-khoral-codex-agent; do
   [[ -d "$scan_root/$project" ]] || continue
   check_relative_root_links "$project"
 done
