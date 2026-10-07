@@ -11,6 +11,7 @@ versioned repositories.
 ## Start here
 
 - [Project overview](docs/project-overview.md)
+- [Codex room conversations: cross-project status](docs/codex-conversation-status.md)
 - [Usage examples](docs/usage-examples.md)
 - [Architecture: current and possible future boundaries](docs/architecture.md)
 - [Repository map](docs/repository-map.md)
