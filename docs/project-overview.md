@@ -19,6 +19,14 @@ Two deterministic agent paths demonstrate bounded participation:
 
 These agents do not run a model, use arbitrary tools, or gain authority to change decisions. The incubating memory engine separately proves private ingestion and room-scoped, in-memory provenance. It does not yet create memory-derived drafts or provide durable collective-memory storage. See the [usage examples](usage-examples.md), [architecture guide](architecture.md), and [roadmap](roadmap.md) for the boundaries of each capability.
 
+An additional, independent Codex conversation POC lets a human explicitly
+address Codex using authorized room-wide history, with shared continuation and
+fresh-session controls. The worker and composed provider-free checks are
+implemented, but packaged-stack and live-provider verification remain open.
+Codex does not connect to room storage or use the memory-engine proof. See the
+[cross-project Codex status guide](codex-conversation-status.md) for its current
+evidence and remaining gates.
+
 ## How the project is organized
 
 The product consists of independently versioned repositories. This repository owns cross-project specifications, governance, and the [repository map](repository-map.md). The contracts repository owns the room protocol; the workspace UI renders the experience; the room gateway authorizes and persists room events; the memory and agent gateways own their mediated integration proofs; and the platform composes the local environment. The [compatibility matrix](compatibility-matrix.md) records the current local interface boundary.
