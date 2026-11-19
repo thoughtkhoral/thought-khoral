@@ -5,6 +5,31 @@ This report records a fresh local investigation and approved follow-up against t
 It is execution evidence, not milestone acceptance. No push, release,
 or live provider call was made.
 
+## Latest checkpoint: Linux CI implemented locally
+
+The maintainer approved the [focused Linux acceptance How](../thought-khoral-codex-agent/.ai/specs/how/linux-worker-acceptance.md).
+Specifications were committed before code: worker `5fd884e`, root `8842802`.
+Worker implementation `9bcdbde` adds four native AMD64/ARM64 Rust 1.85.0/1.93.1
+test cells and two dependent final-lock production-package/CLI-capture jobs,
+with immutable test pins, bounded evidence and ownership-scoped cleanup.
+These commits are local and unpushed, alongside the earlier maintenance commits.
+
+All 15 offline helper tests pass. Independent review found an acceptance gap
+where infrastructure failures could count as tamper refusal; tests reproduced
+it before the fix. Exact worker refusal and completed non-OOM container state
+are now required, with no remaining material finding in final static review.
+Both actual Rust versions pass all 46 worker tests on macOS ARM64. The minimum
+suite's initial process-cleanup sandbox denial cleared on an authorized rerun.
+Fmt/clippy, pins/legal/catalog, documentation (120 local links), actionlint
+1.7.12 and root hierarchy/reference/identity checks pass.
+
+Next is authorized source publication and execution of all six native Linux
+jobs, followed by reviewed run URLs/artifact digests. **Native Linux acceptance
+remains open.** No local containers were started; no source was pushed or CI
+dispatched. Packaged-stack/browser/live, contract publication and release gates
+also remain open. Later sections retain the earlier investigation checkpoints;
+this section supersedes their historical next-action lists.
+
 The [specification audit](../.ai/specs/how/spec-driven-maintenance-audit-2026-11-19.md)
 maps every changed implementation/data file to its accepted amendment,
 existing What requirements, approval record and verification evidence. It
@@ -249,7 +274,7 @@ external lock exactly match their existing anchors. The passing composed state
 and per-case evidence were retained at
 `/var/folders/70/5kxy5kys3bj0252chp3ck8900000gn/T/Task9-codex-conversation-hTBtLx`.
 
-## Next actions
+## Initial investigation's next actions (historical)
 
 Approve the bounded worker evidence and platform build-input proposals before
 changing implementation, as required by the repository specification-first

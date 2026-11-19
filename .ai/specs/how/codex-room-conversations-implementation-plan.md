@@ -811,3 +811,27 @@ with bounded evidence and cleanup. This authorizes local workflow/helper changes
 offline verification, independent review and specification-first commits.
 Source pushing and published CI execution remain separate from local preparation;
 no Linux gate is closed by specification approval.
+
+### Local Linux automation implementation checkpoint
+
+The worker committed the approved How first as `5fd884e`, then implementation
+and attributed verification as `9bcdbde`. The workflow defines four native
+Linux/toolchain cells and two dependent final-lock package/capture jobs. The
+Docker-only helper admits clean source/native architecture, checks immutable
+images and exact CLI proofs, and retains bounded manifests with owned cleanup.
+Root approval was committed first as `8842802`.
+
+Fifteen offline helper tests pass, including infrastructure-versus-policy
+refusal and cleanup failure cases. Independent review's nonzero tamper-exit
+finding was fixed with exact policy diagnostics/exit and completed non-OOM
+container state; final static review has no remaining material finding.
+All 46 worker tests pass on actual Rust 1.85.0 and 1.93.1 on macOS ARM64;
+1.85 required an authorized rerun outside a process-cleanup sandbox denial.
+Fmt, denied-warning clippy, pins/legal/catalog/docs, actionlint 1.7.12 and root
+hierarchy/reference/identity gates pass. These are local host/offline results.
+
+No actual native Linux workflow jobs were run. Source publication and published
+CI execution remain outstanding, along with final-lock native package evidence,
+Task 9 packaged-stack/browser/live verification and contract/release gates.
+Local containers stayed stopped; no push, dispatch, provider call or release
+was made. See the owning How and derived resumption report for full attribution.
