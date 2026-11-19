@@ -34,9 +34,10 @@ integration are also in development.
 
 A separate, experimental Codex conversation POC spans the contracts, room
 gateway, agent gateway, worker, UI, and opt-in platform packaging. Its
-provider-free worker and synthetic integration evidence are recorded, but
-packaged-stack acceptance and separately authorized live-provider verification
-remain open. See the [cross-project status guide](docs/codex-conversation-status.md).
+provider-free worker, synthetic integration and native AMD64/ARM64 worker
+runtime/package-policy evidence are recorded. Full Codex packaged room-stack,
+rendered-browser and separately authorized live-provider verification remain
+open. See the [cross-project status guide](docs/codex-conversation-status.md).
 
 ## Specification-first project
 

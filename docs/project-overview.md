@@ -22,7 +22,10 @@ These agents do not run a model, use arbitrary tools, or gain authority to chang
 An additional, independent Codex conversation POC lets a human explicitly
 address Codex using authorized room-wide history, with shared continuation and
 fresh-session controls. The worker and composed provider-free checks are
-implemented, but packaged-stack and live-provider verification remain open.
+implemented. Native worker tests passed on AMD64/ARM64 with Rust 1.85.0/1.93.1;
+both package-policy captures passed using the pinned Rust 1.93.1 builder. Full
+Codex room-stack, rendered-browser and live-provider
+verification remain open.
 Codex does not connect to room storage or use the memory-engine proof. See the
 [cross-project Codex status guide](codex-conversation-status.md) for its current
 evidence and remaining gates.

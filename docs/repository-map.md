@@ -46,6 +46,10 @@ opt-in platform integration have been pushed to their owning repositories'
 GitHub `main` branches for POC development. This is experimental code, not a
 production-readiness claim: the v1.1 defaults artifact has no release or tag,
 and packaged-stack and separately authorized live verification remain pending.
+The 2026-11-19 maintenance changes are published. Native AMD64/ARM64 worker tests
+passed on Rust 1.85.0/1.93.1; both Rust 1.93.1-built package-policy captures passed.
+This evidence leaves lifecycle/maturity values unchanged and does not close the
+full Codex room-stack/browser/live gates.
 See the [coordinated implementation plan](../.ai/specs/how/codex-room-conversations-implementation-plan.md)
 for exact pushed integration commits and evidence.
 

@@ -1,6 +1,6 @@
 # ThoughtKhoral compatibility matrix
 
-This matrix records the local interface boundaries as of 2026-10-07. The
+This matrix records the local interface boundaries as of 2026-11-19. The
 [contracts repository](https://github.com/thoughtkhoral/thought-khoral-contracts)
 owns the normative room schemas and the separate Codex conversation profile.
 Component releases and their contract locks remain the authority for a
@@ -12,7 +12,7 @@ particular build.
 | Room gateway | Retains the published room contract and pins conversation profile v1.0.0. The unreleased v1.1 defaults candidate is pinned separately for provider-free development. | Authenticated room WebSocket, task APIs, and separate /api/agent-conversations/v1 routes; room authority and persistence stay here. |
 | Workspace UI | Retains the room v1 interface and vendors the published conversation profile; its defaults candidate pin remains explicitly unreleased. | Uses OIDC and WebSocket adapters; Codex controls require explicit host admission and do not own authorization. |
 | Agent gateway | Retains its room-task contract pin and consumes published conversation profile v1.0.0. | Mediates the pinned reference agent and opt-in Codex worker; it has no direct room database access. |
-| Codex agent | Pins the published conversation profile and uses a private authenticated worker transport. | Owns the provider-facing app-server adapter and native thread/session state; it does not connect to room storage. |
+| Codex agent | Pins the published conversation profile and uses a private authenticated worker transport. | Owns the provider-facing adapter/native state. Native Linux AMD64/ARM64 tests passed on Rust 1.85.0/1.93.1 and package captures on the pinned Rust 1.93.1 builder; no room database access. |
 | Memory engine | Uses private authenticated ingestion rather than a browser room-protocol implementation. | Receives committed room events through the gateway; it remains separate from Codex milestone one. |
 | Platform | Composes the pinned room, agent, and browser interfaces; Codex packaging is opt-in. | Local rootless Compose and Kubernetes-manifest validation; no production deployment claim. |
 
@@ -38,3 +38,7 @@ for exact gates and evidence.
 Remote third-party A2A/MCP admission, Cognee-backed memory, durable memory
 storage, and production deployment have no compatibility claim in this matrix.
 Live-provider and packaged-stack verification for the Codex POC remain open.
+
+Worker-native evidence is retained under its approved [Linux acceptance How](https://github.com/thoughtkhoral/thought-khoral-codex-agent/blob/main/.ai/specs/how/linux-worker-acceptance.md)
+and the [coordinated plan](../.ai/specs/how/codex-room-conversations-implementation-plan.md).
+It does not publish a contract, image or interoperable full-stack release.

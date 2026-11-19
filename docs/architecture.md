@@ -1,6 +1,6 @@
 # ThoughtKhoral architecture
 
-> **Documentation draft.** The current view summarizes the [approved root specifications](../.ai/specs/README.md), [component map](repository-map.md), and [compatibility matrix](compatibility-matrix.md) for the local development stack documented on 2026-09-24. Possible future boundaries come from the draft [architecture evolution brief](../.ai/specs/how/architecture-evolution.md); they are not approved production designs.
+> **Documentation draft.** The current view summarizes the [approved root specifications](../.ai/specs/README.md), [component map](repository-map.md), and [compatibility matrix](compatibility-matrix.md), refreshed on 2026-11-19. Possible future boundaries come from the draft [architecture evolution brief](../.ai/specs/how/architecture-evolution.md); they are not approved production designs.
 
 ## Current local system
 
@@ -30,6 +30,22 @@ The **memory engine** currently receives committed events through private mediat
 
 This flow is governed by [decision 007](../.ai/specs/decisions/007-a2a-agent-gateway-foundation.md). The earlier `@action-items` mention path runs inside the room gateway and is separate from this A2A path.
 
+## Opt-in Codex conversation POC
+
+The separate [approved Codex design](../.ai/specs/how/codex-chat-agent.md) adds
+an explicitly addressed, independently operated worker behind the agent gateway.
+The room gateway retains authorization and transcript storage; the worker owns
+private native sessions/receipts and operator-supplied provider credentials. It
+receives a room-wide authorized baseline followed by revision-bound deltas and
+never reads room storage directly. The deterministic reference agent remains a
+separate path. Codex does not use the memory-engine proof or a mounted repository.
+
+Native worker runtime/package-policy acceptance passed on AMD64 and ARM64 at
+Rust 1.85.0/1.93.1 and the reviewed final lock. That synthetic evidence does not
+validate the full opt-in room stack, rendered browser, provider account access,
+live egress or production operation. Those gates and the unreleased v1.1
+conversation candidate are recorded in the [status guide](codex-conversation-status.md).
+
 ## Possible future boundaries
 
 The table describes design work under consideration, not a deployment plan or schedule. The [roadmap](roadmap.md) tracks the next approval gate for each capability.
@@ -38,7 +54,7 @@ The table describes design work under consideration, not a deployment plan or sc
 | --- | --- | --- |
 | Room memory | Cognee-backed extraction and durable, room-partitioned facts and lineage; a later memory implementation could submit draft candidates through the gateway-owned facilitator port. | Compatibility and license evidence, storage and migration design, provenance and failure behavior, and a facilitator activation plan. Human approval remains required for active decisions. |
 | External agents and tools | Separately admitted remote A2A agents and possible MCP integration through the agent gateway. | Admission and trust, identity, isolation, tool policy, egress, contracts, and recovery. The pinned local reference agent does not establish open admission. |
-| Agent context | Compact, delta, or retrieval-based packets in place of the current full authorized-history packet. | Revision, cache, revocation, expiry, citation, and compatibility semantics that preserve authorization and reconstructable provenance. |
+| General agent context | Compact or retrieval-based packets beyond the default reference agent's full authorized-history packet. Codex already has its separately approved baseline/delta conversation profile. | Revision, cache, revocation, expiry, citation, and compatibility semantics that preserve authorization and reconstructable provenance. |
 | Production platform | An OpenShift deployment with production identity, networking, storage, observability, and recovery. | Workload identity, mutual TLS, capacity, failure targets, storage, and operational validation. Rootless Compose and Kubernetes manifest validation are local development evidence only. |
 | Project and topic structure | Parent project or topic scope around rooms. | User need, identifiers, migrations, authorization inheritance, memory partitioning, and replay rules. The current memory POC treats a room as one conversation. |
 
