@@ -800,3 +800,14 @@ and uncommitted; no push, release, provider activation or production acceptance
 is asserted. Test
 containers were removed at the maintainer's request without deleting the
 external database volume.
+
+## Approved next Linux acceptance work — 2026-11-19
+
+The maintainer approved the concrete next verification How on 2026-11-19.
+The owning worker specification is `.ai/specs/how/linux-worker-acceptance.md`, linked
+from that repository's index and main runtime How. It specifies four native
+AMD64/ARM64 Rust 1.85.0/1.93.1 cells and two final-lock package/capture jobs,
+with bounded evidence and cleanup. This authorizes local workflow/helper changes,
+offline verification, independent review and specification-first commits.
+Source pushing and published CI execution remain separate from local preparation;
+no Linux gate is closed by specification approval.
