@@ -53,12 +53,13 @@ on manual dispatch, and weekly so links changed in other repositories are
 rechecked. Third-party URLs and links to historical non-`main` revisions are
 outside this deterministic workspace check.
 
-Implementation attribution — 2026-11-19: the desired seven-component coverage
-includes Codex. The organization checkout contains an existing unpublished
-extension in its workflow/checker (plus its README count); the published baseline
-still lists the six earlier components. The Markdown refresh preserves those
-pre-existing edits and does not claim them published. Local all-component link
-checks and the worker's independent published docs gate are separately attributed.
+Implementation attribution — 2026-11-19: the seven-component coverage includes
+Codex. The original published checker lists six and reproduces 55 unknown-Codex
+failures against the current docs. The existing workflow/checker extension
+(plus its README count) is reviewed and adopted unchanged to satisfy the already
+approved coverage. Its 995-link validation and four checker tests pass. Commit
+the source checkpoint before publishing that extension; no runtime, artifact
+generation or documentation-rewriting authority is added.
 
 The Codex agent is an independently versioned repository with approved
 specifications, a provider-free worker runtime, Apache 2.0 licensing, and an

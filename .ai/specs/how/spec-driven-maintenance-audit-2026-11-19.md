@@ -149,8 +149,9 @@ generate prose or rewrite its sources. This refresh follows that model. No new
 generator, runtime behavior, contract or product requirement is introduced.
 
 Scope: root, all seven independent component repositories and the organization
-profile. The organization repository's three pre-existing workflow/checker/README
-edits are preserved and excluded from this Markdown refresh's commits. Read the owning
+profile. The organization repository's three existing workflow/checker/README
+edits were initially preserved separately, then reviewed and adopted unchanged
+after reproducing the coverage failure described below. Read the owning
 specifications and accepted checkpoints first, reconcile factual status/index
 wording, then refresh their derived READMEs, status, architecture, runtime and
 operator guides where stale. Preserve dated verification snapshots, original
@@ -186,7 +187,7 @@ repositories and any genuine unresolved requirement/implementation mismatch.
 | Workspace UI | Conversation checkpoints and already-approved `session.authenticate` host contract | README and stale transport implementation prose |
 | Platform | Accepted build-input and opt-in service Hows/index | README, operator guide and verification procedure with exact historical pins preserved |
 | Memory engine | Approved plan/current Decision 008 baseline and explicitly unclosed implementation-limit checkpoint | README, mediated-ingestion guide and historical POC verification record |
-| Organization profile | Root documentation What/publication How and current accepted evidence | `profile/README.md`; three pre-existing non-task edits excluded |
+| Organization profile/validation | Root documentation What/publication How and current accepted evidence | `profile/README.md`, README count and existing seventh-component checkout/checker extension |
 
 The memory checkpoint explicitly retains unclosed proof requirements: fixture-only
 extraction, duplicate/error-envelope behavior, receipt-body checking and bounded
@@ -200,3 +201,19 @@ pins and 478 retained legal files passed. Hierarchy/reference/identity and
 whitespace gates passed. The package builder remains Rust 1.93.1; Rust 1.85.0
 coverage is the native runtime matrix, not a claimed 1.85-built release image.
 Independent documentation review's compiler-scope wording issue was corrected.
+
+### Required published documentation coverage correction
+
+Running the original organization checker from published HEAD against the current
+documentation reproduced 55 `unknown or absent organization repository` failures,
+all caused by its missing Codex catalog/checkout entry. The already-existing
+three-file extension adds that repository to the workflow clone list and checker
+`COMPONENTS`, and changes the README count to seven. With it, the exact same
+995-link set and all four existing checker tests pass. This is the existing
+approved all-seven documentation requirement, not a new product capability.
+
+The extension is included unchanged after this source checkpoint, independent
+review and the failing/passing comparison. Other source/locks/schema/proof/legal
+files remain unchanged; local containers stay stopped. The initial plan to leave
+the extension unpublished is superseded because it would leave the published
+documentation gate unable to validate current cross-project links.
