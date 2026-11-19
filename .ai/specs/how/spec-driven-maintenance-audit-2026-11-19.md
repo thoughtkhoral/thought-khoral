@@ -194,7 +194,7 @@ extraction, duplicate/error-envelope behavior, receipt-body checking and bounded
 failure handling. Documentation describes these limits without waiving approved
 requirements. No draft capability was promoted or deferred runtime implemented.
 
-Fresh local validation: the organization checker extension resolved 995 links
+Initial local validation: the organization checker extension resolved 995 links
 across 170 Markdown files with zero broken links; all four checker tests passed.
 The independent worker checker resolved 145 local links, and all 144 artifact
 pins and 478 retained legal files passed. Hierarchy/reference/identity and
@@ -217,3 +217,24 @@ review and the failing/passing comparison. Other source/locks/schema/proof/legal
 files remain unchanged; local containers stay stopped. The initial plan to leave
 the extension unpublished is superseded because it would leave the published
 documentation gate unable to validate current cross-project links.
+
+### Publication and final documentation verification
+
+The specification-first commits and derived refresh are published at root
+`cbb5214`, contracts `205b453`, broker `248f059`, UI `2cfb8c1`, memory `7b46518`,
+mediator `48a72bc`, platform `fbd2d52`, worker `3f0318b` and organization
+`fabe4e3`. The [published organization documentation run](https://github.com/thoughtkhoral/.github/actions/runs/44604159724)
+passed with all seven components present. The worker's documentation/specification
+run `44604155429` also passed at the documentation-only source revision.
+
+The scope includes 53 Markdown files and the two existing documentation-coverage
+automation files. Existing runtime source, schemas, locks, proof JSON and legal
+bytes are unchanged. The contracts checkout's pre-existing `.DS_Store` remains
+untracked; it is not part of a task commit. No local test containers, provider
+calls or release operations were used for the refresh.
+
+After adding the durable published-run link, the final local check resolved
+996 Markdown links across the same 170 files with zero broken links. Root
+hierarchy/reference/identity and whitespace gates passed again. The worker's
+46-test Rust suite, fmt and denied-warning clippy also passed during this
+documentation task; this is separately attributed host verification.

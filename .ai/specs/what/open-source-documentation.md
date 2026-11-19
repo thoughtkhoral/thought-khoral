@@ -71,6 +71,12 @@ unchanged for publication under the existing seven-component requirement so the
 published gate can validate current docs. Publication completion is verified
 separately; the worker retains its independent documentation gate as well.
 
+Publication verified: organization `fabe4e3` publishes that exact extension and
+profile refresh. Run `44604159724` passed against the project home and all seven
+component repositories. The worker documentation/specification run `44604155429`
+also passed at documentation revision `3f0318b`. The audit retains the run link
+and distinguishes documentation validation from runtime acceptance.
+
 ## Explicit exclusions
 
 This specification does not create a separate documentation website, replace

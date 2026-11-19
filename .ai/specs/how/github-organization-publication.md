@@ -61,6 +61,11 @@ approved coverage. Its 995-link validation and four checker tests pass. Commit
 the source checkpoint before publishing that extension; no runtime, artifact
 generation or documentation-rewriting authority is added.
 
+Publication is now verified at organization `fabe4e3`: documentation run
+`44604159724` passed with the seventh component checked out and recognized.
+The previously recorded six-component failure is historical, not current
+published coverage. Product/runtime release gates are unchanged.
+
 The Codex agent is an independently versioned repository with approved
 specifications, a provider-free worker runtime, Apache 2.0 licensing, and an
 independent documentation check. Its reviewed conversation integration is
