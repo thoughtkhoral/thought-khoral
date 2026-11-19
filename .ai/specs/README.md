@@ -76,6 +76,7 @@ linked feature worktree, scan its source root explicitly, for example:
 
 ## Current root specifications
 
+- [Maintenance specification audit and acceptance traceability — 2026-11-19](how/spec-driven-maintenance-audit-2026-11-19.md)
 - [Draft What: product vision and intent](what/product-vision.md)
 - [Draft What: usage scenarios](what/usage-scenarios.md)
 - [What: solution architecture](what/n2n-solution-architecture.md)

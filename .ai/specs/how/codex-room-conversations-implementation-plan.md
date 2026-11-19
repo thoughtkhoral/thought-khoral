@@ -775,3 +775,28 @@ provider-free and synthetic evidence above remains the limit of demonstrated
 interoperability; packaged-stack validation and separately authorized live
 verification remain open. No live provider call or service activation was part
 of this publication checkpoint.
+
+## Approved maintenance and spec audit checkpoint — 2026-11-19
+
+The maintainer separately approved the worker architecture-evidence correction,
+the platform's existing build-input correction, and the exact Rust 1.85
+transitive-lock/legal correction before their implementations. They continue
+the existing accepted worker/platform contributions and preserve the approved
+What behavior, decisions and wire contracts. The
+[maintenance specification audit](spec-driven-maintenance-audit-2026-11-19.md)
+records the approval sequence, owning accepted How files, complete changed-file
+coverage, evidence and the later discovery-link repairs.
+
+Final-lock worker tests passed on Rust 1.85.0 and 1.93.1 on macOS ARM64.
+Earlier local ARM64/emulated x86_64 package checks, pinned synthetic composition,
+and default deterministic-stack smoke also passed within their recorded scope.
+Those images predate the Rust lock correction. Final-lock Linux image and
+minimum-version execution, native x86_64 CI, rendered-browser and live-provider
+evidence remain open. The default-stack pass does not close Codex Task 9 or
+whole-milestone acceptance; the v1.1 contract is still unreleased.
+
+At this maintenance/audit checkpoint the source/specification edits were local
+and uncommitted; no push, release, provider activation or production acceptance
+is asserted. Test
+containers were removed at the maintainer's request without deleting the
+external database volume.
