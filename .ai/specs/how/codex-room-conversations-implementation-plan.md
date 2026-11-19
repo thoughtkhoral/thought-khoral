@@ -835,3 +835,34 @@ CI execution remain outstanding, along with final-lock native package evidence,
 Task 9 packaged-stack/browser/live verification and contract/release gates.
 Local containers stayed stopped; no push, dispatch, provider call or release
 was made. See the owning How and derived resumption report for full attribution.
+
+### Published native Linux acceptance checkpoint
+
+The maintainer subsequently authorized publication and CI execution with
+“proceed”. Root `0f5ff63`, platform `74ac640` and worker `9bcdbde` were pushed
+after their descriptive specification-first commits. The worker's
+[native run 44599536091, attempt 1](https://github.com/thoughtkhoral/thought-khoral-codex-agent/actions/runs/44599536091)
+passed all six jobs at full source `9bcdbde61b59b99ad1e47d5fbb8644adf1e77c18`
+and unchanged final lock
+`1c70ff10992b000c93232155ca0032cab9b7a6c27a13ca4ac46eba862e864a34`.
+The independent documentation workflow also passed.
+
+All four native AMD64/ARM64 Rust 1.85.0/1.93.1 cells passed 46 tests each.
+Both unchanged-Containerfile builds passed actual package admission, all three
+tamper refusals, exact extracted CLI validation and byte-identical native
+44-case/eight-model/resume/six-refusal policy recaptures. Cleanup reports zero
+owned containers remaining. Downloaded manifests, summaries and proof bytes
+were independently checked against that exact clean source and lock.
+
+Worker evidence commit `8d233e4` updates its index/main How/amendment and retains
+six manifests, run/job URLs, artifact IDs/archive digests/expiry, source/input
+hashes, immutable worker/capture image IDs, proof identities and cleanup. The
+owning How is `.ai/specs/how/linux-worker-acceptance.md`; its durable record is
+`docs/evidence/linux-worker-acceptance-44599536091.json`. GitHub artifact expiry
+does not erase the retained evidence and separately committed proof files.
+
+The final-lock native Linux build/runtime/package-policy gates are closed for
+that tested revision. Task 9 packaged room-stack, rendered-browser, live-provider,
+contract publication, image publication and production/release acceptance remain
+open. Local containers stayed stopped and no provider inference was performed.
+Earlier local/unpublished/open-native statements above are historical checkpoints.

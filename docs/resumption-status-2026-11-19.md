@@ -2,10 +2,38 @@
 
 This report records a fresh local investigation and approved follow-up against the
 [approved conversation plan](../.ai/specs/how/codex-room-conversations-implementation-plan.md).
-It is execution evidence, not milestone acceptance. No push, release,
+It is execution evidence, not whole-milestone acceptance. The maintainer later
+authorized source publication and native Linux CI, recorded below. No release
 or live provider call was made.
 
-## Latest checkpoint: Linux CI implemented locally
+## Latest checkpoint: published native Linux acceptance
+
+All previously prepared root, platform and worker maintenance commits were
+pushed after their specification-first commits. The worker's
+[native Linux run 44599536091](https://github.com/thoughtkhoral/thought-khoral-codex-agent/actions/runs/44599536091)
+passed all six jobs at `9bcdbde61b59b99ad1e47d5fbb8644adf1e77c18` and the final
+reviewed lock. Documentation CI passed too.
+
+The four native AMD64/ARM64 Rust 1.85.0/1.93.1 cells passed 46 tests each.
+Both actual production-package builds passed admission/tamper probes, exact
+CLI extraction and native synthetic capture: 44 cases across eight models,
+resume and six unsolicited-tool refusals per architecture. Downloaded proofs
+match committed target bytes; both cleanup reports show zero owned containers.
+
+Worker commit `8d233e4` records acceptance in its specifications and
+[retained evidence](../thought-khoral-codex-agent/docs/evidence/linux-worker-acceptance-44599536091.json),
+including six manifests, artifact IDs/archive digests, source/input hashes,
+immutable images and exact proof identities. The [owning How](../thought-khoral-codex-agent/.ai/specs/how/linux-worker-acceptance.md)
+explains the evidence and scope. Acceptance applies to the exact tested source;
+the later record commit changes specifications/evidence only.
+
+Next is Task 9 packaged room-stack and rendered-browser verification, followed
+by the separately configured and authorized live-provider run. Contract/image
+publication and release/production gates remain open. Local containers stayed
+stopped, with no provider inference. This checkpoint supersedes the older
+local-only/open-native status below.
+
+## Earlier checkpoint: Linux CI implemented locally
 
 The maintainer approved the [focused Linux acceptance How](../thought-khoral-codex-agent/.ai/specs/how/linux-worker-acceptance.md).
 Specifications were committed before code: worker `5fd884e`, root `8842802`.
@@ -36,7 +64,7 @@ existing What requirements, approval record and verification evidence. It
 also records repaired root/platform discovery links and the limits of the
 automated hierarchy check.
 
-## Local commit handoff
+## Historical local commit handoff
 
 The maintainer requested local commits with descriptive comments before any
 push. Governing specifications were committed before implementation in each
