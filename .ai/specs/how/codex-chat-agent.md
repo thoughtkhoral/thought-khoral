@@ -7,7 +7,16 @@ including this milestone-one specification and the coordinated implementation
 plan. Accepted contribution: [issue 1](https://github.com/thoughtkhoral/thought-khoral-codex-agent/issues/1).
 Implementation follows the [plan](https://github.com/thoughtkhoral/thought-khoral/blob/main/.ai/specs/how/codex-room-conversations-implementation-plan.md) and its dependency gates.
 Release/tag publication, provider use and service activation require their
-separate later authorization. No completed runtime or live verification is claimed.
+separate authorization. The provider-free runtime/integration and native Linux
+worker acceptance are recorded in dated checkpoints and the coordinated plan.
+Full Codex packaged-stack/browser/live and production acceptance remain open.
+
+Current checkpoint — 2026-11-19: worker-native acceptance passed on AMD64 and
+ARM64, Rust 1.85.0 and 1.93.1, with final-lock production-package admission and
+exact synthetic CLI-policy recaptures. See the approved [worker acceptance How](https://github.com/thoughtkhoral/thought-khoral-codex-agent/blob/main/.ai/specs/how/linux-worker-acceptance.md)
+and the [latest coordinated checkpoint](codex-room-conversations-implementation-plan.md).
+Earlier dated local/unpublished or open-portability statements below are historical;
+they do not supersede the later approvals and attributed evidence.
 
 ## Data flow and boundaries
 

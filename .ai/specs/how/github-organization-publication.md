@@ -45,19 +45,29 @@ Shared workflows may validate Markdown links, repository-catalog entries,
 required public files, and generated-content markers. They must not silently
 change specifications or implementation code.
 
-The organization repository's documentation workflow checks out the project
-home and seven component repositories, tests its link checker, and validates
+The approved organization documentation coverage checks out the project
+home and all seven component repositories, tests its link checker, and validates
 relative Markdown targets plus `github.com/thoughtkhoral` repository links to
 the current `main` file tree. It runs for organization push and pull requests,
 on manual dispatch, and weekly so links changed in other repositories are
 rechecked. Third-party URLs and links to historical non-`main` revisions are
 outside this deterministic workspace check.
 
+Implementation attribution — 2026-11-19: the desired seven-component coverage
+includes Codex. The organization checkout contains an existing unpublished
+extension in its workflow/checker (plus its README count); the published baseline
+still lists the six earlier components. The Markdown refresh preserves those
+pre-existing edits and does not claim them published. Local all-component link
+checks and the worker's independent published docs gate are separately attributed.
+
 The Codex agent is an independently versioned repository with approved
 specifications, a provider-free worker runtime, Apache 2.0 licensing, and an
 independent documentation check. Its reviewed conversation integration is
-merged to local component mains but remains unpushed; release and activation
-gates remain separate.
+published to component `main` branches. The 2026-11-19 worker/platform maintenance
+is also published; native Linux worker runtime/package-policy acceptance is
+recorded in the [coordinated plan](codex-room-conversations-implementation-plan.md).
+The v1.1 defaults artifact, full Codex packaged-stack/browser/live verification,
+image publication and production/release gates remain separate.
 
 ## Verification
 

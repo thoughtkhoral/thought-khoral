@@ -8,6 +8,12 @@ Governing sources: [specification-first rule](../README.md),
 [Decision 004: contribution governance](../decisions/004-contribution-and-change-management.md),
 and the [coordinated conversation plan](codex-room-conversations-implementation-plan.md).
 
+Current reading: the original maintenance audit below is a historical checkpoint
+from before publication/native CI. The coordinated plan's later published-native
+checkpoint supersedes its local-only/open-native statements. The documentation
+refresh recorded at the end reconciles current pages with approved specifications
+without changing runtime requirements or promoting deferred work.
+
 ## Approval and ordering
 
 | Amendment | Maintainer approval in this conversation | Implementation ordering |
@@ -131,3 +137,66 @@ rerun for these documentation-only repairs.
 
 The exact file-to-authority check output is retained locally at
 `/private/tmp/thought-khoral-resume-2026-11-19/spec-audit-coverage.json`.
+
+## Specification-to-document refresh — 2026-11-19
+
+The maintainer requested that all documentation/specifications be current and
+documentation be regenerated from specs. Under the approved
+[documentation What](../what/open-source-documentation.md) and
+[publication How](github-organization-publication.md), public Markdown is
+maintained from approved source specifications; CI validates it and does not
+generate prose or rewrite its sources. This refresh follows that model. No new
+generator, runtime behavior, contract or product requirement is introduced.
+
+Scope: root, all seven independent component repositories and the organization
+profile. The organization repository's three pre-existing workflow/checker/README
+edits are preserved and excluded from this Markdown refresh's commits. Read the owning
+specifications and accepted checkpoints first, reconcile factual status/index
+wording, then refresh their derived READMEs, status, architecture, runtime and
+operator guides where stale. Preserve dated verification snapshots, original
+image/source attribution and explicit draft/future boundaries. Keep source
+metadata, legal texts and versioned protocol artifacts unchanged unless their
+existing checker identifies actual drift.
+
+The current authority is the coordinated plan and owning native acceptance How:
+run 44599536091 passed all six jobs at worker `9bcdbde`; evidence-only `8d233e4`
+also passed all six in run 44600836229 and documentation run 44600836236. The final
+lock, both target proofs and retained evidence are unchanged. This closes native
+worker gates, not Task 9 room-stack/browser/live, unreleased v1.1, or production.
+Default deterministic-stack smoke is separately scoped evidence. The retired
+`Decision:` parser remains historical under Decision 008; memory stays an
+incubating mediated-ingestion proof with Cognee/durable storage deferred.
+
+Validation covers existing documentation checkers and any applicable prescribed
+documentation generation commands, all local Markdown targets/source links,
+hierarchy/reference/identity gates, whitespace and diff scope. Documentation-only
+maintenance does not require starting containers or rerunning provider tests.
+The resulting report identifies changed pages, governing sources, untouched
+repositories and any genuine unresolved requirement/implementation mismatch.
+
+### Refreshed source-to-document map
+
+| Owner | Authoritative source reconciled first | Derived documentation refreshed |
+| --- | --- | --- |
+| Root | Spec indexes, approved runtime/publication Hows, documentation What and coordinated acceptance checkpoints | README, cross-project status, overview, architecture, repository map, compatibility matrix and roadmap |
+| Codex worker | Approved public-documentation applicability, foundation/runtime authority and accepted Rust/x86/native Hows | README, contribution guide, component status, adapter, architecture, runtime and authored tool-policy provenance |
+| Contracts | Conversation How and current index; immutable v1.0 release versus unreleased v1.1 | README release provenance and protocol candidate labeling |
+| Room gateway | Owning conversation How/index and valid pushed commit | README and historical retained-room Task 9 report, distinguished from Codex Task 9 |
+| Agent gateway | Owning mediation How/index and existing pushed-source evidence | Existing derived README already matches the boundary; current discovery/status wording reconciled in the index/How |
+| Workspace UI | Conversation checkpoints and already-approved `session.authenticate` host contract | README and stale transport implementation prose |
+| Platform | Accepted build-input and opt-in service Hows/index | README, operator guide and verification procedure with exact historical pins preserved |
+| Memory engine | Approved plan/current Decision 008 baseline and explicitly unclosed implementation-limit checkpoint | README, mediated-ingestion guide and historical POC verification record |
+| Organization profile | Root documentation What/publication How and current accepted evidence | `profile/README.md`; three pre-existing non-task edits excluded |
+
+The memory checkpoint explicitly retains unclosed proof requirements: fixture-only
+extraction, duplicate/error-envelope behavior, receipt-body checking and bounded
+failure handling. Documentation describes these limits without waiving approved
+requirements. No draft capability was promoted or deferred runtime implemented.
+
+Fresh local validation: the organization checker extension resolved 995 links
+across 170 Markdown files with zero broken links; all four checker tests passed.
+The independent worker checker resolved 145 local links, and all 144 artifact
+pins and 478 retained legal files passed. Hierarchy/reference/identity and
+whitespace gates passed. The package builder remains Rust 1.93.1; Rust 1.85.0
+coverage is the native runtime matrix, not a claimed 1.85-built release image.
+Independent documentation review's compiler-scope wording issue was corrected.

@@ -26,6 +26,14 @@ were pushed to their owning GitHub `main` branches under user authorization on
 release or tag. Packaged-stack and separately authorized live verification remain
 pending. Exact pushed integration commits are listed in the coordinated plan.
 
+Current verification checkpoint — 2026-11-19: the approved worker maintenance
+and native Linux acceptance changes are published. Four native AMD64/ARM64
+Rust 1.85.0/1.93.1 cells and both final-lock package/policy-capture jobs passed.
+The [coordinated plan](how/codex-room-conversations-implementation-plan.md)
+records exact source, runs and retained evidence. This closes worker-native
+portability gates only; Task 9 packaged room-stack, rendered-browser, live-provider,
+v1.1 contract publication and production/release acceptance remain open.
+
 The identity migration preserves the `n2n.room.v1` wire value and excludes
 database identifiers, database contents, and persisted values.
 
