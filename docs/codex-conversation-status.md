@@ -61,6 +61,12 @@ and the still-open full Codex room-stack/browser/live checks.
 
 ## Remaining milestone-one work
 
+The [2026-11-20 proposed acceptance procedure](../.ai/specs/how/task9-packaged-acceptance-2026-11-20.md)
+turns the remaining gates into an ordered review/run checklist. It identifies
+the current source baseline, the v1.1 release/consumer prerequisite and the
+historical live runner's older pins. This is preparation awaiting execution
+review; no packaged/browser/live gate is closed by it.
+
 The provider-free history, recovery, and synthetic integration checks are
 recorded complete. Task 9 and milestone acceptance still require:
 

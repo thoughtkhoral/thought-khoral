@@ -866,3 +866,22 @@ that tested revision. Task 9 packaged room-stack, rendered-browser, live-provide
 contract publication, image publication and production/release acceptance remain
 open. Local containers stayed stopped and no provider inference was performed.
 Earlier local/unpublished/open-native statements above are historical checkpoints.
+
+### Task 9 acceptance preparation — 2026-11-20
+
+The maintainer instructed preparation to proceed after review of the remaining
+workspace work. The [proposed acceptance procedure](task9-packaged-acceptance-2026-11-20.md)
+records exact observed source commits, native worker image/proof identities,
+the release-before-live defaults prerequisite, real-browser scenarios and
+per-scenario evidence/cleanup requirements. The
+[owning platform plan](https://github.com/thoughtkhoral/thought-khoral-platform/blob/main/.ai/specs/how/task9-packaged-acceptance-2026-11-20.md)
+defines the proposed separately selected acceptance profile while preserving
+historical synthetic and live pins.
+
+This is a prepared execution amendment awaiting review, not a new acceptance
+result. In particular, CI-local image IDs are not published image references,
+and the unreleased defaults candidate cannot be used for provider verification.
+Contract release preparation/consumer transition precede the new live profile.
+No executable source, contract bytes, package lock or isolation policy changes
+are made by this preparation. No containers, browser session, publication or
+provider call are started. Task 9 and the milestone remain open.

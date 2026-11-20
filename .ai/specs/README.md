@@ -84,6 +84,7 @@ linked feature worktree, scan its source root explicitly, for example:
 
 ## Current root specifications
 
+- [Proposed Task 9 packaged-stack/browser acceptance procedure — 2026-11-20](how/task9-packaged-acceptance-2026-11-20.md) — preparation complete; execution amendment awaits review, with publication/activation/provider gates retained.
 - [Maintenance specification audit and acceptance traceability — 2026-11-19](how/spec-driven-maintenance-audit-2026-11-19.md)
 - [Draft What: product vision and intent](what/product-vision.md)
 - [Draft What: usage scenarios](what/usage-scenarios.md)
