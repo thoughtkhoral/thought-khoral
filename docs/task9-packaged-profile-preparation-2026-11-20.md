@@ -1,5 +1,10 @@
 # Task 9 released consumers and packaged profile preparation
 
+> Current checkout guidance: the [workspace guide](workspace-status.md) records
+> documentation-only followups and preserved clean runtime snapshots. Frozen
+> implementation/artifact identities below remain unchanged when branch HEADs
+> advance for documentation; earlier pending-state sections are historical.
+
 Status: locally implemented and reviewed on 2026-11-20 under the maintainer's
 “proceed” after [v1.1 publication](task9-release-preparation-2026-11-20.md).
 The [approved acceptance procedure](../.ai/specs/how/task9-packaged-acceptance-2026-11-20.md)

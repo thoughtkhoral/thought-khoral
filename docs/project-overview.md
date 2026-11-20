@@ -25,7 +25,10 @@ fresh-session controls. The worker and composed provider-free checks are
 implemented. Native worker tests passed on AMD64/ARM64 with Rust 1.85.0/1.93.1;
 both package-policy captures passed using the pinned Rust 1.93.1 builder. Full
 Codex room-stack, rendered-browser and live-provider
-verification remain open.
+verification remain open. V1.1 is published, and released consumers plus an
+exact packaged profile are verified on local branches; their integration is
+pending. The [workspace guide](workspace-status.md) identifies which checkout
+contains each runtime and preserves the exact acceptance sources.
 Codex does not connect to room storage or use the memory-engine proof. See the
 [cross-project Codex status guide](codex-conversation-status.md) for its current
 evidence and remaining gates.
@@ -40,4 +43,4 @@ The approved design direction considers richer room-derived memory, separately a
 
 ## Start exploring
 
-Use the [local platform setup](../thought-khoral-platform/README.md#start-and-verify) to run the development stack. Then follow the [usage examples](usage-examples.md) to enter a room, create a governed decision, and request a bounded agent task. To contribute, start with an issue in the repository that owns the behavior; the [contribution guide](https://github.com/thoughtkhoral/.github/blob/main/CONTRIBUTING.md) describes the issue-first workflow.
+Use the [local platform setup](https://github.com/thoughtkhoral/thought-khoral-platform/blob/main/README.md#start-and-verify) to run the development stack. Then follow the [usage examples](usage-examples.md) to enter a room, create a governed decision, and request a bounded agent task. To contribute, start with an issue in the repository that owns the behavior; the [contribution guide](https://github.com/thoughtkhoral/.github/blob/main/CONTRIBUTING.md) describes the issue-first workflow.

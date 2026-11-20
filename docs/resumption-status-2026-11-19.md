@@ -1,5 +1,10 @@
 # ThoughtKhoral resumption checks — 2026-11-19
 
+> Historical resumption evidence. For the latest published v1.1 release, verified
+> local consumer/profile implementations and documentation-source snapshots, use
+> the [current workspace guide](workspace-status.md). The dated outcomes below
+> retain their original source scope and are not new execution results.
+
 This report records a fresh local investigation and approved follow-up against the
 [approved conversation plan](../.ai/specs/how/codex-room-conversations-implementation-plan.md).
 It is execution evidence, not whole-milestone acceptance. The maintainer later

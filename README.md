@@ -10,9 +10,11 @@ versioned repositories.
 
 ## Start here
 
+- [Current workspace status and exact source checkouts](docs/workspace-status.md)
+- [Released consumers and packaged-profile preparation](docs/task9-packaged-profile-preparation-2026-11-20.md)
 - [Project overview](docs/project-overview.md)
 - [Codex room conversations: cross-project status](docs/codex-conversation-status.md)
-- [Local resumption checks and approved corrections: 2026-11-19](docs/resumption-status-2026-11-19.md)
+- [Historical resumption checks and corrections: 2026-11-19](docs/resumption-status-2026-11-19.md)
 - [Usage examples](docs/usage-examples.md)
 - [Architecture: current and possible future boundaries](docs/architecture.md)
 - [Repository map](docs/repository-map.md)
@@ -38,6 +40,12 @@ provider-free worker, synthetic integration and native AMD64/ARM64 worker
 runtime/package-policy evidence are recorded. Full Codex packaged room-stack,
 rendered-browser and separately authorized live-provider verification remain
 open. See the [cross-project status guide](docs/codex-conversation-status.md).
+
+Conversation v1.1.0 is now published. Released-defaults broker/UI consumers and
+the exact packaged acceptance profile are implemented and reviewed on separate
+local branches. Canonical runtime mains retain their earlier imports/runner;
+the [workspace guide](docs/workspace-status.md) distinguishes those checkouts
+and preserved acceptance inputs from documentation-only followups.
 
 ## Specification-first project
 

@@ -4,13 +4,13 @@
 
 ## Before you begin
 
-Start the development stack using the [platform instructions](../thought-khoral-platform/README.md#start-and-verify). Open the workspace, sign in with a local development identity, and explicitly enter a valid room UUID. The platform README lists its local fixture identities and a sample room ID. A suggested room in the URL can prefill the entry control; it does not join the room for you. Have a second human enter the same room to see shared events.
+Start the development stack using the [platform instructions](https://github.com/thoughtkhoral/thought-khoral-platform/blob/main/README.md#start-and-verify). Open the workspace, sign in with a local development identity, and explicitly enter a valid room UUID. The platform README lists its local fixture identities and a sample room ID. A suggested room in the URL can prefill the entry control; it does not join the room for you. Have a second human enter the same room to see shared events.
 
 ## Example 1: Record a decision after discussion
 
 Alice and Bob discuss a release plan in room-wide chat. Alice enters `/decisions`, chooses Create, and drafts a decision such as “Publish the beta to the pilot group first.” The command opens local controls; it is not posted as chat. A human then reviews the draft and selects Confirm, Edit, or Dismiss. A confirmed decision appears in active collective memory, while an unconfirmed draft does not.
 
-If the choice is later withdrawn, a human can delete its current row. The room retains an immutable audit event for that deletion. Typing a message beginning `Decision:` does not create a draft. The [decision workflow](../thought-khoral-workspace-ui/README.md#decision-workflow) and [governance decision](../.ai/specs/decisions/008-slash-decisions-and-facilitator-boundary.md) define the exact boundary.
+If the choice is later withdrawn, a human can delete its current row. The room retains an immutable audit event for that deletion. Typing a message beginning `Decision:` does not create a draft. The [decision workflow](https://github.com/thoughtkhoral/thought-khoral-workspace-ui/blob/main/README.md#decision-workflow) and [governance decision](../.ai/specs/decisions/008-slash-decisions-and-facilitator-boundary.md) define the exact boundary.
 
 ## Example 2: Send a message to selected participants
 
@@ -33,8 +33,17 @@ The room displays one task linked to Alice's message, with queued, running, and 
 
 Bob explicitly selects the pinned local reference agent and starts `summarize-context`. The room gateway assembles a time-limited snapshot of ordered room history visible to both Bob and the agent, plus active decisions and source IDs. The room displays persisted task progress and a deterministic summary with citations. Bob can use those citations to inspect the sources behind the result.
 
-The second permitted skill, `extract-action-items`, extracts explicitly formatted items and cites the source message. Neither skill uses a model or arbitrary tools. The agent cannot see hidden targeted messages, read the room database, or confirm decisions. This local reference path does not admit a user-supplied remote agent. See the [agent gateway specification](../thought-khoral-agent-gateway/.ai/specs/what/a2a-agent-gateway-foundation.md).
+The second permitted skill, `extract-action-items`, extracts explicitly formatted items and cites the source message. Neither skill uses a model or arbitrary tools. The agent cannot see hidden targeted messages, read the room database, or confirm decisions. This local reference path does not admit a user-supplied remote agent. See the [agent gateway specification](https://github.com/thoughtkhoral/thought-khoral-agent-gateway/blob/main/.ai/specs/what/a2a-agent-gateway-foundation.md).
 
 ## Developer example: Inspect the memory proof
 
-Committed room events can reach the memory engine through private authenticated ingestion. Its current proof builds room-scoped in-memory graph facts and provenance. A developer can follow the [memory-engine verification record](../thought-khoral-memory-engine/docs/poc-verification.md) to inspect the proof. The room's active collective-memory view still shows only human-approved active decisions. Cognee-backed extraction, durable storage, and memory-derived decision drafts remain deferred.
+Committed room events can reach the memory engine through private authenticated ingestion. Its current proof builds room-scoped in-memory graph facts and provenance. A developer can follow the [memory-engine verification record](https://github.com/thoughtkhoral/thought-khoral-memory-engine/blob/main/docs/poc-verification.md) to inspect the proof. The room's active collective-memory view still shows only human-approved active decisions. Cognee-backed extraction, durable storage, and memory-derived decision drafts remain deferred.
+
+## Developer example: inspect prepared Codex acceptance
+
+The v1.1 artifact is published, and released broker/UI consumers plus a guarded
+packaged profile are verified on local branches. Use the [workspace guide](workspace-status.md)
+to choose the prepared platform checkout and exact source snapshots. Its offline
+profile/guard tests need no provider call; its live mode still requires reviewed
+activation and a private configured operator packet. These are developer
+verification steps, not an already-running hosted Codex experience.

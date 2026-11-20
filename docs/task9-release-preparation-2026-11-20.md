@@ -1,5 +1,10 @@
 # Task 9 local release preparation — 2026-11-20
 
+> Current checkout guidance: the [workspace guide](workspace-status.md) records
+> documentation-only followups and preserved clean runtime snapshots. Frozen
+> implementation/artifact identities below remain unchanged when branch HEADs
+> advance for documentation; earlier pending-state sections are historical.
+
 Authority: [approved acceptance procedure](../.ai/specs/how/task9-packaged-acceptance-2026-11-20.md)
 and the owning platform execution plan. This report is local implementation
 evidence, not contract publication or Task 9 acceptance.

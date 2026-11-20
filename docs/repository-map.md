@@ -9,24 +9,24 @@ reviewed with the relevant specification update.
 
 | Repository | Purpose | Status | Maturity |
 | --- | --- | --- | --- |
-| [`thought-khoral`](https://github.com/thoughtkhoral/thought-khoral) | Architecture, specifications, roadmap, and cross-project release coordination. | `active-development` | active |
+| [`thought-khoral`](https://github.com/thoughtkhoral/thought-khoral) | Cross-project architecture, specifications, roadmap, and release coordination. | `active-development` | active |
 
 ## MVP components
 
 | Repository | Purpose | Status | Maturity |
 | --- | --- | --- | --- |
-| [`thought-khoral-contracts`](https://github.com/thoughtkhoral/thought-khoral-contracts) | Versioned JSON Schema, protocol documentation, and compatibility fixtures. | `mvp` | active |
-| [`thought-khoral-room-gateway`](https://github.com/thoughtkhoral/thought-khoral-room-gateway) | Authenticated WebSocket room service and governed event boundary. | `mvp` | active |
-| [`thought-khoral-workspace-ui`](https://github.com/thoughtkhoral/thought-khoral-workspace-ui) | Browser workspace, chat stream, memory drawer, and decision controls. | `mvp` | active |
-| [`thought-khoral-platform`](https://github.com/thoughtkhoral/thought-khoral-platform) | Local rootless deployment and Kubernetes-manifest validation. | `mvp` | active |
+| [`thought-khoral-contracts`](https://github.com/thoughtkhoral/thought-khoral-contracts) | Versioned JSON Schema, room protocol documentation, and compatibility fixtures. | `mvp` | active |
+| [`thought-khoral-room-gateway`](https://github.com/thoughtkhoral/thought-khoral-room-gateway) | Authenticated WebSocket room service, event persistence, replay, and authorization. | `mvp` | active |
+| [`thought-khoral-workspace-ui`](https://github.com/thoughtkhoral/thought-khoral-workspace-ui) | React collaborative room UI, chat stream, memory drawer, and decision controls. | `mvp` | active |
+| [`thought-khoral-platform`](https://github.com/thoughtkhoral/thought-khoral-platform) | Rootless local composition, development identity, and Kubernetes validation. | `mvp` | active |
 
 ## Incubating integrations
 
 | Repository | Purpose | Status | Maturity |
 | --- | --- | --- | --- |
-| [`thought-khoral-memory-engine`](https://github.com/thoughtkhoral/thought-khoral-memory-engine) | Room-scoped ingestion and provenance proof; Cognee and durable storage deferred. | `active-development` | incubating |
-| [`thought-khoral-agent-gateway`](https://github.com/thoughtkhoral/thought-khoral-agent-gateway) | Mediated local deterministic A2A reference-agent integration; remote admission and MCP deferred. | `active-development` | incubating |
-| [`thought-khoral-codex-agent`](https://github.com/thoughtkhoral/thought-khoral-codex-agent) | Provider-free Codex POC and reviewed room-integration candidates pushed to the owning repositories' `main` branches; release, packaged-stack, and live-verification gates remain. | `active-development` | incubating |
+| [`thought-khoral-memory-engine`](https://github.com/thoughtkhoral/thought-khoral-memory-engine) | Room-scoped POC collective memory, provenance, and temporal lineage. | `active-development` | incubating |
+| [`thought-khoral-agent-gateway`](https://github.com/thoughtkhoral/thought-khoral-agent-gateway) | Mediated local A2A reference-agent foundation; remote admission and MCP deferred. | `active-development` | incubating |
+| [`thought-khoral-codex-agent`](https://github.com/thoughtkhoral/thought-khoral-codex-agent) | Independent experimental Codex worker with native package evidence and locally prepared released consumers/profile; packaged-stack, browser, live-provider and production gates remain open. | `active-development` | incubating |
 
 ## Dependency direction
 
