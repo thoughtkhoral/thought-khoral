@@ -11,6 +11,8 @@ versioned repositories.
 ## Start here
 
 - [Current workspace status and exact source checkouts](docs/workspace-status.md)
+- [Workspace documentation requirements](.ai/specs/what/open-source-documentation.md)
+- [Individual project documentation and source contracts](docs/workspace-status.md#project-documentation)
 - [Released consumers and packaged-profile preparation](docs/task9-packaged-profile-preparation-2026-11-20.md)
 - [Project overview](docs/project-overview.md)
 - [Codex room conversations: cross-project status](docs/codex-conversation-status.md)

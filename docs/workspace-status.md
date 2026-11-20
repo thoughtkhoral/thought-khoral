@@ -77,6 +77,28 @@ Memory remains an incubating in-memory/provenance proof, separate from Codex;
 Cognee, durable memory, guided directories and open remote admission remain
 deferred. Full Task 9, registry-image and production acceptance remain open.
 
+## Project documentation
+
+The [workspace documentation requirements](../.ai/specs/what/open-source-documentation.md)
+require each project to maintain its own current documentation contract and a
+derived documentation index. These links address canonical checkouts; prepared
+branches have the same local paths with their own checkout applicability.
+
+| Project | Documentation specification | Maintained documentation |
+| --- | --- | --- |
+| Contracts | [Documentation contract](https://github.com/thoughtkhoral/thought-khoral-contracts/blob/main/.ai/specs/what/public-documentation.md) | [Project index](https://github.com/thoughtkhoral/thought-khoral-contracts/blob/main/docs/README.md) |
+| Room gateway | [Documentation contract](https://github.com/thoughtkhoral/thought-khoral-room-gateway/blob/main/.ai/specs/what/public-documentation.md) | [Project index](https://github.com/thoughtkhoral/thought-khoral-room-gateway/blob/main/docs/README.md) |
+| Workspace UI | [Documentation contract](https://github.com/thoughtkhoral/thought-khoral-workspace-ui/blob/main/.ai/specs/what/public-documentation.md) | [Project index](https://github.com/thoughtkhoral/thought-khoral-workspace-ui/blob/main/docs/README.md) |
+| Platform | [Documentation contract](https://github.com/thoughtkhoral/thought-khoral-platform/blob/main/.ai/specs/what/public-documentation.md) | [Project index](https://github.com/thoughtkhoral/thought-khoral-platform/blob/main/docs/README.md) |
+| Codex worker | [Documentation contract](https://github.com/thoughtkhoral/thought-khoral-codex-agent/blob/main/.ai/specs/what/public-documentation.md) | [Project index](https://github.com/thoughtkhoral/thought-khoral-codex-agent/blob/main/docs/README.md) |
+| Agent gateway | [Documentation contract](https://github.com/thoughtkhoral/thought-khoral-agent-gateway/blob/main/.ai/specs/what/public-documentation.md) | [Project index](https://github.com/thoughtkhoral/thought-khoral-agent-gateway/blob/main/docs/README.md) |
+| Memory engine | [Documentation contract](https://github.com/thoughtkhoral/thought-khoral-memory-engine/blob/main/.ai/specs/what/public-documentation.md) | [Project index](https://github.com/thoughtkhoral/thought-khoral-memory-engine/blob/main/docs/README.md) |
+
+Update the contracts first, then their page/source maps and README navigation.
+The current worker contract covers its implemented runtime, and the agent
+gateway contract covers both deterministic reference tasks and opt-in Codex
+mediation. These documentation requirements do not expand runtime authority.
+
 ## Maintaining this view
 
 Update the applicable specs and accepted evidence first, then derive this guide
