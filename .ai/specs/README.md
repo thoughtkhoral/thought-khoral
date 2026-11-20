@@ -148,3 +148,21 @@ enumerate `ordinary-human-message.json` and `ordinary-codex-message.json` under
 in the broker and UI repositories. Only the exact retained contractVersion field
 is allowed; other fields and neighboring files remain rejected. Independent
 candidate hash verification must confirm these bytes match the unchanged release.
+
+## Approved released-defaults transition — 2026-11-20
+
+After v1.1 publication/download verification, the maintainer instructed local
+broker/UI released-provenance transition and packaged-profile preparation to
+proceed. The owning specifications are
+`.ai/specs/how/released-defaults-consumption.md` in each isolated consumer
+branch. Production resolved-settings schema imports move to a separately pinned
+`contracts/agent-conversation-v1.1/` directory while all historical v1.0 and
+candidate vendor bytes and fixture sources remain unchanged.
+
+The identity gate additionally enumerates only ordinary-human-message.json
+and ordinary-codex-message.json under each broker/UI released vendor's
+`fixtures/agent-conversation-v1/valid/` directory. As with their already approved
+candidate counterparts, only the exact retained contractVersion field is an
+exception. Test extra fields, neighboring paths and root/symlink tampering;
+never allow an entire vendor directory. This implements existing compatibility
+requirements without changing product identity or any wire field.
