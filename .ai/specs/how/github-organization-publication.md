@@ -72,8 +72,10 @@ independent documentation check. Its reviewed conversation integration is
 published to component `main` branches. The 2026-11-19 worker/platform maintenance
 is also published; native Linux worker runtime/package-policy acceptance is
 recorded in the [coordinated plan](codex-room-conversations-implementation-plan.md).
-The v1.1 defaults artifact, full Codex packaged-stack/browser/live verification,
-image publication and production/release gates remain separate.
+The v1.1 defaults artifact is now published and freshly downloaded bytes verify.
+Released consumers and a packaged profile are verified locally on separate
+branches. Their publication/integration, full Codex packaged-stack/browser/live
+verification, image publication and production acceptance remain separate.
 
 ## Verification
 

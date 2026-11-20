@@ -48,9 +48,9 @@ issue-template, pull-request-template, and community-health defaults.
 
 The repository-reference and specification-hierarchy scripts run locally. The
 organization repository supplies a CI workflow for relative Markdown links and
-organization `main` file targets. The published baseline covers the six earlier
-components; the verified existing Codex extension adds the seventh and is
-adopted for publication at the documentation audit checkpoint below. The worker also has
+organization `main` file targets. The published baseline covers all seven components, including Codex. The
+original six-component coverage failure is retained below as historical audit
+evidence; its approved extension is already published. The worker also has
 its own published documentation gate. The organization workflow runs on changes,
 manual dispatch and a weekly
 schedule. The first published push run
@@ -82,3 +82,11 @@ and distinguishes documentation validation from runtime acceptance.
 This specification does not create a separate documentation website, replace
 component specifications with prose, or permit generated documentation to
 override an approved What, How, or Decision record.
+
+## Current workspace documentation — 2026-11-20
+
+The maintainer requested a source-first refresh including canonical checkouts
+and prepared branches. The [workspace-state How](../how/workspace-state.md)
+defines published versus local-source status and frozen-input preservation;
+[the reconciliation audit](../how/documentation-reconciliation-2026-11-20.md)
+maps those sources to maintained pages. No generator or runtime change is added.

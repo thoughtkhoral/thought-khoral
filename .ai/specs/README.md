@@ -28,7 +28,7 @@ artifact was subsequently published on 2026-11-20 from verified source
 Packaged-stack and separately authorized live verification remain pending.
 Exact pushed integration commits are listed in the coordinated plan.
 
-Current verification checkpoint — 2026-11-19: the approved worker maintenance
+Historical native verification checkpoint — 2026-11-19: the approved worker maintenance
 and native Linux acceptance changes are published. Four native AMD64/ARM64
 Rust 1.85.0/1.93.1 cells and both final-lock package/policy-capture jobs passed.
 The [coordinated plan](how/codex-room-conversations-implementation-plan.md)
@@ -93,6 +93,8 @@ linked feature worktree, scan its source root explicitly, for example:
 
 ## Current root specifications
 
+- [Current workspace state and source boundaries](how/workspace-state.md)
+- [Specification-to-document reconciliation — 2026-11-20](how/documentation-reconciliation-2026-11-20.md)
 - [Approved Task 9 packaged-stack/browser acceptance procedure — 2026-11-20](how/task9-packaged-acceptance-2026-11-20.md) — local implementation authorized; publication/activation/provider gates retained.
 - [Maintenance specification audit and acceptance traceability — 2026-11-19](how/spec-driven-maintenance-audit-2026-11-19.md)
 - [Draft What: product vision and intent](what/product-vision.md)
