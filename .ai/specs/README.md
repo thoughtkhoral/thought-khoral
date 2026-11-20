@@ -166,3 +166,9 @@ candidate counterparts, only the exact retained contractVersion field is an
 exception. Test extra fields, neighboring paths and root/symlink tampering;
 never allow an entire vendor directory. This implements existing compatibility
 requirements without changing product identity or any wire field.
+
+The new `thought-khoral-platform/scripts/tests/codex-packaged-pins.test.mjs`
+also retains the exact existing human-role claim when constructing synthetic
+private tokens for positive/negative CLI preflight tests. Its single token
+constructor line has the same narrow authentication-field exception as the
+historical live guard suite; neighboring legacy fields or names remain rejected.
