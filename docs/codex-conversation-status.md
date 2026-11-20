@@ -64,6 +64,14 @@ and the still-open full Codex room-stack/browser/live checks.
 
 ## Remaining milestone-one work
 
+Local preparation on 2026-11-20 completed reviewed released-v1.1 broker/UI
+consumers and an exact packaged acceptance profile. The
+[preparation report](task9-packaged-profile-preparation-2026-11-20.md) records
+160 broker tests, 193 UI tests, 46 profile/guard tests and actual provider-free
+worker package/capture/preflight evidence. These isolated branches remain
+unpublished/unmerged; canonical mains and historical fixture pins are unchanged.
+The assembled packaged stack, real browser and live-provider gates remain open.
+
 The [2026-11-20 approved acceptance procedure](../.ai/specs/how/task9-packaged-acceptance-2026-11-20.md)
 turns the remaining gates into an ordered review/run checklist. It identifies
 the current source baseline, the v1.1 release/consumer prerequisite and the

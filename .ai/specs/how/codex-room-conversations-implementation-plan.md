@@ -944,3 +944,23 @@ v1.1 artifact publication only. Contracts `main` is unmerged; existing broker/UI
 candidate pins remain unchanged pending the separately reviewed released
 consumer transition. The current packaged live profile, full Codex room-stack,
 rendered-browser, provider, image-publication and production gates remain open.
+
+### Local released consumers and packaged profile — 2026-11-20
+
+After publication the maintainer instructed broker/UI released-pin transition
+and packaged-profile preparation to proceed. Specifications precede code in
+the three owning isolated branches. Reviewed broker `673294e` and UI `29a9400`
+consume the exact released defaults schema while preserving all historical
+v1.0/candidate vendors and dependency locks. Full broker verification passes
+160 tests with one intentional external-agent ignore and removed isolated DB;
+UI passes 193 tests plus one intentional composed skip, TypeScript and build.
+
+Platform `996e188` implements an explicitly selected, source-anchored
+packaged-v1.1 profile and preserves historical modes. The actual final-lock
+ARM64 image passes ten package/startup probes and exact native recapture;
+46 offline guards/pin/profile tests pass, as does real credential-free image
+and clean-source preflight. The [preparation report](../../../docs/task9-packaged-profile-preparation-2026-11-20.md)
+records full commits, immutable image/profile/proof identities, independent
+review, cleanup and evidence limits. The three local branches are unpushed
+and unmerged. Packaged-stack/browser/private-DNS and separately authorized
+provider/tool/egress evidence remain open; Task 9 is not accepted.

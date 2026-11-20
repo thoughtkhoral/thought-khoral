@@ -398,7 +398,11 @@ is_contract_artifact_line() {
       thought-khoral-room-gateway/contracts/agent-conversation-v1.1-candidate/fixtures/agent-conversation-v1/valid/ordinary-human-message.json | \
       thought-khoral-room-gateway/contracts/agent-conversation-v1.1-candidate/fixtures/agent-conversation-v1/valid/ordinary-codex-message.json | \
       thought-khoral-workspace-ui/contracts/agent-conversation-v1.1-candidate/fixtures/agent-conversation-v1/valid/ordinary-human-message.json | \
-      thought-khoral-workspace-ui/contracts/agent-conversation-v1.1-candidate/fixtures/agent-conversation-v1/valid/ordinary-codex-message.json)
+      thought-khoral-workspace-ui/contracts/agent-conversation-v1.1-candidate/fixtures/agent-conversation-v1/valid/ordinary-codex-message.json | \
+      thought-khoral-room-gateway/contracts/agent-conversation-v1.1/fixtures/agent-conversation-v1/valid/ordinary-human-message.json | \
+      thought-khoral-room-gateway/contracts/agent-conversation-v1.1/fixtures/agent-conversation-v1/valid/ordinary-codex-message.json | \
+      thought-khoral-workspace-ui/contracts/agent-conversation-v1.1/fixtures/agent-conversation-v1/valid/ordinary-human-message.json | \
+      thought-khoral-workspace-ui/contracts/agent-conversation-v1.1/fixtures/agent-conversation-v1/valid/ordinary-codex-message.json)
       allows_context "$content" '  "contractVersion": "__legacy__.room.v1",'
       return
       ;;
@@ -701,7 +705,8 @@ is_platform_validator_line() {
         '            __legacy___role: role,'
       return
       ;;
-    thought-khoral-platform/scripts/tests/codex-conversation-smoke.test.mjs)
+    thought-khoral-platform/scripts/tests/codex-conversation-smoke.test.mjs | \
+      thought-khoral-platform/scripts/tests/codex-packaged-pins.test.mjs)
       allows_context "$content" "  const token = sub => 'synthetic.' + Buffer.from(JSON.stringify({ sub, __legacy___role: 'human', padding: 'x'.repeat(100) })).toString('base64url') + '.synthetic';"
       return
       ;;

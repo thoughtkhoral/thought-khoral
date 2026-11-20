@@ -6,6 +6,11 @@ owns the normative room schemas and the separate Codex conversation profile.
 Component releases and their contract locks remain the authority for a
 particular build.
 
+Local released-v1.1 consumer branches were verified on 2026-11-20 and are
+recorded in the [packaged-profile preparation report](task9-packaged-profile-preparation-2026-11-20.md).
+They have not been published/merged; the table below continues to describe
+canonical-main consumers rather than implying deployed interoperability.
+
 | Component | Contract relationship | Local integration boundary |
 | --- | --- | --- |
 | Contracts | Publishes the retained `n2n.room.v1` JSON Schemas, protocol, and compatibility fixtures. | Contract artifacts only; no runtime library. |

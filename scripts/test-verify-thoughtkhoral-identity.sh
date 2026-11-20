@@ -235,18 +235,39 @@ for candidate_owner in thought-khoral-room-gateway thought-khoral-workspace-ui; 
     "$candidate_directory/unapproved-message.json" "  \"contractVersion\": \"$legacy_id.room.v1\","
 done
 
+# Released v1.1 pins preserve only the same exact ordinary-event wire fields.
+for candidate_owner in thought-khoral-room-gateway thought-khoral-workspace-ui; do
+  candidate_directory="$candidate_owner/contracts/agent-conversation-v1.1/fixtures/agent-conversation-v1/valid"
+  for candidate_name in ordinary-human-message ordinary-codex-message; do
+    candidate_path="$candidate_directory/$candidate_name.json"
+    mkdir -p "$(dirname "$fixture_root/$candidate_path")"
+    printf '  "contractVersion": "%s.room.v1",\n' "$legacy_id" >"$fixture_root/$candidate_path"
+    if ! candidate_output=$(bash "$validator" "$fixture_root" 2>&1); then
+      printf 'FAIL: exact candidate wire fixture was rejected\n%s\n' "$candidate_output" >&2
+      exit 1
+    fi
+    rm "$fixture_root/$candidate_path"
+    assert_rejected_content 'a legacy product beside the candidate wire field' \
+      "$candidate_path" "  \"contractVersion\": \"$legacy_id.room.v1\", \"product\": \"$legacy_id\""
+  done
+  assert_rejected_content 'a candidate wire field in an unenumerated fixture' \
+    "$candidate_directory/unapproved-message.json" "  \"contractVersion\": \"$legacy_id.room.v1\","
+done
+
 # Task9 retains the existing authentication claim, never a legacy service name.
 task9_paths=(
   thought-khoral-platform/scripts/smoke-codex-conversation.mjs
   thought-khoral-platform/scripts/fixtures/codex-conversation/src/main.rs
   thought-khoral-platform/scripts/tests/codex-conversation-smoke.test.mjs
+  thought-khoral-platform/scripts/tests/codex-packaged-pins.test.mjs
 )
 task9_lines=(
   "  if (!uuid(claims.sub) || claims.${legacy_id}_role !== 'human') throw new Error('live tokens must be distinct human room credentials');"
   "    ${legacy_id}_role: Option<&'static str>,"
   "  const token = sub => 'synthetic.' + Buffer.from(JSON.stringify({ sub, ${legacy_id}_role: 'human', padding: 'x'.repeat(100) })).toString('base64url') + '.synthetic';"
 )
-for i in 0 1 2; do
+task9_lines+=("${task9_lines[2]}")
+for i in 0 1 2 3; do
   task9_path=${task9_paths[$i]}
   mkdir -p "$(dirname "$fixture_root/$task9_path")"
   printf '%s\n' "${task9_lines[$i]}" >"$fixture_root/$task9_path"
