@@ -885,3 +885,23 @@ Contract release preparation/consumer transition precede the new live profile.
 No executable source, contract bytes, package lock or isolation policy changes
 are made by this preparation. No containers, browser session, publication or
 provider call are started. Task 9 and the milestone remain open.
+
+### Approved local execution and release prerequisite — 2026-11-20
+
+The maintainer approved the concrete root/platform acceptance specifications
+with “approve”. Local specification approval is committed at root `ca1c306`
+and platform `d779058`. Contracts release preparation is implemented on isolated
+branch `codex/task9-contract-release-20261120`, source `65bdc00`, after its
+owning specification commits. The [local execution report](../../../docs/task9-release-preparation-2026-11-20.md)
+records identical repeated TAR/lock builds, 156 approved payload matches,
+135 unchanged v1.0 schema/fixture files, passing worktree/extracted suites and
+independent review.
+
+The online audit found four advisories in the existing development-only
+fast-uri 3.1.8 lock. The diagnostic artifacts are blocked from publication.
+A three-field 3.1.9 lock correction passes all tests and online audit in a
+disposable copy; its exact specification/lock hashes are ready for review.
+The approved preparation scope excludes dependency changes, so that exception
+awaits approval and no canonical lock was changed. The v1.1 release and consumer
+transition remain prerequisites to creating the current packaged live profile.
+No publication, activation, container start or inference was performed.
