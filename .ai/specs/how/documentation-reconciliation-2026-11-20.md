@@ -71,3 +71,18 @@ they were reconciled with the published artifact in README and architecture.
 Final review found no remaining actionable current-state contradiction. Other
 component runtime suites were not repeated for prose-only changes; their
 retained counts remain tied to the frozen implementation inputs.
+
+## Documentation-contract followup
+
+The maintainer explicitly requested updates to documentation specifications
+themselves at workspace and individual-project level. The root documentation
+What now requires a current workspace guide, a current documentation What and
+a source-mapped project index for all seven components. Each component contract
+defines its maintained pages, checkout applicability and current acceptance
+criteria; superseded worker scaffold-only and agent-gateway deterministic-only
+documentation wording is replaced without expanding runtime authority.
+
+These twelve documentation-What copies (root, seven canonical projects and four
+prepared copies) are updated before deriving project `docs/README.md` indexes,
+README navigation and the workspace documentation map. Frozen sources, profile
+and published artifacts remain unchanged; this is a documentation-only followup.

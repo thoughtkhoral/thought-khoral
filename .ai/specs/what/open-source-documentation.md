@@ -43,6 +43,17 @@ issue-template, pull-request-template, and community-health defaults.
    issue-first change-management decision.
 7. Documentation links are checked in CI and generated content is clearly
    identified as derived from approved specifications.
+8. The workspace has a maintained current-state guide identifying canonical
+   checkouts, prepared branches, published artifacts, exact acceptance inputs
+   and the next open gates.
+9. Each component owns a current `what/public-documentation.md` and a derived
+   `docs/README.md` index mapping its pages to governing local specs. Repository
+   READMEs link both. Requirements must cover the approved current implementation,
+   not retain superseded scaffold-only or deterministic-only criteria.
+10. Change documentation requirements first, then derive workspace and project
+    pages. Preserve frozen runtime/profile/artifact inputs and historical anchors;
+    use the exact preserved source snapshots after documentation HEADs advance.
+
 
 ## Current verification status
 
@@ -90,3 +101,12 @@ and prepared branches. The [workspace-state How](../how/workspace-state.md)
 defines published versus local-source status and frozen-input preservation;
 [the reconciliation audit](../how/documentation-reconciliation-2026-11-20.md)
 maps those sources to maintained pages. No generator or runtime change is added.
+
+## Documentation contracts and project indexes
+
+The 2026-11-20 maintainer followup explicitly updates the documentation contracts
+themselves. Each component's public-documentation What defines its current
+maintained pages and acceptance criteria; its project documentation index and
+README are derived from that contract. The root workspace guide links the seven
+local contracts and indexes. This adds documentation discoverability only;
+it creates no generator, runtime feature, source publication or activation.
