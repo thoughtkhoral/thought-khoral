@@ -922,3 +922,25 @@ status above; the old blocked diagnostic artifacts remain historical evidence.
 The new publication inputs are ready for separate source/tag/release review.
 No source push, tag/release publication, consumer transition, new live profile,
 service activation or provider inference has occurred. Task 9 remains open.
+
+### Published v1.1 contract and downloaded-asset verification — 2026-11-20
+
+The maintainer authorized the concrete contracts source/tag/release action with
+“proceed”. Source branch `codex/task9-contract-release-20261120` is pushed and
+annotated tag `thought-khoral-agent-conversation-v1.1.0` peels to frozen source
+`f1c8621810c8c121c1aafc8e5a342d6626c4b843`. The
+[release](https://github.com/thoughtkhoral/thought-khoral-contracts/releases/tag/thought-khoral-agent-conversation-v1.1.0)
+was published at `2026-11-20T14:44:18Z`. Freshly downloaded TAR/lock/sidecar
+match reviewed digests; all 156 payload hashes and the archive's exact Git
+source verify. The downloaded verifier passes with external lock SHA-256
+`b7f3ad928c5c17be7e936da4959b7e7e8555bb4ed3602fa62f71a8721f042d8f`.
+TAR SHA-256 remains
+`b0370e43627ce6044852df75bfbc4b749d904aa9cedcfc558c61bb4e07dc95ff`.
+
+The owning contracts branch retains
+`docs/evidence/conversation-v1.1-publication-2026-11-20.json` with tag/source/
+release/asset identities and actual downloaded-byte verification. This closes
+v1.1 artifact publication only. Contracts `main` is unmerged; existing broker/UI
+candidate pins remain unchanged pending the separately reviewed released
+consumer transition. The current packaged live profile, full Codex room-stack,
+rendered-browser, provider, image-publication and production gates remain open.

@@ -31,7 +31,7 @@ milestone; they are not enabled by the current integration.
 | Project | Responsibility | Current state |
 | --- | --- | --- |
 | [ThoughtKhoral root](https://github.com/thoughtkhoral/thought-khoral) | Product scope, cross-project contracts, decisions, and coordinated execution | Approved Codex What/How and implementation plan govern the milestone; Task 9 and aggregate acceptance remain open. |
-| [Contracts](https://github.com/thoughtkhoral/thought-khoral-contracts) | Versioned conversation schemas and compatibility fixtures | Published v1.0.0 is unchanged. The additive v1.1 defaults candidate is on `main` but has no release or tag. |
+| [Contracts](https://github.com/thoughtkhoral/thought-khoral-contracts) | Versioned conversation schemas and compatibility fixtures | Published v1.0.0 is unchanged. Additive v1.1.0 was published and downloaded bytes verified on 2026-11-20; broker/UI released-provenance transition remains pending. |
 | [Codex agent](https://github.com/thoughtkhoral/thought-khoral-codex-agent) | Independent provider-facing worker and native Codex session adapter | Adapter, durable receipts, authenticated transport and native history are implemented. Native Linux runtime/package-policy checks passed on AMD64/ARM64 at both supported compiler versions. Room storage stays outside the worker; provider credentials remain private to its operator/runtime. |
 | [Room gateway](https://github.com/thoughtkhoral/thought-khoral-room-gateway) | Room authority, conversation reservation, authorized history, and persistence | Room-scoped conversation storage and reservation, bounded authorized history, lifecycle projections, and mediated defaults discovery are implemented. |
 | [Agent gateway](https://github.com/thoughtkhoral/thought-khoral-agent-gateway) | Admission and mediation between the broker and Codex worker | Pinned Codex catalog, receipt, and normalized conversation mediation are implemented; Codex remains opt-in. |
@@ -47,7 +47,10 @@ Provider-free checks cover history disclosure, durable recovery boundaries,
 conversation lifecycle, settings behavior, and synthetic worker turns. They do
 not establish a live provider conversation, real browser/Keycloak behavior,
 packaged deployment, or production readiness. The v1.0.0 contract artifact is
-unchanged; the v1.1 candidate is unpublished.
+unchanged. The [v1.1.0 contract release](https://github.com/thoughtkhoral/thought-khoral-contracts/releases/tag/thought-khoral-agent-conversation-v1.1.0)
+is published at source `f1c8621`; fresh TAR/lock/sidecar downloads and all 156
+payload hashes match the reviewed inputs. Existing broker/UI candidate pins
+remain unchanged and do not yet establish released-v1.1 interoperability.
 
 The [approved native-worker How](https://github.com/thoughtkhoral/thought-khoral-codex-agent/blob/main/.ai/specs/how/linux-worker-acceptance.md)
 and [retained evidence](https://github.com/thoughtkhoral/thought-khoral-codex-agent/blob/main/docs/evidence/linux-worker-acceptance-44599536091.json)

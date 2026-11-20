@@ -43,8 +43,9 @@ separate path. Codex does not use the memory-engine proof or a mounted repositor
 Native worker runtime/package-policy acceptance passed on AMD64 and ARM64 at
 Rust 1.85.0/1.93.1 and the reviewed final lock. That synthetic evidence does not
 validate the full opt-in room stack, rendered browser, provider account access,
-live egress or production operation. Those gates and the unreleased v1.1
-conversation candidate are recorded in the [status guide](codex-conversation-status.md).
+live egress or production operation. The v1.1 contract artifact is now published;
+consumer adoption and those remaining gates are recorded in the
+[status guide](codex-conversation-status.md).
 
 ## Possible future boundaries
 

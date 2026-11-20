@@ -4,6 +4,33 @@ Authority: [approved acceptance procedure](../.ai/specs/how/task9-packaged-accep
 and the owning platform execution plan. This report is local implementation
 evidence, not contract publication or Task 9 acceptance.
 
+## Published and verified — latest checkpoint
+
+The maintainer authorized publication with “proceed”. The contracts source
+branch is pushed; annotated tag `thought-khoral-agent-conversation-v1.1.0`
+resolves to reviewed source `f1c8621810c8c121c1aafc8e5a342d6626c4b843`.
+[GitHub release 452810808](https://github.com/thoughtkhoral/thought-khoral-contracts/releases/tag/thought-khoral-agent-conversation-v1.1.0)
+was published at `2026-11-20T14:44:18Z` with the reviewed TAR, lock and sidecar.
+Fresh downloads match every reviewed asset digest and all 156 payload hashes;
+the verifier from the downloaded archive passes using the external lock anchor.
+The exact asset hashes in the corrected-input table below remain authoritative.
+
+The owning contracts source branch retains
+`docs/evidence/conversation-v1.1-publication-2026-11-20.json`, including annotated
+tag object `b63c96c74b35db1b20a914fc1520d7cc379028db`, peeled source, release
+ID, asset IDs/download URLs/digests and byte-verification results. A local copy
+is `/private/tmp/thoughtkhoral-task9-v1.1-corrected-20261120/publication.json`.
+GitHub's `target_commitish` metadata does not supersede the independently
+verified existing tag target. The verifier's `publication: not-performed`
+means verification itself performs no publication; this separate record
+establishes that the release is now published.
+
+This closes contract artifact publication and supersedes earlier pending
+publication statements below. Contracts `main` is unmerged. Broker/UI still
+retain their historical candidate pins; released consumer adoption and the new
+packaged live acceptance profile remain next. No service activation, container
+start or provider call occurred.
+
 ## Latest checkpoint: approved correction verified
 
 The maintainer approved the exact fast-uri 3.1.9 correction. Its owning approval

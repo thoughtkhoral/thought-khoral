@@ -22,9 +22,11 @@ The Codex agent has an approved repository foundation and milestone-one runtime
 specifications. Its provider-free Task 4 adapter and Task 5 durable worker/package,
 along with reviewed contracts, broker, mediator, UI, and opt-in platform candidates,
 were pushed to their owning GitHub `main` branches under user authorization on
-2026-10-07. These are experimental POC commits; the v1.1 defaults artifact has no
-release or tag. Packaged-stack and separately authorized live verification remain
-pending. Exact pushed integration commits are listed in the coordinated plan.
+2026-10-07. These are experimental POC commits. The additive v1.1 defaults
+artifact was subsequently published on 2026-11-20 from verified source
+`f1c8621`; consumer released-provenance transition remains pending.
+Packaged-stack and separately authorized live verification remain pending.
+Exact pushed integration commits are listed in the coordinated plan.
 
 Current verification checkpoint — 2026-11-19: the approved worker maintenance
 and native Linux acceptance changes are published. Four native AMD64/ARM64
@@ -33,6 +35,13 @@ The [coordinated plan](how/codex-room-conversations-implementation-plan.md)
 records exact source, runs and retained evidence. This closes worker-native
 portability gates only; Task 9 packaged room-stack, rendered-browser, live-provider,
 v1.1 contract publication and production/release acceptance remain open.
+
+Latest contract checkpoint — 2026-11-20: v1.1 publication is now complete under
+explicit maintainer authorization. Fresh downloaded assets and all 156 payload
+hashes match the reviewed source; the coordinated plan retains the exact tag,
+source, archive and lock identities. This supersedes the older open-publication
+status above. Consumer transition, current packaged/browser/live and production
+gates remain open.
 
 The identity migration preserves the `n2n.room.v1` wire value and excludes
 database identifiers, database contents, and persisted values.

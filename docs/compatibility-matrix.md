@@ -1,6 +1,6 @@
 # ThoughtKhoral compatibility matrix
 
-This matrix records the local interface boundaries as of 2026-11-19. The
+This matrix records the local interface boundaries as of 2026-11-20. The
 [contracts repository](https://github.com/thoughtkhoral/thought-khoral-contracts)
 owns the normative room schemas and the separate Codex conversation profile.
 Component releases and their contract locks remain the authority for a
@@ -17,8 +17,9 @@ particular build.
 | Platform | Composes the pinned room, agent, and browser interfaces; Codex packaging is opt-in. | Local rootless Compose and Kubernetes-manifest validation; no production deployment claim. |
 
 The contracts repository also owns the separate versioned Codex conversation
-profile. Its v1.0.0 artifact is published and unchanged; the additive v1.1
-defaults candidate is unreleased.
+profile. Its v1.0.0 artifact is published and unchanged; additive v1.1.0 was
+published and its downloaded assets verified on 2026-11-20. Broker/UI still
+use their historical candidate pins until the released-provenance transition.
 
 The room gateway and agent gateway continue to pin retained room-contract
 commit 1a44b6cfc19a4f5e668afb1ddb5241b2a0f1f72d. Updating that artifact is a
@@ -27,8 +28,9 @@ the contract artifact pin.
 
 The conversation API uses the separate `/api/agent-conversations/v1` namespace.
 The published v1.0.0 profile and archive are unchanged. The additive v1.1
-defaults-discovery candidate, including `ResolvedSettingsView`, is present on
-the contracts `main` branch but has no release or tag. Broker and UI candidate
+defaults-discovery artifact, including `ResolvedSettingsView`, is published as
+`thought-khoral-agent-conversation-v1.1.0` at verified source `f1c8621`.
+The separately retained candidate on contracts `main` is unchanged. Broker and UI candidate
 pins support only the approved provider-free synthetic integration; they do
 not establish released interoperability. See the
 [cross-project Codex status guide](codex-conversation-status.md) and the
