@@ -905,3 +905,20 @@ The approved preparation scope excludes dependency changes, so that exception
 awaits approval and no canonical lock was changed. The v1.1 release and consumer
 transition remain prerequisites to creating the current packaged live profile.
 No publication, activation, container start or inference was performed.
+
+### Approved audit correction and verified release inputs — 2026-11-20
+
+The maintainer approved the exact fast-uri 3.1.9 exception. Contracts spec
+approval `a5c359f` precedes frozen implementation source
+`f1c8621810c8c121c1aafc8e5a342d6626c4b843`. Its full worktree and extracted
+archive suites pass; both online audits report zero vulnerabilities, and
+independent review confirms the exact three-field lock change with unchanged
+contract payload and license bytes. Repeated corrected TAR/lock builds match.
+The [current release-input report](../../../docs/task9-release-preparation-2026-11-20.md#latest-checkpoint-approved-correction-verified)
+records exact source/asset hashes, 156 candidate payload matches and 135
+unchanged v1.0 schema/fixture files. This supersedes the audit-blocked current
+status above; the old blocked diagnostic artifacts remain historical evidence.
+
+The new publication inputs are ready for separate source/tag/release review.
+No source push, tag/release publication, consumer transition, new live profile,
+service activation or provider inference has occurred. Task 9 remains open.

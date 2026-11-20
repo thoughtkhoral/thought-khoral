@@ -4,6 +4,39 @@ Authority: [approved acceptance procedure](../.ai/specs/how/task9-packaged-accep
 and the owning platform execution plan. This report is local implementation
 evidence, not contract publication or Task 9 acceptance.
 
+## Latest checkpoint: approved correction verified
+
+The maintainer approved the exact fast-uri 3.1.9 correction. Its owning approval
+commit `a5c359f` precedes implementation source
+`f1c8621810c8c121c1aafc8e5a342d6626c4b843` on the same isolated contracts
+branch. Worktree and extracted-archive full suites pass, and both online audits
+report zero vulnerabilities. Independent review confirmed the three-field
+lock change, unchanged dependency declarations/license bytes and unchanged
+consumer payload, with no actionable issue.
+
+Two preparations from the clean committed source are byte-identical:
+
+| Corrected publication input | SHA-256 |
+| --- | --- |
+| `thought-khoral-agent-conversation-v1.1.0.tar` | `b0370e43627ce6044852df75bfbc4b749d904aa9cedcfc558c61bb4e07dc95ff` |
+| `lock.json` | `b7f3ad928c5c17be7e936da4959b7e7e8555bb4ed3602fa62f71a8721f042d8f` |
+| Source `package-lock.json` | `26b7382546939bc1a5e371ecb99f1655b617f381eea27b72d9400fc3c49ff585` |
+
+All 156 candidate payload hashes and 135 retained v1.0 schema/fixture hashes
+remain unchanged. The corrected artifacts, proposed release notes and machine
+review manifest are under
+`/private/tmp/thoughtkhoral-task9-v1.1-corrected-20261120/`. Publication review
+should name frozen source `f1c8621`, intended tag
+`thought-khoral-agent-conversation-v1.1.0`, and these asset hashes. Later evidence
+commits do not replace the frozen artifact source. Publication has not occurred.
+The old 3.1.8 diagnostic artifacts remain retained and blocked.
+
+This supersedes the pending-dependency statements in the historical preparation
+checkpoint below. The canonical contracts `main` still has its original lock;
+the verified correction is on the isolated release branch. Source/tag/release
+publication and verified consumer transition remain prerequisites to the new
+live profile. No services or provider calls were started.
+
 ## Implemented
 
 The contracts worktree `.worktrees/task9-contract-release` on branch
