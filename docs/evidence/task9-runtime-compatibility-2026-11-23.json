@@ -1,0 +1,206 @@
+{
+  "kind": "task9-local-runtime-compatibility-verification",
+  "recordedAt": "2026-11-23T20:29:58.006948+00:00",
+  "scope": "approved bounded local implementation and provider-free verification",
+  "sourcePublication": false,
+  "merged": false,
+  "changedInputStackActivation": false,
+  "existingDatabaseUpgraded": false,
+  "publicProviderInference": false,
+  "roomModelTurnsRequested": 0,
+  "worker": {
+    "source": "423d4e84985eb535caa66c7522c4191c6dbccad6",
+    "clean": true,
+    "imageId": "sha256:1ac229b25167845b4d7cec217304f3064b02d65d60c53f35b07c5ae3e3683b3b",
+    "platform": "linux/arm64",
+    "cargoTestsPassed": 50,
+    "newRegressionFunctions": 4,
+    "specCommittedBeforeImplementation": true,
+    "requiredFmtClippyPinsLegalCatalogDocsChecks": "passed",
+    "independentReview": "no-actionable-findings"
+  },
+  "platform": {
+    "source": "8edcca07d5ae90c1a66c2f7f8915ead7edf9f0d3",
+    "clean": true,
+    "combinedTestsPassed": 54,
+    "composeTestsPassed": 5,
+    "otherChecks": "input/startup/host-admission/mediator-egress/proxy-policy passed",
+    "optionalHistoricalCleanupTests": "blocked by occupied port 8080",
+    "independentReview": "no-actionable-findings"
+  },
+  "profile": {
+    "id": "packaged-v1.1-runtime-compat",
+    "sha256": "14c5a784a1f6d8c944f25570f1b0dda741831178348ad7052ecb7301529d2f0c",
+    "originalSha256Unchanged": "7106f7e41a6bc13feab8a0b51fccde9b47fefca2d63980d551ed929eac1c1a71",
+    "onlyDifferences": [
+      "id",
+      "revisions.worker",
+      "worker.imageId"
+    ],
+    "actualCleanSourceImagePackageAndCloneSchemaHelper": "passed"
+  },
+  "package": {
+    "startupProbesPassed": 10,
+    "actualNativePolicyCapture": {
+      "sha256": "91ab6c55e22236a578b494f071bbd82ce867a2e9aae4010526b7319165344169",
+      "byteIdenticalToRetainedProof": true,
+      "settingCases": 44,
+      "models": 8,
+      "freshProcessResume": true,
+      "unsolicitedToolRefusals": 6,
+      "network": "none",
+      "provider": "local synthetic HTTP/SSE only"
+    }
+  },
+  "actualAdapterCatalog": {
+    "oldImageStatus": 503,
+    "correctedImageStatus": 200,
+    "model": "gpt-6.1-sol",
+    "efforts": [
+      "effort-low",
+      "effort-medium",
+      "effort-high",
+      "effort-xhigh",
+      "effort-max",
+      "effort-ultra"
+    ],
+    "conversations": 0,
+    "taskReceipts": 0,
+    "turnRequests": 0,
+    "network": "none",
+    "ownedFixtureCleanupPassed": true
+  },
+  "schemaReadiness": {
+    "currentDatabase": "rejected",
+    "privateMigratedClone": "accepted",
+    "readOnly": true,
+    "migrationLedgerAssumed": false
+  },
+  "databaseClone": {
+    "kind": "task9-private-restored-database-migration-verification",
+    "recordedAt": "2026-11-23T19:34:21.855270+00:00",
+    "backupOwnerOnly": true,
+    "isolatedCloneNetwork": "none",
+    "existingDatabaseUpgraded": false,
+    "existingDatabasePreserved": true,
+    "restoredEarlierTableDataEqual": true,
+    "migratedEarlierTableDataEqual": true,
+    "requiredConversationTablesCreated": true,
+    "newConversationTablesEmpty": true,
+    "invalidGenerationRejected": true,
+    "unboundUpdateRejected": true,
+    "migrationLedgerWasEmpty": true,
+    "migrations": [
+      {
+        "file": "0006_agent_conversations.sql",
+        "sha256": "0704c17c443d583c0b60557598ee94945a8380b82e4e0ea146187095a5f6952c"
+      },
+      {
+        "file": "0007_conversation_lifecycle.sql",
+        "sha256": "e36a2102a8a09c9d7456831261ea4b5a935fa07d229de4a95722697197ddc766"
+      }
+    ],
+    "cloneRetainedForReadOnlySchemaVerifier": false
+  },
+  "atomicDatabaseClone": {
+    "kind": "task9-atomic-clone-upgrade-verification",
+    "failureInjectionRolledBackBothMigrations": true,
+    "combinedApprovedMigrationsPassed": true,
+    "transactionLockTimeoutSeconds": 5,
+    "transactionStatementTimeoutSeconds": 30,
+    "existingDatabaseUpgraded": false,
+    "upgradeSqlSha256": "bdb5ca91432378d50399020de58f87e6a75ef59adb8cac1cab5d41a644c6f928"
+  },
+  "mediatorDiagnostic": {
+    "kind": "task9-mediator-read-only-auth-diagnostic",
+    "tokenIssued": true,
+    "algorithm": "RS256",
+    "tokenKeyInBrokerStartupSnapshot": true,
+    "tokenKeyInCurrentKeycloak": true,
+    "issuerMatchesBroker": true,
+    "audienceIncludesBroker": true,
+    "authorizedPartyMatches": true,
+    "tokenLifetimeSeconds": 300,
+    "issuedAtMinusHostNowSeconds": 0,
+    "readOnlyUnknownTaskContextStatus": 404,
+    "claimRequests": 0,
+    "providerInference": false,
+    "conclusion": "fresh workload authentication passes; historical rejection cause not established"
+  },
+  "watchdogInvestigation": {
+    "kind": "task9-isolated-watchdog-investigation",
+    "network": "none",
+    "providerCalls": 0,
+    "policyOrTimeoutChanged": false,
+    "cases": [
+      {
+        "fixture": 2,
+        "runningBeforeCleanup": false,
+        "exitCodeBeforeCleanup": 1,
+        "oomKilled": false,
+        "lastHealthySampleCall": 420,
+        "postStartupHealthFailures": [
+          {
+            "healthCall": 461,
+            "phase": "connect",
+            "errorClass": "TimeoutError",
+            "errno": null,
+            "elapsedSeconds": 1.0008622329914942,
+            "load": [
+              0.18505859375,
+              0.2109375,
+              0.2685546875
+            ],
+            "memory": [
+              "MemAvailable:     634088 kB",
+              "SwapFree:              0 kB"
+            ]
+          }
+        ],
+        "guardFailure": [
+          "provider proxy unavailable"
+        ]
+      },
+      {
+        "fixture": 3,
+        "runningBeforeCleanup": true,
+        "exitCodeBeforeCleanup": 0,
+        "oomKilled": false,
+        "lastHealthySampleCall": 180,
+        "postStartupHealthFailures": [],
+        "guardFailure": []
+      }
+    ],
+    "teardownObservation": {
+      "passivelyCapturedMetadataPackets": 120,
+      "payloadOrHeadersRecorded": false,
+      "earlierRejectedPacketCount": 3400,
+      "earlierClientLastAckCount": 104,
+      "earlierServerTimeWaitCount": 61,
+      "causalConnectionToConnectTimeoutEstablished": false
+    },
+    "securityCorrectionApplied": false
+  },
+  "operatorPolicyDraft": {
+    "existingConfigurationChanged": false,
+    "defaultModel": "gpt-6.1-sol",
+    "defaultEffort": "effort-medium",
+    "proposedEffortCapabilityCount": 6,
+    "requiresActivationReview": true
+  },
+  "liveCodexEnabled": false,
+  "task9Accepted": false,
+  "remainingGates": [
+    "loopback security amendment approval and verification",
+    "existing database upgrade approval/application",
+    "local integration/publication review",
+    "changed-input activation review",
+    "rendered-browser and authorized provider/live acceptance"
+  ],
+  "cleanup": {
+    "ownedDiagnosticContainersRemoved": true,
+    "ownedDatabaseCloneRemoved": true,
+    "privateBackupRetainedOwnerOnly": true,
+    "existingExternalDatabaseVolumePreserved": true
+  }
+}

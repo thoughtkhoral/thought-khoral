@@ -17,7 +17,11 @@ an undiagnosed namespace-watchdog shutdown. Seven base services remain running;
 Codex is disabled, P1 failed and browser acceptance is unavailable. No model
 turn was requested. The [activation execution record](how/task9-integration-2026-11-23.md#authorized-activation-partial-failure--2026-11-23)
 and [proposed bounded correction](how/task9-runtime-compatibility-proposal-2026-11-23.md)
-govern the next review; earlier ready/not-activated wording is historical.
+govern the correction; earlier ready/not-activated wording is historical.
+The maintainer approved bounded local compatibility work on 2026-11-23. The
+[execution record](how/task9-runtime-compatibility-execution-2026-11-23.md) tracks
+isolated local worker/platform changes and provider-free verification. Existing
+database upgrades, publication and changed-input activation retain separate gates.
 
 ## Structure
 
@@ -112,6 +116,9 @@ linked feature worktree, scan its source root explicitly, for example:
 
 - [Proposed Task 9 runtime compatibility correction — 2026-11-23](how/task9-runtime-compatibility-proposal-2026-11-23.md) — approval pending; no runtime changes authorized.
 - [Authorized Task 9 integration and preflight — 2026-11-23](how/task9-integration-2026-11-23.md)
+- [Approved local runtime compatibility execution — 2026-11-23](how/task9-runtime-compatibility-execution-2026-11-23.md)
+- [Proposed loopback health-policy amendment](how/task9-loopback-health-policy-amendment-2026-11-23.md)
+- [Proposed existing-database upgrade](how/task9-existing-database-upgrade-proposal-2026-11-23.md)
 - [Current workspace state and source boundaries](how/workspace-state.md)
 - [Specification-to-document reconciliation — 2026-11-20](how/documentation-reconciliation-2026-11-20.md)
 - [Approved Task 9 packaged-stack/browser acceptance procedure — 2026-11-20](how/task9-packaged-acceptance-2026-11-20.md) — local implementation authorized; publication/activation/provider gates retained.
