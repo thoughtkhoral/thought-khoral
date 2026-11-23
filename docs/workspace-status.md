@@ -35,7 +35,11 @@ The [integration/preflight report](task9-integration-preflight-2026-11-23.md)
 records nine successful production image builds, actual image/source verification
 and cleanup. Its latest checkpoint also records reuse of existing shell Codex
 authentication and five passing real-input/state/Compose checks. The earlier
-missing-configuration state is resolved; inputs are ready for activation review.
+missing-configuration state was resolved. Later authorized startup partially
+failed: seven services remain running, Codex is disabled and the mediator is
+stopped. P1 failed and browser B1 is unavailable. The
+[activation report](task9-activation-2026-11-23.md) records actual observations and
+the proposed compatibility correction; it supersedes the earlier startup gate.
 
 ## Which checkout contains what
 
@@ -81,26 +85,24 @@ selection; component source overrides must still select the frozen inputs above.
 
 ## Next work and limits
 
-Source integration and actual operator configuration preflight are complete.
-Review the prepared inputs for separate service activation, then complete the
-assembled packaged-stack, private-DNS/readiness
-and real-browser checks. Exact sources are staged, required loopback ports are
-free, the local worker image is verified and the external database volume is
-preserved. All nine production images built serially with one Cargo job; a
-private immutable image override and owner-only draft operator packet are ready.
-The [evidence manifest](evidence/task9-integration-preflight-2026-11-23.json)
-records image/build identities. Existing cached shell API authentication and
-`gpt-6.1-sol`/`medium` now provision the worker once without a new key or host
-config/session import. Five actual state/package/recipient/Compose checks pass;
-the dedicated engine-native state volume satisfies ownership where a macOS shared
-directory did not. See the [cached-auth evidence](evidence/task9-cached-auth-preflight-2026-11-23.json).
-Activation/provider/tool approvals remain false. Human login tokens and actual
-container/readiness observations follow authorized startup. Native
-Chrome controls are accessible; DevTools access is unavailable in this session.
-Controller availability does not establish packaged-browser acceptance. Provider turns,
-multi-human continuation/reset, runtime settings/usage and live tool/egress
-verification require the separately configured and authorized operator run.
-No application stack or provider has been activated by this integration/preflight.
+Review the [bounded compatibility proposal](../.ai/specs/how/task9-runtime-compatibility-proposal-2026-11-23.md)
+before changing runtime behavior. Authorized startup exposed native adapter
+notification handling, Compose/DNS and existing-database readiness blockers.
+The Codex watchdog and later mediator shutdown require separate diagnosis.
+Keep live Codex disabled; no provider/model turn or tool probe was requested.
+
+The UI responds at [localhost:8082](http://localhost:8082); seven services remain
+running. The existing database volume is preserved and no migration was applied.
+Conversation tables are absent; verify approved migrations on a private restored
+backup before proposing an existing-data upgrade. P1 failed; real-browser B1 is
+unavailable and remaining Task 9 gates were not run. See the
+[activation evidence](evidence/task9-activation-2026-11-23.json).
+
+Nine production images and prior source/package/policy evidence retain their
+exact tested scope. Existing cached shell authentication is already provisioned;
+no new OpenAI key is needed. Runtime sources, images and frozen inputs remain
+unchanged. Changed packages, activation and provider/tool work retain their
+separate gates after the proposed local correction.
 
 Memory remains an incubating in-memory/provenance proof, separate from Codex;
 Cognee, durable memory, guided directories and open remote admission remain

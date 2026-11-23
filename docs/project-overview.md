@@ -28,7 +28,10 @@ Codex room-stack, rendered-browser and live-provider
 verification remain open. V1.1 is published, and released consumers plus an
 exact packaged profile are integrated and pushed to canonical mains. Nine
 production images are built; operator configuration reuses existing cached shell
-Codex authentication and passes preflight. Inputs are ready for activation review.
+Codex authentication and passes preflight. Authorized startup then exposed
+adapter, packaging and database-readiness blockers. Seven services remain
+running; Codex is disabled and the mediator is stopped. The
+[activation report](task9-activation-2026-11-23.md) records the proposed correction.
 The [workspace guide](workspace-status.md) identifies which checkout
 contains each runtime and preserves the exact acceptance sources.
 Codex does not connect to room storage or use the memory-engine proof. See the

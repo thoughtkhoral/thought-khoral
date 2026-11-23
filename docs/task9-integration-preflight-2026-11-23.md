@@ -1,5 +1,11 @@
 # Task 9 integration and package preflight — 2026-11-23
 
+**Later checkpoint:** authorized startup partially failed. Seven services remain
+running; Codex is disabled and the mediator is stopped. P1 failed, browser B1 is
+unavailable and no model turn was requested. The
+[activation report](task9-activation-2026-11-23.md) supersedes ready/not-activated
+wording below; the retained preflight evidence keeps its original scope.
+
 Source integration is complete. All nine production images are built; the
 reviewed worker image is available. Actual private-input/state/Compose preflight
 now passes using existing shell Codex authentication. Inputs are ready for

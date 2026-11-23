@@ -48,8 +48,11 @@ production-readiness claim. The v1.1 defaults artifact was published and its
 downloaded assets verified on 2026-11-20. Release tooling, released broker/UI
 consumers and the packaged profile were integrated and pushed on 2026-11-23;
 production images are built and actual operator preflight passes using existing
-cached shell Codex authentication. Activation review, packaged-stack and
-separately authorized live verification remain pending.
+cached shell Codex authentication. Authorized startup then exposed adapter,
+packaging and database-readiness blockers; Codex is disabled and the mediator
+is stopped. The [activation report](task9-activation-2026-11-23.md) records the
+proposed correction. Packaged-stack and separately authorized live verification
+remain open.
 The 2026-11-19 maintenance changes are published. Native AMD64/ARM64 worker tests
 passed on Rust 1.85.0/1.93.1; both Rust 1.93.1-built package-policy captures passed.
 This evidence leaves lifecycle/maturity values unchanged and does not close the

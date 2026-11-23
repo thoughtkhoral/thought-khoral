@@ -11,7 +11,8 @@ versioned repositories.
 ## Start here
 
 - [Current workspace status and exact source checkouts](docs/workspace-status.md)
-- [Integrated sources, built images and remaining operator preflight](docs/task9-integration-preflight-2026-11-23.md)
+- [Latest activation result and proposed compatibility correction](docs/task9-activation-2026-11-23.md)
+- [Integrated sources, built images and operator preflight](docs/task9-integration-preflight-2026-11-23.md)
 - [Workspace documentation requirements](.ai/specs/what/open-source-documentation.md)
 - [Individual project documentation and source contracts](docs/workspace-status.md#project-documentation)
 - [Released consumers and packaged-profile preparation](docs/task9-packaged-profile-preparation-2026-11-20.md)
@@ -48,7 +49,11 @@ Conversation v1.1.0 is published. Its release tooling, released-defaults broker/
 consumers and exact packaged acceptance profile are integrated and pushed to
 their canonical mains. Nine production images are built; private operator
 configuration now reuses existing shell Codex authentication and passes actual
-state/credential/Compose preflight. Inputs are ready for activation review.
+state/credential/Compose preflight. Authorized startup then exposed adapter,
+packaging and database-readiness blockers. Seven services remain running and the
+UI is reachable; Codex is disabled. No model turn was requested. The
+[activation report](docs/task9-activation-2026-11-23.md) records the failed P1 gate
+and concrete compatibility proposal awaiting approval.
 The [workspace guide](docs/workspace-status.md) distinguishes current
 integration commits from frozen acceptance inputs and remaining gates.
 
