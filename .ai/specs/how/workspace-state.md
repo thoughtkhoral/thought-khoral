@@ -1,5 +1,44 @@
 # Current workspace state
 
+## Current integration checkpoint — 2026-11-23
+
+The maintainer authorized the [planned source integration and Task C preflight](task9-integration-2026-11-23.md)
+with “proceed”. The four reviewed branches are now integrated and pushed to
+their component mains. Merge conflicts were limited to Markdown applicability
+and status text; reviewed runtime, artifact and profile bytes are unchanged.
+
+| Component | Integrated canonical main | Frozen acceptance implementation |
+| --- | --- | --- |
+| Contracts | `7e1555feab8ecb55bf57fa021dc1dc68a7b3f111` | Published release source `f1c8621810c8c121c1aafc8e5a342d6626c4b843` |
+| Room gateway | `ad4d02561669ab2237f25be277e467937403cd03` | Released consumer `673294e66fed2b6e98d73e08cfe4a23a0e5e4d48` |
+| UI | `3dc3ec73adf7bdd329fbf60edd317b980c7ed410` | Released consumer `29a940012adfeb796f59c5b89b00cab7a4d0df68` |
+| Platform | `ebc654e9ab96b72a614a344cee258d428b334dfd` | Profile implementation `996e1887234b8958a315279aa3d5aa194a7fad52` |
+
+Worker, mediator and memory runtime inputs remain unchanged. The six clean
+component snapshots and profile remain authoritative for acceptance; canonical
+documentation/integration HEADs are not substitutions. The executing platform
+packet names its actual clean merge commit. The published v1.1 tag is unchanged.
+
+Fresh verification on the reconciled trees passes contracts fixtures and
+release/candidate suites, 160 broker tests with one intentional external-agent
+ignore, 193 UI tests with one intentional composed skip, and 46 platform
+profile/guard tests. UI TypeScript/build passes. Ten actual worker package/startup
+probes pass and the actual native capture reproduces the retained ARM64 proof
+byte-for-byte. Independent review found no actionable integration blocker.
+Owned database/package/capture fixtures were removed; the external database
+volume is preserved. These remain component/provider-free evidence.
+
+Task C image/environment/operator preparation is in progress. Assembled-stack,
+private-DNS, real-browser, live-provider/tool/egress and Task 9 acceptance remain
+open. Activation and provider approvals have not been asserted. Memory/guidance,
+registry-image publication and production deployment remain separately scoped.
+
+## Historical reconciliation — 2026-11-20
+
+The following retained source map and preparation results describe the earlier
+checkpoint. Its local/unmerged descriptions are superseded by the integration
+table above; its frozen artifact/source identities remain unchanged.
+
 Status: reconciled on 2026-11-20 under the maintainer's request to update specs
 first and derive documentation from them, including the current workspace.
 This view records accepted work; it adds no product or runtime scope. The

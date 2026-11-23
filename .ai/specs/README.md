@@ -2,6 +2,14 @@
 
 This directory is the source of truth for the ThoughtKhoral human-to-agent collaborative workspace.
 
+Latest integration checkpoint — 2026-11-23: the reviewed contracts release,
+broker/UI released-v1.1 consumers and platform acceptance profile are integrated
+and pushed to their canonical mains. The [workspace state](how/workspace-state.md)
+records integration commits and unchanged frozen acceptance inputs. Task C
+package/environment/operator preflight is in progress; assembled-stack,
+browser/live-provider and Task 9 acceptance remain open. Older local/unmerged
+or pending-consumer descriptions below retain their historical scope.
+
 ## Structure
 
 - `what/` defines product intent, scope, outcomes, and acceptance criteria.
@@ -93,6 +101,7 @@ linked feature worktree, scan its source root explicitly, for example:
 
 ## Current root specifications
 
+- [Authorized Task 9 integration and preflight — 2026-11-23](how/task9-integration-2026-11-23.md)
 - [Current workspace state and source boundaries](how/workspace-state.md)
 - [Specification-to-document reconciliation — 2026-11-20](how/documentation-reconciliation-2026-11-20.md)
 - [Approved Task 9 packaged-stack/browser acceptance procedure — 2026-11-20](how/task9-packaged-acceptance-2026-11-20.md) — local implementation authorized; publication/activation/provider gates retained.

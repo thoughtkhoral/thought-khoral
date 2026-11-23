@@ -964,3 +964,27 @@ records full commits, immutable image/profile/proof identities, independent
 review, cleanup and evidence limits. The three local branches are unpushed
 and unmerged. Packaged-stack/browser/private-DNS and separately authorized
 provider/tool/egress evidence remain open; Task 9 is not accepted.
+
+### Integrated sources and resumed Task C — 2026-11-23
+
+The maintainer's “proceed” authorizes the planned integration and package
+preflight under the [execution scope](task9-integration-2026-11-23.md).
+Contracts `7e1555f`, broker `ad4d025`, UI `3dc3ec7` and platform `ebc654e`
+are integrated and pushed to their canonical mains. Documentation conflicts
+were reconciled without changing reviewed runtime/profile/artifact bytes.
+The prior “unpushed/unmerged” disposition is superseded; frozen source inputs
+remain `f1c8621`, `673294e`, `29a9400` and profile implementation `996e188`.
+
+Fresh reconciled-tree verification passes the full contracts suite, 160 broker
+tests plus one intentional external-agent ignore, 193 UI tests plus one
+intentional composed skip, and all 46 profile/historical guards. UI build and
+TypeScript pass. Ten real worker package/startup probes pass; actual native
+capture matches the retained ARM64 proof SHA-256 exactly. Independent pre-merge
+review found no actionable integration blocker. Owned test fixtures were removed.
+
+The actual clean executing platform and all six frozen clean component
+checkouts pass source-profile preflight. Production images are being prepared
+serially. The private operator packet keeps activation/provider/tool approvals
+false. Configured credentials/policies, full environment readiness and Task C/D
+evidence remain required. No application stack or provider is activated, and
+Task 9 and production acceptance remain open.
