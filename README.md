@@ -11,6 +11,7 @@ versioned repositories.
 ## Start here
 
 - [Current workspace status and exact source checkouts](docs/workspace-status.md)
+- [Integrated sources, built images and remaining operator preflight](docs/task9-integration-preflight-2026-11-23.md)
 - [Workspace documentation requirements](.ai/specs/what/open-source-documentation.md)
 - [Individual project documentation and source contracts](docs/workspace-status.md#project-documentation)
 - [Released consumers and packaged-profile preparation](docs/task9-packaged-profile-preparation-2026-11-20.md)
@@ -45,8 +46,9 @@ open. See the [cross-project status guide](docs/codex-conversation-status.md).
 
 Conversation v1.1.0 is published. Its release tooling, released-defaults broker/UI
 consumers and exact packaged acceptance profile are integrated and pushed to
-their canonical mains. Task C package/environment/operator preflight is in
-progress. The [workspace guide](docs/workspace-status.md) distinguishes current
+their canonical mains. Nine production images are built; Task C remains
+incomplete pending actual private operator configuration and its preflight.
+The [workspace guide](docs/workspace-status.md) distinguishes current
 integration commits from frozen acceptance inputs and remaining gates.
 
 ## Specification-first project

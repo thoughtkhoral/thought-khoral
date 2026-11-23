@@ -7,7 +7,7 @@ published artifacts, canonical runtime sources and verified local branches.
 
 ## What is complete
 
-- Conversation **v1.1.0 is published** at `f1c8621`. Freshly downloaded TAR,
+- Conversation **v1.1.0 is published** at `f1c8621`. Recorded 2026-11-20 TAR,
   release lock, sidecar and all 156 payload files match the reviewed hashes.
   The published source includes the approved fast-uri 3.1.9 correction.
 - Released-defaults broker/UI consumers are **integrated and pushed to main**.
@@ -31,6 +31,9 @@ See the [release report](task9-release-preparation-2026-11-20.md) and
 for immutable source, image, proof, profile and artifact identities. Counts are
 retained results from those exact inputs. The [2026-11-23 integration procedure](../.ai/specs/how/task9-integration-2026-11-23.md)
 records the current execution scope and supersedes their earlier unmerged status.
+The [integration/preflight report](task9-integration-preflight-2026-11-23.md)
+records nine successful production image builds, actual image/source verification,
+cleanup and the missing operator configuration. Task C is still incomplete.
 
 ## Which checkout contains what
 
@@ -80,7 +83,11 @@ Source integration is complete. Finish Task C package/environment/operator
 preflight, then complete the assembled packaged-stack, private-DNS/readiness
 and real-browser checks. Exact sources are staged, required loopback ports are
 free, the local worker image is verified and the external database volume is
-preserved. Production images are being built serially with one Cargo job.
+preserved. All nine production images built serially with one Cargo job; a
+private immutable image override and owner-only draft operator packet are ready.
+The [evidence manifest](evidence/task9-integration-preflight-2026-11-23.json)
+records image/build identities. Task C remains incomplete pending actual operator
+configuration and its redacted Compose preflight.
 Private credential paths, reviewed model policies, state ownership and two human
 token files still require configuration; packet approvals remain false. Native
 Chrome controls are accessible; DevTools access is unavailable in this session.

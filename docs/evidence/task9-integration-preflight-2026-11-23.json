@@ -1,6 +1,6 @@
 {
   "kind": "task9-integration-and-provider-free-package-preflight",
-  "recordedAt": "2026-11-23T16:35:16.420258+00:00",
+  "recordedAt": "2026-11-23T16:37:43.166478+00:00",
   "status": "incomplete-operator-configuration-required",
   "applicationActivation": false,
   "providerInference": false,
@@ -121,6 +121,15 @@
     "independentAgentReviews": {
       "integration": "no actionable issues",
       "documentation": "no actionable issues"
+    },
+    "workspaceDocumentation": {
+      "markdownLinksChecked": 1315,
+      "markdownFilesChecked": 190,
+      "brokenLinks": 0,
+      "specificationHierarchyExitCode": 0,
+      "repositoryReferencesExitCode": 0,
+      "identityExitCode": 0,
+      "whitespaceExitCode": 0
     }
   },
   "productionImageBuilds": [
@@ -324,6 +333,8 @@
   "operatorPreparation": {
     "privatePacketPrepared": true,
     "ownerOnly": true,
+    "draftPacketSha256": "409da4c72cc375f79a587aaa31c45296d8f66a3c51e2f3a1d9f455fdd46c845c",
+    "exactImageOverrideSha256": "4e4a413a51efab59924d80ce683dd2f2edb165c0d2356b8dcae82ff85da5c246",
     "activationApproved": false,
     "providerCallsApproved": false,
     "toolProbesApproved": false,
@@ -336,15 +347,26 @@
     "runningContainers": 0,
     "externalDatabaseVolumePreserved": true
   },
-  "remainingPrerequisites": [
-    "three configured distinct credential-file paths",
-    "reviewed worker/mediator/broker model policies",
-    "private state root with required ownership",
-    "two distinct human token files",
-    "actual redacted codex-compose config preflight",
-    "resource readiness for assembled stack",
-    "separate activation/provider/tool approval against complete inputs"
-  ],
+  "remainingPrerequisites": {
+    "beforeActivationReview": [
+      "three configured distinct credential-file paths",
+      "reviewed worker/mediator/broker model policies",
+      "private state root with required ownership",
+      "actual redacted codex-compose config preflight",
+      "review observed VM resources and planned exact stack inputs"
+    ],
+    "beforeServiceActivation": [
+      "separate activation approval against complete reviewed inputs"
+    ],
+    "afterAuthorizedActivation": [
+      "actual image/container identity, readiness and private-DNS evidence",
+      "two distinct human browser authentications and private token files",
+      "full-stack resource observations"
+    ],
+    "beforeProviderAndToolExecution": [
+      "separate provider-call and tool-probe approvals against complete reviewed inputs"
+    ]
+  },
   "acceptance": {
     "P1": "not-run",
     "B1": "not-run",

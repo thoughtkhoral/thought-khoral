@@ -47,7 +47,8 @@ GitHub `main` branches for POC development. This is experimental code, not a
 production-readiness claim. The v1.1 defaults artifact was published and its
 downloaded assets verified on 2026-11-20. Release tooling, released broker/UI
 consumers and the packaged profile were integrated and pushed on 2026-11-23;
-package/environment/operator preflight is in progress. Packaged-stack and
+production images are built, while actual operator configuration/preflight is
+still required. Packaged-stack and
 separately authorized live verification remain pending.
 The 2026-11-19 maintenance changes are published. Native AMD64/ARM64 worker tests
 passed on Rust 1.85.0/1.93.1; both Rust 1.93.1-built package-policy captures passed.
