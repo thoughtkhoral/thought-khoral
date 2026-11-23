@@ -11,8 +11,9 @@ canonical mains, the published v1.1 artifact and integrated consumer/profile
 branches, including exact frozen source paths after integration HEADs advance.
 
 The four release/consumer/profile branches are integrated and pushed to their
-component mains. Nine production images are built; Task C remains incomplete
-pending actual private operator configuration and redacted Compose preflight;
+component mains. Nine production images are built; actual operator input/state/
+Compose preflight now passes using existing cached shell Codex authentication.
+Inputs are ready for separate activation review;
 the [integration procedure](../.ai/specs/how/task9-integration-2026-11-23.md)
 records its scope. The frozen profile, contract tag and component source inputs
 are unchanged. Earlier unmerged descriptions retain their historical meaning.

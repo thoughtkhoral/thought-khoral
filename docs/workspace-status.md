@@ -32,8 +32,10 @@ for immutable source, image, proof, profile and artifact identities. Counts are
 retained results from those exact inputs. The [2026-11-23 integration procedure](../.ai/specs/how/task9-integration-2026-11-23.md)
 records the current execution scope and supersedes their earlier unmerged status.
 The [integration/preflight report](task9-integration-preflight-2026-11-23.md)
-records nine successful production image builds, actual image/source verification,
-cleanup and the missing operator configuration. Task C is still incomplete.
+records nine successful production image builds, actual image/source verification
+and cleanup. Its latest checkpoint also records reuse of existing shell Codex
+authentication and five passing real-input/state/Compose checks. The earlier
+missing-configuration state is resolved; inputs are ready for activation review.
 
 ## Which checkout contains what
 
@@ -79,17 +81,21 @@ selection; component source overrides must still select the frozen inputs above.
 
 ## Next work and limits
 
-Source integration is complete. Finish Task C package/environment/operator
-preflight, then complete the assembled packaged-stack, private-DNS/readiness
+Source integration and actual operator configuration preflight are complete.
+Review the prepared inputs for separate service activation, then complete the
+assembled packaged-stack, private-DNS/readiness
 and real-browser checks. Exact sources are staged, required loopback ports are
 free, the local worker image is verified and the external database volume is
 preserved. All nine production images built serially with one Cargo job; a
 private immutable image override and owner-only draft operator packet are ready.
 The [evidence manifest](evidence/task9-integration-preflight-2026-11-23.json)
-records image/build identities. Task C remains incomplete pending actual operator
-configuration and its redacted Compose preflight.
-Private credential paths, reviewed model policies, state ownership and two human
-token files still require configuration; packet approvals remain false. Native
+records image/build identities. Existing cached shell API authentication and
+`gpt-6.1-sol`/`medium` now provision the worker once without a new key or host
+config/session import. Five actual state/package/recipient/Compose checks pass;
+the dedicated engine-native state volume satisfies ownership where a macOS shared
+directory did not. See the [cached-auth evidence](evidence/task9-cached-auth-preflight-2026-11-23.json).
+Activation/provider/tool approvals remain false. Human login tokens and actual
+container/readiness observations follow authorized startup. Native
 Chrome controls are accessible; DevTools access is unavailable in this session.
 Controller availability does not establish packaged-browser acceptance. Provider turns,
 multi-human continuation/reset, runtime settings/usage and live tool/egress

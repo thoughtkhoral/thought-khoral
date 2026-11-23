@@ -27,8 +27,9 @@ both package-policy captures passed using the pinned Rust 1.93.1 builder. Full
 Codex room-stack, rendered-browser and live-provider
 verification remain open. V1.1 is published, and released consumers plus an
 exact packaged profile are integrated and pushed to canonical mains. Nine
-production images are built; Task C still needs actual operator configuration
-and its preflight. The [workspace guide](workspace-status.md) identifies which checkout
+production images are built; operator configuration reuses existing cached shell
+Codex authentication and passes preflight. Inputs are ready for activation review.
+The [workspace guide](workspace-status.md) identifies which checkout
 contains each runtime and preserves the exact acceptance sources.
 Codex does not connect to room storage or use the memory-engine proof. See the
 [cross-project Codex status guide](codex-conversation-status.md) for its current

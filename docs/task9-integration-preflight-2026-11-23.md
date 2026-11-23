@@ -1,9 +1,10 @@
 # Task 9 integration and package preflight — 2026-11-23
 
 Source integration is complete. All nine production images are built; the
-reviewed worker image is available. Task C remains incomplete because actual
-private operator configuration has not been supplied. No application stack or
-provider was activated, and Task 9 is not accepted.
+reviewed worker image is available. Actual private-input/state/Compose preflight
+now passes using existing shell Codex authentication. Inputs are ready for
+separate activation review. No application stack or provider was activated,
+and Task 9 is not accepted.
 
 Derived from the [authorized integration scope and execution checkpoint](../.ai/specs/how/task9-integration-2026-11-23.md)
 and [current workspace specification](../.ai/specs/how/workspace-state.md).
@@ -56,19 +57,39 @@ preserved. The VM has six CPUs, about 2 GB RAM and no swap; full-stack resource
 acceptance has not run. Native Chrome controls are accessible. DevTools/browser
 host access is unavailable; no packaged browser scenario has been exercised.
 
-## Next action
+## Existing authentication reused — latest checkpoint
 
-Provide the path to the existing private operator environment/configuration
-file. The remaining real preflight needs three distinct credential-file paths,
-reviewed worker/mediator/broker model policies and the prepared state root with
-required ownership. Do not paste credentials into chat or commit them.
+The maintainer clarified that shell Codex is already configured. A read-only
+status check confirmed saved API authentication. Its existing credential now
+provisions the private worker input once; no new key, manual key entry or host
+login change is needed. Host configuration and conversation history remain
+outside the container. The host CLI remains 0.171.0; the worker keeps its exact
+reviewed 0.160.0 runtime. The configured `gpt-6.1-sol`/`medium` pair is retained
+within its approved catalog and native proof coverage.
+
+Five actual checks pass without provider access: engine-native state ownership,
+worker package/startup --check with the real private input files, mediator
+recipient/state access, broker recipient-only access, and the existing wrapper's
+resolved Compose configuration with exact images. The first shared-directory
+probe correctly failed because macOS reported state ownership as 0:0; a dedicated
+engine-native runtime-state volume preserves required per-service ownership and
+passes the unchanged checks. Keep that prepared runtime volume for the later run.
+Owned probe containers are removed and the external database volume is preserved.
+
+The [cached-auth evidence](evidence/task9-cached-auth-preflight-2026-11-23.json)
+records safe outcomes and the redacted configuration hash. It supersedes the
+initial evidence manifest's missing-configuration status; prior evidence remains
+dated and unchanged. No credential values or private host paths are published.
+
+## Next action
 
 The owner-only draft operator packet and immutable image override are prepared
 outside Git. Activation, provider-call and tool-probe approvals remain false.
 Human authentication/token files and actual running-container identity still
-need the later authorized workflow. Once actual configuration passes the
-existing wrapper's redacted Compose preflight, review the complete inputs
-before the procedure's separate activation/provider approvals.
+need the later authorized workflow. Review the complete prepared inputs and
+proposed bounded admission expiry before the procedure's separate service
+activation approval. Refresh the expiry if needed before startup. Provider
+and tool-probe calls retain their own approval.
 
 Assembled-stack/private-DNS, B1–B4 browser, L1–L3 provider, I1–I2 isolation and
 full acceptance-run R1/C1 evidence remain open. Memory integration, guided

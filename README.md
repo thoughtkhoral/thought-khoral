@@ -46,8 +46,9 @@ open. See the [cross-project status guide](docs/codex-conversation-status.md).
 
 Conversation v1.1.0 is published. Its release tooling, released-defaults broker/UI
 consumers and exact packaged acceptance profile are integrated and pushed to
-their canonical mains. Nine production images are built; Task C remains
-incomplete pending actual private operator configuration and its preflight.
+their canonical mains. Nine production images are built; private operator
+configuration now reuses existing shell Codex authentication and passes actual
+state/credential/Compose preflight. Inputs are ready for activation review.
 The [workspace guide](docs/workspace-status.md) distinguishes current
 integration commits from frozen acceptance inputs and remaining gates.
 
