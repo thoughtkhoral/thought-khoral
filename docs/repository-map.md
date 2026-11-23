@@ -50,8 +50,9 @@ consumers and the packaged profile were integrated and pushed on 2026-11-23;
 production images are built and actual operator preflight passes using existing
 cached shell Codex authentication. Authorized startup then exposed adapter,
 packaging and database-readiness blockers; Codex is disabled and the mediator
-is stopped. The [activation report](task9-activation-2026-11-23.md) records the
-proposed correction. Packaged-stack and separately authorized live verification
+is stopped. The [correction report](task9-runtime-compatibility-2026-11-23.md)
+records verified local fixes and remaining security/database gates.
+Packaged-stack and separately authorized live verification
 remain open.
 The 2026-11-19 maintenance changes are published. Native AMD64/ARM64 worker tests
 passed on Rust 1.85.0/1.93.1; both Rust 1.93.1-built package-policy captures passed.

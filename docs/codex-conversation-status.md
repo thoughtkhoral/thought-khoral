@@ -17,7 +17,9 @@ Authorized startup subsequently exposed adapter, packaging and database-readines
 blockers. Seven services remain running; Codex is disabled and the mediator is
 stopped. P1 failed, browser B1 is unavailable and no model turn was requested.
 The [activation result](task9-activation-2026-11-23.md) identifies the proposed
-compatibility correction awaiting approval;
+compatibility correction subsequently approved for local implementation. The
+[correction report](task9-runtime-compatibility-2026-11-23.md) tracks isolated
+fixes and remaining gates;
 the [integration procedure](../.ai/specs/how/task9-integration-2026-11-23.md)
 records its scope. The frozen profile, contract tag and component source inputs
 are unchanged. Earlier unmerged descriptions retain their historical meaning.

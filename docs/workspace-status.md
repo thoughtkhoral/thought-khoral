@@ -85,8 +85,9 @@ selection; component source overrides must still select the frozen inputs above.
 
 ## Next work and limits
 
-Review the [bounded compatibility proposal](../.ai/specs/how/task9-runtime-compatibility-proposal-2026-11-23.md)
-before changing runtime behavior. Authorized startup exposed native adapter
+The maintainer approved the [bounded compatibility correction](../.ai/specs/how/task9-runtime-compatibility-proposal-2026-11-23.md)
+for local implementation and provider-free verification. Work is tracked in the
+[correction report](task9-runtime-compatibility-2026-11-23.md). Authorized startup exposed native adapter
 notification handling, Compose/DNS and existing-database readiness blockers.
 The Codex watchdog and later mediator shutdown require separate diagnosis.
 Keep live Codex disabled; no provider/model turn or tool probe was requested.

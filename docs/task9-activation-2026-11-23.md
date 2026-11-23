@@ -23,7 +23,8 @@ The owned diagnostic fixture was removed. Seven base services were left running;
 expired admission prevents fresh Codex admission. No provider inference, model
 turn, tool probe or existing-data migration was performed.
 
-The next step is review of the [bounded compatibility proposal](../.ai/specs/how/task9-runtime-compatibility-proposal-2026-11-23.md).
+The maintainer subsequently approved the [bounded compatibility proposal](../.ai/specs/how/task9-runtime-compatibility-proposal-2026-11-23.md)
+for local implementation; see the [correction report](task9-runtime-compatibility-2026-11-23.md).
 It proposes local adapter/Compose/DNS corrections, provider-free shutdown
 investigation, admission-policy comparison and migration testing on a private
 restored backup. Approval would permit that local work; upgrading existing data,

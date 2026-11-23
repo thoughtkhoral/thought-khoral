@@ -11,6 +11,7 @@ versioned repositories.
 ## Start here
 
 - [Current workspace status and exact source checkouts](docs/workspace-status.md)
+- [Approved local runtime compatibility correction](docs/task9-runtime-compatibility-2026-11-23.md)
 - [Latest activation result and proposed compatibility correction](docs/task9-activation-2026-11-23.md)
 - [Integrated sources, built images and operator preflight](docs/task9-integration-preflight-2026-11-23.md)
 - [Workspace documentation requirements](.ai/specs/what/open-source-documentation.md)
@@ -53,7 +54,9 @@ state/credential/Compose preflight. Authorized startup then exposed adapter,
 packaging and database-readiness blockers. Seven services remain running and the
 UI is reachable; Codex is disabled. No model turn was requested. The
 [activation report](docs/task9-activation-2026-11-23.md) records the failed P1 gate
-and concrete compatibility proposal awaiting approval.
+and compatibility correction subsequently approved for local implementation.
+The [correction report](docs/task9-runtime-compatibility-2026-11-23.md) tracks
+isolated fixes, package evidence and remaining database/activation gates.
 The [workspace guide](docs/workspace-status.md) distinguishes current
 integration commits from frozen acceptance inputs and remaining gates.
 
