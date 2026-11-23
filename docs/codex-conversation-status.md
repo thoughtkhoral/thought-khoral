@@ -1,14 +1,20 @@
 # Codex room conversations: cross-project status
 
-**Status as of 2026-11-20: experimental POC.** The provider-free worker and
+**Status as of 2026-11-23: experimental POC.** The provider-free worker and
 reviewed room-integration changes are pushed to the owning repositories'
 `main` branches. Packaged-stack and separately authorized live verification are
 still open. This guide describes the coordinated milestone across the parent
 repository and all seven direct-child projects; it is derived from their
 approved specifications and coordinated implementation plan, which remain the
 source of truth. The [current workspace guide](workspace-status.md) separates
-canonical mains, the published v1.1 artifact and verified local consumer/profile
-branches, including exact source paths after documentation HEADs advance.
+canonical mains, the published v1.1 artifact and integrated consumer/profile
+branches, including exact frozen source paths after integration HEADs advance.
+
+The four release/consumer/profile branches are integrated and pushed to their
+component mains. Task C package/environment/operator preflight is in progress;
+the [integration procedure](../.ai/specs/how/task9-integration-2026-11-23.md)
+records its scope. The frozen profile, contract tag and component source inputs
+are unchanged. Earlier unmerged descriptions retain their historical meaning.
 
 Native worker portability is verified: all four AMD64/ARM64 Rust 1.85.0/1.93.1
 cells and both production-package/policy-capture jobs passed at `9bcdbde`.
@@ -33,7 +39,7 @@ milestone; they are not enabled by the current integration.
 | Project | Responsibility | Current state |
 | --- | --- | --- |
 | [ThoughtKhoral root](https://github.com/thoughtkhoral/thought-khoral) | Product scope, cross-project contracts, decisions, and coordinated execution | Approved Codex What/How and implementation plan govern the milestone; Task 9 and aggregate acceptance remain open. |
-| [Contracts](https://github.com/thoughtkhoral/thought-khoral-contracts) | Versioned conversation schemas and compatibility fixtures | Published v1.0.0 is unchanged. V1.1.0 is published and downloaded bytes verified; released broker/UI consumers are verified locally, with publication/integration pending. |
+| [Contracts](https://github.com/thoughtkhoral/thought-khoral-contracts) | Versioned conversation schemas and compatibility fixtures | Published v1.0.0 is unchanged. V1.1.0 is published and downloaded bytes verified; release tooling and released broker/UI consumers are integrated into main. |
 | [Codex agent](https://github.com/thoughtkhoral/thought-khoral-codex-agent) | Independent provider-facing worker and native Codex session adapter | Adapter, durable receipts, authenticated transport and native history are implemented. Native Linux runtime/package-policy checks passed on AMD64/ARM64 at both supported compiler versions. Room storage stays outside the worker; provider credentials remain private to its operator/runtime. |
 | [Room gateway](https://github.com/thoughtkhoral/thought-khoral-room-gateway) | Room authority, conversation reservation, authorized history, and persistence | Room-scoped conversation storage and reservation, bounded authorized history, lifecycle projections, and mediated defaults discovery are implemented. |
 | [Agent gateway](https://github.com/thoughtkhoral/thought-khoral-agent-gateway) | Admission and mediation between the broker and Codex worker | Pinned Codex catalog, receipt, and normalized conversation mediation are implemented; Codex remains opt-in. |
@@ -51,8 +57,8 @@ not establish a live provider conversation, real browser/Keycloak behavior,
 packaged deployment, or production readiness. The v1.0.0 contract artifact is
 unchanged. The [v1.1.0 contract release](https://github.com/thoughtkhoral/thought-khoral-contracts/releases/tag/thought-khoral-agent-conversation-v1.1.0)
 is published at source `f1c8621`; fresh TAR/lock/sidecar downloads and all 156
-payload hashes match the reviewed inputs. Canonical broker/UI candidate imports
-remain unchanged; released-v1.1 imports are verified on the local branches.
+payload hashes match the reviewed inputs. Canonical broker/UI now use released-v1.1
+imports; historical candidate and v1.0 vendors remain unchanged.
 Component verification does not establish assembled-stack interoperability.
 
 The [approved native-worker How](https://github.com/thoughtkhoral/thought-khoral-codex-agent/blob/main/.ai/specs/how/linux-worker-acceptance.md)
@@ -71,8 +77,9 @@ Local preparation on 2026-11-20 completed reviewed released-v1.1 broker/UI
 consumers and an exact packaged acceptance profile. The
 [preparation report](task9-packaged-profile-preparation-2026-11-20.md) records
 160 broker tests, 193 UI tests, 46 profile/guard tests and actual provider-free
-worker package/capture/preflight evidence. These isolated branches remain
-unpublished/unmerged; canonical mains and historical fixture pins are unchanged.
+worker package/capture/preflight evidence. These branches were subsequently
+integrated and pushed on 2026-11-23; historical fixture pins and frozen acceptance
+inputs remain unchanged.
 The assembled packaged stack, real browser and live-provider gates remain open.
 
 The [2026-11-20 approved acceptance procedure](../.ai/specs/how/task9-packaged-acceptance-2026-11-20.md)

@@ -26,7 +26,7 @@ reviewed with the relevant specification update.
 | --- | --- | --- | --- |
 | [`thought-khoral-memory-engine`](https://github.com/thoughtkhoral/thought-khoral-memory-engine) | Room-scoped POC collective memory, provenance, and temporal lineage. | `active-development` | incubating |
 | [`thought-khoral-agent-gateway`](https://github.com/thoughtkhoral/thought-khoral-agent-gateway) | Mediated local A2A reference-agent foundation; remote admission and MCP deferred. | `active-development` | incubating |
-| [`thought-khoral-codex-agent`](https://github.com/thoughtkhoral/thought-khoral-codex-agent) | Independent experimental Codex worker with native package evidence and locally prepared released consumers/profile; packaged-stack, browser, live-provider and production gates remain open. | `active-development` | incubating |
+| [`thought-khoral-codex-agent`](https://github.com/thoughtkhoral/thought-khoral-codex-agent) | Independent experimental Codex worker with native package evidence and integrated released consumers/profile; packaged-stack, browser, live-provider and production gates remain open. | `active-development` | incubating |
 
 ## Dependency direction
 
@@ -45,8 +45,10 @@ specification-driven documentation and Apache 2.0 licensing. The provider-free w
 opt-in platform integration have been pushed to their owning repositories'
 GitHub `main` branches for POC development. This is experimental code, not a
 production-readiness claim. The v1.1 defaults artifact was published and its
-downloaded assets verified on 2026-11-20; consumer transition, packaged-stack
-and separately authorized live verification remain pending.
+downloaded assets verified on 2026-11-20. Release tooling, released broker/UI
+consumers and the packaged profile were integrated and pushed on 2026-11-23;
+package/environment/operator preflight is in progress. Packaged-stack and
+separately authorized live verification remain pending.
 The 2026-11-19 maintenance changes are published. Native AMD64/ARM64 worker tests
 passed on Rust 1.85.0/1.93.1; both Rust 1.93.1-built package-policy captures passed.
 This evidence leaves lifecycle/maturity values unchanged and does not close the

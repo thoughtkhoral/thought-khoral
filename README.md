@@ -43,11 +43,11 @@ runtime/package-policy evidence are recorded. Full Codex packaged room-stack,
 rendered-browser and separately authorized live-provider verification remain
 open. See the [cross-project status guide](docs/codex-conversation-status.md).
 
-Conversation v1.1.0 is now published. Released-defaults broker/UI consumers and
-the exact packaged acceptance profile are implemented and reviewed on separate
-local branches. Canonical runtime mains retain their earlier imports/runner;
-the [workspace guide](docs/workspace-status.md) distinguishes those checkouts
-and preserved acceptance inputs from documentation-only followups.
+Conversation v1.1.0 is published. Its release tooling, released-defaults broker/UI
+consumers and exact packaged acceptance profile are integrated and pushed to
+their canonical mains. Task C package/environment/operator preflight is in
+progress. The [workspace guide](docs/workspace-status.md) distinguishes current
+integration commits from frozen acceptance inputs and remaining gates.
 
 ## Specification-first project
 

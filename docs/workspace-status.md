@@ -1,6 +1,6 @@
 # Current ThoughtKhoral workspace
 
-Updated 2026-11-20 from the [workspace-state specification](../.ai/specs/how/workspace-state.md)
+Updated 2026-11-23 from the [workspace-state specification](../.ai/specs/how/workspace-state.md)
 and [coordinated acceptance record](../.ai/specs/how/codex-room-conversations-implementation-plan.md).
 This is the starting point for resuming work in this checkout. It separates
 published artifacts, canonical runtime sources and verified local branches.
@@ -10,36 +10,45 @@ published artifacts, canonical runtime sources and verified local branches.
 - Conversation **v1.1.0 is published** at `f1c8621`. Freshly downloaded TAR,
   release lock, sidecar and all 156 payload files match the reviewed hashes.
   The published source includes the approved fast-uri 3.1.9 correction.
-- Released-defaults broker/UI consumers are **implemented and reviewed locally**.
+- Released-defaults broker/UI consumers are **integrated and pushed to main**.
   Broker source `673294e` passed 160 tests with one intentional external-agent
   ignore; UI `29a9400` passed 193 tests with one composed skip plus typecheck/build.
 - Platform profile `996e188` fixes the exact released contract, six source
   inputs and verified local ARM64 image. Its 46 new/retained guards pass. Actual
   package/startup probes, byte-identical native capture and credential-free
-  image/source preflight passed, with owned containers removed.
+  image/source preflight passed, with owned containers removed. Its runner/profile
+  is now integrated and pushed to platform main.
+
+Fresh integration verification passes contracts, 160 broker tests (one intentional
+external-agent ignore), 193 UI tests (one intentional composed skip), UI
+TypeScript/build and all 46 profile/guard tests. Ten actual package/startup probes
+pass; native policy recapture matches the retained ARM64 proof byte-for-byte.
+Independent review found no actionable integration blocker. These results do
+not close assembled-stack, browser or live-provider acceptance.
 
 See the [release report](task9-release-preparation-2026-11-20.md) and
 [profile-preparation report](task9-packaged-profile-preparation-2026-11-20.md)
 for immutable source, image, proof, profile and artifact identities. Counts are
-retained results from those exact inputs; this documentation refresh does not
-claim new runtime execution or assembled-stack acceptance.
+retained results from those exact inputs. The [2026-11-23 integration procedure](../.ai/specs/how/task9-integration-2026-11-23.md)
+records the current execution scope and supersedes their earlier unmerged status.
 
 ## Which checkout contains what
 
 | Location | Runtime content |
 | --- | --- |
 | Root | Governance, current specs/docs and cross-project evidence; no embedded runtime |
-| Canonical contracts main | Historical candidate tooling/lock; published release source is a separate pushed branch/tag |
-| Canonical broker/UI mains | Existing candidate imports; released imports are not merged here |
-| Canonical platform main | Historical runner; the new profile option is in the prepared branch |
-| `.worktrees/task9-broker-release` | Released consumer implementation; documentation may have later commits than frozen `673294e` |
-| `.worktrees/task9-ui-release` | Released consumer implementation; documentation may have later commits than frozen `29a9400` |
-| `.worktrees/task9-packaged-profile` | Prepared profile/runner; documentation may have later commits than implementation `996e188` |
-| `.worktrees/task9-contract-release` | Published release/evidence source branch; documentation followups do not retarget `f1c8621` |
+| Canonical contracts main | Release tooling/evidence integrated at `7e1555f`; published tag remains frozen at `f1c8621` |
+| Canonical broker main | Released imports integrated at `ad4d025`; acceptance source remains `673294e` |
+| Canonical UI main | Released imports integrated at `3dc3ec7`; acceptance source remains `29a9400` |
+| Canonical platform main | New profile/runner integrated at `ebc654e`; packet measures the actual clean executing commit |
+| `.worktrees/task9-broker-release` | Retained integrated branch; Markdown reconciliation preserves runtime bytes |
+| `.worktrees/task9-ui-release` | Retained integrated branch; Markdown reconciliation preserves runtime bytes |
+| `.worktrees/task9-packaged-profile` | Retained integrated profile/runner branch at `ebc654e` |
+| `.worktrees/task9-contract-release` | Retained integrated release/evidence branch; tag `f1c8621` is unchanged |
 
-All projects remain independently versioned. Documentation-only commits do not
-merge prepared runtimes, republish artifacts or change lifecycle/maturity.
-The three prepared consumer/platform branches remain local and unmerged.
+All projects remain independently versioned. All four integration commits are
+pushed to their owning mains and prepared branches. Lifecycle/maturity and
+published artifacts are unchanged. Older “unpushed/unmerged” wording is historical.
 
 ## Preserve exact preflight sources
 
@@ -62,16 +71,23 @@ These temporary locations are local convenience, not durable published
 artifacts. Recreate clean checkouts at the profile's immutable commits if needed.
 Path overrides never change trusted revisions. The platform packet names the
 actual clean executing platform HEAD; it is deliberately not self-pinned inside
-the profile. Use prepared-branch verification instructions for that runner;
-canonical-main commands retain their historical behavior.
+the profile. Canonical platform main now supports explicit packaged-v1.1 profile
+selection; component source overrides must still select the frozen inputs above.
 
 ## Next work and limits
 
-Publish/integrate the reviewed prepared sources, then complete the assembled
-packaged-stack, private-DNS/readiness and real-browser checks. Provider turns,
+Source integration is complete. Finish Task C package/environment/operator
+preflight, then complete the assembled packaged-stack, private-DNS/readiness
+and real-browser checks. Exact sources are staged, required loopback ports are
+free, the local worker image is verified and the external database volume is
+preserved. Production images are being built serially with one Cargo job.
+Private credential paths, reviewed model policies, state ownership and two human
+token files still require configuration; packet approvals remain false. Native
+Chrome controls are accessible; DevTools access is unavailable in this session.
+Controller availability does not establish packaged-browser acceptance. Provider turns,
 multi-human continuation/reset, runtime settings/usage and live tool/egress
 verification require the separately configured and authorized operator run.
-No application stack or provider has been activated by this documentation task.
+No application stack or provider has been activated by this integration/preflight.
 
 Memory remains an incubating in-memory/provenance proof, separate from Codex;
 Cognee, durable memory, guided directories and open remote admission remain

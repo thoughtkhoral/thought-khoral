@@ -26,8 +26,8 @@ implemented. Native worker tests passed on AMD64/ARM64 with Rust 1.85.0/1.93.1;
 both package-policy captures passed using the pinned Rust 1.93.1 builder. Full
 Codex room-stack, rendered-browser and live-provider
 verification remain open. V1.1 is published, and released consumers plus an
-exact packaged profile are verified on local branches; their integration is
-pending. The [workspace guide](workspace-status.md) identifies which checkout
+exact packaged profile are integrated and pushed to canonical mains. Task C
+package/environment/operator preflight is in progress. The [workspace guide](workspace-status.md) identifies which checkout
 contains each runtime and preserves the exact acceptance sources.
 Codex does not connect to room storage or use the memory-engine proof. See the
 [cross-project Codex status guide](codex-conversation-status.md) for its current

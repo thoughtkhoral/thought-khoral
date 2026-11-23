@@ -1,5 +1,11 @@
 # Task 9 released consumers and packaged profile preparation
 
+> Integration update — 2026-11-23: the reviewed contracts release, broker/UI
+> consumers and platform profile are integrated and pushed to canonical mains.
+> The [current workspace guide](workspace-status.md) records the new integration
+> commits and Task C preflight. Unpushed/unmerged wording below is historical;
+> frozen implementation/profile identities and evidence scope are unchanged.
+
 > Current checkout guidance: the [workspace guide](workspace-status.md) records
 > documentation-only followups and preserved clean runtime snapshots. Frozen
 > implementation/artifact identities below remain unchanged when branch HEADs

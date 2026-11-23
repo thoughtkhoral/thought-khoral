@@ -1,6 +1,6 @@
 # ThoughtKhoral compatibility matrix
 
-This matrix records the local interface boundaries as of 2026-11-20. The
+This matrix records the local interface boundaries as of 2026-11-23. The
 [contracts repository](https://github.com/thoughtkhoral/thought-khoral-contracts)
 owns the normative room schemas and the separate Codex conversation profile.
 Component releases and their contract locks remain the authority for a
@@ -8,14 +8,14 @@ particular build.
 
 Local released-v1.1 consumer branches were verified on 2026-11-20 and are
 recorded in the [packaged-profile preparation report](task9-packaged-profile-preparation-2026-11-20.md).
-They have not been published/merged; the table below continues to describe
-canonical-main consumers rather than implying deployed interoperability.
+They were integrated and pushed to canonical mains on 2026-11-23. The table
+describes source compatibility; assembled-stack interoperability remains open.
 
 | Component | Contract relationship | Local integration boundary |
 | --- | --- | --- |
 | Contracts | Publishes the retained `n2n.room.v1` JSON Schemas, protocol, and compatibility fixtures. | Contract artifacts only; no runtime library. |
-| Room gateway | Retains the published room contract and pins conversation profile v1.0.0. The unreleased v1.1 defaults candidate is pinned separately for provider-free development. | Authenticated room WebSocket, task APIs, and separate /api/agent-conversations/v1 routes; room authority and persistence stay here. |
-| Workspace UI | Retains the room v1 interface and vendors the published conversation profile; its defaults candidate pin remains explicitly unreleased. | Uses OIDC and WebSocket adapters; Codex controls require explicit host admission and do not own authorization. |
+| Room gateway | Retains the published room contract and conversation profile v1.0.0; resolved-settings validation now consumes released v1.1. Historical candidate vendor bytes remain unchanged. | Authenticated room WebSocket, task APIs, and separate /api/agent-conversations/v1 routes; room authority and persistence stay here. |
+| Workspace UI | Retains the room v1 interface and published v1.0 vendor; resolved-settings validation now consumes released v1.1. The historical candidate remains explicitly unreleased. | Uses OIDC and WebSocket adapters; Codex controls require explicit host admission and do not own authorization. |
 | Agent gateway | Retains its room-task contract pin and consumes published conversation profile v1.0.0. | Mediates the pinned reference agent and opt-in Codex worker; it has no direct room database access. |
 | Codex agent | Pins the published conversation profile and uses a private authenticated worker transport. | Owns the provider-facing adapter/native state. Native Linux AMD64/ARM64 tests passed on Rust 1.85.0/1.93.1 and package captures on the pinned Rust 1.93.1 builder; no room database access. |
 | Memory engine | Uses private authenticated ingestion rather than a browser room-protocol implementation. | Receives committed room events through the gateway; it remains separate from Codex milestone one. |
@@ -23,8 +23,8 @@ canonical-main consumers rather than implying deployed interoperability.
 
 The contracts repository also owns the separate versioned Codex conversation
 profile. Its v1.0.0 artifact is published and unchanged; additive v1.1.0 was
-published and its downloaded assets verified on 2026-11-20. Broker/UI still
-use their historical candidate pins until the released-provenance transition.
+published and its downloaded assets verified on 2026-11-20. Broker/UI released
+defaults consumption is now integrated; historical candidate pins are preserved.
 
 The room gateway and agent gateway continue to pin retained room-contract
 commit 1a44b6cfc19a4f5e668afb1ddb5241b2a0f1f72d. Updating that artifact is a
@@ -35,9 +35,10 @@ The conversation API uses the separate `/api/agent-conversations/v1` namespace.
 The published v1.0.0 profile and archive are unchanged. The additive v1.1
 defaults-discovery artifact, including `ResolvedSettingsView`, is published as
 `thought-khoral-agent-conversation-v1.1.0` at verified source `f1c8621`.
-The separately retained candidate on contracts `main` is unchanged. Broker and UI candidate
-pins support only the approved provider-free synthetic integration; they do
-not establish released interoperability. See the
+The separately retained candidate on contracts `main` is unchanged. Broker/UI
+use the exact released v1.1 vendor for defaults validation; retained candidate
+pins still describe only their historical provider-free synthetic integration.
+Component-source verification does not establish assembled interoperability. See the
 [cross-project Codex status guide](codex-conversation-status.md) and the
 [conversation plan](../.ai/specs/how/codex-room-conversations-implementation-plan.md)
 for exact gates and evidence.

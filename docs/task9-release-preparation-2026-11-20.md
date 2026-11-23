@@ -1,5 +1,11 @@
 # Task 9 local release preparation — 2026-11-20
 
+> Integration update — 2026-11-23: contracts release tooling/evidence, released
+> broker/UI consumers and the packaged profile are integrated and pushed to main.
+> The [workspace guide](workspace-status.md) records current commits and preflight.
+> Pending integration/adoption descriptions below are historical; the published
+> tag, artifacts and frozen acceptance inputs remain unchanged.
+
 > Current checkout guidance: the [workspace guide](workspace-status.md) records
 > documentation-only followups and preserved clean runtime snapshots. Frozen
 > implementation/artifact identities below remain unchanged when branch HEADs

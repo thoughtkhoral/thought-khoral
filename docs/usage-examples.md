@@ -42,8 +42,8 @@ Committed room events can reach the memory engine through private authenticated 
 ## Developer example: inspect prepared Codex acceptance
 
 The v1.1 artifact is published, and released broker/UI consumers plus a guarded
-packaged profile are verified on local branches. Use the [workspace guide](workspace-status.md)
-to choose the prepared platform checkout and exact source snapshots. Its offline
+packaged profile are integrated into canonical mains. Use the [workspace guide](workspace-status.md)
+to select the platform runner and exact frozen component source snapshots. Its offline
 profile/guard tests need no provider call; its live mode still requires reviewed
 activation and a private configured operator packet. These are developer
 verification steps, not an already-running hosted Codex experience.
