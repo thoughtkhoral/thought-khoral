@@ -1,9 +1,12 @@
 # Task 9 packaged runtime compatibility correction
 
-Status: **proposed; awaiting maintainer approval**. This document authorizes no
-runtime implementation, new package/profile, source publication or provider
-call. It makes the next correction concrete after authorized activation exposed
-failures not covered by component/package-policy tests.
+Status: **approved for bounded local implementation and verification**. The
+maintainer answered “approved” on 2026-11-23 after reviewing this proposal.
+Approval permits the local corrections, provider-free verification and package
+preparation below. Source/image publication, changed-input activation, existing
+database upgrades and provider/tool calls retain their separate gates.
+It makes the correction concrete after authorized activation exposed failures
+not covered by component/package-policy tests.
 
 Governing sources: [Task 9 procedure](task9-packaged-acceptance-2026-11-20.md),
 [integration execution record](task9-integration-2026-11-23.md), the worker's
