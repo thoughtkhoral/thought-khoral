@@ -104,3 +104,47 @@ No application stack or provider was activated. P1–C1, Task 9 acceptance,
 registry-image publication and production deployment remain open. Do not ask
 for activation/provider approval until the missing preflight configuration is
 concrete and reviewable under the approved procedure.
+
+## Existing shell authentication reused — 2026-11-23
+
+The maintainer clarified that shell Codex is already configured and no new key
+or repeated manual key entry is needed. A read-only login-status check confirms
+saved API authentication, and configured `gpt-6.1-sol`/`medium` is present in the
+pinned worker catalog and retained native policy proof. This supersedes the
+earlier request for the maintainer to supply another credential/configuration.
+
+Existing Task C operator provisioning now uses the cached API credential once
+to prepare the worker-only private credential file. No host login/configuration
+or native conversation history is imported or changed. Separate internal
+invocation/catalog credentials and matching broker/mediator policies are
+prepared privately. The host CLI remains 0.171.0 and the packaged worker remains
+the exact reviewed 0.160.0; reusing authentication does not substitute host
+runtime/configuration for the verified container. No runtime code, image,
+profile, published artifact or frozen source input changes.
+
+Five actual provider-free checks pass: state ownership, worker --check/package
+admission with its real private input files, mediator recipient/state access,
+broker recipient-only access, and the existing host wrapper's resolved Compose
+configuration with the immutable image override. Output is retained privately
+with credential-value exclusion and redaction. Credential source files are
+inside owner-only host directories; Compose mounts only each recipient's
+declared read-only file. Packet/provider/tool approvals remain false.
+
+The first macOS shared-directory probe reported state ownership as 0:0 inside
+the worker and was correctly rejected by its unchanged UID/GID guard. An empty,
+dedicated engine-native runtime-state volume preserves the required per-service
+UID/GID/modes and passes the repeated checks. Keep this prepared runtime volume
+for the later run; owned probe containers are removed and the external database
+volume is preserved. This correction changes operator storage configuration,
+not runtime authority or the production Compose source.
+
+The [cached-auth preflight evidence](../../../docs/evidence/task9-cached-auth-preflight-2026-11-23.json)
+records the successful checks, rejected shared-directory attempt, model/effort,
+redacted configuration hash and approval state without credential values or
+private host paths. Task C's missing operator configuration is resolved and the
+inputs are ready for activation review. Refresh the proposed bounded admission
+expiry if needed before startup. The existing separate service-activation gate
+now applies; browser human authentication/token acquisition and actual
+container/readiness/resource observations follow authorized startup. Provider
+and tool execution retain their own approval. No application stack or provider
+was activated, and P1–C1/Task 9 acceptance remains open.

@@ -28,11 +28,19 @@ byte-for-byte. Independent review found no actionable integration blocker.
 Owned database/package/capture fixtures were removed; the external database
 volume is preserved. These remain component/provider-free evidence.
 
+Latest operator checkpoint: existing shell Codex API authentication and its
+`gpt-6.1-sol`/`medium` setting now provision the isolated worker without a new key
+or host login/config/session import. Five actual real-input/state/Compose
+preflight checks pass. An engine-native state volume satisfies ownership where
+macOS shared directories did not. [The execution checkpoint](task9-integration-2026-11-23.md#existing-shell-authentication-reused--2026-11-23)
+and sanitized cached-auth evidence supersede the earlier missing-configuration
+state. Inputs are ready for separate activation review; no stack/provider is
+activated. Human login tokens and runtime readiness follow authorized startup.
+
 Nine exact-source production images are built and the reviewed worker image is
-available. Actual image/source/package preflight passed; the private packet and
-immutable Compose image override are prepared. Task C remains incomplete pending
-actual private credential paths, model policies, state ownership and redacted
-Compose configuration preflight. The [execution record](task9-integration-2026-11-23.md#execution-checkpoint--2026-11-23)
+available. Actual image/source/package preflight passed; the private packet,
+operator environment and immutable Compose image override are prepared. The
+[earlier execution record](task9-integration-2026-11-23.md#execution-checkpoint--2026-11-23)
 and sanitized evidence retain complete image/source identities. Assembled-stack,
 private-DNS, real-browser, live-provider/tool/egress and Task 9 acceptance remain
 open. Activation and provider approvals have not been asserted. Memory/guidance,

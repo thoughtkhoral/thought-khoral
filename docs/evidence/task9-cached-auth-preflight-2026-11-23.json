@@ -1,0 +1,67 @@
+{
+  "authenticationSource": "existing shell Codex cached API authentication",
+  "newProviderKeyRequired": false,
+  "hostLoginChanged": false,
+  "hostConfigOrSessionsImported": false,
+  "model": "gpt-6.1-sol",
+  "nativeEffort": "medium",
+  "publicEffort": "effort-medium",
+  "providerInference": false,
+  "applicationActivation": false,
+  "secretValuesLogged": false,
+  "secretParentMode": "0o700",
+  "credentialFilesDistinct": true,
+  "admissionExpiresAt": "2026-11-23T18:51:45.552938Z",
+  "checks": [
+    {
+      "name": "state-ownership",
+      "exitCode": 0
+    },
+    {
+      "name": "worker-real-input-package-check",
+      "exitCode": 0
+    },
+    {
+      "name": "mediator-recipient-input-check",
+      "exitCode": 0
+    },
+    {
+      "name": "broker-recipient-input-check",
+      "exitCode": 0
+    },
+    {
+      "name": "actual-wrapper-compose-config",
+      "exitCode": 0
+    }
+  ],
+  "stateMetadata": [
+    "/prepared/native 10003:10003:700",
+    "/prepared/receipts 10003:10003:700",
+    "/prepared/admission 10003:10003:755",
+    "/prepared/mediator 10001:10001:700"
+  ],
+  "redactedComposeSha256": "2568033a059f7ea478c89ba2a21b8ff21be73baffc00265c88311a7d513c6685",
+  "actualComposeConfigValidated": true,
+  "activationApproved": false,
+  "providerCallsApproved": false,
+  "toolProbesApproved": false,
+  "ownedProbeContainersRemoved": true,
+  "externalDatabaseVolumePreserved": true,
+  "recordedAt": "2026-11-23T16:58:48.438188+00:00",
+  "scope": "provider-free operator provisioning and real-input preflight; no assembled-stack or live-provider acceptance",
+  "hostCliVersion": "0.171.0",
+  "workerCliVersion": "0.160.0",
+  "stateStorage": "dedicated engine-native runtime state volume; sessions remain independent from shell Codex",
+  "retainedFailure": {
+    "case": "macOS shared-folder state ownership",
+    "observedUidGid": "0:0",
+    "requiredWorkerUidGid": "10003:10003",
+    "outcome": "rejected by unchanged guard; replaced with engine-native state volume",
+    "accepted": false
+  },
+  "activationReviewReady": true,
+  "activationNote": "Review proposed bounded admission expiry before startup; refresh if needed. Explicit activation approval remains required. Human browser authentication and token acquisition follow authorized startup; provider/tool calls retain their own approval.",
+  "frozenAcceptanceInputsChanged": false,
+  "workerImageId": "sha256:2dd78cdf5eddb9ca271611998ea44fe6d6cfde6cfca8ba7d1d6c8858240b540d",
+  "profileSha256": "7106f7e41a6bc13feab8a0b51fccde9b47fefca2d63980d551ed929eac1c1a71"
+}

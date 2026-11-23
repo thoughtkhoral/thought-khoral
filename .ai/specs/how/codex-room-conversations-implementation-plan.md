@@ -992,3 +992,17 @@ are missing; Task C remains incomplete. The [execution checkpoint](task9-integra
 records observed resources, browser-control availability, exact image/build
 evidence and cleanup. No application stack or provider is activated, and
 Task 9 and production acceptance remain open.
+
+### Existing authentication and operator preflight resolved — 2026-11-23
+
+Following the maintainer's clarification, existing shell Codex cached API
+authentication and configured `gpt-6.1-sol`/`medium` now provision the private
+worker inputs once, without a new key or host config/session import. Five actual
+state/package/recipient/Compose checks pass. An engine-native runtime-state
+volume resolves the rejected macOS shared-directory UID mapping. No runtime,
+image, profile, artifact or frozen-source identity changed. The
+[owning execution checkpoint](task9-integration-2026-11-23.md#existing-shell-authentication-reused--2026-11-23)
+and sanitized evidence supersede the missing-configuration state above. Inputs
+are ready for separate activation review; no stack or provider is activated.
+Human authentication and runtime readiness follow startup; provider/tool calls
+retain their separate approval. Task 9 remains unaccepted.
