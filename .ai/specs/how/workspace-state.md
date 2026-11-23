@@ -2,6 +2,19 @@
 
 ## Current integration checkpoint — 2026-11-23
 
+Latest activation result: the maintainer approved starting the reviewed stack
+without model calls. Seven base services remain running; the mediator subsequently
+stopped with exit 1, separately from the Codex namespace shutdown. Its cause is
+not established. The Codex namespace
+watchdog stopped its owner/proxy/worker and Codex remains disabled. Authenticated
+catalog/defaults return 503 despite successful native CLI initialization/listing
+in an isolated fixture: the worker rejects pinned startup-notification metadata.
+P1 failed and rendered-browser coverage is unavailable. The [activation record](task9-integration-2026-11-23.md#authorized-activation-partial-failure--2026-11-23)
+and sanitized evidence supersede the earlier ready/not-activated status below.
+The [compatibility proposal](task9-runtime-compatibility-proposal-2026-11-23.md)
+awaits approval; no worker code or frozen input has changed. No model turn was
+requested, and the database volume is preserved.
+
 The maintainer authorized the [planned source integration and Task C preflight](task9-integration-2026-11-23.md)
 with “proceed”. The four reviewed branches are now integrated and pushed to
 their component mains. Merge conflicts were limited to Markdown applicability

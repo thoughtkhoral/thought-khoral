@@ -148,3 +148,62 @@ now applies; browser human authentication/token acquisition and actual
 container/readiness/resource observations follow authorized startup. Provider
 and tool execution retain their own approval. No application stack or provider
 was activated, and P1–C1/Task 9 acceptance remains open.
+
+## Authorized activation: partial failure — 2026-11-23
+
+The maintainer answered “proceed” to the explicit question to start the reviewed
+local stack without model calls. Activation is authorized; provider/tool calls
+remain unauthorized. [Actual activation evidence](../../../docs/evidence/task9-activation-2026-11-23.json)
+supersedes the preceding not-activated/ready-for-review status. No model turn was
+requested; the dedicated test room has zero events. Conversation/task counts
+cannot be queried because their tables are absent in the existing volume.
+
+Stock startup failed because installed Compose 1.6 emitted a bare hostname for
+the mapping-form loopback extra-host entry. Merging a list override also fails
+in that version. A privately materialized, hash-bound effective configuration
+converts only that entry to its equivalent list form, with actual dry-run
+RED/GREEN Podman argv evidence. Activation still invokes the unchanged host
+secret-check wrapper. A missing mediator DNS alias was then added to its actual
+namespace owner on the existing agent-internal interface; no network or port
+was added. The full stack was recreated with dependency health ordering intact.
+These are attributed deployment adaptations, not canonical source fixes.
+
+All eleven services initially ran, and the private mediator DNS lookup then
+passed. Two distinct local fixture users authenticated with PKCE. UI HTTP is
+200, room WebSocket ingress responds with its expected unauthenticated upgrade
+status, and Keycloak discovery is available. Authenticated catalog/default
+requests still return 503 `runtime_unavailable`; P1 is failed, not accepted.
+The existing database has the earlier room/task tables but lacks the conversation
+tables required by migrations 0006/0007; its migration ledger is empty. Image
+init scripts do not upgrade an already initialized external volume. No schema
+migration was applied during this run. Establish actual schema state and verify
+the approved migrations on a private restored backup before proposing an upgrade.
+
+A network-none diagnostic fixture using the exact image/controls/native state
+successfully initializes CLI 0.160.0 and lists models. Initialize, model-list and
+startup notifications validate against their pinned schemas. Normal
+`configWarning` and disabled `remoteControl/status/changed` notifications carry
+the pinned `emittedAtMs` metadata rejected by the worker's closed envelope. This
+identifies a native-adapter compatibility blocker, not a missing authentication
+credential. Runtime sources, images and the frozen profile remain unchanged.
+
+The Codex namespace watchdog subsequently exited with its generic isolation-loss
+message; proxy and worker stopped with their shared PID namespace. Current
+container OOM flags are false and observed kernel OOM records predate this run.
+The triggering policy/proxy condition remains undetermined. Keep the live Codex
+side disabled; do not relax safeguards or claim I1/I2 acceptance. Eight base
+services initially remained running; the mediator subsequently stopped with
+exit 1. Its cause is not established and is not attributed to the Codex watchdog.
+The final checkpoint records seven running services. The database is preserved and
+the owned network-none diagnostic fixture was removed. Public readiness-file
+expiry prevents fresh Codex admission after shutdown.
+
+Rendered-browser coverage is unavailable: the isolated browser host could not
+connect, and the native Chrome controller reported concurrent user changes.
+No browser acceptance or screenshots are claimed; HTTP PKCE is separate evidence.
+The [bounded compatibility proposal](task9-runtime-compatibility-proposal-2026-11-23.md)
+is prepared for maintainer review before worker runtime changes. It covers the
+native metadata/notification handling, durable Compose/DNS corrections and
+separate provider-free watchdog investigation. It grants no implementation or
+provider authorization until approved, and no changed package/profile is yet
+prepared or activated.

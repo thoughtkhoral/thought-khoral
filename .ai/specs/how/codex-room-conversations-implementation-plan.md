@@ -1006,3 +1006,25 @@ and sanitized evidence supersede the missing-configuration state above. Inputs
 are ready for separate activation review; no stack or provider is activated.
 Human authentication and runtime readiness follow startup; provider/tool calls
 retain their separate approval. Task 9 remains unaccepted.
+
+### Authorized activation failure and proposed correction — 2026-11-23
+
+The maintainer approved service startup without model calls. Attributed private
+Compose host-alias and namespace-owner DNS adaptations got the exact-image stack
+running; two distinct fixture-human PKCE logins pass. Catalog/defaults remain
+503. Native initialize/model-list and startup notifications validate against the
+pinned CLI protocol in a network-none diagnostic fixture, while the worker rejects
+their `emittedAtMs` metadata. The Codex namespace watchdog also subsequently
+stopped the owner, proxy and worker; its trigger is unclassified, with no current
+OOM evidence. Keep live Codex disabled. Seven base services remain running after
+the mediator separately stopped with exit 1; its cause is not established. The
+external database volume is preserved. No turn was requested; test-room
+event count is zero; conversation/task tables are absent in the existing volume,
+so their allocation counters cannot be queried. No schema upgrade was applied.
+P1 failed, browser B1 is unavailable
+and no remaining Task 9 gate is accepted by these observations.
+
+The [execution record](task9-integration-2026-11-23.md#authorized-activation-partial-failure--2026-11-23)
+and sanitized evidence retain exact scope. The [bounded compatibility proposal](task9-runtime-compatibility-proposal-2026-11-23.md)
+awaits maintainer approval before native runtime handling changes or a new
+package/profile. Provider/tool calls remain separately unauthorized.

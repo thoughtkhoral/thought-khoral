@@ -12,6 +12,13 @@ Inputs are ready for separate activation review. Assembled-stack,
 browser/live-provider and Task 9 acceptance remain open. Older local/unmerged
 or pending-consumer descriptions below retain their historical scope.
 
+Later authorized activation exposed a native worker compatibility blocker and
+an undiagnosed namespace-watchdog shutdown. Seven base services remain running;
+Codex is disabled, P1 failed and browser acceptance is unavailable. No model
+turn was requested. The [activation execution record](how/task9-integration-2026-11-23.md#authorized-activation-partial-failure--2026-11-23)
+and [proposed bounded correction](how/task9-runtime-compatibility-proposal-2026-11-23.md)
+govern the next review; earlier ready/not-activated wording is historical.
+
 ## Structure
 
 - `what/` defines product intent, scope, outcomes, and acceptance criteria.
@@ -103,6 +110,7 @@ linked feature worktree, scan its source root explicitly, for example:
 
 ## Current root specifications
 
+- [Proposed Task 9 runtime compatibility correction — 2026-11-23](how/task9-runtime-compatibility-proposal-2026-11-23.md) — approval pending; no runtime changes authorized.
 - [Authorized Task 9 integration and preflight — 2026-11-23](how/task9-integration-2026-11-23.md)
 - [Current workspace state and source boundaries](how/workspace-state.md)
 - [Specification-to-document reconciliation — 2026-11-20](how/documentation-reconciliation-2026-11-20.md)

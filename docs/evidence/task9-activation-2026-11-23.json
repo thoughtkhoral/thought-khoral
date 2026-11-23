@@ -1,0 +1,271 @@
+{
+  "kind": "task9-authorized-activation-partial-failure",
+  "recordedAt": "2026-11-23T18:19:33.186560+00:00",
+  "activationApproved": true,
+  "providerCallsApproved": false,
+  "toolProbesApproved": false,
+  "providerInference": false,
+  "codexTurnRequests": 0,
+  "runningServiceCount": 7,
+  "containers": [
+    {
+      "service": "thought-khoral-codex-egress",
+      "containerId": "1a149e8f6102ec89d991a1b958d7b2200645af849c91c1d27c98f841a11e3c39",
+      "imageId": "sha256:5def42c650fa9bbd797a8403c10ec27f54e8dd49e8a67268f76ef079782bf155",
+      "running": false,
+      "status": "exited",
+      "exitCode": 1,
+      "oomKilled": false,
+      "health": "healthy"
+    },
+    {
+      "service": "thought-khoral-memory-engine",
+      "containerId": "9e0873768930a0f13e2f453bfd332fbdaa9e50af9f7c5aea85dbda375e00591d",
+      "imageId": "sha256:ee080acefb06673d692b54ae78c12ce802b04aa46bf3dbec07da53f52eab0e5c",
+      "running": true,
+      "status": "running",
+      "exitCode": 0,
+      "oomKilled": false,
+      "health": "healthy"
+    },
+    {
+      "service": "thought-khoral-postgres",
+      "containerId": "3ae4804d5324ba61a4ec662aff7fa18c9259e9150d0703526cacbd81d576dc69",
+      "imageId": "sha256:9ebc92cd2ad89039f1913fb2cd2f0f1754003ef191e8067a65a3de6e014ebf1c",
+      "running": true,
+      "status": "running",
+      "exitCode": 0,
+      "oomKilled": false,
+      "health": "healthy"
+    },
+    {
+      "service": "thought-khoral-codex-provider-proxy",
+      "containerId": "3165888c682054611f32affda8a4102244fd9cb24f080ddb2012bc741fedcd7a",
+      "imageId": "sha256:5def42c650fa9bbd797a8403c10ec27f54e8dd49e8a67268f76ef079782bf155",
+      "running": false,
+      "status": "exited",
+      "exitCode": 137,
+      "oomKilled": false,
+      "health": "healthy"
+    },
+    {
+      "service": "thought-khoral-keycloak",
+      "containerId": "f77abf14839da50317d58f6e4961b666ab5efc98b4cf5aa2bf6ad60920f18388",
+      "imageId": "sha256:f47df0b32f2362ba08a0dd0ce9bb69c439480b2b65f3102adaa1f966e62e7ef5",
+      "running": true,
+      "status": "running",
+      "exitCode": 0,
+      "oomKilled": false,
+      "health": "healthy"
+    },
+    {
+      "service": "thought-khoral-codex-agent",
+      "containerId": "80d2674e7b4a249803cd4114cebb13118416f01e011af4d90fbb3db84b76b9ca",
+      "imageId": "sha256:2dd78cdf5eddb9ca271611998ea44fe6d6cfde6cfca8ba7d1d6c8858240b540d",
+      "running": false,
+      "status": "exited",
+      "exitCode": 137,
+      "oomKilled": false,
+      "health": "healthy"
+    },
+    {
+      "service": "thought-khoral-room-gateway",
+      "containerId": "ffad5a61fd4cbc441708ad402e270e761ce521d1fac95587ae7dde7a766c5fcb",
+      "imageId": "sha256:d346f279cf6f0beb13645516642b032b61132a2e470055eeb61e005da1dc5d8f",
+      "running": true,
+      "status": "running",
+      "exitCode": 0,
+      "oomKilled": false,
+      "health": "healthy"
+    },
+    {
+      "service": "thought-khoral-agent-egress",
+      "containerId": "f94d5405c6fe0a875959d3018db59abead2f57d4708f07d665b8d25dfb9bc93b",
+      "imageId": "sha256:817b321e472265c3469510a3ac74d137ba6e0b1ebb3ff1128e80e17114ec4ae0",
+      "running": true,
+      "status": "running",
+      "exitCode": 0,
+      "oomKilled": false,
+      "health": "healthy"
+    },
+    {
+      "service": "thought-khoral-reference-agent",
+      "containerId": "0df40cbd2ed20c506025438fde1128c2a2b08247abf839d795996f1e521a5372",
+      "imageId": "sha256:7379722a5b1196e97e544028a7d9be48a1978ead08a9e1c5eea952973879f172",
+      "running": true,
+      "status": "running",
+      "exitCode": 0,
+      "oomKilled": false,
+      "health": "healthy"
+    },
+    {
+      "service": "thought-khoral-workspace-ui",
+      "containerId": "37d60cfef4785a4851d5f8f4e083ea3216d2e91a082e3511eada2fdf5996439c",
+      "imageId": "sha256:05a28c0bc46bfa1d22b71f497981e4a8ad7cfbe01d6e609e7a291fe6cefb92cc",
+      "running": true,
+      "status": "running",
+      "exitCode": 0,
+      "oomKilled": false,
+      "health": "healthy"
+    },
+    {
+      "service": "thought-khoral-agent-gateway",
+      "containerId": "0001a70aabedd6734633d1cd69c8ce9b0dc45656119a03f6bd49625979d3b7c2",
+      "imageId": "sha256:b1b7f66c41ee138969e0e3f943417dd7caf1c1142628a8b19948a303524349f9",
+      "running": false,
+      "status": "stopped",
+      "exitCode": 1,
+      "oomKilled": false,
+      "health": null
+    }
+  ],
+  "http": [
+    {
+      "endpoint": "ui",
+      "status": 200
+    },
+    {
+      "endpoint": "keycloak",
+      "status": 200
+    },
+    {
+      "endpoint": "admission",
+      "status": 200,
+      "fresh": false
+    }
+  ],
+  "testRoomAllocationCounts": {
+    "conversationTablePresent": false,
+    "taskTablePresent": false,
+    "events": 0,
+    "migrationLedgerEntries": 0
+  },
+  "authenticatedReadiness": {
+    "kind": "actual-stack-authenticated-catalog-readiness",
+    "providerInference": false,
+    "turnRequests": 0,
+    "checks": [
+      {
+        "actor": "alice",
+        "endpoint": "models",
+        "status": 503,
+        "cacheControl": "no-store",
+        "safeError": "runtime_unavailable",
+        "settings": null
+      },
+      {
+        "actor": "alice",
+        "endpoint": "defaults",
+        "status": 503,
+        "cacheControl": "no-store",
+        "safeError": "runtime_unavailable",
+        "settings": null
+      },
+      {
+        "actor": "bob",
+        "endpoint": "models",
+        "status": 503,
+        "cacheControl": "no-store",
+        "safeError": "runtime_unavailable",
+        "settings": null
+      },
+      {
+        "actor": "bob",
+        "endpoint": "defaults",
+        "status": 503,
+        "cacheControl": "no-store",
+        "safeError": "runtime_unavailable",
+        "settings": null
+      }
+    ],
+    "distinctHumanIdentities": true
+  },
+  "nativeDiagnostic": {
+    "initializeValid": true,
+    "modelListValid": true,
+    "notifications": [
+      {
+        "method": "configWarning",
+        "pinnedSchemaValid": true,
+        "extraKeysRejectedByCurrentWorker": [
+          "emittedAtMs"
+        ],
+        "timestampIsInteger": true,
+        "remoteControlStatus": null,
+        "warningClass": "bundled-bubblewrap-fallback"
+      },
+      {
+        "method": "remoteControl/status/changed",
+        "pinnedSchemaValid": true,
+        "extraKeysRejectedByCurrentWorker": [
+          "emittedAtMs"
+        ],
+        "timestampIsInteger": true,
+        "remoteControlStatus": "disabled",
+        "warningClass": null
+      }
+    ],
+    "turnRequests": 0,
+    "network": "none",
+    "stdoutSha256": "60a4d93652cd52ed3fe809d513f02800af36e08823b93ea4fc23ed4cc60bc645"
+  },
+  "effectiveConfigurationSha256": "3dce9a063cf6314c33754504e42b84d9a0f21c425f1afd252a74091d7394fb65",
+  "canonicalSourcesAndImagesChanged": false,
+  "deploymentAdaptations": [
+    {
+      "change": "loopback extra-host declaration mapping to list",
+      "destinationUnchanged": true,
+      "actualComposeDryRunRedGreen": true,
+      "reason": "installed Compose emits a bare hostname for map syntax; list override cannot merge with map"
+    },
+    {
+      "change": "mediator DNS alias on existing namespace-owner private interface",
+      "newNetworkOrPort": false,
+      "brokerLookupPassed": true,
+      "dependencyHealthOrderingPreserved": true
+    }
+  ],
+  "namespaceShutdown": {
+    "ownerExitCode": 1,
+    "dependentExitCodes": [
+      137,
+      137
+    ],
+    "oomFlags": false,
+    "diagnostic": "Codex isolation lost; namespace stopping",
+    "trigger": "not-established; do not infer from generic watchdog message",
+    "kernelOomEvents": "observed events predate this attempt",
+    "liveCodexState": "disabled; namespace owner/proxy/worker stopped"
+  },
+  "mediatorShutdown": {
+    "exitCode": 1,
+    "subsequentToCodexNamespaceShutdown": true,
+    "trigger": "not-established; separate observation from Codex watchdog"
+  },
+  "browser": {
+    "B1": "unavailable",
+    "reason": "isolated browser host unavailable; native Chrome controller reported concurrent user changes",
+    "renderedBrowserAcceptance": false
+  },
+  "acceptance": {
+    "P1": "failed",
+    "B1": "unavailable",
+    "B2": "not-run",
+    "B3": "not-run",
+    "B4": "not-run",
+    "L1": "not-run",
+    "L2": "not-run",
+    "L3": "not-run",
+    "I1": "not-run",
+    "I2": "not-run",
+    "R1": "not-run",
+    "C1": "not-run"
+  },
+  "task9Accepted": false,
+  "cleanup": {
+    "ownedDiagnosticFixtureRemoved": true,
+    "baseStackIntentionallyLeftRunning": true,
+    "externalDatabaseVolumePreserved": true
+  },
+  "next": "review bounded native/protocol and packaging compatibility proposal before runtime changes; keep live Codex disabled"
+}
