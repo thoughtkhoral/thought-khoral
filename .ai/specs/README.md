@@ -5,8 +5,9 @@ This directory is the source of truth for the ThoughtKhoral human-to-agent colla
 Latest integration checkpoint — 2026-11-23: the reviewed contracts release,
 broker/UI released-v1.1 consumers and platform acceptance profile are integrated
 and pushed to their canonical mains. The [workspace state](how/workspace-state.md)
-records integration commits and unchanged frozen acceptance inputs. Task C
-package/environment/operator preflight is in progress; assembled-stack,
+records integration commits and unchanged frozen acceptance inputs. Nine
+production images are built; Task C remains incomplete pending actual private
+operator configuration and its preflight. Assembled-stack,
 browser/live-provider and Task 9 acceptance remain open. Older local/unmerged
 or pending-consumer descriptions below retain their historical scope.
 

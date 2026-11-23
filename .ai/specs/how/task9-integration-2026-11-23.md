@@ -54,3 +54,53 @@ acceptance. Memory remains a separate incubating proof, with no Codex integratio
 guided directories, Cognee, durable memory and remote admission remain deferred.
 Record final commands, identities, failures, cleanup and remaining prerequisites
 in the execution checkpoint before deriving current workspace documentation.
+
+## Execution checkpoint — 2026-11-23
+
+All four component integrations are pushed and independently rechecked against
+remote main: contracts `7e1555f`, broker `ad4d025`, UI `3dc3ec7` and platform
+`ebc654e`. The reconciled changes relative to prepared branch tips are Markdown
+only. The published tag still peels to `f1c8621`; profile bytes and six frozen
+component sources are unchanged. The organization profile and current root
+guidance reflect integration, with lifecycle/maturity unchanged.
+
+Fresh component verification passes the full contracts fixture/release suite,
+160 broker tests with one intentional external-agent ignore, 193 UI tests with
+one intentional composed skip, TypeScript/build, 46 profile/historical guards
+and five Compose/input/startup guards. The canonical contracts install now
+matches its lock (fast-uri 3.1.9); its full suite passes after installation.
+Independent agent integration and documentation reviews found no actionable
+issue. These are component checks, not the assembled run's R1 acceptance.
+
+Nine production images were built serially on native Linux ARM64 from the
+staged exact source inputs and unchanged production Containerfiles. Rust builds
+use one Cargo job. Separate local preflight tags preserve existing dev tags;
+an immutable Compose image override is prepared privately. The existing reviewed
+worker image remains fixed by the profile. Ten package/startup probes pass,
+native capture reproduces all 44 model/effort cases, resume and six refusals
+byte-for-byte, and actual image/package/source preflight passes in a network-none
+sleep fixture. The first scratch-driver build attempt was rejected by Podman's
+optional `--pull` argument parsing before building; `--pull=missing` corrected
+that invocation. Its failed attempt remains separately retained and unaccepted.
+
+The [sanitized evidence](../../../docs/evidence/task9-integration-preflight-2026-11-23.json)
+records remote integration IDs, source/profile/CLI/proof identities, nine image
+IDs and Containerfile/log hashes, base inputs, observed VM resources and explicit
+remaining gates. Required loopback ports were free. Native Chrome accessibility
+controls are available; DevTools and browser-host controllers are unavailable.
+No packaged browser scenario ran. Owned verification fixtures are removed,
+zero containers are running and the external database volume is preserved.
+
+Task C remains incomplete: no actual operator environment/configuration was
+provided or found in the environment or platform checkout. Three private,
+distinct credential-file paths, reviewed model policies and prepared state
+ownership must pass the existing wrapper's real configuration preflight.
+The private operator packet is owner-only and keeps activation/provider/tool
+approvals false; live human token files are not present. Human authentication,
+actual running-container identity and resource/readiness evidence remain part
+of the later authorized run. A configuration-path question is pending.
+
+No application stack or provider was activated. P1–C1, Task 9 acceptance,
+registry-image publication and production deployment remain open. Do not ask
+for activation/provider approval until the missing preflight configuration is
+concrete and reviewable under the approved procedure.

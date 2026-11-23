@@ -983,8 +983,12 @@ capture matches the retained ARM64 proof SHA-256 exactly. Independent pre-merge
 review found no actionable integration blocker. Owned test fixtures were removed.
 
 The actual clean executing platform and all six frozen clean component
-checkouts pass source-profile preflight. Production images are being prepared
-serially. The private operator packet keeps activation/provider/tool approvals
-false. Configured credentials/policies, full environment readiness and Task C/D
-evidence remain required. No application stack or provider is activated, and
+checkouts pass source-profile preflight. All nine production images are built
+serially with one Cargo job; immutable image identities and an owner-only draft
+operator packet are retained. Actual image/package verification passes in a
+network-none fixture. The private packet keeps activation/provider/tool approvals
+false. Configured credentials/policies/state and actual redacted Compose preflight
+are missing; Task C remains incomplete. The [execution checkpoint](task9-integration-2026-11-23.md#execution-checkpoint--2026-11-23)
+records observed resources, browser-control availability, exact image/build
+evidence and cleanup. No application stack or provider is activated, and
 Task 9 and production acceptance remain open.

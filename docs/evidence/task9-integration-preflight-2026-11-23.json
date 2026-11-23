@@ -1,0 +1,364 @@
+{
+  "kind": "task9-integration-and-provider-free-package-preflight",
+  "recordedAt": "2026-11-23T16:35:16.420258+00:00",
+  "status": "incomplete-operator-configuration-required",
+  "applicationActivation": false,
+  "providerInference": false,
+  "integrations": [
+    {
+      "repository": "thought-khoral-contracts",
+      "branch": "codex/task9-contract-release-20261120",
+      "sourceHead": "3c8c1de1ae2ace4eceec39ac5f07dbae7e656e55",
+      "mainBefore": "9e25df53ba89d373023474d915e8c290af8c8ebe",
+      "integrationCommit": "7e1555feab8ecb55bf57fa021dc1dc68a7b3f111"
+    },
+    {
+      "repository": "thought-khoral-room-gateway",
+      "branch": "codex/task9-broker-release-20261120",
+      "sourceHead": "d67c8b1b635968d26eca746f35fd717088b59c8d",
+      "mainBefore": "02c9338076bc4a3316e6ba327c0695aec10dadd8",
+      "integrationCommit": "ad4d02561669ab2237f25be277e467937403cd03"
+    },
+    {
+      "repository": "thought-khoral-workspace-ui",
+      "branch": "codex/task9-ui-release-20261120",
+      "sourceHead": "5329fd6bb3fbbc083f59d43664ba116b6d4df501",
+      "mainBefore": "1d02fdcc80b9fb83242d5e02187bd85a3858b469",
+      "integrationCommit": "3dc3ec73adf7bdd329fbf60edd317b980c7ed410"
+    },
+    {
+      "repository": "thought-khoral-platform",
+      "branch": "codex/task9-packaged-profile-20261120",
+      "sourceHead": "41b4ba0541eb374cb61144a0cfef356e95de0222",
+      "mainBefore": "169091081ff534714db9f782e06ceaaa7d2a793f",
+      "integrationCommit": "ebc654e9ab96b72a614a344cee258d428b334dfd"
+    }
+  ],
+  "profileSha256": "7106f7e41a6bc13feab8a0b51fccde9b47fefca2d63980d551ed929eac1c1a71",
+  "frozenAcceptanceSources": {
+    "contracts": "f1c8621810c8c121c1aafc8e5a342d6626c4b843",
+    "broker": "673294e66fed2b6e98d73e08cfe4a23a0e5e4d48",
+    "mediator": "48a72bcd6a8c668004e10fe2ae3cd01cdaf9361c",
+    "worker": "3f0318b40af8d5c9c47cc43e975b3db4836df983",
+    "ui": "29a940012adfeb796f59c5b89b00cab7a4d0df68",
+    "memory": "7b4651839d1fbb41b426f80ca34712669da667f1",
+    "platform": "ebc654e9ab96b72a614a344cee258d428b334dfd"
+  },
+  "worker": {
+    "imageId": "sha256:2dd78cdf5eddb9ca271611998ea44fe6d6cfde6cfca8ba7d1d6c8858240b540d",
+    "platform": "linux/arm64",
+    "cargoLockSha256": "1c70ff10992b000c93232155ca0032cab9b7a6c27a13ca4ac46eba862e864a34",
+    "cliSha256": "50b06603bdcdac39b714f5c3e68583c002b8ad8779ebfdaaf4932ff016b379c0",
+    "proofSha256": "91ab6c55e22236a578b494f071bbd82ce867a2e9aae4010526b7319165344169",
+    "sourceCommit": "3f0318b40af8d5c9c47cc43e975b3db4836df983",
+    "packageVerified": true
+  },
+  "verification": {
+    "contracts": {
+      "command": "npm test",
+      "exitCode": 0,
+      "conversationFixtures": 125,
+      "defaultsFixtures": 16,
+      "candidateTests": 6,
+      "releaseTests": 5
+    },
+    "broker": {
+      "command": "cargo test --locked --offline -- --test-threads=1",
+      "exitCode": 0,
+      "passed": 160,
+      "ignored": 1
+    },
+    "ui": {
+      "commands": [
+        "npm test",
+        "npm run build"
+      ],
+      "exitCodes": [
+        0,
+        0
+      ],
+      "passed": 193,
+      "skipped": 1,
+      "advisory": "existing Vite chunk-size advisory"
+    },
+    "platform": {
+      "command": "node --test scripts/tests/codex-packaged-pins.test.mjs scripts/tests/codex-conversation-smoke.test.mjs scripts/tests/codex-defaults-pins.test.mjs",
+      "exitCode": 0,
+      "passed": 46
+    },
+    "compositionAndInputGuards": {
+      "passed": 5,
+      "exitCodes": [
+        0,
+        0,
+        0
+      ],
+      "scope": "three synthetic Compose tests; one secret-separation test; one host-startup guard"
+    },
+    "actualWorkerPackage": {
+      "command": "python3 scripts/tests/codex-package.py --image sha256:2dd78cdf5eddb9ca271611998ea44fe6d6cfde6cfca8ba7d1d6c8858240b540d --expect-verified",
+      "exitCode": 0,
+      "passed": 10
+    },
+    "nativePolicyCapture": {
+      "exitCode": 0,
+      "modelEffortCases": 44,
+      "models": 8,
+      "resume": true,
+      "unsolicitedToolRefusals": 6,
+      "proofSha256": "91ab6c55e22236a578b494f071bbd82ce867a2e9aae4010526b7319165344169"
+    },
+    "sourceProfilePreflight": {
+      "passed": true,
+      "cleanFrozenComponents": 6
+    },
+    "actualWorkerImagePreflight": {
+      "passed": true,
+      "network": "none",
+      "process": "sleep plus verification commands",
+      "ownedContainerRemoved": true
+    },
+    "independentAgentReviews": {
+      "integration": "no actionable issues",
+      "documentation": "no actionable issues"
+    }
+  },
+  "productionImageBuilds": [
+    {
+      "service": "postgres",
+      "source": "ebc654e9ab96b72a614a344cee258d428b334dfd",
+      "containerfileSha256": "87eddbf71a3949a08f2b9c103e9512d48719dd7c2e30352a57b74f926717cee5",
+      "imageId": "sha256:9ebc92cd2ad89039f1913fb2cd2f0f1754003ef191e8067a65a3de6e014ebf1c",
+      "architecture": "arm64",
+      "exitCode": 0,
+      "startedAt": "2026-11-23T16:20:17.270160+00:00",
+      "finishedAt": "2026-11-23T16:20:18.418794+00:00",
+      "logSha256": "90f2b8a67b54972ddf12afe13d5618e2c8bf1704fdd3b32bb915c37784ed2a14"
+    },
+    {
+      "service": "keycloak",
+      "source": "ebc654e9ab96b72a614a344cee258d428b334dfd",
+      "containerfileSha256": "205bffa93b43ed04f7a9eaa471733805473dfb8964f9f2705ffb60f3c978bd6b",
+      "imageId": "sha256:f47df0b32f2362ba08a0dd0ce9bb69c439480b2b65f3102adaa1f966e62e7ef5",
+      "architecture": "arm64",
+      "exitCode": 0,
+      "startedAt": "2026-11-23T16:20:18.502800+00:00",
+      "finishedAt": "2026-11-23T16:20:19.754475+00:00",
+      "logSha256": "1701df27e1ab6dd86c92811f062a38e1514eb036beb7caac9b49cf32b90436d7"
+    },
+    {
+      "service": "room-gateway",
+      "source": "673294e66fed2b6e98d73e08cfe4a23a0e5e4d48",
+      "containerfileSha256": "0eb6b96b6d67a4ec1113e05430457a956b4cf3c468e0a1b875c41f3a0da3e795",
+      "imageId": "sha256:d346f279cf6f0beb13645516642b032b61132a2e470055eeb61e005da1dc5d8f",
+      "architecture": "arm64",
+      "exitCode": 0,
+      "startedAt": "2026-11-23T16:20:19.848870+00:00",
+      "finishedAt": "2026-11-23T16:23:55.939868+00:00",
+      "logSha256": "3e9788ef7133c58ce458923eda2e312300fe65b4de9f3a07ddc5dab5a1845d3f"
+    },
+    {
+      "service": "memory-engine",
+      "source": "7b4651839d1fbb41b426f80ca34712669da667f1",
+      "containerfileSha256": "909d9b134d8b71b9c51e36dff10e5c33042327d33915df81242c9fc9f705c63b",
+      "imageId": "sha256:ee080acefb06673d692b54ae78c12ce802b04aa46bf3dbec07da53f52eab0e5c",
+      "architecture": "arm64",
+      "exitCode": 0,
+      "startedAt": "2026-11-23T16:23:56.038323+00:00",
+      "finishedAt": "2026-11-23T16:24:34.211950+00:00",
+      "logSha256": "0294f106a4056aa5d8c319e9737f72ffd0bcaf6a1e8efc1e7ec525965888d413"
+    },
+    {
+      "service": "reference-agent",
+      "source": "48a72bcd6a8c668004e10fe2ae3cd01cdaf9361c",
+      "containerfileSha256": "819556791c82b833253d7ab9a569ee93576e7b2cc2ba3a466b6ed9d061be1b03",
+      "imageId": "sha256:7379722a5b1196e97e544028a7d9be48a1978ead08a9e1c5eea952973879f172",
+      "architecture": "arm64",
+      "exitCode": 0,
+      "startedAt": "2026-11-23T16:24:34.318344+00:00",
+      "finishedAt": "2026-11-23T16:29:21.482129+00:00",
+      "logSha256": "7490dd81063f9baa39533bb98298a0f1be3c8b1b0cc59e0d8be7b2addca6561c"
+    },
+    {
+      "service": "agent-gateway",
+      "source": "48a72bcd6a8c668004e10fe2ae3cd01cdaf9361c",
+      "containerfileSha256": "a8f4f09d537ddbb134d8ed0ebdabd18f7589c75abad7d0d8d51ce3f6abc640b7",
+      "imageId": "sha256:b1b7f66c41ee138969e0e3f943417dd7caf1c1142628a8b19948a303524349f9",
+      "architecture": "arm64",
+      "exitCode": 0,
+      "startedAt": "2026-11-23T16:29:21.593343+00:00",
+      "finishedAt": "2026-11-23T16:33:52.434682+00:00",
+      "logSha256": "5ea0f08e4ba946b0f60cb3c95c012cb8b0aba37fd79c67089030b36a60fc59f4"
+    },
+    {
+      "service": "agent-egress",
+      "source": "ebc654e9ab96b72a614a344cee258d428b334dfd",
+      "containerfileSha256": "8200f1b7514a5d3ee93f60e12053cf09667a296b980527908b12b90f8193821c",
+      "imageId": "sha256:817b321e472265c3469510a3ac74d137ba6e0b1ebb3ff1128e80e17114ec4ae0",
+      "architecture": "arm64",
+      "exitCode": 0,
+      "startedAt": "2026-11-23T16:33:52.540613+00:00",
+      "finishedAt": "2026-11-23T16:33:53.311849+00:00",
+      "logSha256": "d45c591ff976c263a35b453f893347caf541313508a456cd441694827cf56d0d"
+    },
+    {
+      "service": "workspace-ui",
+      "source": "29a940012adfeb796f59c5b89b00cab7a4d0df68",
+      "containerfileSha256": "131c307ce59fcecae439211b8f9e4bc0d76a25d4415f81407b23326c26881c9d",
+      "imageId": "sha256:05a28c0bc46bfa1d22b71f497981e4a8ad7cfbe01d6e609e7a291fe6cefb92cc",
+      "architecture": "arm64",
+      "exitCode": 0,
+      "startedAt": "2026-11-23T16:33:53.409028+00:00",
+      "finishedAt": "2026-11-23T16:34:31.125032+00:00",
+      "logSha256": "f11b55b88475ef18d1b79a87e1d2a2faf6431fe34831457b228731b0efa53ad6"
+    },
+    {
+      "service": "codex-provider-proxy",
+      "source": "ebc654e9ab96b72a614a344cee258d428b334dfd",
+      "containerfileSha256": "2d93213f2d99a27e4546ff255f5b9fa4e3288d918ed8e7ded9970a138b72c547",
+      "imageId": "sha256:5def42c650fa9bbd797a8403c10ec27f54e8dd49e8a67268f76ef079782bf155",
+      "architecture": "arm64",
+      "exitCode": 0,
+      "startedAt": "2026-11-23T16:34:31.235154+00:00",
+      "finishedAt": "2026-11-23T16:34:32.322675+00:00",
+      "logSha256": "b8c1f9a54d21935f791ffa6fbae56f2c5eed1a09be07374a8358d9b85f48784f"
+    }
+  ],
+  "baseImageInputs": [
+    {
+      "reference": "docker.io/library/debian:bookworm-slim",
+      "imageId": "sha256:5b6c2c6cbc90b6085e3f9b3086110b1eccedb643374137bfdcd1d2f5c78f6cd1",
+      "architecture": "arm64",
+      "repoDigests": [
+        "docker.io/library/debian@sha256:734a72b3d6142a71993b4bc580ca01d8ca687f77a2c422d96a961d3376b179bc",
+        "docker.io/library/debian@sha256:ec8534cda2cb30f29f44f23e135297af7a1496f2990fd8e4e84aa36b081a757a"
+      ]
+    },
+    {
+      "reference": "docker.io/library/debian:bookworm-slim@sha256:3783cc01769c7b2b1b83a5c5ad96c815348e28ed7da68e2e3687004faa906251",
+      "imageId": "sha256:813cd0370d827a30abbef1cf99f88217f87fda9612dd5241c9015ba182d32428",
+      "architecture": "arm64",
+      "repoDigests": [
+        "docker.io/library/debian@sha256:0c8bbb8e987a035fe1d9704eb2e571b7e9a836e1caa46345290674b45b69e417",
+        "docker.io/library/debian@sha256:3783cc01769c7b2b1b83a5c5ad96c815348e28ed7da68e2e3687004faa906251"
+      ]
+    },
+    {
+      "reference": "docker.io/library/node:22.20-alpine",
+      "imageId": "sha256:ce917ae8c972e277e9d3a611162e26be08f538ed3ac49cebb191de28066291aa",
+      "architecture": "arm64",
+      "repoDigests": [
+        "docker.io/library/node@sha256:74e144386aaec923ce092c3371b351d96c4f977a4ac3f58431fa9164b9399534",
+        "docker.io/library/node@sha256:dbcedd8aeab47fbc0f4dd4bffa55b7c3c729a707875968d467aaaea42d6225af"
+      ]
+    },
+    {
+      "reference": "docker.io/library/rust:1.90.0-bookworm",
+      "imageId": "sha256:f6d52726c6c740d6ee8ea9ff348db1cb4bfbe325d1e86f3295388666500481ec",
+      "architecture": "arm64",
+      "repoDigests": [
+        "docker.io/library/rust@sha256:3914072ca0c3b8aad871db9169a651ccfce30cf58303e5d6f2db16d1d8a7e58f",
+        "docker.io/library/rust@sha256:4c632e493dfa97f0fe014c3910d1690c149bba85ed8678d47d3563ec6f258ead"
+      ]
+    },
+    {
+      "reference": "docker.io/nginxinc/nginx-unprivileged:1.29.2-alpine",
+      "imageId": "sha256:217e798993aaddc2110ea9b5cef1ac5bcf46c3c35910776fc4cf832995b310c6",
+      "architecture": "arm64",
+      "repoDigests": [
+        "docker.io/nginxinc/nginx-unprivileged@sha256:031d8c8ab79d2d171a2a383aa50a06f527791c05ba1aeae9ca05d7b9779caf8e",
+        "docker.io/nginxinc/nginx-unprivileged@sha256:ffc8e5c14f3850b4bfe974fe47de03132f402ce9728571d83d65ef6cc4b844d1"
+      ]
+    },
+    {
+      "reference": "docker.io/pgvector/pgvector:0.8.1-pg17-trixie",
+      "imageId": "sha256:ae64c391932e9c19fdf302b2e7b1e432b00b9b3cd7535ccaba02cc383de38217",
+      "architecture": "arm64",
+      "repoDigests": [
+        "docker.io/pgvector/pgvector@sha256:137f044b0efe3d57f39b972b9b53641b1f2045b99d879e298bbf514a25787dcf",
+        "docker.io/pgvector/pgvector@sha256:cab20e476214dfd8f2456b8bacd502fb2f8dfc3d899808ab92fdf6355c0889a8"
+      ]
+    },
+    {
+      "reference": "quay.io/keycloak/keycloak:26.4.7",
+      "imageId": "sha256:8c77cdb1c7e243ed34e7f2f7f64a9ebf7c7610ba464d0af88846eba02d682751",
+      "architecture": "arm64",
+      "repoDigests": [
+        "quay.io/keycloak/keycloak@sha256:9409c59bdfb65dbffa20b11e6f18b8abb9281d480c7ca402f51ed3d5977e6007",
+        "quay.io/keycloak/keycloak@sha256:ac7819362ef7621aa7226e565b2a45f7c1a397b1b3711aa8348fccf495a4194c"
+      ]
+    }
+  ],
+  "buildControls": {
+    "platform": "linux/arm64",
+    "serial": true,
+    "cargoBuildJobs": 1,
+    "productionSourceChanges": false
+  },
+  "retainedFailedAttempts": [
+    {
+      "service": "postgres",
+      "exitCode": 125,
+      "reason": "scratch driver used split optional --pull argument; rejected before build; corrected to --pull=missing",
+      "logSha256": "514d62872c602e262f58f6dc015ff2a7033efe695d5aeff4f48c4a2aa8915bdd"
+    }
+  ],
+  "hostPreflight": {
+    "ports": {
+      "5432": "free",
+      "8080": "free",
+      "8081": "free",
+      "8082": "free"
+    },
+    "architecture": "arm64",
+    "cpus": 6,
+    "memoryBytes": 2036273152,
+    "swapBytes": 0,
+    "fullStackResourceAcceptance": "not-run"
+  },
+  "browserPreflight": {
+    "nativeChromeController": "available",
+    "devToolsController": "unavailable-permission-denied",
+    "packagedBrowserScenarios": "not-run"
+  },
+  "operatorPreparation": {
+    "privatePacketPrepared": true,
+    "ownerOnly": true,
+    "activationApproved": false,
+    "providerCallsApproved": false,
+    "toolProbesApproved": false,
+    "humanTokensConfigured": false,
+    "actualComposeConfigValidated": false
+  },
+  "cleanup": {
+    "ownedBrokerDatabaseRemoved": true,
+    "ownedPackageAndCaptureFixturesRemoved": true,
+    "runningContainers": 0,
+    "externalDatabaseVolumePreserved": true
+  },
+  "remainingPrerequisites": [
+    "three configured distinct credential-file paths",
+    "reviewed worker/mediator/broker model policies",
+    "private state root with required ownership",
+    "two distinct human token files",
+    "actual redacted codex-compose config preflight",
+    "resource readiness for assembled stack",
+    "separate activation/provider/tool approval against complete inputs"
+  ],
+  "acceptance": {
+    "P1": "not-run",
+    "B1": "not-run",
+    "B2": "not-run",
+    "B3": "not-run",
+    "B4": "not-run",
+    "L1": "not-run",
+    "L2": "not-run",
+    "L3": "not-run",
+    "I1": "not-run",
+    "I2": "not-run",
+    "R1": "not-run",
+    "C1": "not-run"
+  },
+  "task9Accepted": false,
+  "acceptanceNote": "Provider-free fixture cleanup and component checks are recorded separately; C1/R1 for the assembled acceptance run remain not-run."
+}
