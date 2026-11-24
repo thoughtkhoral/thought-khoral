@@ -1,9 +1,15 @@
 # Current ThoughtKhoral workspace
 
-Updated 2026-11-23 from the [workspace-state specification](../.ai/specs/how/workspace-state.md)
+Updated 2026-11-24 from the [workspace-state specification](../.ai/specs/how/workspace-state.md)
 and [coordinated acceptance record](../.ai/specs/how/codex-room-conversations-implementation-plan.md).
 This is the starting point for resuming work in this checkout. It separates
 published artifacts, canonical runtime sources and verified local branches.
+
+The latest local work is the approved [loopback health correction](task9-loopback-health-2026-11-24.md).
+It resolves the reproduced teardown defect, with exact-image and kernel checks;
+timed verification is recorded in the [execution record](../.ai/specs/how/task9-loopback-health-execution-2026-11-24.md).
+These worker/platform corrections remain on local branches. Existing-data
+upgrades, publication and changed-input activation remain gated.
 
 ## What is complete
 

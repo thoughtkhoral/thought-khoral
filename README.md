@@ -11,8 +11,9 @@ versioned repositories.
 ## Start here
 
 - [Current workspace status and exact source checkouts](docs/workspace-status.md)
+- [Latest local firewall correction and verification](docs/task9-loopback-health-2026-11-24.md)
 - [Approved local runtime compatibility correction](docs/task9-runtime-compatibility-2026-11-23.md)
-- [Latest activation result and proposed compatibility correction](docs/task9-activation-2026-11-23.md)
+- [Latest activation result and remaining acceptance](docs/task9-activation-2026-11-23.md)
 - [Integrated sources, built images and operator preflight](docs/task9-integration-preflight-2026-11-23.md)
 - [Workspace documentation requirements](.ai/specs/what/open-source-documentation.md)
 - [Individual project documentation and source contracts](docs/workspace-status.md#project-documentation)

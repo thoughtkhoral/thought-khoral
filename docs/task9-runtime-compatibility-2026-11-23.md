@@ -1,5 +1,10 @@
 # Task 9 runtime compatibility correction — 2026-11-23
 
+**Later checkpoint:** the maintainer approved the firewall amendment on
+2026-11-24. The [loopback correction report](task9-loopback-health-2026-11-24.md)
+supersedes its approval-pending wording below; historical proof retains its
+original tested source and scope.
+
 The maintainer approved bounded local correction after the
 [partial activation](task9-activation-2026-11-23.md). This report derives from the
 [approved proposal](../.ai/specs/how/task9-runtime-compatibility-proposal-2026-11-23.md)
