@@ -1,8 +1,11 @@
 # Task 9 loopback TCP health-policy amendment
 
-Status: **proposed; awaiting approval**. The [approved compatibility scope](task9-runtime-compatibility-proposal-2026-11-23.md)
-permits diagnosis but requires a separate amendment before a security-design
-change. No firewall rule, timeout or watchdog behavior has been changed.
+Status: **approved for bounded local implementation and verification**. The
+maintainer explicitly approved this firewall amendment on 2026-11-24.
+The [approved compatibility scope](task9-runtime-compatibility-proposal-2026-11-23.md)
+retains all other gates. Approval permits only the conditional exception and
+tests below; a nonmatching predicate must stop the correction without widening.
+No firewall rule, timeout or watchdog behavior has yet been changed.
 
 ## Evidence and remaining uncertainty
 
