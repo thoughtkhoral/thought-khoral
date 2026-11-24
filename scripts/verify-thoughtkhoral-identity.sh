@@ -706,7 +706,8 @@ is_platform_validator_line() {
       return
       ;;
     thought-khoral-platform/scripts/tests/codex-conversation-smoke.test.mjs | \
-      thought-khoral-platform/scripts/tests/codex-packaged-pins.test.mjs)
+      thought-khoral-platform/scripts/tests/codex-packaged-pins.test.mjs | \
+      thought-khoral-platform/scripts/tests/codex-runtime-compat.test.mjs)
       allows_context "$content" "  const token = sub => 'synthetic.' + Buffer.from(JSON.stringify({ sub, __legacy___role: 'human', padding: 'x'.repeat(100) })).toString('base64url') + '.synthetic';"
       return
       ;;

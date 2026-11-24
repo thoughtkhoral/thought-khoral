@@ -1,5 +1,18 @@
 # Current workspace state
 
+## Local loopback correction — 2026-11-24
+
+The maintainer approved the [bounded firewall amendment](task9-loopback-health-policy-amendment-2026-11-23.md).
+The isolated platform branch now contains the narrow socketless empty-ACK
+correction. Original-policy kernel RED leaves three clients in LAST_ACK; GREEN
+leaves zero. Header, retained egress/fail-stop and all 54 profile guards pass.
+The new exact ARM64 proxy image is built and package checks pass. Timed
+verification and exact identities are recorded in the
+[execution record](task9-loopback-health-execution-2026-11-24.md).
+The change remains local and unmerged. Original profiles, worker image and
+contract are unchanged; no existing-data upgrade, publication, changed-input
+activation or provider call is authorized by this correction.
+
 ## Current integration checkpoint — 2026-11-23
 
 Latest activation result: the maintainer approved starting the reviewed stack

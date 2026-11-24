@@ -5,7 +5,9 @@ maintainer explicitly approved this firewall amendment on 2026-11-24.
 The [approved compatibility scope](task9-runtime-compatibility-proposal-2026-11-23.md)
 retains all other gates. Approval permits only the conditional exception and
 tests below; a nonmatching predicate must stop the correction without widening.
-No firewall rule, timeout or watchdog behavior has yet been changed.
+Approval was recorded before implementation. The bounded local correction and
+verification are now recorded in the [execution record](task9-loopback-health-execution-2026-11-24.md).
+Timeout and watchdog behavior remain unchanged.
 
 ## Evidence and remaining uncertainty
 
@@ -53,6 +55,6 @@ Diagnostic logging changes timing and is not timing-identical production proof.
    current compatibility profile and all historical inputs; a changed platform
    runner receives a new clean source checkpoint.
 
-Approval would permit only these local fixture tests and the conditional bounded
+This approval permits only these local fixture tests and the conditional bounded
 correction. Existing database upgrades, source/image publication, changed-input
 activation, provider/tool calls and Task 9 acceptance remain separately gated.

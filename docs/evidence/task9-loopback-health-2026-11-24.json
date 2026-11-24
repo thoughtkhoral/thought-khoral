@@ -1,0 +1,195 @@
+{
+  "kind": "task9-loopback-health-local-verification",
+  "date": "2026-11-24",
+  "approval": "explicit maintainer approval of bounded loopback health-policy amendment",
+  "scope": "local provider-free fixtures and conditional narrow correction",
+  "sourcePublication": false,
+  "merged": false,
+  "changedInputStackActivated": false,
+  "existingDatabaseUpgraded": false,
+  "publicProviderCalls": 0,
+  "roomModelTurnsRequested": 0,
+  "implementation": {
+    "sourceCommit": "a9c3ff5c79e7d3525bed0b5968ab1d8be6b2cc23",
+    "harnessCommit": "4d5a44559a5fc53541d33df4c6dee3fc853ceebb",
+    "reviewedPlatformHead": "78b3e178eacb087c46f4ecd5c4d24118aaceab07",
+    "productionImageInputsUnchangedSinceImplementationSource": true,
+    "imageId": "sha256:54dc5c7d649e486bff7f5f8821050b800ae5cb454cd8496a9f93ce0047d07cf1",
+    "platform": "linux/arm64",
+    "packagedProxyUidGid": "10004:10004",
+    "installedPolicySha256": "023203915acb11fe9b66183bc65426e52783fa934a89f252c15be5a147ae01dc"
+  },
+  "originalPolicyRegression": {
+    "imageId": "sha256:5def42c650fa9bbd797a8403c10ec27f54e8dd49e8a67268f76ef079782bf155",
+    "result": "failed",
+    "healthReads": 3,
+    "clientLastAck": 3,
+    "serverTimeWait": 3,
+    "socketlessEstablishedReplyAckMatches": 6,
+    "strictZeroPayloadMatches": 6,
+    "invalidMatches": 0,
+    "untrackedMatches": 0,
+    "originalDirectionMatches": 0,
+    "allowRuleAdded": false,
+    "ownedCleanupPassed": true
+  },
+  "packagedKernelProof": {
+    "after": {
+      "clientLastAck": 0,
+      "counters": {
+        "eligible-zero-payload": 6,
+        "header-shape": 12,
+        "owned-established-reply": 0,
+        "socketless-all": 6,
+        "socketless-established-original": 0,
+        "socketless-established-reply": 6,
+        "socketless-invalid": 0,
+        "socketless-untracked": 0
+      },
+      "serverTimeWait": 3
+    },
+    "approvedPredicateMatched": true,
+    "before": {
+      "clientLastAck": 0,
+      "counters": {
+        "eligible-zero-payload": 0,
+        "header-shape": 0,
+        "owned-established-reply": 0,
+        "socketless-all": 0,
+        "socketless-established-original": 0,
+        "socketless-established-reply": 0,
+        "socketless-invalid": 0,
+        "socketless-untracked": 0
+      },
+      "serverTimeWait": 0
+    },
+    "imageId": "sha256:54dc5c7d649e486bff7f5f8821050b800ae5cb454cd8496a9f93ce0047d07cf1",
+    "installedPolicySha256": "023203915acb11fe9b66183bc65426e52783fa934a89f252c15be5a147ae01dc",
+    "kernelHeaderCases": [
+      {
+        "case": "empty-timestamped-ack",
+        "headerPredicateMatched": true
+      },
+      {
+        "case": "one-byte-payload",
+        "headerPredicateMatched": false
+      },
+      {
+        "case": "same-length-data",
+        "headerPredicateMatched": false
+      },
+      {
+        "case": "ip-options-and-data",
+        "headerPredicateMatched": false
+      },
+      {
+        "case": "psh-ack",
+        "headerPredicateMatched": false
+      },
+      {
+        "case": "longer-empty-header",
+        "headerPredicateMatched": false
+      },
+      {
+        "case": "ip-options-empty",
+        "headerPredicateMatched": false
+      },
+      {
+        "case": "reserved-header-bit",
+        "headerPredicateMatched": false
+      },
+      {
+        "case": "shorter-empty-header",
+        "headerPredicateMatched": false
+      }
+    ],
+    "kind": "task9-loopback-teardown-regression",
+    "network": "none",
+    "ownedCleanupPassed": true,
+    "policySourceSha256": null,
+    "providerCalls": 0,
+    "proxyLossStopsNamespaceAndDependent": true,
+    "result": "passed",
+    "teardownComplete": true,
+    "watchdogObservationSeconds": 660.005
+  },
+  "headerProbeScope": {
+    "type": "counter-only header predicate classification",
+    "destinationPort": 3130,
+    "positiveRawPacketAcceptanceClaimed": false,
+    "allowVerdictProvenSeparatelyBy": "actual health teardown GREEN"
+  },
+  "initialMountedPolicyObservation": {
+    "policySha256": "023203915acb11fe9b66183bc65426e52783fa934a89f252c15be5a147ae01dc",
+    "seconds": 660.003,
+    "proxyLossStopsNamespaceAndDependent": true,
+    "ownedCleanupPassed": true
+  },
+  "unchangedSecurityControls": {
+    "healthTimeoutSeconds": 1,
+    "watchdogPolicyComparison": "whole filter rules and OUTPUT ordering",
+    "ipv6PolicyUnchanged": true,
+    "applicationOwnedSocketUidRulesUnchanged": true,
+    "initialConnectionAuthorityUnchanged": true,
+    "noNewRelatedOrInvalidException": true,
+    "productionCapabilitiesUnchanged": true
+  },
+  "retainedKernelSuite": {
+    "proxyPolicyTestsPassed": 4,
+    "workerIpv4Ipv6DirectProviderDnsDenialsPassed": true,
+    "controlledLocalVerifiedTlsPassed": true,
+    "proxyLossReadinessExpiryPassed": true,
+    "policyTamperScenario": "IPv6 OUTPUT jump removal stops namespace/dependent",
+    "provider": "isolated controlled target only",
+    "exitCode": 0
+  },
+  "hostChecks": {
+    "profileHistoricalSchemaCompatibilityTestsPassed": 54,
+    "composeTestsPassed": 5,
+    "inputTestsPassed": 1,
+    "startupTestsPassed": 1
+  },
+  "historicalInputRestoration": {
+    "exactLocalCheckoutsRestored": 6,
+    "partialPreviousDirectoriesPreserved": true,
+    "canonicalSourceChanged": false,
+    "candidateArchiveSha256": "fab59a486f6498b843467202debcb0768403bd57ba7dda41be2a01e5f23fdda8",
+    "candidateLockSha256": "7914d32eae2487879a68405b5095a6b9aa91355f87529c43f4055844821902a9"
+  },
+  "identityValidationMaintenance": {
+    "change": "one enumerated compatibility-test path under an existing exact JWT claim line",
+    "positiveAndAdjacentLegacyServiceNegativesPassed": true,
+    "wholeFileException": false
+  },
+  "frozenProfiles": {
+    "originalSha256": "7106f7e41a6bc13feab8a0b51fccde9b47fefca2d63980d551ed929eac1c1a71",
+    "compatibilitySha256": "14c5a784a1f6d8c944f25570f1b0dda741831178348ad7052ecb7301529d2f0c",
+    "unchanged": true
+  },
+  "independentReview": {
+    "runtimeScope": "no actionable findings",
+    "positiveCounterAssertionFinding": "fixed and rereviewed",
+    "rawProbeDocumentationPrecision": "corrected to predicate matching"
+  },
+  "remainingGates": [
+    "existing database upgrade approval and maintenance",
+    "local integration/source publication review",
+    "changed-input activation review",
+    "packaged-stack/browser and authorized provider/live acceptance"
+  ],
+  "originalDeployedTimeoutCausation": "bounded observations support the correction; no full-stack or production acceptance claimed",
+  "finalWorkspaceChecks": {
+    "ownedLoopbackContainersRemaining": 0,
+    "baseServicesRunning": 7,
+    "uiHttpStatus": 200,
+    "existingExternalDatabaseVolumePreserved": true,
+    "rootMarkdownLinksChecked": 1392,
+    "platformWorktreeMarkdownLinksChecked": 140,
+    "brokenMarkdownLinks": 0,
+    "specHierarchy": "passed",
+    "repositoryReferences": "passed",
+    "identityAndIdentityRegressions": "passed",
+    "whitespace": "passed"
+  },
+  "task9Accepted": false
+}

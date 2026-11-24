@@ -260,6 +260,7 @@ task9_paths=(
   thought-khoral-platform/scripts/fixtures/codex-conversation/src/main.rs
   thought-khoral-platform/scripts/tests/codex-conversation-smoke.test.mjs
   thought-khoral-platform/scripts/tests/codex-packaged-pins.test.mjs
+  thought-khoral-platform/scripts/tests/codex-runtime-compat.test.mjs
 )
 task9_lines=(
   "  if (!uuid(claims.sub) || claims.${legacy_id}_role !== 'human') throw new Error('live tokens must be distinct human room credentials');"
@@ -267,7 +268,8 @@ task9_lines=(
   "  const token = sub => 'synthetic.' + Buffer.from(JSON.stringify({ sub, ${legacy_id}_role: 'human', padding: 'x'.repeat(100) })).toString('base64url') + '.synthetic';"
 )
 task9_lines+=("${task9_lines[2]}")
-for i in 0 1 2 3; do
+task9_lines+=("${task9_lines[2]}")
+for i in 0 1 2 3 4; do
   task9_path=${task9_paths[$i]}
   mkdir -p "$(dirname "$fixture_root/$task9_path")"
   printf '%s\n' "${task9_lines[$i]}" >"$fixture_root/$task9_path"

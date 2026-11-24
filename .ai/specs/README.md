@@ -2,6 +2,14 @@
 
 This directory is the source of truth for the ThoughtKhoral human-to-agent collaborative workspace.
 
+Latest local correction — 2026-11-24: the maintainer approved the bounded
+loopback firewall amendment. Kernel RED/GREEN and package checks prove the
+narrow empty-ACK correction resolves the reproduced teardown defect. The
+[execution record](how/task9-loopback-health-execution-2026-11-24.md) tracks exact
+source/image identities, timed watchdog verification and remaining gates.
+Existing-data upgrades, publication and changed-input activation remain separate.
+The dated integration/activation checkpoints below retain their historical scope.
+
 Latest integration checkpoint — 2026-11-23: the reviewed contracts release,
 broker/UI released-v1.1 consumers and platform acceptance profile are integrated
 and pushed to their canonical mains. The [workspace state](how/workspace-state.md)
@@ -114,10 +122,11 @@ linked feature worktree, scan its source root explicitly, for example:
 
 ## Current root specifications
 
-- [Proposed Task 9 runtime compatibility correction — 2026-11-23](how/task9-runtime-compatibility-proposal-2026-11-23.md) — approval pending; no runtime changes authorized.
+- [Approved Task 9 runtime compatibility correction — 2026-11-23](how/task9-runtime-compatibility-proposal-2026-11-23.md) — bounded local implementation and verification; activation remains gated.
 - [Authorized Task 9 integration and preflight — 2026-11-23](how/task9-integration-2026-11-23.md)
 - [Approved local runtime compatibility execution — 2026-11-23](how/task9-runtime-compatibility-execution-2026-11-23.md)
-- [Proposed loopback health-policy amendment](how/task9-loopback-health-policy-amendment-2026-11-23.md)
+- [Approved loopback health-policy amendment](how/task9-loopback-health-policy-amendment-2026-11-23.md)
+- [Loopback health correction execution — 2026-11-24](how/task9-loopback-health-execution-2026-11-24.md)
 - [Proposed existing-database upgrade](how/task9-existing-database-upgrade-proposal-2026-11-23.md)
 - [Current workspace state and source boundaries](how/workspace-state.md)
 - [Specification-to-document reconciliation — 2026-11-20](how/documentation-reconciliation-2026-11-20.md)

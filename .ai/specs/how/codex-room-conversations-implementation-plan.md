@@ -1028,3 +1028,23 @@ The [execution record](task9-integration-2026-11-23.md#authorized-activation-par
 and sanitized evidence retain exact scope. The [bounded compatibility proposal](task9-runtime-compatibility-proposal-2026-11-23.md)
 awaits maintainer approval before native runtime handling changes or a new
 package/profile. Provider/tool calls remain separately unauthorized.
+
+### Approved local loopback firewall correction — 2026-11-24
+
+The maintainer approved the bounded loopback amendment. Original-policy kernel
+RED proves rejected socketless ESTABLISHED reply ACKs and three LAST_ACK clients;
+the narrow zero-payload correction leaves zero. Clean implementation source
+`a9c3ff5c79e7d3525bed0b5968ab1d8be6b2cc23` produces local ARM64 proxy image
+`sha256:54dc5c7d649e486bff7f5f8821050b800ae5cb454cd8496a9f93ce0047d07cf1`.
+Exact packaged-image checks pass without an override, including nine header
+predicate cases and 660.005 seconds of actual-watchdog observation followed by
+proxy-loss namespace/dependent shutdown. Retained kernel denials, controlled
+TLS, readiness expiry, policy-tamper and 54 profile guards pass. Frozen profile,
+worker and contract inputs are unchanged. All owned fixtures are removed and
+workspace/platform specifications and documentation are updated.
+
+The [execution record](task9-loopback-health-execution-2026-11-24.md) and
+[verification report](../../../docs/task9-loopback-health-2026-11-24.md) retain
+scope and identities. Work remains local/unmerged/unpublished. Existing database
+upgrades, changed-input activation and browser/provider/live acceptance remain
+separate gates; no aggregate Task 9 acceptance is claimed.
