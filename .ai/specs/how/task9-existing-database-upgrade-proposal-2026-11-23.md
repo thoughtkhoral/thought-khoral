@@ -1,9 +1,11 @@
 # Task 9 existing database upgrade proposal
 
-Status: **proposed; not authorized for application to existing data**.
+Status: **approved for the bounded existing-database maintenance below**. The
+maintainer answered “approve” on 2026-11-24 to the explicit database-upgrade
+request. Approval was recorded before any existing-data change.
 Prepared under the [approved compatibility correction](task9-runtime-compatibility-proposal-2026-11-23.md).
-Only a private restored copy has been migrated. The existing external PostgreSQL
-volume selected by the reviewed platform configuration remains unchanged.
+The prior verification migrated only a private restored copy. Current execution
+is tracked in the [maintenance record](task9-database-upgrade-execution-2026-11-24.md).
 
 ## Verified input and change
 
@@ -33,7 +35,7 @@ combined transaction: a forced final error rolled back both migrations; the
 successful transaction then created the required schema. The additional database
 was removed. Private data, credentials and backups are outside Git.
 
-## Proposed execution after separate approval
+## Approved execution
 
 1. Verify the existing target container/volume and migration hashes. Quiesce room
    writes and agent dispatch during the maintenance window; keep Codex disabled.
@@ -54,6 +56,6 @@ rewriting data, changing authentication and restoring over the existing volume
 are outside this proposal. If an unexpected post-commit discrepancy occurs,
 keep writes quiesced and present the concrete restore plan for approval.
 
-Approval of this proposal would permit only this existing-database maintenance.
+This approval permits only this existing-database maintenance.
 It would not authorize source publication, changed-input Codex activation,
 provider/tool calls or Task 9 acceptance.
