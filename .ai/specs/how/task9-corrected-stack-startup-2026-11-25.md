@@ -6,6 +6,8 @@
 **Status:** Approved by the maintainer on 2026-11-25 with “approved”, after
 review of this exact startup scope. Execution is authorized only with the
 internal-only provider network and without provider/model/tool calls.
+The [execution record](task9-corrected-stack-execution-2026-11-25.md) tracks
+observed results, including the same-input orchestration correction.
 
 Independent scoped review found and resolved the automatic-dispatch omission
 through the isolation and current-state checks below. Rereview found no further
