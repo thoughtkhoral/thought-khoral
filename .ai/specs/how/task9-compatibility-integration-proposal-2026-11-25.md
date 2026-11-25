@@ -1,7 +1,9 @@
 # Compatibility source integration proposal — 2026-11-25
 
-**Status:** Review complete; merge and source push are proposed, not executed or
-authorized by the request to perform this review.
+**Status:** Approved by the maintainer with “approved” after review of this exact
+three-repository integration/publication scope. The
+[execution record](task9-compatibility-integration-execution-2026-11-25.md) tracks
+actual results; approval alone does not establish publication or CI success.
 
 **Goal:** Integrate the verified worker/platform corrections and their companion
 workspace records into the three canonical mains without changing the stack.
