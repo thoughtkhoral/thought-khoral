@@ -18,7 +18,8 @@ is complete with original data and permissions preserved. The approved
 images and passed authenticated catalog/default reads on internal-only networks.
 The subsequent [timed readiness run](task9-readiness-renewal-2026-11-25.md) passed
 without model calls. Codex/mediator are off after the check and seven base services
-are healthy. Source integration review is next; browser/provider/Task 9 remain open.
+are healthy. The [integration review](task9-compatibility-integration-review-2026-11-25.md)
+is complete; merge/publication approval and browser/provider/Task 9 remain open.
 Canonical mains retain their prior runtimes.
 
 The four release/consumer/profile branches are integrated and pushed to their

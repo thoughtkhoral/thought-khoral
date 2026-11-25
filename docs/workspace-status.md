@@ -10,8 +10,9 @@ passed: 662.743 seconds, 22 healthy samples, no restart and no model calls.
 Both fixture humans' model/default reads passed before and after observation.
 Codex/mediator are stopped after the check; seven base services remain healthy.
 Protected containers, the existing database volume and worker state are preserved;
-conversation/recovery counts are zero. The next gate is source integration review
-for the local worker/platform corrections. Browser/provider/Task 9 remain open.
+conversation/recovery counts are zero. The [source integration review](task9-compatibility-integration-review-2026-11-25.md)
+is complete; merge/publication approval is the next gate. Browser/provider/Task 9
+remain open.
 
 ## What is complete
 
@@ -99,8 +100,9 @@ records verified images, mounts, namespaces, private DNS, two-human reads,
 continuous health/isolation sampling and final shutdown. Earlier partial attempts
 remain historical evidence and were not relabeled as successes.
 
-Worker/platform corrections remain on their isolated local branches. Review
-source integration/publication next. Frozen profile/artifact identities remain
+Worker/platform corrections remain on their isolated local branches. The
+[completed integration review](task9-compatibility-integration-review-2026-11-25.md)
+links the exact proposal awaiting source merge/publication approval. Frozen profile/artifact identities remain
 unchanged; this run does not grant browser, provider/live or aggregate Task 9
 acceptance. No new API key was needed. The UI remains available at
 [localhost:8082](http://localhost:8082); Codex and mediator are off after the check.

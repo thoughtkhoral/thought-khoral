@@ -14,6 +14,7 @@ versioned repositories.
 - [Completed database maintenance](docs/task9-database-upgrade-2026-11-25.md)
 - [Corrected startup subchecks and open stability gate](docs/task9-corrected-startup-2026-11-25.md)
 - [Passed provider-isolated timed readiness](docs/task9-readiness-renewal-2026-11-25.md)
+- [Completed source integration review and proposed publication](docs/task9-compatibility-integration-review-2026-11-25.md)
 - [Latest local firewall correction and verification](docs/task9-loopback-health-2026-11-24.md)
 - [Approved local runtime compatibility correction](docs/task9-runtime-compatibility-2026-11-23.md)
 - [Earlier activation failure and remaining acceptance](docs/task9-activation-2026-11-23.md)
