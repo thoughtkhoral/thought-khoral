@@ -3,7 +3,10 @@
 > **For agentic workers:** Use superpowers:executing-plans after approval.
 > Execute startup, authentication, observation and shutdown in one supervisor.
 
-**Status:** Proposed, not authorized. The previous window is not renewed.
+**Status:** Approved by the maintainer with “approved”, followed by the explicit
+instruction to return to the n2n work and abandon the unrelated EnMaaS review.
+This authorizes one fresh window under the limits below. It does not extend or
+reuse the previous window.
 
 **Goal:** Complete the remaining eleven-minute stability check without inference.
 
