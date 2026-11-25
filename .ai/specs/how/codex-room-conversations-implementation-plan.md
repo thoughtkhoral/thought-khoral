@@ -1060,3 +1060,22 @@ The [maintenance execution record](task9-database-upgrade-execution-2026-11-24.m
 records evidence. The next approval is the [corrected-stack startup procedure](task9-corrected-stack-startup-2026-11-25.md)
 without model calls. Local source publication/integration and browser/provider
 acceptance remain separate; Task 9 remains open.
+
+### Corrected startup subchecks, timed gate open — 2026-11-25
+
+The separately approved startup reached all eleven reviewed images and verified
+actual internal-only Codex networks, mounts and namespaces. Both fixture humans
+received HTTP 200 for models/defaults, with the configured model, six efforts and
+medium default. A Compose recreation defect was handled within the same reviewed
+inputs using dependency-order container replacement without volumes; protected
+PostgreSQL/Keycloak/memory IDs remained unchanged.
+
+Continuous observation was not established within the bounded attempt; only an
+initial 27.286-second sample was retained. A later preflight-only retry exposed a
+read-only SQLite open failure; the corrected private-copy reader now passes.
+Final Codex/mediator state is off, seven base services are healthy, and all five
+conversation allocation counts and worker/mediator records are zero. No model
+turn or provider call occurred. The [execution record](task9-corrected-stack-execution-2026-11-25.md)
+retains scope; the [fresh bounded window proposal](task9-readiness-window-renewal-2026-11-25.md)
+is not authorized. Source publication/integration, browser/provider acceptance
+and aggregate Task 9 remain open.

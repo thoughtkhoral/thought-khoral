@@ -8,6 +8,8 @@ review of this exact startup scope. Execution is authorized only with the
 internal-only provider network and without provider/model/tool calls.
 The [execution record](task9-corrected-stack-execution-2026-11-25.md) tracks
 observed results, including the same-input orchestration correction.
+Execution reached startup/catalog readiness only; the timed stability gate
+remains open and Codex/mediator are off. A fresh window is proposed separately.
 
 Independent scoped review found and resolved the automatic-dispatch omission
 through the isolation and current-state checks below. Rereview found no further

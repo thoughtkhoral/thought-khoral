@@ -1,0 +1,227 @@
+{
+  "kind": "task9-authorized-isolated-startup-partial-readiness",
+  "recordedAt": "2026-11-25T16:53:57.575778+00:00",
+  "activationApproved": true,
+  "providerCallsApproved": false,
+  "toolProbesApproved": false,
+  "executingPlatformSource": "4ce5fbb646bde30dcd961b871c94f3ec13851356",
+  "workerSource": "423d4e84985eb535caa66c7522c4191c6dbccad6",
+  "profile": {
+    "id": "packaged-v1.1-runtime-compat",
+    "sha256": "14c5a784a1f6d8c944f25570f1b0dda741831178348ad7052ecb7301529d2f0c",
+    "revisions": {
+      "contracts": "f1c8621810c8c121c1aafc8e5a342d6626c4b843",
+      "broker": "673294e66fed2b6e98d73e08cfe4a23a0e5e4d48",
+      "mediator": "48a72bcd6a8c668004e10fe2ae3cd01cdaf9361c",
+      "worker": "423d4e84985eb535caa66c7522c4191c6dbccad6",
+      "ui": "29a940012adfeb796f59c5b89b00cab7a4d0df68",
+      "memory": "7b4651839d1fbb41b426f80ca34712669da667f1"
+    }
+  },
+  "executionHelperSha256": "9776f476a8145ab13a92da93d8070993aaa08a7de0302e8d3d1ca86e20af1382",
+  "exactImageOverrideSha256": "7ae29a159517c88834d03349ec5eba402e099b0f74ae5e47668e1ab0f26742a8",
+  "readinessNetworkOverrideSha256": "201eab8fc44230ee550c2a6ef0f149d19c98320557edd237d76fd05f1d3e1a24",
+  "preflight": {
+    "allElevenImagesPresent": true,
+    "frozenSourcesClean": {
+      "contracts": {
+        "revision": "f1c8621810c8c121c1aafc8e5a342d6626c4b843",
+        "clean": true
+      },
+      "broker": {
+        "revision": "673294e66fed2b6e98d73e08cfe4a23a0e5e4d48",
+        "clean": true
+      },
+      "mediator": {
+        "revision": "48a72bcd6a8c668004e10fe2ae3cd01cdaf9361c",
+        "clean": true
+      },
+      "worker": {
+        "revision": "423d4e84985eb535caa66c7522c4191c6dbccad6",
+        "clean": true
+      },
+      "ui": {
+        "revision": "29a940012adfeb796f59c5b89b00cab7a4d0df68",
+        "clean": true
+      },
+      "memory": {
+        "revision": "7b4651839d1fbb41b426f80ca34712669da667f1",
+        "clean": true
+      }
+    },
+    "schema": {
+      "conversationSchemaReady": true,
+      "migrations": [
+        "0006",
+        "0007"
+      ]
+    },
+    "initialAllocations": {
+      "conversations": 0,
+      "tasks": 0,
+      "updates": 0,
+      "disclosures": 0,
+      "updateRequests": 0
+    },
+    "initialRecovery": {
+      "mediatorRecords": 0,
+      "workerConversations": 0,
+      "workerReceipts": 0,
+      "sqlitePresent": true
+    },
+    "privateComposeRenderValidated": true
+  },
+  "initialIsolationAttempt": {
+    "result": "blocked before dependent startup",
+    "cause": "stopped engine dependencies prevented namespace replacement; Compose returned zero despite create/remove errors",
+    "actualNetworkMismatchDetected": true,
+    "allCodexServicesVerifiedStopped": true,
+    "baseAvailabilityVerified": true
+  },
+  "sameInputRecreation": {
+    "runtimeInputsChanged": false,
+    "admissionExpiryRenewed": false,
+    "affectedContainerCount": 8,
+    "plainContainerRemovalWithoutVolumes": true,
+    "protectedDatabaseKeycloakMemoryIdsPreserved": true,
+    "fullStartupNoRecreateEnforced": true,
+    "allElevenServiceImagesAndRunningStatesVerified": true,
+    "mountChecks": {
+      "exactMountsVerified": true,
+      "namespaceOwnersVerified": true,
+      "readOnlyRootsVerified": true
+    }
+  },
+  "isolationBeforeDependents": {
+    "networkCount": 2,
+    "bothInternal": true,
+    "providerNetwork": "thought-khoral-codex-readiness-provider-20261125",
+    "publishedPorts": false,
+    "hostNetworking": false,
+    "interfacesMatchInternalNetworks": true,
+    "allRoutesConnectedInternalOrLocal": true,
+    "routesThroughAnotherNamespace": false,
+    "ipForwardEnabled": false,
+    "noExternalDefaultRoute": true
+  },
+  "isolationAfterCompose": {
+    "networkCount": 2,
+    "bothInternal": true,
+    "providerNetwork": "thought-khoral-codex-readiness-provider-20261125",
+    "publishedPorts": false,
+    "hostNetworking": false,
+    "interfacesMatchInternalNetworks": true,
+    "allRoutesConnectedInternalOrLocal": true,
+    "routesThroughAnotherNamespace": false,
+    "ipForwardEnabled": false,
+    "noExternalDefaultRoute": true
+  },
+  "authenticatedReadiness": {
+    "kind": "isolated-stack-authenticated-catalog-readiness",
+    "providerInference": false,
+    "turnRequests": 0,
+    "checks": [
+      {
+        "actor": "alice",
+        "endpoint": "models",
+        "status": 200,
+        "cacheControl": "no-store",
+        "model": "gpt-6.1-sol",
+        "efforts": [
+          "effort-low",
+          "effort-medium",
+          "effort-high",
+          "effort-xhigh",
+          "effort-max",
+          "effort-ultra"
+        ]
+      },
+      {
+        "actor": "alice",
+        "endpoint": "defaults",
+        "status": 200,
+        "cacheControl": "no-store",
+        "settings": {
+          "catalogRevision": "catalog-1",
+          "model": "gpt-6.1-sol",
+          "reasoningEffort": "effort-medium"
+        }
+      },
+      {
+        "actor": "bob",
+        "endpoint": "models",
+        "status": 200,
+        "cacheControl": "no-store",
+        "model": "gpt-6.1-sol",
+        "efforts": [
+          "effort-low",
+          "effort-medium",
+          "effort-high",
+          "effort-xhigh",
+          "effort-max",
+          "effort-ultra"
+        ]
+      },
+      {
+        "actor": "bob",
+        "endpoint": "defaults",
+        "status": 200,
+        "cacheControl": "no-store",
+        "settings": {
+          "catalogRevision": "catalog-1",
+          "model": "gpt-6.1-sol",
+          "reasoningEffort": "effort-medium"
+        }
+      }
+    ],
+    "distinctHumanIdentities": true
+  },
+  "timedObservation": {
+    "accepted": false,
+    "requiredSeconds": 660,
+    "attemptMaximumSeconds": 900,
+    "retainedSamples": 1,
+    "lastRetainedSampleSeconds": 27.286,
+    "result": "continuous observation not established within the bounded attempt; runtime stability is unverified",
+    "followupPreflight": "direct read-only SQLite open failed after shutdown; corrected private tmpfs snapshot reader passed without restarting services"
+  },
+  "finalState": {
+    "baseServicesRunning": 7,
+    "codexAndMediatorOff": true,
+    "baseAvailability": {
+      "previouslyRunningServicesAvailable": true,
+      "actualHealthChecksPassed": true,
+      "uiAndKeycloakHttp200": true
+    },
+    "protectedDatabaseKeycloakMemoryIdsPreserved": true,
+    "existingDatabaseContainerAndExternalVolumePreserved": true,
+    "conversationAllocations": {
+      "conversations": 0,
+      "tasks": 0,
+      "updates": 0,
+      "disclosures": 0,
+      "updateRequests": 0
+    },
+    "recoveryStores": {
+      "mediatorRecords": 0,
+      "workerConversations": 0,
+      "workerReceipts": 0,
+      "sqlitePresent": true
+    },
+    "privateRecoveryCheckSourceReadOnly": true,
+    "ownedStateProbeRemoved": true,
+    "admissionExpiresAt": "2026-11-25T17:07:12Z",
+    "admissionExpiryRenewed": false
+  },
+  "publicProviderCalls": 0,
+  "roomModelTurnsRequested": 0,
+  "providerConnectivityAccepted": false,
+  "renderedBrowserAccepted": false,
+  "task9Accepted": false,
+  "sourceMergedOrPublished": false,
+  "remainingGates": [
+    "fresh approved bounded observation window",
+    "source integration/publication review",
+    "rendered-browser and separately approved provider/live acceptance"
+  ]
+}

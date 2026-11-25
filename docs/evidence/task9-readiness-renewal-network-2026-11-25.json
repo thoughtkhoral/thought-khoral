@@ -1,0 +1,8 @@
+{
+  "networks": {
+    "thought-khoral-codex-provider": {
+      "name": "thought-khoral-codex-readiness-provider-20261125-r2",
+      "internal": true
+    }
+  }
+}

@@ -1,5 +1,20 @@
 # Current workspace state
 
+## Corrected startup subchecks verified — 2026-11-25
+
+The approved provider-isolated startup reached all eleven exact-image services.
+Actual mounts, namespace ownership and internal-only interfaces/routes passed.
+Both fixture humans received HTTP 200 for models/defaults, with six efforts and
+medium default. Eleven-minute stability remains unverified: continuous observation
+was not established within the bounded attempt; a later retry stopped in its
+read-only SQLite preflight. The corrected snapshot reader now passes. Codex and
+the mediator are off; seven base services are healthy and conversation/recovery
+allocations are zero. No provider/model calls or Task 9 acceptance occurred.
+The [execution record](task9-corrected-stack-execution-2026-11-25.md) retains
+scope. The next gate is the [fresh observation window](task9-readiness-window-renewal-2026-11-25.md),
+which is proposed and not authorized. Earlier dated checkpoints retain their
+historical scope. Local worker/platform corrections remain unmerged/unpublished.
+
 ## Database prerequisite complete — 2026-11-25
 
 The separately approved existing-database upgrade is complete. The exact

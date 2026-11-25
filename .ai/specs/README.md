@@ -1,5 +1,14 @@
 # ThoughtKhoral specification index
 
+Latest checkpoint — 2026-11-25: corrected eleven-service startup and both fixture
+humans' catalog/default GETs passed with provider access blocked. The bounded
+stability observation is still open. Codex/mediator are off, seven base services
+are healthy and allocation/recovery counts are zero. The
+[execution record](how/task9-corrected-stack-execution-2026-11-25.md) governs these
+partial results; the [fresh window proposal](how/task9-readiness-window-renewal-2026-11-25.md)
+requires approval. Original admission expiry was not renewed. Older startup-
+pending descriptions below retain their historical scope.
+
 Latest operational checkpoint — 2026-11-25: the separately approved existing
 [database upgrade is complete](how/task9-database-upgrade-execution-2026-11-24.md).
 Original data and permissions are preserved; schema and base availability checks
