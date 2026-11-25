@@ -14,7 +14,7 @@ versioned repositories.
 - [Completed database maintenance](docs/task9-database-upgrade-2026-11-25.md)
 - [Corrected startup subchecks and open stability gate](docs/task9-corrected-startup-2026-11-25.md)
 - [Passed provider-isolated timed readiness](docs/task9-readiness-renewal-2026-11-25.md)
-- [Completed source integration review and proposed publication](docs/task9-compatibility-integration-review-2026-11-25.md)
+- [Published compatibility source integration and CI](docs/task9-compatibility-integration-2026-11-25.md)
 - [Latest local firewall correction and verification](docs/task9-loopback-health-2026-11-24.md)
 - [Approved local runtime compatibility correction](docs/task9-runtime-compatibility-2026-11-23.md)
 - [Earlier activation failure and remaining acceptance](docs/task9-activation-2026-11-23.md)
@@ -67,7 +67,8 @@ with data and permissions preserved. Subsequent corrected startup and
 authenticated catalog/default checks passed with provider access blocked. The
 [latest timed report](docs/task9-readiness-renewal-2026-11-25.md) closes the
 provider-isolated stability gate. Codex and mediator are off after the check, and
-seven base services are healthy. Source integration and browser/provider/Task 9
+seven base services are healthy. The [compatibility source update](docs/task9-compatibility-integration-2026-11-25.md)
+is now integrated and pushed to canonical mains. Browser/provider/Task 9
 acceptance remain open.
 The [workspace guide](docs/workspace-status.md) distinguishes current
 integration commits from frozen acceptance inputs and remaining gates.

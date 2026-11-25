@@ -11,7 +11,8 @@ canonical mains, the published v1.1 artifact and integrated consumer/profile
 branches, including exact frozen source paths after integration HEADs advance.
 
 The subsequent worker compatibility and [loopback firewall correction](task9-loopback-health-2026-11-24.md)
-remain local, unmerged and unpublished. Their kernel/package checks do not close
+are integrated and published to worker/platform mains `423d4e8`/`60ec83c`. Their
+kernel/package checks do not close
 Task 9. The separately approved [existing database upgrade](task9-database-upgrade-2026-11-25.md)
 is complete with original data and permissions preserved. The approved
 [corrected startup](task9-corrected-startup-2026-11-25.md) reached all eleven exact
@@ -19,8 +20,10 @@ images and passed authenticated catalog/default reads on internal-only networks.
 The subsequent [timed readiness run](task9-readiness-renewal-2026-11-25.md) passed
 without model calls. Codex/mediator are off after the check and seven base services
 are healthy. The [integration review](task9-compatibility-integration-review-2026-11-25.md)
-is complete; merge/publication approval and browser/provider/Task 9 remain open.
-Canonical mains retain their prior runtimes.
+is complete and the [source bundle is published](task9-compatibility-integration-2026-11-25.md).
+Browser/provider/live and aggregate Task 9 remain open.
+Canonical worker/platform mains now contain the reviewed corrections; other
+component runtime sources retain their prior inputs.
 
 The four release/consumer/profile branches are integrated and pushed to their
 component mains. Nine production images are built; actual operator input/state/

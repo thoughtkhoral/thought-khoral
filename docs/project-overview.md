@@ -32,8 +32,9 @@ Codex authentication and passes preflight. Authorized startup then exposed
 adapter, packaging and database-readiness blockers. Seven services remain
 running; Codex is disabled and the mediator is stopped. The
 [activation report](task9-activation-2026-11-23.md) records the failure; the
-[correction report](task9-runtime-compatibility-2026-11-23.md) records verified
-local fixes and the remaining security/database gates.
+[correction report](task9-runtime-compatibility-2026-11-23.md) records the dated local fix evidence. The [source integration report](task9-compatibility-integration-2026-11-25.md)
+records publication of the corrections and actual CI status; database and
+provider-isolated timed readiness prerequisites are complete.
 The [workspace guide](workspace-status.md) identifies which checkout
 contains each runtime and preserves the exact acceptance sources.
 Codex does not connect to room storage or use the memory-engine proof. See the

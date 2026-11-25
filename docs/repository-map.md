@@ -51,7 +51,9 @@ production images are built and actual operator preflight passes using existing
 cached shell Codex authentication. Authorized startup then exposed adapter,
 packaging and database-readiness blockers; Codex is disabled and the mediator
 is stopped. The [correction report](task9-runtime-compatibility-2026-11-23.md)
-records verified local fixes and remaining security/database gates.
+records dated local fix evidence. Those corrections are now
+[integrated and published](task9-compatibility-integration-2026-11-25.md); existing
+database and provider-isolated timed readiness checks passed.
 Packaged-stack and separately authorized live verification
 remain open.
 The 2026-11-19 maintenance changes are published. Native AMD64/ARM64 worker tests

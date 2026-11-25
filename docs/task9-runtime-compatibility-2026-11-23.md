@@ -1,5 +1,10 @@
 # Task 9 runtime compatibility correction — 2026-11-23
 
+Subsequent source checkpoint — 2026-11-25: the approved
+[worker/platform/workspace source integration](task9-compatibility-integration-2026-11-25.md)
+is published. Earlier local/unmerged or approval-pending descriptions below
+retain their dated scope; historical evidence/source identities are unchanged.
+
 Subsequent checkpoint — 2026-11-25: the separately approved
 [existing database upgrade](task9-database-upgrade-2026-11-25.md) is complete.
 Database-pending observations below describe the dated checkpoint. Codex remains

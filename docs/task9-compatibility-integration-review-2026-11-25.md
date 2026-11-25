@@ -1,5 +1,10 @@
 # Compatibility integration review — 2026-11-25
 
+Subsequent source checkpoint — 2026-11-25: the approved
+[worker/platform/workspace source integration](task9-compatibility-integration-2026-11-25.md)
+is published. Earlier local/unmerged or approval-pending descriptions below
+retain their dated scope; historical evidence/source identities are unchanged.
+
 The worker, platform and companion workspace records are ready for source
 integration review. Fresh remote refs match the recorded canonical mains, all
 three integration paths are fast-forwards, and independent review found no

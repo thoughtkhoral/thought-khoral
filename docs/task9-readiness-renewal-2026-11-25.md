@@ -1,5 +1,10 @@
 # Corrected-stack timed readiness — 2026-11-25
 
+Subsequent source checkpoint — 2026-11-25: the approved
+[worker/platform/workspace source integration](task9-compatibility-integration-2026-11-25.md)
+is published. Earlier local/unmerged or approval-pending descriptions below
+retain their dated scope; historical evidence/source identities are unchanged.
+
 The approved provider-isolated readiness check passed: **662.743 seconds**, with
 22 health/isolation samples and no service restart. The mediator and Codex are
 stopped after the bounded check; seven base services remain healthy.

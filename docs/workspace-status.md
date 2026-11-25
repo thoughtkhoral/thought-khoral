@@ -5,14 +5,17 @@ and [coordinated acceptance record](../.ai/specs/how/codex-room-conversations-im
 This is the starting point for resuming work in this checkout. It separates
 published artifacts, canonical runtime sources and verified local branches.
 
-The latest [provider-isolated timed readiness run](task9-readiness-renewal-2026-11-25.md)
-passed: 662.743 seconds, 22 healthy samples, no restart and no model calls.
-Both fixture humans' model/default reads passed before and after observation.
-Codex/mediator are stopped after the check; seven base services remain healthy.
-Protected containers, the existing database volume and worker state are preserved;
-conversation/recovery counts are zero. The [source integration review](task9-compatibility-integration-review-2026-11-25.md)
-is complete; merge/publication approval is the next gate. Browser/provider/Task 9
-remain open.
+The approved [compatibility source integration](task9-compatibility-integration-2026-11-25.md)
+is published: worker main `423d4e8`, platform main `60ec83c` and the companion
+workspace records. All three paths were fast-forwards, merged-tree checks pass
+and immutable profile/image bytes are unchanged. Worker CI is passed (four native runtime jobs, both package/capture jobs and documentation) at the
+recorded snapshot. Browser/provider/live and Task 9 acceptance remain open.
+
+The accepted [provider-isolated readiness run](task9-readiness-renewal-2026-11-25.md)
+retains its original executing source: 662.743 seconds, 22 samples and no model
+calls. It ended with Codex/mediator off and seven base services healthy; source
+publication did not reactivate them. Older local/unmerged checkpoint text in
+this workspace and dated child documents is superseded by the source record.
 
 ## What is complete
 
@@ -28,7 +31,7 @@ remain open.
   image/source preflight passed, with owned containers removed. Its runner/profile
   is now integrated and pushed to platform main.
 
-Fresh integration verification passes contracts, 160 broker tests (one intentional
+Retained 2026-11-23 integration verification passed contracts, 160 broker tests (one intentional
 external-agent ignore), 193 UI tests (one intentional composed skip), UI
 TypeScript/build and all 46 profile/guard tests. Ten actual package/startup probes
 pass; native policy recapture matches the retained ARM64 proof byte-for-byte.
@@ -39,7 +42,9 @@ See the [release report](task9-release-preparation-2026-11-20.md) and
 [profile-preparation report](task9-packaged-profile-preparation-2026-11-20.md)
 for immutable source, image, proof, profile and artifact identities. Counts are
 retained results from those exact inputs. The [2026-11-23 integration procedure](../.ai/specs/how/task9-integration-2026-11-23.md)
-records the current execution scope and supersedes their earlier unmerged status.
+records the earlier released-consumer integration; the
+[2026-11-25 compatibility execution](../.ai/specs/how/task9-compatibility-integration-execution-2026-11-25.md)
+records the current source publication.
 The [integration/preflight report](task9-integration-preflight-2026-11-23.md)
 records nine successful production image builds, actual image/source verification
 and cleanup. Its latest checkpoint also records reuse of existing shell Codex
@@ -58,14 +63,17 @@ the proposed compatibility correction; it supersedes the earlier startup gate.
 | Canonical contracts main | Release tooling/evidence integrated at `7e1555f`; published tag remains frozen at `f1c8621` |
 | Canonical broker main | Released imports integrated at `ad4d025`; acceptance source remains `673294e` |
 | Canonical UI main | Released imports integrated at `3dc3ec7`; acceptance source remains `29a9400` |
-| Canonical platform main | New profile/runner integrated at `ebc654e`; packet measures the actual clean executing commit |
+| Canonical worker main | Compatibility adapter integrated/pushed at `423d4e8`; immutable worker image/source remain paired |
+| Canonical platform main | Compatibility networking/schema/profile/firewall integrated/pushed at `60ec83c`; packet measures the actual clean executing commit |
+| `.worktrees/task9-worker-runtime-compat` | Preserved exact worker acceptance source `423d4e8` |
+| `.worktrees/task9-platform-runtime-compat` | Preserved published candidate `60ec83c`; actual timed-readiness runner was `f51ec3e` |
 | `.worktrees/task9-broker-release` | Retained integrated branch; Markdown reconciliation preserves runtime bytes |
 | `.worktrees/task9-ui-release` | Retained integrated branch; Markdown reconciliation preserves runtime bytes |
 | `.worktrees/task9-packaged-profile` | Retained integrated profile/runner branch at `ebc654e` |
 | `.worktrees/task9-contract-release` | Retained integrated release/evidence branch; tag `f1c8621` is unchanged |
 
-All projects remain independently versioned. All four integration commits are
-pushed to their owning mains and prepared branches. Lifecycle/maturity and
+All projects remain independently versioned. The earlier four integration commits and later worker/platform compatibility
+candidates are pushed to their owning mains; prepared branches are preserved. Lifecycle/maturity and
 published artifacts are unchanged. Older “unpushed/unmerged” wording is historical.
 
 ## Preserve exact preflight sources
@@ -91,6 +99,10 @@ Path overrides never change trusted revisions. The platform packet names the
 actual clean executing platform HEAD; it is deliberately not self-pinned inside
 the profile. Canonical platform main now supports explicit packaged-v1.1 profile
 selection; component source overrides must still select the frozen inputs above.
+For the separate `packaged-v1.1-runtime-compat` profile, keep the five unchanged
+source pins and select worker `423d4e8`, available in its preserved compatibility
+worktree. Platform main now contains both explicitly named profiles. Do not
+replace historical proof source IDs with the current documentation/main HEAD.
 
 ## Next work and limits
 
@@ -100,12 +112,13 @@ records verified images, mounts, namespaces, private DNS, two-human reads,
 continuous health/isolation sampling and final shutdown. Earlier partial attempts
 remain historical evidence and were not relabeled as successes.
 
-Worker/platform corrections remain on their isolated local branches. The
-[completed integration review](task9-compatibility-integration-review-2026-11-25.md)
-links the exact proposal awaiting source merge/publication approval. Frozen profile/artifact identities remain
-unchanged; this run does not grant browser, provider/live or aggregate Task 9
-acceptance. No new API key was needed. The UI remains available at
-[localhost:8082](http://localhost:8082); Codex and mediator are off after the check.
+Worker/platform corrections and their root companion are integrated and pushed.
+Worker CI is passed (four native runtime jobs, both package/capture jobs and documentation) at the recorded snapshot; consult the
+[publication record](task9-compatibility-integration-2026-11-25.md) for actual run
+links and results. Rendered-browser and separately approved provider/live
+verification are the remaining acceptance work. No new API key is needed, and
+source publication does not authorize reactivation. The UI's last verified base
+address remains [localhost:8082](http://localhost:8082).
 
 Memory remains an incubating in-memory/provenance proof, separate from Codex;
 Cognee, durable memory, guided directories and open remote admission remain
