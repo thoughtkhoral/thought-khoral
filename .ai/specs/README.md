@@ -1,5 +1,13 @@
 # ThoughtKhoral specification index
 
+Latest operational checkpoint — 2026-11-25: the separately approved existing
+[database upgrade is complete](how/task9-database-upgrade-execution-2026-11-24.md).
+Original data and permissions are preserved; schema and base availability checks
+pass. Codex remains off. The next gate is the concrete
+[corrected-stack startup review](how/task9-corrected-stack-startup-2026-11-25.md),
+without model calls. Local corrections remain unmerged and unpublished.
+Earlier dated database-pending statements retain their historical scope.
+
 This directory is the source of truth for the ThoughtKhoral human-to-agent collaborative workspace.
 
 Latest local correction — 2026-11-24: the maintainer approved the bounded

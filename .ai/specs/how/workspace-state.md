@@ -1,5 +1,18 @@
 # Current workspace state
 
+## Database prerequisite complete — 2026-11-25
+
+The separately approved existing-database upgrade is complete. The exact
+0006/0007 transaction passed a fresh private restore before application; all six
+earlier tables and existing ownership/grants were preserved. The existing
+read-only schema check passes, gateway health and base HTTP availability are
+restored, and seven base services run. Codex and the previously stopped mediator
+remain off. The [execution record](task9-database-upgrade-execution-2026-11-24.md)
+retains evidence and approval scope. Worker/platform corrections remain local;
+the next step is the [corrected-stack startup review](task9-corrected-stack-startup-2026-11-25.md).
+No changed-input activation, publication or provider call has been authorized.
+Dated checkpoints below retain their historical scope.
+
 ## Local loopback correction — 2026-11-24
 
 The maintainer approved the [bounded firewall amendment](task9-loopback-health-policy-amendment-2026-11-23.md).

@@ -34,7 +34,46 @@ unexpected post-commit result keeps writes quiesced for a concrete reviewed
 restore plan; never automatically restore over the existing volume.
 All private rows, credentials, backup bytes and data fingerprints stay outside Git.
 
-## Progress
+## Preparation checkpoint
 
-Approval recorded. Read-only target inspection confirms the expected earlier
-table set and absent conversation tables. No existing-data migration is yet applied.
+Approval was recorded before execution. Read-only preparation confirmed the
+expected earlier table set and absent conversation tables, before any existing-data DDL.
+
+Execution continued on 2026-11-25 without changing the approved scope. The owned
+network-none reference database matches the existing earlier columns, constraints,
+indexes, append-only trigger and function definitions. Exact SQL hash and bounded
+read-only fingerprint queries pass before downtime. Operational review required
+two refinements before apply: retain ownership/grants in the complete recovery
+archive (suppress them only for the disposable restore), and require actual
+gateway health plus base HTTP readiness before reporting restored availability.
+The helper also compares earlier ownership/grants before and after maintenance.
+At that preparation checkpoint no existing application had been stopped and no
+existing-data DDL had run.
+
+## Completed maintenance — 2026-11-25
+
+Maintenance checkpoint `80f28ac187b64cf19c15ec88b501ee42` completed successfully.
+Only the previously running room gateway was stopped; the mediator and Codex
+services were already off and were not started. A fresh complete owner-only
+custom-format recovery backup, including ownership/grants, was retained privately.
+Its fresh restore matched earlier schema and all six original table fingerprints.
+The exact approved transaction passed on the isolated clone, including read-only
+schema readiness and negative append-only/generation/foreign-key checks.
+
+After rechecking the target, zero unexpected clients and unchanged source data,
+the same SQL was applied once to the existing database. All original table data,
+ownership/grants, append-only metadata and the empty migration ledger were
+preserved; new conversation tables were empty at the post-transaction check.
+No earlier migrations were applied to existing data and no automatic restore occurred.
+
+The existing database passes the read-only 0006/0007 readiness checker. The room
+gateway resumed with its actual health check passing; UI and Keycloak HTTP return
+200. Seven base services remain running, the original PostgreSQL container/volume
+is preserved, all owned database fixtures are removed and Codex remains off.
+The [sanitized evidence](../../../docs/evidence/task9-database-upgrade-2026-11-25.json)
+binds the migration source, exact SQL and private recovery checkpoint without
+exposing private rows, fingerprints, credentials or backup paths.
+
+This closes only the existing-database schema prerequisite. Source publication,
+local source integration, changed-input activation, browser/provider/live checks
+and aggregate Task 9 acceptance remain separate gates.

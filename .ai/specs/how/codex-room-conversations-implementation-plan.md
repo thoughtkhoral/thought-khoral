@@ -1048,3 +1048,15 @@ The [execution record](task9-loopback-health-execution-2026-11-24.md) and
 scope and identities. Work remains local/unmerged/unpublished. Existing database
 upgrades, changed-input activation and browser/provider/live acceptance remain
 separate gates; no aggregate Task 9 acceptance is claimed.
+
+### Existing database prerequisite complete — 2026-11-25
+
+The separately approved exact 0006/0007 transaction is applied after a fresh
+private backup, verified clone restore and trial migration. All six earlier
+tables and existing ownership/grants are preserved; the ledger remains empty.
+Actual schema readiness, gateway health and UI/Keycloak HTTP checks pass. Seven
+base services run, while Codex and the previously stopped mediator remain off.
+The [maintenance execution record](task9-database-upgrade-execution-2026-11-24.md)
+records evidence. The next approval is the [corrected-stack startup procedure](task9-corrected-stack-startup-2026-11-25.md)
+without model calls. Local source publication/integration and browser/provider
+acceptance remain separate; Task 9 remains open.

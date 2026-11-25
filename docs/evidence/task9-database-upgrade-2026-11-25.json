@@ -1,0 +1,107 @@
+{
+  "kind": "task9-approved-existing-database-upgrade",
+  "maintenanceId": "80f28ac187b64cf19c15ec88b501ee42",
+  "completedAt": "2026-11-25T15:19:41.589922+00:00",
+  "approval": "maintainer explicitly approved the verified database upgrade plan before execution",
+  "sourceContainerId": "3ae4804d5324ba61a4ec662aff7fa18c9259e9150d0703526cacbd81d576dc69",
+  "sourceImageId": "sha256:9ebc92cd2ad89039f1913fb2cd2f0f1754003ef191e8067a65a3de6e014ebf1c",
+  "sourceContainerAndExternalVolumePreserved": true,
+  "brokerMigrationSource": "673294e66fed2b6e98d73e08cfe4a23a0e5e4d48",
+  "appliedMigrations": [
+    "0006_agent_conversations.sql",
+    "0007_conversation_lifecycle.sql"
+  ],
+  "approvedCombinedSqlSha256": "bdb5ca91432378d50399020de58f87e6a75ef59adb8cac1cab5d41a644c6f928",
+  "executionHelperSha256": "d688a2716ecdaee70abf2acbdb2c606e3dff28ab0139199adaf1abbcce3344cb",
+  "transaction": {
+    "atomic": true,
+    "lockTimeoutSeconds": 5,
+    "statementTimeoutSeconds": 30,
+    "psqlOnErrorStop": true
+  },
+  "priorSchema": {
+    "earlierMigrationsComparedInDisposableReferenceOnly": true,
+    "columnsConstraintsIndexesTriggerAndFunctionMatched": true,
+    "conversationTablesAbsentBefore": true,
+    "migrationLedgerEntriesBefore": 0
+  },
+  "backup": {
+    "freshDuringQuiescedWindow": true,
+    "ownerOnly": true,
+    "nonemptyCustomArchive": true,
+    "ownershipAndAclMetadataIncluded": true,
+    "privateArchiveDigestVerified": true,
+    "privateRecoveryCheckpoint": "80f28ac187b64cf19c15ec88b501ee42",
+    "privateBackupRetained": true
+  },
+  "freshClone": {
+    "network": "none",
+    "restoredFreshBackup": true,
+    "earlierSchemaAndDataMatched": true,
+    "exactApprovedTransactionPassed": true,
+    "readOnlySchemaCheckPassed": true,
+    "appendOnlyRuntimeCheckPassed": true,
+    "invalidGenerationRejected": true,
+    "unboundUpdateRejected": true,
+    "ownedFixtureRemoved": true
+  },
+  "existingDatabase": {
+    "upgradeApplied": true,
+    "priorTableCountVerified": 6,
+    "allPriorTableDataUnchangedAtPostTransactionCheck": true,
+    "existingOwnershipAndGrantsUnchanged": true,
+    "newConversationTablesEmptyAtPostTransactionCheck": true,
+    "readOnlySchemaVerification": {
+      "conversationSchemaReady": true,
+      "migrations": [
+        "0006",
+        "0007"
+      ]
+    },
+    "migrationLedgerEntriesAfterRestart": 0,
+    "earlierMigrationsAppliedToExistingDatabase": false,
+    "automaticRestorePerformed": false
+  },
+  "applicationState": {
+    "initiallyRunning": {
+      "thought-khoral_thought-khoral-agent-gateway_1": false,
+      "thought-khoral_thought-khoral-room-gateway_1": true
+    },
+    "onlyPreviouslyRunningApplicationsResumed": true,
+    "availabilityChecks": {
+      "applications": {
+        "thought-khoral_thought-khoral-room-gateway_1": "actual-healthcheck-passed"
+      },
+      "http": [
+        {
+          "endpoint": "ui",
+          "status": 200
+        },
+        {
+          "endpoint": "keycloak",
+          "status": 200
+        }
+      ]
+    },
+    "finalBaseServicesRunning": 7,
+    "codexServicesRemainStopped": true,
+    "previouslyStoppedMediatorRemainsStopped": true
+  },
+  "independentReview": {
+    "completeBackupMetadataFinding": "fixed before apply",
+    "boundedServiceReadinessFinding": "fixed before apply",
+    "scopedRereview": "clean"
+  },
+  "publicProviderCalls": 0,
+  "roomModelTurnsRequested": 0,
+  "changedInputCodexActivation": false,
+  "sourcePublication": false,
+  "merged": false,
+  "acceptanceScope": "database schema prerequisite only",
+  "task9Accepted": false,
+  "remainingGates": [
+    "review local source integration/publication",
+    "review exact changed-input activation packet",
+    "packaged-stack/browser and separately authorized provider/live acceptance"
+  ]
+}

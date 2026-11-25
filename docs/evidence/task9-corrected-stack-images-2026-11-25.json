@@ -1,0 +1,37 @@
+{
+  "services": {
+    "thought-khoral-postgres": {
+      "image": "sha256:9ebc92cd2ad89039f1913fb2cd2f0f1754003ef191e8067a65a3de6e014ebf1c"
+    },
+    "thought-khoral-keycloak": {
+      "image": "sha256:f47df0b32f2362ba08a0dd0ce9bb69c439480b2b65f3102adaa1f966e62e7ef5"
+    },
+    "thought-khoral-room-gateway": {
+      "image": "sha256:d346f279cf6f0beb13645516642b032b61132a2e470055eeb61e005da1dc5d8f"
+    },
+    "thought-khoral-memory-engine": {
+      "image": "sha256:ee080acefb06673d692b54ae78c12ce802b04aa46bf3dbec07da53f52eab0e5c"
+    },
+    "thought-khoral-reference-agent": {
+      "image": "sha256:7379722a5b1196e97e544028a7d9be48a1978ead08a9e1c5eea952973879f172"
+    },
+    "thought-khoral-agent-gateway": {
+      "image": "sha256:b1b7f66c41ee138969e0e3f943417dd7caf1c1142628a8b19948a303524349f9"
+    },
+    "thought-khoral-agent-egress": {
+      "image": "sha256:817b321e472265c3469510a3ac74d137ba6e0b1ebb3ff1128e80e17114ec4ae0"
+    },
+    "thought-khoral-workspace-ui": {
+      "image": "sha256:05a28c0bc46bfa1d22b71f497981e4a8ad7cfbe01d6e609e7a291fe6cefb92cc"
+    },
+    "thought-khoral-codex-provider-proxy": {
+      "image": "sha256:54dc5c7d649e486bff7f5f8821050b800ae5cb454cd8496a9f93ce0047d07cf1"
+    },
+    "thought-khoral-codex-egress": {
+      "image": "sha256:54dc5c7d649e486bff7f5f8821050b800ae5cb454cd8496a9f93ce0047d07cf1"
+    },
+    "thought-khoral-codex-agent": {
+      "image": "sha256:1ac229b25167845b4d7cec217304f3064b02d65d60c53f35b07c5ae3e3683b3b"
+    }
+  }
+}
