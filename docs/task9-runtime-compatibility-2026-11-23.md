@@ -3,8 +3,9 @@
 Subsequent checkpoint — 2026-11-25: the separately approved
 [existing database upgrade](task9-database-upgrade-2026-11-25.md) is complete.
 Database-pending observations below describe the dated checkpoint. Codex remains
-off; the [corrected-stack startup proposal](../.ai/specs/how/task9-corrected-stack-startup-2026-11-25.md)
-awaits separate approval and uses internal-only provider networking.
+off. Subsequent [corrected-stack startup subchecks](task9-corrected-startup-2026-11-25.md)
+passed on internal-only networks; the timed gate remains open and a fresh window
+requires separate approval.
 
 **Later checkpoint:** the maintainer approved the firewall amendment on
 2026-11-24. The [loopback correction report](task9-loopback-health-2026-11-24.md)

@@ -5,13 +5,13 @@ and [coordinated acceptance record](../.ai/specs/how/codex-room-conversations-im
 This is the starting point for resuming work in this checkout. It separates
 published artifacts, canonical runtime sources and verified local branches.
 
-The approved [database upgrade](task9-database-upgrade-2026-11-25.md) is complete.
-Existing data and permissions are preserved, schema checks pass and normal base
-availability is restored. Codex and the previously stopped mediator remain off.
-The worker compatibility and [loopback health correction](task9-loopback-health-2026-11-24.md)
-remain local and unmerged. The next gate is the
-[corrected-stack startup review](../.ai/specs/how/task9-corrected-stack-startup-2026-11-25.md)
-without model calls. Publication and provider acceptance remain separate.
+The latest [corrected-stack startup](task9-corrected-startup-2026-11-25.md) reached
+all eleven exact images and passed both fixture humans' model/default reads on
+internal-only Codex networks. The eleven-minute stability gate is unverified.
+Codex and mediator are off; seven base services are healthy and no conversation
+or recovery work is pending. The approved database upgrade remains complete.
+Worker/platform corrections remain local and unmerged. The next gate is the
+[fresh observation-window proposal](../.ai/specs/how/task9-readiness-window-renewal-2026-11-25.md).
 
 ## What is complete
 
@@ -93,21 +93,23 @@ selection; component source overrides must still select the frozen inputs above.
 
 ## Next work and limits
 
-The [bounded compatibility correction](../.ai/specs/how/task9-runtime-compatibility-proposal-2026-11-23.md),
-firewall correction and existing database upgrade have provider-free evidence.
-The database now passes the required conversation/lifecycle schema checker;
-a fresh complete recovery backup is retained privately. Seven base services
-remain running, with the UI at [localhost:8082](http://localhost:8082). Codex and
-the previously stopped mediator remain off. The earlier mediator exit cause
-remains unclassified and must be observed during authorized startup.
+The approved compatibility, firewall and database corrections have provider-free
+evidence. Corrected startup verified images, mounts, namespaces, internal-only
+network routes and authenticated catalog/default responses. The eleven-minute
+observation was not established within its bounded attempt, and a later retry
+stopped in read-only SQLite preflight. The corrected snapshot reader now passes.
 
-Review the [exact startup procedure](../.ai/specs/how/task9-corrected-stack-startup-2026-11-25.md)
-and immutable image bindings before starting the corrected stack. Existing shell
-Codex authentication is already provisioned; no new key is needed. The startup
-proposal permits health, DNS and authenticated catalog/default checks only.
-P1 remains failed at the historical activation checkpoint; rendered-browser B1
-and provider/live acceptance remain open. Source integration/publication,
-changed-input activation and provider/tool work retain their explicit gates.
+Review the [fresh bounded observation procedure](../.ai/specs/how/task9-readiness-window-renewal-2026-11-25.md).
+It integrates startup, login, continuous observation and shutdown in one operation.
+The previous admission expiry was not extended. Existing shell Codex credentials
+remain provisioned; no new key is needed. Codex and the mediator are off, all
+conversation/recovery counts are zero and the UI is available at
+[localhost:8082](http://localhost:8082).
+
+The [latest report](task9-corrected-startup-2026-11-25.md) accepts startup/catalog
+subchecks only. The historical P1 failure is not replaced with full acceptance;
+rendered-browser B1, provider/live and aggregate Task 9 remain open. Source
+integration/publication and a new admission window keep their explicit gates.
 
 Memory remains an incubating in-memory/provenance proof, separate from Codex;
 Cognee, durable memory, guided directories and open remote admission remain

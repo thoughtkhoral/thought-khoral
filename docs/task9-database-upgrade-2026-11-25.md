@@ -45,3 +45,7 @@ This verifies the database prerequisite only. The [local firewall correction](ta
 and worker compatibility changes remain on local branches. Source integration/
 publication, changed-input stack activation, rendered-browser and provider/live
 acceptance are not granted or completed by database maintenance.
+
+Subsequent operational checkpoint: [corrected-stack startup and catalog/default
+checks](task9-corrected-startup-2026-11-25.md) passed on internal-only networks.
+The timed stability gate remains open; Codex and mediator are off.

@@ -13,14 +13,17 @@ branches, including exact frozen source paths after integration HEADs advance.
 The subsequent worker compatibility and [loopback firewall correction](task9-loopback-health-2026-11-24.md)
 remain local, unmerged and unpublished. Their kernel/package checks do not close
 Task 9. The separately approved [existing database upgrade](task9-database-upgrade-2026-11-25.md)
-is complete with original data and permissions preserved. The next gate is the
-[corrected-stack startup review](../.ai/specs/how/task9-corrected-stack-startup-2026-11-25.md)
-without model calls. Canonical mains retain their prior runtimes.
+is complete with original data and permissions preserved. The approved
+[corrected startup](task9-corrected-startup-2026-11-25.md) reached all eleven exact
+images and passed authenticated catalog/default reads on internal-only networks.
+The timed stability gate remains open; Codex/mediator are off and seven base
+services are healthy. The next review is a [fresh bounded window](../.ai/specs/how/task9-readiness-window-renewal-2026-11-25.md).
+Canonical mains retain their prior runtimes.
 
 The four release/consumer/profile branches are integrated and pushed to their
 component mains. Nine production images are built; actual operator input/state/
 Compose preflight now passes using existing cached shell Codex authentication.
-Authorized startup subsequently exposed adapter, packaging and database-readiness
+The earlier 2026-11-23 authorized startup exposed adapter, packaging and database-readiness
 blockers. Seven services remain running; Codex is disabled and the mediator is
 stopped. P1 failed, browser B1 is unavailable and no model turn was requested.
 The [activation result](task9-activation-2026-11-23.md) identifies the proposed

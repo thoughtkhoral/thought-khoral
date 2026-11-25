@@ -12,10 +12,11 @@ versioned repositories.
 
 - [Current workspace status and exact source checkouts](docs/workspace-status.md)
 - [Completed database maintenance](docs/task9-database-upgrade-2026-11-25.md)
-- [Next corrected-stack startup review](.ai/specs/how/task9-corrected-stack-startup-2026-11-25.md)
+- [Corrected startup subchecks and open stability gate](docs/task9-corrected-startup-2026-11-25.md)
+- [Next bounded observation-window review](.ai/specs/how/task9-readiness-window-renewal-2026-11-25.md)
 - [Latest local firewall correction and verification](docs/task9-loopback-health-2026-11-24.md)
 - [Approved local runtime compatibility correction](docs/task9-runtime-compatibility-2026-11-23.md)
-- [Latest activation result and remaining acceptance](docs/task9-activation-2026-11-23.md)
+- [Earlier activation failure and remaining acceptance](docs/task9-activation-2026-11-23.md)
 - [Integrated sources, built images and operator preflight](docs/task9-integration-preflight-2026-11-23.md)
 - [Workspace documentation requirements](.ai/specs/what/open-source-documentation.md)
 - [Individual project documentation and source contracts](docs/workspace-status.md#project-documentation)
@@ -61,7 +62,10 @@ and compatibility correction subsequently approved for local implementation.
 The [correction report](docs/task9-runtime-compatibility-2026-11-23.md) tracks
 isolated fixes and package evidence. The separately approved
 [database maintenance](docs/task9-database-upgrade-2026-11-25.md) is now complete,
-with data and permissions preserved. Changed-input activation remains gated.
+with data and permissions preserved. Subsequent corrected startup and
+authenticated catalog/default checks passed with provider access blocked. The
+[latest report](docs/task9-corrected-startup-2026-11-25.md) keeps the timed stability
+gate open; Codex and mediator are off and seven base services are healthy.
 The [workspace guide](docs/workspace-status.md) distinguishes current
 integration commits from frozen acceptance inputs and remaining gates.
 
