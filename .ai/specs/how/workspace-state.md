@@ -1,5 +1,15 @@
 # Current workspace state
 
+## Source integration review ready — 2026-11-25
+
+Worker `423d4e8`, platform `60ec83c` and companion root records passed independent
+integration review. Fresh checks passed: 50 worker tests, 54 platform guards,
+five Compose tests, worker quality/provenance checks and root documentation/
+identity regressions. Refreshed origins match the recorded mains and all paths
+are fast-forwards. The [integration proposal](task9-compatibility-integration-proposal-2026-11-25.md)
+binds exact source commits, root companion scope and CI effects; merge/push
+remain proposed. The timed-readiness/runtime checkpoint below is unchanged.
+
 ## Provider-isolated timed readiness passed — 2026-11-25
 
 The approved fresh window completed 662.743 seconds of monotonic observation

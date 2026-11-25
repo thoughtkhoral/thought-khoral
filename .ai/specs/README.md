@@ -1,5 +1,12 @@
 # ThoughtKhoral specification index
 
+Integration review — 2026-11-25: the worker/platform candidates and companion
+workspace records have fresh passing checks and clean independent review.
+Fetched mains match the recorded baselines, with fast-forward paths for all three.
+The [source integration proposal](how/task9-compatibility-integration-proposal-2026-11-25.md)
+is concrete and awaits merge/publication approval. No source was merged/pushed
+or runtime activated by this review.
+
 Latest checkpoint — 2026-11-25: [provider-isolated timed readiness](how/task9-readiness-renewal-execution-2026-11-25.md)
 passed over 662.743 seconds with 22 samples and successful two-human
 catalog/default reads before and after. Codex/mediator were then stopped; seven

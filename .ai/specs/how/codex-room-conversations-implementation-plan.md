@@ -1092,3 +1092,13 @@ seven base services healthy and recovery records zero. No model/provider/tool
 call occurred. The [execution record](task9-readiness-renewal-execution-2026-11-25.md)
 closes corrected-stack timed readiness only. Source integration/publication,
 rendered-browser/provider/live and aggregate Task 9 acceptance remain open.
+
+### Compatibility integration review ready — 2026-11-25
+
+The worker/platform candidates and root companion have no actionable independent
+review finding. Fresh worker50/platform54/Compose5 checks and quality/governance
+checks pass. Refreshed canonical origins still match the recorded baselines;
+all source integration paths are fast-forwards. The [concrete proposal](task9-compatibility-integration-proposal-2026-11-25.md)
+records exact heads, root companion publication, CI effects and remaining gates.
+This is source review only; no merge, push or service activation is authorized
+or performed by it. Timed readiness remains accepted within its separate scope.

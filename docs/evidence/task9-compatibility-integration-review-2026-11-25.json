@@ -1,0 +1,98 @@
+{
+  "kind": "task9-compatibility-source-integration-review",
+  "reviewedAt": "2026-11-25T17:52:04.673226+00:00",
+  "status": "review-ready-not-integrated",
+  "authorization": "integration review only; source merge/push awaits approval",
+  "repositories": [
+    {
+      "name": "workspace",
+      "canonicalMain": "12a79911a09db0a47119bda3a03655f34a2cc39d",
+      "fetchedOriginMain": "12a79911a09db0a47119bda3a03655f34a2cc39d",
+      "reviewedSourceCheckpoint": "d009b9ddbf5004ea1f7c2b50dad787f20eff006d",
+      "branch": "task9-runtime-compat-record",
+      "fastForward": true,
+      "proposalFollowup": "this review/proposal and navigation only; exact final clean tip must be recorded before execution"
+    },
+    {
+      "name": "worker",
+      "canonicalMain": "ae12605c75c33a5d6fedb5e4cc1ac0c30f93a5d8",
+      "fetchedOriginMain": "ae12605c75c33a5d6fedb5e4cc1ac0c30f93a5d8",
+      "candidate": "423d4e84985eb535caa66c7522c4191c6dbccad6",
+      "branch": "task9-worker-runtime-compat",
+      "fastForward": true
+    },
+    {
+      "name": "platform",
+      "canonicalMain": "ebc654e9ab96b72a614a344cee258d428b334dfd",
+      "fetchedOriginMain": "ebc654e9ab96b72a614a344cee258d428b334dfd",
+      "candidate": "60ec83c06b1e4bbffcd5bdd69aee6575608e5e3a",
+      "branch": "task9-platform-runtime-compat",
+      "fastForward": true
+    }
+  ],
+  "freshChecks": {
+    "workerTests": {
+      "passed": 50,
+      "failed": 0
+    },
+    "workerFmt": "passed",
+    "workerClippyLockedOfflineAllTargetsWarningsDenied": "passed",
+    "workerContractPinnedFiles": 144,
+    "workerLegalFiles": 478,
+    "workerLockedCrates": 276,
+    "workerLocalMarkdownLinks": 164,
+    "workerToolCatalog": "exact11descriptors-only6approvedtoolfieldschanged",
+    "platformProfileGuards": {
+      "passed": 54,
+      "failed": 0
+    },
+    "platformComposeTests": {
+      "passed": 5,
+      "failed": 0
+    },
+    "workspaceMarkdownLinks": 1456,
+    "platformMarkdownLinks": 156,
+    "brokenMarkdownLinks": 0,
+    "specificationHierarchy": "passed",
+    "repositoryReferences": "passed",
+    "productIdentity": "passed",
+    "identityNegativeRegressions": "passed"
+  },
+  "profileHashes": {
+    "historical": "7106f7e41a6bc13feab8a0b51fccde9b47fefca2d63980d551ed929eac1c1a71",
+    "runtimeCompatibility": "14c5a784a1f6d8c944f25570f1b0dda741831178348ad7052ecb7301529d2f0c"
+  },
+  "independentReview": {
+    "workerPlatform": "no actionable findings",
+    "workspaceCompanion": "no actionable findings",
+    "finalProposal": "no actionable findings"
+  },
+  "ciEffects": {
+    "worker": "existing provider-free native runtime/package jobs and bounded GitHub Actions evidence uploads",
+    "platform": "no tracked CI workflow",
+    "workspace": "no tracked CI workflow",
+    "registryPublicationObserved": false,
+    "deploymentObserved": false
+  },
+  "retainedTimedReadiness": {
+    "elapsedSeconds": 662.743,
+    "samples": 22,
+    "providerCalls": 0,
+    "scope": "provider-isolated readiness only"
+  },
+  "merged": false,
+  "sourcePushed": false,
+  "runtimeActivated": false,
+  "providerCalls": 0,
+  "task9Accepted": false,
+  "reviewRecordsFinalChecks": {
+    "workspaceMarkdownLinks": 1471,
+    "brokenMarkdownLinks": 0,
+    "specificationHierarchy": "passed",
+    "repositoryReferences": "passed",
+    "productIdentity": "passed",
+    "patchFormat": "passed",
+    "candidateChangedFilesCheckedAgainstProvisionedCredentialsAndFixtureTokens": 64,
+    "privateValueMatches": 0
+  }
+}
