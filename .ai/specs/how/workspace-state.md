@@ -1,5 +1,19 @@
 # Current workspace state
 
+## Provider-isolated timed readiness passed — 2026-11-25
+
+The approved fresh window completed 662.743 seconds of monotonic observation
+with 22 health/isolation samples, unchanged service IDs/start times and zero
+conversation allocations. Both fixture humans' catalog/default reads returned
+HTTP 200 before and after observation. Actual image, mount, DNS and internal-only
+Codex namespace checks passed. The mediator/Codex are now off; seven base services
+are healthy. Protected containers/database volume and persistent state are
+preserved, with zero recovery work. No model/provider/tool calls occurred.
+The [execution record](task9-readiness-renewal-execution-2026-11-25.md) closes only
+the timed readiness gate. Source integration/publication review, browser/provider
+acceptance and aggregate Task 9 remain open. Earlier open-timed descriptions below
+retain their historical checkpoint scope.
+
 ## Corrected startup subchecks verified — 2026-11-25
 
 The approved provider-isolated startup reached all eleven exact-image services.

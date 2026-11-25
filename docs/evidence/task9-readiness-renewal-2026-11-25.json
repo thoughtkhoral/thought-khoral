@@ -1,0 +1,572 @@
+{
+  "kind": "task9-approved-provider-isolated-timed-readiness",
+  "recordedAt": "2026-11-25T17:25:27.682109+00:00",
+  "activationApproved": true,
+  "providerCallsApproved": false,
+  "toolProbesApproved": false,
+  "executingPlatformSource": "f51ec3e57b711c311f2bebfebf4e987549551cf7",
+  "workerSource": "423d4e84985eb535caa66c7522c4191c6dbccad6",
+  "profile": {
+    "id": "packaged-v1.1-runtime-compat",
+    "sha256": "14c5a784a1f6d8c944f25570f1b0dda741831178348ad7052ecb7301529d2f0c",
+    "revisions": {
+      "contracts": "f1c8621810c8c121c1aafc8e5a342d6626c4b843",
+      "broker": "673294e66fed2b6e98d73e08cfe4a23a0e5e4d48",
+      "mediator": "48a72bcd6a8c668004e10fe2ae3cd01cdaf9361c",
+      "worker": "423d4e84985eb535caa66c7522c4191c6dbccad6",
+      "ui": "29a940012adfeb796f59c5b89b00cab7a4d0df68",
+      "memory": "7b4651839d1fbb41b426f80ca34712669da667f1"
+    }
+  },
+  "imageOverrideSha256": "7ae29a159517c88834d03349ec5eba402e099b0f74ae5e47668e1ab0f26742a8",
+  "networkOverrideSha256": "2e511ff071aa199122243c985f827ce25df3bb11be4cd8fa3759de41b6de2495",
+  "executionHelperSha256": "efd7fbb2aeaaba93345f08e21b0d8b16ccb4549efae825641d1aa016fe50e629",
+  "preflight": {
+    "allElevenLocalImagesVerified": true,
+    "allFrozenSourcesClean": {
+      "contracts": {
+        "revision": "f1c8621810c8c121c1aafc8e5a342d6626c4b843",
+        "clean": true
+      },
+      "broker": {
+        "revision": "673294e66fed2b6e98d73e08cfe4a23a0e5e4d48",
+        "clean": true
+      },
+      "mediator": {
+        "revision": "48a72bcd6a8c668004e10fe2ae3cd01cdaf9361c",
+        "clean": true
+      },
+      "worker": {
+        "revision": "423d4e84985eb535caa66c7522c4191c6dbccad6",
+        "clean": true
+      },
+      "ui": {
+        "revision": "29a940012adfeb796f59c5b89b00cab7a4d0df68",
+        "clean": true
+      },
+      "memory": {
+        "revision": "7b4651839d1fbb41b426f80ca34712669da667f1",
+        "clean": true
+      }
+    },
+    "existingDatabaseSchemaReady": true,
+    "allocationCounts": {
+      "conversations": 0,
+      "tasks": 0,
+      "updates": 0,
+      "disclosures": 0,
+      "updateRequests": 0
+    },
+    "recoveryCounts": {
+      "mediatorRecords": 0,
+      "workerConversations": 0,
+      "workerReceipts": 0,
+      "sqlitePresent": true
+    },
+    "quiescentStateReadOnlySnapshot": true,
+    "privateRenderAndCredentialSeparationVerified": true
+  },
+  "window": {
+    "freshWindowApproved": true,
+    "expirySetOnce": true,
+    "renewalsWithinWindow": 0,
+    "expiresAt": "2026-11-25T18:13:36Z",
+    "optInServicesStoppedBeforeExpiry": true
+  },
+  "orchestration": {
+    "affectedContainersRecreatedWithoutVolumes": true,
+    "protectedDatabaseKeycloakMemoryIdsPreserved": true,
+    "fullStartupNoRecreate": true,
+    "allElevenImagesAndRunningStatesVerified": true,
+    "mounts": {
+      "exactMountsVerified": true,
+      "namespaceOwnersVerified": true,
+      "readOnlyRootsVerified": true
+    },
+    "privateNamespaceDnsVerified": true
+  },
+  "providerIsolation": {
+    "network": "thought-khoral-codex-readiness-provider-20261125-r2",
+    "networkId": "37a3d01c10b444520050fa734ea401717cb17f6a265738b42a8043fa06dfb2be",
+    "priorNetworksPreserved": true,
+    "beforeDependentStartup": {
+      "networkCount": 2,
+      "bothInternal": true,
+      "providerNetwork": "thought-khoral-codex-readiness-provider-20261125-r2",
+      "publishedPorts": false,
+      "hostNetworking": false,
+      "interfacesMatchInternalNetworks": true,
+      "allRoutesConnectedInternalOrLocal": true,
+      "routesThroughAnotherNamespace": false,
+      "ipForwardEnabled": false,
+      "noExternalDefaultRoute": true
+    },
+    "afterFullCompose": {
+      "networkCount": 2,
+      "bothInternal": true,
+      "providerNetwork": "thought-khoral-codex-readiness-provider-20261125-r2",
+      "publishedPorts": false,
+      "hostNetworking": false,
+      "interfacesMatchInternalNetworks": true,
+      "allRoutesConnectedInternalOrLocal": true,
+      "routesThroughAnotherNamespace": false,
+      "ipForwardEnabled": false,
+      "noExternalDefaultRoute": true
+    },
+    "afterObservation": {
+      "networkCount": 2,
+      "bothInternal": true,
+      "providerNetwork": "thought-khoral-codex-readiness-provider-20261125-r2",
+      "publishedPorts": false,
+      "hostNetworking": false,
+      "interfacesMatchInternalNetworks": true,
+      "allRoutesConnectedInternalOrLocal": true,
+      "routesThroughAnotherNamespace": false,
+      "ipForwardEnabled": false,
+      "noExternalDefaultRoute": true
+    }
+  },
+  "authenticatedReadinessBefore": {
+    "kind": "isolated-stack-authenticated-catalog-readiness",
+    "providerInference": false,
+    "turnRequests": 0,
+    "checks": [
+      {
+        "actor": "alice",
+        "endpoint": "models",
+        "status": 200,
+        "cacheControl": "no-store",
+        "model": "gpt-6.1-sol",
+        "efforts": [
+          "effort-low",
+          "effort-medium",
+          "effort-high",
+          "effort-xhigh",
+          "effort-max",
+          "effort-ultra"
+        ]
+      },
+      {
+        "actor": "alice",
+        "endpoint": "defaults",
+        "status": 200,
+        "cacheControl": "no-store",
+        "settings": {
+          "catalogRevision": "catalog-1",
+          "model": "gpt-6.1-sol",
+          "reasoningEffort": "effort-medium"
+        }
+      },
+      {
+        "actor": "bob",
+        "endpoint": "models",
+        "status": 200,
+        "cacheControl": "no-store",
+        "model": "gpt-6.1-sol",
+        "efforts": [
+          "effort-low",
+          "effort-medium",
+          "effort-high",
+          "effort-xhigh",
+          "effort-max",
+          "effort-ultra"
+        ]
+      },
+      {
+        "actor": "bob",
+        "endpoint": "defaults",
+        "status": 200,
+        "cacheControl": "no-store",
+        "settings": {
+          "catalogRevision": "catalog-1",
+          "model": "gpt-6.1-sol",
+          "reasoningEffort": "effort-medium"
+        }
+      }
+    ],
+    "distinctHumanIdentities": true
+  },
+  "timedObservation": {
+    "passed": true,
+    "clock": "monotonic",
+    "elapsedSeconds": 662.743,
+    "minimumSeconds": 660,
+    "maximumSeconds": 900,
+    "sampleCount": 22,
+    "maximumSampleGapSeconds": 31.972,
+    "allElevenRunningAndConfiguredHealthChecksPassedAtSamples": true,
+    "containerIdentitiesAndStartTimesUnchanged": true,
+    "allSamplesIsolatedAndAllocationsZero": true,
+    "samples": [
+      {
+        "elapsedSeconds": 2.91,
+        "allElevenRunning": true,
+        "healthPassed": true,
+        "identitiesAndStartTimesUnchanged": true,
+        "bothCodexNetworksInternal": true,
+        "allocationsZero": true
+      },
+      {
+        "elapsedSeconds": 34.735,
+        "allElevenRunning": true,
+        "healthPassed": true,
+        "identitiesAndStartTimesUnchanged": true,
+        "bothCodexNetworksInternal": true,
+        "allocationsZero": true
+      },
+      {
+        "elapsedSeconds": 66.465,
+        "allElevenRunning": true,
+        "healthPassed": true,
+        "identitiesAndStartTimesUnchanged": true,
+        "bothCodexNetworksInternal": true,
+        "allocationsZero": true
+      },
+      {
+        "elapsedSeconds": 98.249,
+        "allElevenRunning": true,
+        "healthPassed": true,
+        "identitiesAndStartTimesUnchanged": true,
+        "bothCodexNetworksInternal": true,
+        "allocationsZero": true
+      },
+      {
+        "elapsedSeconds": 130.108,
+        "allElevenRunning": true,
+        "healthPassed": true,
+        "identitiesAndStartTimesUnchanged": true,
+        "bothCodexNetworksInternal": true,
+        "allocationsZero": true
+      },
+      {
+        "elapsedSeconds": 161.976,
+        "allElevenRunning": true,
+        "healthPassed": true,
+        "identitiesAndStartTimesUnchanged": true,
+        "bothCodexNetworksInternal": true,
+        "allocationsZero": true
+      },
+      {
+        "elapsedSeconds": 193.765,
+        "allElevenRunning": true,
+        "healthPassed": true,
+        "identitiesAndStartTimesUnchanged": true,
+        "bothCodexNetworksInternal": true,
+        "allocationsZero": true
+      },
+      {
+        "elapsedSeconds": 225.632,
+        "allElevenRunning": true,
+        "healthPassed": true,
+        "identitiesAndStartTimesUnchanged": true,
+        "bothCodexNetworksInternal": true,
+        "allocationsZero": true
+      },
+      {
+        "elapsedSeconds": 257.537,
+        "allElevenRunning": true,
+        "healthPassed": true,
+        "identitiesAndStartTimesUnchanged": true,
+        "bothCodexNetworksInternal": true,
+        "allocationsZero": true
+      },
+      {
+        "elapsedSeconds": 289.301,
+        "allElevenRunning": true,
+        "healthPassed": true,
+        "identitiesAndStartTimesUnchanged": true,
+        "bothCodexNetworksInternal": true,
+        "allocationsZero": true
+      },
+      {
+        "elapsedSeconds": 321.161,
+        "allElevenRunning": true,
+        "healthPassed": true,
+        "identitiesAndStartTimesUnchanged": true,
+        "bothCodexNetworksInternal": true,
+        "allocationsZero": true
+      },
+      {
+        "elapsedSeconds": 353.045,
+        "allElevenRunning": true,
+        "healthPassed": true,
+        "identitiesAndStartTimesUnchanged": true,
+        "bothCodexNetworksInternal": true,
+        "allocationsZero": true
+      },
+      {
+        "elapsedSeconds": 384.994,
+        "allElevenRunning": true,
+        "healthPassed": true,
+        "identitiesAndStartTimesUnchanged": true,
+        "bothCodexNetworksInternal": true,
+        "allocationsZero": true
+      },
+      {
+        "elapsedSeconds": 416.901,
+        "allElevenRunning": true,
+        "healthPassed": true,
+        "identitiesAndStartTimesUnchanged": true,
+        "bothCodexNetworksInternal": true,
+        "allocationsZero": true
+      },
+      {
+        "elapsedSeconds": 448.715,
+        "allElevenRunning": true,
+        "healthPassed": true,
+        "identitiesAndStartTimesUnchanged": true,
+        "bothCodexNetworksInternal": true,
+        "allocationsZero": true
+      },
+      {
+        "elapsedSeconds": 480.62,
+        "allElevenRunning": true,
+        "healthPassed": true,
+        "identitiesAndStartTimesUnchanged": true,
+        "bothCodexNetworksInternal": true,
+        "allocationsZero": true
+      },
+      {
+        "elapsedSeconds": 512.551,
+        "allElevenRunning": true,
+        "healthPassed": true,
+        "identitiesAndStartTimesUnchanged": true,
+        "bothCodexNetworksInternal": true,
+        "allocationsZero": true
+      },
+      {
+        "elapsedSeconds": 544.523,
+        "allElevenRunning": true,
+        "healthPassed": true,
+        "identitiesAndStartTimesUnchanged": true,
+        "bothCodexNetworksInternal": true,
+        "allocationsZero": true
+      },
+      {
+        "elapsedSeconds": 576.467,
+        "allElevenRunning": true,
+        "healthPassed": true,
+        "identitiesAndStartTimesUnchanged": true,
+        "bothCodexNetworksInternal": true,
+        "allocationsZero": true
+      },
+      {
+        "elapsedSeconds": 608.194,
+        "allElevenRunning": true,
+        "healthPassed": true,
+        "identitiesAndStartTimesUnchanged": true,
+        "bothCodexNetworksInternal": true,
+        "allocationsZero": true
+      },
+      {
+        "elapsedSeconds": 639.926,
+        "allElevenRunning": true,
+        "healthPassed": true,
+        "identitiesAndStartTimesUnchanged": true,
+        "bothCodexNetworksInternal": true,
+        "allocationsZero": true
+      },
+      {
+        "elapsedSeconds": 662.743,
+        "allElevenRunning": true,
+        "healthPassed": true,
+        "identitiesAndStartTimesUnchanged": true,
+        "bothCodexNetworksInternal": true,
+        "allocationsZero": true
+      }
+    ]
+  },
+  "authenticatedReadinessAfter": {
+    "kind": "isolated-stack-authenticated-catalog-readiness",
+    "providerInference": false,
+    "turnRequests": 0,
+    "checks": [
+      {
+        "actor": "alice",
+        "endpoint": "models",
+        "status": 200,
+        "cacheControl": "no-store",
+        "model": "gpt-6.1-sol",
+        "efforts": [
+          "effort-low",
+          "effort-medium",
+          "effort-high",
+          "effort-xhigh",
+          "effort-max",
+          "effort-ultra"
+        ]
+      },
+      {
+        "actor": "alice",
+        "endpoint": "defaults",
+        "status": 200,
+        "cacheControl": "no-store",
+        "settings": {
+          "catalogRevision": "catalog-1",
+          "model": "gpt-6.1-sol",
+          "reasoningEffort": "effort-medium"
+        }
+      },
+      {
+        "actor": "bob",
+        "endpoint": "models",
+        "status": 200,
+        "cacheControl": "no-store",
+        "model": "gpt-6.1-sol",
+        "efforts": [
+          "effort-low",
+          "effort-medium",
+          "effort-high",
+          "effort-xhigh",
+          "effort-max",
+          "effort-ultra"
+        ]
+      },
+      {
+        "actor": "bob",
+        "endpoint": "defaults",
+        "status": 200,
+        "cacheControl": "no-store",
+        "settings": {
+          "catalogRevision": "catalog-1",
+          "model": "gpt-6.1-sol",
+          "reasoningEffort": "effort-medium"
+        }
+      }
+    ],
+    "distinctHumanIdentities": true
+  },
+  "servicesAfterObservation": [
+    {
+      "service": "thought-khoral-postgres",
+      "container": "thought-khoral_thought-khoral-postgres_1",
+      "containerId": "3ae4804d5324ba61a4ec662aff7fa18c9259e9150d0703526cacbd81d576dc69",
+      "imageId": "sha256:9ebc92cd2ad89039f1913fb2cd2f0f1754003ef191e8067a65a3de6e014ebf1c",
+      "startedAt": "2026-11-23T12:50:17.381856779-05:00",
+      "health": "healthy"
+    },
+    {
+      "service": "thought-khoral-keycloak",
+      "container": "thought-khoral_thought-khoral-keycloak_1",
+      "containerId": "f77abf14839da50317d58f6e4961b666ab5efc98b4cf5aa2bf6ad60920f18388",
+      "imageId": "sha256:f47df0b32f2362ba08a0dd0ce9bb69c439480b2b65f3102adaa1f966e62e7ef5",
+      "startedAt": "2026-11-23T12:50:20.378068745-05:00",
+      "health": "healthy"
+    },
+    {
+      "service": "thought-khoral-room-gateway",
+      "container": "thought-khoral_thought-khoral-room-gateway_1",
+      "containerId": "2e9669a389e9fa96b6f36bc449fe7ad394835b6efed75d173a1e72dc72047f18",
+      "imageId": "sha256:d346f279cf6f0beb13645516642b032b61132a2e470055eeb61e005da1dc5d8f",
+      "startedAt": "2026-11-25T12:14:01.185290284-05:00",
+      "health": "healthy"
+    },
+    {
+      "service": "thought-khoral-memory-engine",
+      "container": "thought-khoral_thought-khoral-memory-engine_1",
+      "containerId": "9e0873768930a0f13e2f453bfd332fbdaa9e50af9f7c5aea85dbda375e00591d",
+      "imageId": "sha256:ee080acefb06673d692b54ae78c12ce802b04aa46bf3dbec07da53f52eab0e5c",
+      "startedAt": "2026-11-23T12:50:17.229176423-05:00",
+      "health": "healthy"
+    },
+    {
+      "service": "thought-khoral-reference-agent",
+      "container": "thought-khoral_thought-khoral-reference-agent_1",
+      "containerId": "a0155d6d4ef65824256c8fb2daccca0e56b5c4d6435a09ff1450a25a804972ce",
+      "imageId": "sha256:7379722a5b1196e97e544028a7d9be48a1978ead08a9e1c5eea952973879f172",
+      "startedAt": "2026-11-25T12:14:01.646589343-05:00",
+      "health": "healthy"
+    },
+    {
+      "service": "thought-khoral-agent-gateway",
+      "container": "thought-khoral_thought-khoral-agent-gateway_1",
+      "containerId": "d54f7a5961431d5313f4fa17042ac5f4962362be422133a90731538ed7f56769",
+      "imageId": "sha256:b1b7f66c41ee138969e0e3f943417dd7caf1c1142628a8b19948a303524349f9",
+      "startedAt": "2026-11-25T12:14:06.649700853-05:00",
+      "health": null
+    },
+    {
+      "service": "thought-khoral-agent-egress",
+      "container": "thought-khoral-agent-egress",
+      "containerId": "6b1a191d5e0aae188e6561a88b4af975e8d59149ebf28600a92a864e66c1bd22",
+      "imageId": "sha256:817b321e472265c3469510a3ac74d137ba6e0b1ebb3ff1128e80e17114ec4ae0",
+      "startedAt": "2026-11-25T12:14:01.407821314-05:00",
+      "health": "healthy"
+    },
+    {
+      "service": "thought-khoral-workspace-ui",
+      "container": "thought-khoral_thought-khoral-workspace-ui_1",
+      "containerId": "868f9f96711a670a50f430e9701a289af7df5cf7f8b07c0bb960b796eaefb8ad",
+      "imageId": "sha256:05a28c0bc46bfa1d22b71f497981e4a8ad7cfbe01d6e609e7a291fe6cefb92cc",
+      "startedAt": "2026-11-25T12:14:06.437819518-05:00",
+      "health": "healthy"
+    },
+    {
+      "service": "thought-khoral-codex-provider-proxy",
+      "container": "thought-khoral_thought-khoral-codex-provider-proxy_1",
+      "containerId": "5c23c81139f23b84045c355ee1d5bb056a72583b6157551940ef8a2f5d89a4eb",
+      "imageId": "sha256:54dc5c7d649e486bff7f5f8821050b800ae5cb454cd8496a9f93ce0047d07cf1",
+      "startedAt": "2026-11-25T12:14:00.726411481-05:00",
+      "health": "healthy"
+    },
+    {
+      "service": "thought-khoral-codex-egress",
+      "container": "thought-khoral-codex-egress",
+      "containerId": "549307baf5e0f3a40d3c5a4c8ff0e53005f2ef4f2649a66f2cae383869398f08",
+      "imageId": "sha256:54dc5c7d649e486bff7f5f8821050b800ae5cb454cd8496a9f93ce0047d07cf1",
+      "startedAt": "2026-11-25T12:13:57.82612087-05:00",
+      "health": "healthy"
+    },
+    {
+      "service": "thought-khoral-codex-agent",
+      "container": "thought-khoral_thought-khoral-codex-agent_1",
+      "containerId": "efb928a1d373c60d335c42c16540f128e0dcb5fab3f87fb93abbedcef99c98e9",
+      "imageId": "sha256:1ac229b25167845b4d7cec217304f3064b02d65d60c53f35b07c5ae3e3683b3b",
+      "startedAt": "2026-11-25T12:14:00.937987858-05:00",
+      "health": "healthy"
+    }
+  ],
+  "finalState": {
+    "codexAndMediatorOff": true,
+    "verifiedShutdown": {
+      "thought-khoral_thought-khoral-agent-gateway_1": true,
+      "thought-khoral_thought-khoral-codex-agent_1": true,
+      "thought-khoral_thought-khoral-codex-provider-proxy_1": true,
+      "thought-khoral-codex-egress": true
+    },
+    "baseServiceCount": 7,
+    "baseAvailability": {
+      "previouslyRunningServicesAvailable": true,
+      "actualHealthChecksPassed": true,
+      "uiAndKeycloakHttp200": true
+    },
+    "existingDatabaseContainerAndExternalVolumePreserved": true,
+    "protectedContainerIdsPreserved": true,
+    "allocationCounts": {
+      "conversations": 0,
+      "tasks": 0,
+      "updates": 0,
+      "disclosures": 0,
+      "updateRequests": 0
+    },
+    "recoveryCounts": {
+      "mediatorRecords": 0,
+      "workerConversations": 0,
+      "workerReceipts": 0,
+      "sqlitePresent": true
+    },
+    "ownedStateProbeRemoved": true
+  },
+  "publicProviderCalls": 0,
+  "roomModelTurnsRequested": 0,
+  "timedReadinessAccepted": true,
+  "providerConnectivityAccepted": false,
+  "renderedBrowserAccepted": false,
+  "sourceIntegratedOrPublished": false,
+  "task9Accepted": false,
+  "remainingGates": [
+    "source integration/publication review",
+    "rendered-browser verification",
+    "separately authorized provider/live acceptance"
+  ]
+}

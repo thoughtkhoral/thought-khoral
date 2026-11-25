@@ -3,10 +3,13 @@
 > **For agentic workers:** Use superpowers:executing-plans after approval.
 > Execute startup, authentication, observation and shutdown in one supervisor.
 
-**Status:** Approved by the maintainer with “approved”, followed by the explicit
-instruction to return to the n2n work and abandon the unrelated EnMaaS review.
+**Status:** Approved by the maintainer for the fresh ThoughtKhoral readiness window.
 This authorizes one fresh window under the limits below. It does not extend or
 reuse the previous window.
+
+**Execution:** Timed readiness passed over 662.743 seconds; opt-in services
+were stopped and seven base services verified healthy. The
+[execution record](task9-readiness-renewal-execution-2026-11-25.md) retains scope.
 
 **Goal:** Complete the remaining eleven-minute stability check without inference.
 
@@ -19,7 +22,7 @@ the mediator afterward, leaving the seven base services available.
 
 **Specs:** [Original startup scope](task9-corrected-stack-startup-2026-11-25.md)
 and [actual execution record](task9-corrected-stack-execution-2026-11-25.md).
-This proposal replaces only their executing documentation HEAD, bounded admission
+This procedure replaces only their executing documentation HEAD, bounded admission
 window and dedicated network name. All original prohibitions remain in force.
 
 ## Exact review inputs

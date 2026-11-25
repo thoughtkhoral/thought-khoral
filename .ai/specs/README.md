@@ -1,5 +1,12 @@
 # ThoughtKhoral specification index
 
+Latest checkpoint — 2026-11-25: [provider-isolated timed readiness](how/task9-readiness-renewal-execution-2026-11-25.md)
+passed over 662.743 seconds with 22 samples and successful two-human
+catalog/default reads before and after. Codex/mediator were then stopped; seven
+base services are healthy, and allocation/recovery counts are zero. No model or
+provider call occurred. Source integration/publication and browser/provider/Task 9
+acceptance remain open; older timed-pending checkpoints below are historical.
+
 Latest checkpoint — 2026-11-25: corrected eleven-service startup and both fixture
 humans' catalog/default GETs passed with provider access blocked. The bounded
 stability observation is still open. Codex/mediator are off, seven base services

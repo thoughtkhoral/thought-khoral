@@ -1079,3 +1079,16 @@ turn or provider call occurred. The [execution record](task9-corrected-stack-exe
 retains scope; the [fresh bounded window proposal](task9-readiness-window-renewal-2026-11-25.md)
 is not authorized. Source publication/integration, browser/provider acceptance
 and aggregate Task 9 remain open.
+
+### Provider-isolated timed readiness passed — 2026-11-25
+
+The separately approved fresh window completed 662.743 seconds with 22
+monotonic samples, all eleven services running without container restart,
+internal-only Codex interfaces/routes and zero allocations. Two fixture humans'
+model/default reads passed before and after observation. Exact images, mounts,
+namespace owners and private DNS passed; protected container IDs, database and
+worker state are preserved. The mediator and Codex were stopped afterward, with
+seven base services healthy and recovery records zero. No model/provider/tool
+call occurred. The [execution record](task9-readiness-renewal-execution-2026-11-25.md)
+closes corrected-stack timed readiness only. Source integration/publication,
+rendered-browser/provider/live and aggregate Task 9 acceptance remain open.
