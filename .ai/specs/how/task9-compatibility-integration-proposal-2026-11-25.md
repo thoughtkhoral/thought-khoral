@@ -3,7 +3,8 @@
 **Status:** Approved by the maintainer with “approved” after review of this exact
 three-repository integration/publication scope. The
 [execution record](task9-compatibility-integration-execution-2026-11-25.md) tracks
-actual results; approval alone does not establish publication or CI success.
+actual results. All three source updates are now published; actual CI status
+and documentation follow-up are recorded there.
 
 **Goal:** Integrate the verified worker/platform corrections and their companion
 workspace records into the three canonical mains without changing the stack.
@@ -15,7 +16,7 @@ reconcile current status separately from historical source identities.
 **Specs:** [Approved compatibility scope](task9-runtime-compatibility-proposal-2026-11-23.md),
 [firewall execution](task9-loopback-health-execution-2026-11-24.md) and
 [passed timed readiness](task9-readiness-renewal-execution-2026-11-25.md).
-Their separate source integration/publication gate is the approval sought here.
+Their separate source integration/publication gate was explicitly approved here.
 
 ## Exact reviewed source bundle
 

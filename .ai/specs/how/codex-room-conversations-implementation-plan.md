@@ -1102,3 +1102,17 @@ all source integration paths are fast-forwards. The [concrete proposal](task9-co
 records exact heads, root companion publication, CI effects and remaining gates.
 This is source review only; no merge, push or service activation is authorized
 or performed by it. Timed readiness remains accepted within its separate scope.
+
+### Compatibility source integrated and published — 2026-11-25
+
+The approved companion workspace record was published first at `5e0aac7`, then
+worker main fast-forwarded/pushed to `423d4e8` and platform main to `60ec83c`.
+Approved root documentation reconciliation follows without changing runtime
+inputs. Merged-tree worker50/platform54/Compose5 and quality/governance checks
+pass; both profile hashes and immutable image inputs are unchanged.
+Worker CI is passed (four native runtime jobs, both package/capture jobs and documentation) at the recorded snapshot. The
+[execution record](task9-compatibility-integration-execution-2026-11-25.md) binds
+actual published sources and CI URLs. Historical source identities are not
+rewritten. This closes source integration/publication only; browser/provider/live
+and aggregate Task 9 acceptance remain open. No service activation or model call
+was performed.

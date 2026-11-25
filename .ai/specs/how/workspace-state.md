@@ -1,5 +1,22 @@
 # Current workspace state
 
+## Compatibility source integrated and published — 2026-11-25
+
+The approved three-repository bundle is integrated and pushed through exact
+fast-forwards. Initial workspace publication is `5e0aac7`, followed by approved
+status/evidence reconciliation. Worker main is `423d4e8`; platform main is
+`60ec83c`. Their prepared branches/worktrees remain available. Contract/profile/
+image identities and all other component runtime sources are unchanged.
+
+Merged-tree checks pass: worker50/platform54/Compose5 plus worker quality and
+root governance checks. Worker CI is passed (four native runtime jobs, both package/capture jobs and documentation) at the recorded snapshot;
+actual workflow/job states are linked by the
+[execution record](task9-compatibility-integration-execution-2026-11-25.md).
+Earlier local/unmerged descriptions below and in dated child checkpoints are
+historical. Source publication does not accept browser/provider/live or Task 9,
+and did not reactivate the stack. The 662.743-second readiness evidence keeps
+its actual original executing source identity.
+
 ## Source integration review ready — 2026-11-25
 
 Worker `423d4e8`, platform `60ec83c` and companion root records passed independent

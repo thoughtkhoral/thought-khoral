@@ -1,5 +1,14 @@
 # ThoughtKhoral specification index
 
+Latest source publication — 2026-11-25: approved workspace/worker/platform
+fast-forwards are integrated and pushed. Worker main is `423d4e8`; platform main
+is `60ec83c`. Merged-tree checks pass and frozen bytes remain unchanged. Worker
+CI is passed (four native runtime jobs, both package/capture jobs and documentation) at the recorded snapshot. The
+[execution record](how/task9-compatibility-integration-execution-2026-11-25.md)
+supersedes older local/unmerged/publication-pending checkpoint text. No runtime
+activation or provider call follows source publication; browser/live and Task 9
+acceptance remain open.
+
 Integration review — 2026-11-25: the worker/platform candidates and companion
 workspace records have fresh passing checks and clean independent review.
 Fetched mains match the recorded baselines, with fast-forward paths for all three.

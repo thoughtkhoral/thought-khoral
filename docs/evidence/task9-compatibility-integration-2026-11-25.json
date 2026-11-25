@@ -1,0 +1,183 @@
+{
+  "kind": "task9-approved-compatibility-source-publication",
+  "recordedAt": "2026-11-25T18:17:49.944729+00:00",
+  "integrationApproved": true,
+  "sourcePushApproved": true,
+  "activationApproved": false,
+  "providerCallsApproved": false,
+  "toolProbesApproved": false,
+  "method": "fast-forward only; workspace companion published before child sources",
+  "repositories": [
+    {
+      "name": "workspace",
+      "previousMain": "12a79911a09db0a47119bda3a03655f34a2cc39d",
+      "publishedSourceCommit": "5e0aac736bdc2dd621be168de542d606567259e3",
+      "githubRepository": "thoughtkhoral/thought-khoral",
+      "published": true,
+      "fetchedTrackingMainMatched": true
+    },
+    {
+      "name": "worker",
+      "previousMain": "ae12605c75c33a5d6fedb5e4cc1ac0c30f93a5d8",
+      "publishedSourceCommit": "423d4e84985eb535caa66c7522c4191c6dbccad6",
+      "githubRepository": "thoughtkhoral/thought-khoral-codex-agent",
+      "published": true,
+      "fetchedTrackingMainMatched": true
+    },
+    {
+      "name": "platform",
+      "previousMain": "ebc654e9ab96b72a614a344cee258d428b334dfd",
+      "publishedSourceCommit": "60ec83c06b1e4bbffcd5bdd69aee6575608e5e3a",
+      "githubRepository": "thoughtkhoral/thought-khoral-platform",
+      "published": true,
+      "fetchedTrackingMainMatched": true
+    }
+  ],
+  "workspaceDocumentationFollowup": "approved status/evidence-only reconciliation follows the initial published source commit; final clean main is measured in the private completion receipt",
+  "mergedTreeChecks": {
+    "workerTests": 50,
+    "platformGuards": 54,
+    "composeTests": 5,
+    "workerFmt": "passed",
+    "workerClippy": "passed",
+    "workerContractLegalDocsAndCatalog": "passed",
+    "workspaceLinks": 1506,
+    "brokenLinks": 0,
+    "rootGovernance": "passed"
+  },
+  "profileDigests": {
+    "packaged-v1.1-pins.json": "7106f7e41a6bc13feab8a0b51fccde9b47fefca2d63980d551ed929eac1c1a71",
+    "packaged-v1.1-runtime-compat-pins.json": "14c5a784a1f6d8c944f25570f1b0dda741831178348ad7052ecb7301529d2f0c"
+  },
+  "immutableImages": {
+    "worker": "sha256:1ac229b25167845b4d7cec217304f3064b02d65d60c53f35b07c5ae3e3683b3b",
+    "proxyAndNamespace": "sha256:54dc5c7d649e486bff7f5f8821050b800ae5cb454cd8496a9f93ce0047d07cf1",
+    "proxyBuildSource": "a9c3ff5c79e7d3525bed0b5968ab1d8be6b2cc23",
+    "productionImageInputsUnchanged": true
+  },
+  "workerCi": {
+    "allRequiredChecksPassed": true,
+    "observedAt": "2026-11-25T18:20:32.279681+00:00",
+    "statusText": "passed (four native runtime jobs, both package/capture jobs and documentation)",
+    "runs": [
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-25T18:14:01Z",
+        "event": "push",
+        "head_sha": "423d4e84985eb535caa66c7522c4191c6dbccad6",
+        "html_url": "https://github.com/thoughtkhoral/thought-khoral-codex-agent/actions/runs/45673007526",
+        "id": 45673007526,
+        "name": "Documentation and specification checks",
+        "run_attempt": 1,
+        "status": "completed",
+        "updated_at": "2026-11-25T18:14:11Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-11-25T18:14:01Z",
+        "event": "push",
+        "head_sha": "423d4e84985eb535caa66c7522c4191c6dbccad6",
+        "html_url": "https://github.com/thoughtkhoral/thought-khoral-codex-agent/actions/runs/45673007315",
+        "id": 45673007315,
+        "name": "Provider-free runtime",
+        "run_attempt": 1,
+        "status": "completed",
+        "updated_at": "2026-11-25T18:19:07Z"
+      }
+    ],
+    "jobs": [
+      {
+        "completed_at": "2026-11-25T18:16:01Z",
+        "conclusion": "success",
+        "html_url": "https://github.com/thoughtkhoral/thought-khoral-codex-agent/actions/runs/45673007315/job/139413035541",
+        "id": 139413035541,
+        "name": "Native amd64 Rust 1.93.1",
+        "started_at": "2026-11-25T18:14:04Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-11-25T18:15:50Z",
+        "conclusion": "success",
+        "html_url": "https://github.com/thoughtkhoral/thought-khoral-codex-agent/actions/runs/45673007315/job/139413035682",
+        "id": 139413035682,
+        "name": "Native amd64 Rust 1.85.0",
+        "started_at": "2026-11-25T18:14:05Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-11-25T18:16:10Z",
+        "conclusion": "success",
+        "html_url": "https://github.com/thoughtkhoral/thought-khoral-codex-agent/actions/runs/45673007315/job/139413035734",
+        "id": 139413035734,
+        "name": "Native arm64 Rust 1.85.0",
+        "started_at": "2026-11-25T18:14:06Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-11-25T18:15:45Z",
+        "conclusion": "success",
+        "html_url": "https://github.com/thoughtkhoral/thought-khoral-codex-agent/actions/runs/45673007315/job/139413035798",
+        "id": 139413035798,
+        "name": "Native arm64 Rust 1.93.1",
+        "started_at": "2026-11-25T18:14:06Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-11-25T18:18:29Z",
+        "conclusion": "success",
+        "html_url": "https://github.com/thoughtkhoral/thought-khoral-codex-agent/actions/runs/45673007315/job/139414365551",
+        "id": 139414365551,
+        "name": "Native arm64 package and CLI capture",
+        "started_at": "2026-11-25T18:16:14Z",
+        "status": "completed"
+      },
+      {
+        "completed_at": "2026-11-25T18:19:07Z",
+        "conclusion": "success",
+        "html_url": "https://github.com/thoughtkhoral/thought-khoral-codex-agent/actions/runs/45673007315/job/139414365821",
+        "id": 139414365821,
+        "name": "Native amd64 package and CLI capture",
+        "started_at": "2026-11-25T18:16:12Z",
+        "status": "completed"
+      }
+    ]
+  },
+  "otherCi": {
+    "platform": "no tracked workflow",
+    "workspace": "no tracked workflow"
+  },
+  "sourceBranchesAndFrozenWorktreesPreserved": true,
+  "unrelatedUntrackedFilesPreserved": true,
+  "stackRecreatedOrActivated": false,
+  "admissionRenewed": false,
+  "databaseMigrationPerformed": false,
+  "registryImageOrReleasePublished": false,
+  "roomModelTurnsRequested": 0,
+  "publicProviderCalls": 0,
+  "task9Accepted": false,
+  "retainedReadiness": {
+    "platformSource": "f51ec3e57b711c311f2bebfebf4e987549551cf7",
+    "elapsedSeconds": 662.743,
+    "sampleCount": 22,
+    "scope": "provider-isolated timed readiness only; historical identity preserved"
+  },
+  "remainingGates": [
+    "rendered-browser verification",
+    "separately authorized provider/live acceptance",
+    "aggregate Task 9 acceptance"
+  ],
+  "runtimeAfterPublication": {
+    "observedAt": "2026-11-25T18:21:41.963236+00:00",
+    "healthyBaseServices": 7,
+    "allSevenContainerIdsMatchAcceptedReadiness": true,
+    "codexAndMediatorRunning": false,
+    "check": "read-only engine listing and comparison with retained readiness container identities"
+  },
+  "documentationReconciliation": {
+    "rootSpecFirst": true,
+    "independentReview": "no actionable findings",
+    "markdownLinksChecked": 1523,
+    "brokenLinks": 0,
+    "hierarchyReferencesIdentityAndPatchFormat": "passed"
+  }
+}
