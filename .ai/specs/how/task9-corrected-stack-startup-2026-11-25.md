@@ -3,7 +3,9 @@
 > **For agentic workers:** Use superpowers:executing-plans to execute these
 > operational steps after maintainer approval. No implementation change is planned.
 
-**Status:** Proposed; changed-input startup is not yet authorized.
+**Status:** Approved by the maintainer on 2026-11-25 with “approved”, after
+review of this exact startup scope. Execution is authorized only with the
+internal-only provider network and without provider/model/tool calls.
 
 Independent scoped review found and resolved the automatic-dispatch omission
 through the isolation and current-state checks below. Rereview found no further
