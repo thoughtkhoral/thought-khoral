@@ -1,5 +1,10 @@
 # Task 9 existing database upgrade — 2026-11-25
 
+Subsequent checkpoint — 2026-11-25: the separately approved
+[provider-isolated timed readiness check](task9-readiness-renewal-2026-11-25.md)
+passed. Earlier open-timed statements below keep their historical scope.
+Codex and mediator are off after the check; seven base services remain healthy.
+
 The approved upgrade is complete. The existing database now passes the required
 conversation/lifecycle schema check. All six earlier tables' data and existing
 ownership/grants were preserved at the post-transaction check. Normal base-service

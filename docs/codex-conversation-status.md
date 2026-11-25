@@ -16,8 +16,9 @@ Task 9. The separately approved [existing database upgrade](task9-database-upgra
 is complete with original data and permissions preserved. The approved
 [corrected startup](task9-corrected-startup-2026-11-25.md) reached all eleven exact
 images and passed authenticated catalog/default reads on internal-only networks.
-The timed stability gate remains open; Codex/mediator are off and seven base
-services are healthy. The next review is a [fresh bounded window](../.ai/specs/how/task9-readiness-window-renewal-2026-11-25.md).
+The subsequent [timed readiness run](task9-readiness-renewal-2026-11-25.md) passed
+without model calls. Codex/mediator are off after the check and seven base services
+are healthy. Source integration review is next; browser/provider/Task 9 remain open.
 Canonical mains retain their prior runtimes.
 
 The four release/consumer/profile branches are integrated and pushed to their

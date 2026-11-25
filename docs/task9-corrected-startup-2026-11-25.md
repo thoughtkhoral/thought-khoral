@@ -1,5 +1,10 @@
 # Corrected-stack startup — 2026-11-25
 
+Subsequent checkpoint — 2026-11-25: the separately approved
+[provider-isolated timed readiness check](task9-readiness-renewal-2026-11-25.md)
+passed. Earlier open-timed statements below keep their historical scope.
+Codex and mediator are off after the check; seven base services remain healthy.
+
 Startup and authenticated catalog/default checks passed. Eleven-minute stability
 remains unverified. Codex and the mediator are stopped; the seven base services
 are healthy and the existing database volume is preserved.

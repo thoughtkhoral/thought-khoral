@@ -13,7 +13,7 @@ versioned repositories.
 - [Current workspace status and exact source checkouts](docs/workspace-status.md)
 - [Completed database maintenance](docs/task9-database-upgrade-2026-11-25.md)
 - [Corrected startup subchecks and open stability gate](docs/task9-corrected-startup-2026-11-25.md)
-- [Next bounded observation-window review](.ai/specs/how/task9-readiness-window-renewal-2026-11-25.md)
+- [Passed provider-isolated timed readiness](docs/task9-readiness-renewal-2026-11-25.md)
 - [Latest local firewall correction and verification](docs/task9-loopback-health-2026-11-24.md)
 - [Approved local runtime compatibility correction](docs/task9-runtime-compatibility-2026-11-23.md)
 - [Earlier activation failure and remaining acceptance](docs/task9-activation-2026-11-23.md)
@@ -64,8 +64,10 @@ isolated fixes and package evidence. The separately approved
 [database maintenance](docs/task9-database-upgrade-2026-11-25.md) is now complete,
 with data and permissions preserved. Subsequent corrected startup and
 authenticated catalog/default checks passed with provider access blocked. The
-[latest report](docs/task9-corrected-startup-2026-11-25.md) keeps the timed stability
-gate open; Codex and mediator are off and seven base services are healthy.
+[latest timed report](docs/task9-readiness-renewal-2026-11-25.md) closes the
+provider-isolated stability gate. Codex and mediator are off after the check, and
+seven base services are healthy. Source integration and browser/provider/Task 9
+acceptance remain open.
 The [workspace guide](docs/workspace-status.md) distinguishes current
 integration commits from frozen acceptance inputs and remaining gates.
 
