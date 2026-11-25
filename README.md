@@ -11,6 +11,8 @@ versioned repositories.
 ## Start here
 
 - [Current workspace status and exact source checkouts](docs/workspace-status.md)
+- [Completed database maintenance](docs/task9-database-upgrade-2026-11-25.md)
+- [Next corrected-stack startup review](.ai/specs/how/task9-corrected-stack-startup-2026-11-25.md)
 - [Latest local firewall correction and verification](docs/task9-loopback-health-2026-11-24.md)
 - [Approved local runtime compatibility correction](docs/task9-runtime-compatibility-2026-11-23.md)
 - [Latest activation result and remaining acceptance](docs/task9-activation-2026-11-23.md)
@@ -57,7 +59,9 @@ UI is reachable; Codex is disabled. No model turn was requested. The
 [activation report](docs/task9-activation-2026-11-23.md) records the failed P1 gate
 and compatibility correction subsequently approved for local implementation.
 The [correction report](docs/task9-runtime-compatibility-2026-11-23.md) tracks
-isolated fixes, package evidence and remaining database/activation gates.
+isolated fixes and package evidence. The separately approved
+[database maintenance](docs/task9-database-upgrade-2026-11-25.md) is now complete,
+with data and permissions preserved. Changed-input activation remains gated.
 The [workspace guide](docs/workspace-status.md) distinguishes current
 integration commits from frozen acceptance inputs and remaining gates.
 

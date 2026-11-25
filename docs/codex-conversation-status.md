@@ -1,6 +1,6 @@
 # Codex room conversations: cross-project status
 
-**Status as of 2026-11-24: experimental POC.** The provider-free worker and
+**Status as of 2026-11-25: experimental POC.** The provider-free worker and
 reviewed room-integration changes are pushed to the owning repositories'
 `main` branches. Packaged-stack and separately authorized live verification are
 still open. This guide describes the coordinated milestone across the parent
@@ -12,8 +12,10 @@ branches, including exact frozen source paths after integration HEADs advance.
 
 The subsequent worker compatibility and [loopback firewall correction](task9-loopback-health-2026-11-24.md)
 remain local, unmerged and unpublished. Their kernel/package checks do not close
-Task 9; the existing database still requires its separately reviewed upgrade
-before changed-input activation. Canonical mains retain their prior runtimes.
+Task 9. The separately approved [existing database upgrade](task9-database-upgrade-2026-11-25.md)
+is complete with original data and permissions preserved. The next gate is the
+[corrected-stack startup review](../.ai/specs/how/task9-corrected-stack-startup-2026-11-25.md)
+without model calls. Canonical mains retain their prior runtimes.
 
 The four release/consumer/profile branches are integrated and pushed to their
 component mains. Nine production images are built; actual operator input/state/

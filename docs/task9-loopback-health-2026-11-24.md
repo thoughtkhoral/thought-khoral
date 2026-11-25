@@ -1,5 +1,11 @@
 # Task 9 loopback health correction — 2026-11-24
 
+Subsequent checkpoint — 2026-11-25: the separately approved
+[existing database upgrade](task9-database-upgrade-2026-11-25.md) is complete.
+Database-pending observations below describe the dated checkpoint. Codex remains
+off; the [corrected-stack startup proposal](../.ai/specs/how/task9-corrected-stack-startup-2026-11-25.md)
+awaits separate approval and uses internal-only provider networking.
+
 The approved local firewall correction resolves the reproduced TCP teardown
 defect. The original policy leaves three health-check clients in LAST_ACK; the
 corrected policy leaves zero. The exact new image passed 660.005 seconds of

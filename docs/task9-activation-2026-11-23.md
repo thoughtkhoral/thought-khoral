@@ -1,5 +1,11 @@
 # Task 9 activation result — 2026-11-23
 
+Subsequent checkpoint — 2026-11-25: the separately approved
+[existing database upgrade](task9-database-upgrade-2026-11-25.md) is complete.
+Database-pending observations below describe the dated checkpoint. Codex remains
+off; the [corrected-stack startup proposal](../.ai/specs/how/task9-corrected-stack-startup-2026-11-25.md)
+awaits separate approval and uses internal-only provider networking.
+
 Authorized startup was partially successful; **Task 9 remains open**. The UI
 responds at [localhost:8082](http://localhost:8082). Seven services remain running;
 the Codex namespace owner, proxy, worker and mediator are stopped. UI availability

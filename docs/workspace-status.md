@@ -1,15 +1,17 @@
 # Current ThoughtKhoral workspace
 
-Updated 2026-11-24 from the [workspace-state specification](../.ai/specs/how/workspace-state.md)
+Updated 2026-11-25 from the [workspace-state specification](../.ai/specs/how/workspace-state.md)
 and [coordinated acceptance record](../.ai/specs/how/codex-room-conversations-implementation-plan.md).
 This is the starting point for resuming work in this checkout. It separates
 published artifacts, canonical runtime sources and verified local branches.
 
-The latest local work is the approved [loopback health correction](task9-loopback-health-2026-11-24.md).
-It resolves the reproduced teardown defect, with exact-image and kernel checks;
-timed verification is recorded in the [execution record](../.ai/specs/how/task9-loopback-health-execution-2026-11-24.md).
-These worker/platform corrections remain on local branches. Existing-data
-upgrades, publication and changed-input activation remain gated.
+The approved [database upgrade](task9-database-upgrade-2026-11-25.md) is complete.
+Existing data and permissions are preserved, schema checks pass and normal base
+availability is restored. Codex and the previously stopped mediator remain off.
+The worker compatibility and [loopback health correction](task9-loopback-health-2026-11-24.md)
+remain local and unmerged. The next gate is the
+[corrected-stack startup review](../.ai/specs/how/task9-corrected-stack-startup-2026-11-25.md)
+without model calls. Publication and provider acceptance remain separate.
 
 ## What is complete
 
@@ -91,25 +93,21 @@ selection; component source overrides must still select the frozen inputs above.
 
 ## Next work and limits
 
-The maintainer approved the [bounded compatibility correction](../.ai/specs/how/task9-runtime-compatibility-proposal-2026-11-23.md)
-for local implementation and provider-free verification. Work is tracked in the
-[correction report](task9-runtime-compatibility-2026-11-23.md). Authorized startup exposed native adapter
-notification handling, Compose/DNS and existing-database readiness blockers.
-The Codex watchdog and later mediator shutdown require separate diagnosis.
-Keep live Codex disabled; no provider/model turn or tool probe was requested.
+The [bounded compatibility correction](../.ai/specs/how/task9-runtime-compatibility-proposal-2026-11-23.md),
+firewall correction and existing database upgrade have provider-free evidence.
+The database now passes the required conversation/lifecycle schema checker;
+a fresh complete recovery backup is retained privately. Seven base services
+remain running, with the UI at [localhost:8082](http://localhost:8082). Codex and
+the previously stopped mediator remain off. The earlier mediator exit cause
+remains unclassified and must be observed during authorized startup.
 
-The UI responds at [localhost:8082](http://localhost:8082); seven services remain
-running. The existing database volume is preserved and no migration was applied.
-Conversation tables are absent; verify approved migrations on a private restored
-backup before proposing an existing-data upgrade. P1 failed; real-browser B1 is
-unavailable and remaining Task 9 gates were not run. See the
-[activation evidence](evidence/task9-activation-2026-11-23.json).
-
-Nine production images and prior source/package/policy evidence retain their
-exact tested scope. Existing cached shell authentication is already provisioned;
-no new OpenAI key is needed. Runtime sources, images and frozen inputs remain
-unchanged. Changed packages, activation and provider/tool work retain their
-separate gates after the proposed local correction.
+Review the [exact startup procedure](../.ai/specs/how/task9-corrected-stack-startup-2026-11-25.md)
+and immutable image bindings before starting the corrected stack. Existing shell
+Codex authentication is already provisioned; no new key is needed. The startup
+proposal permits health, DNS and authenticated catalog/default checks only.
+P1 remains failed at the historical activation checkpoint; rendered-browser B1
+and provider/live acceptance remain open. Source integration/publication,
+changed-input activation and provider/tool work retain their explicit gates.
 
 Memory remains an incubating in-memory/provenance proof, separate from Codex;
 Cognee, durable memory, guided directories and open remote admission remain
